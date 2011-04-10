@@ -2,18 +2,6 @@
 
 class VendorsController extends AppController {
     
-    public $components = array(
-                        'Auth' => array('authorize' => 'controller',
-                                        'allowedActions' => array('index')));
-    
-    public function __construct(){
-        parent::__construct();
-        $this->loadModel('Product');
-        $this->loadModel('ProductVendor');
-        $this->loadModel('Producttype');
-        $this->loadModel('Schedule');
-    }
-    
     public function isAuthorized(){
         return true;
     }
@@ -27,13 +15,17 @@ class VendorsController extends AppController {
     public function get_vendor_by_product_id($id){
         
     }
-    
-    //Retrieve Vendor
+ 
+    //Create Vendor
+    public function admin_add(){
+        
+    }
+      
+    //Retrieve Vendors
     public function admin_index(){
         $vendors = $this->Vendor->find('all', array('order' => 'name'));
         $this->set(array('vendors' => $vendors));
-    }
-    
+    }  
     //Update Vendor
     public function admin_edit($id = null){
         $product_types = $this->_get_product_types();
@@ -42,7 +34,8 @@ class VendorsController extends AppController {
             if(!empty($this->data)){
                 //var_dump($this->data);
                 $submit = $this->data;
-                //exit;
+                $this->Vendor->save($submit);
+                /*//exit;
                 switch($submit['Vendor']['active']){
                     case 'yes':
                        $submit['Vendor']['active'] = '1';
@@ -52,7 +45,7 @@ class VendorsController extends AppController {
                 }
                 //var_dump($submit);
                 //exit;
-                $this->Vendor->save($submit);
+                $this->Vendor->save($submit);*/
                 $this->redirect('/admin/vendors/edit/' . $id);
             }
             $vendor = $this->Vendor->findById($id); 
@@ -63,32 +56,10 @@ class VendorsController extends AppController {
         }
     }
     
-    //Create Vendor Product
-    public function admin_add_product($vendor_id){
-        $product_id = $this->data['Vendor']['product_id'];
-        $count = $this->ProductVendor->find('count', array('conditions' => array('vendor_id' => $vendor_id, 'product_id' => $product_id)));
-        if($count==0){
-            $this->ProductVendor->save(array('vendor_id' =>$vendor_id, 'product_id' => $product_id));
-        }
-        $this->redirect('/admin/vendors/edit/' . $vendor_id);
+    //Delete Vendor
+    public function admin_delete($id = null){
+        
     }
     
-    //Delete Vendor Product
-    public function admin_delete_product($vendor_id = null, $product_id = null){
-        if($vendor_id && $product_id){
-            $this->ProductVendor->deleteAll(array('vendor_id' => $vendor_id, 'product_id' => $product_id));
-            $vendor = $this->Vendor->findById($vendor_id); 
-            $this->set(array('vendor' => $vendor));
-            $this->render('admin_edit');
-        }
-    }
-    
-    protected function _get_schedules(){
-        $schedules_arr = $this->Schedule->find('all');
-        foreach($schedules_arr as $item){
-            $schedules[$item['Schedule']['id']] = $item['Schedule']['description'];
-        }
-        return $schedules;
-    }
     
 }

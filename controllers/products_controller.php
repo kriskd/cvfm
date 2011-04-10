@@ -1,14 +1,12 @@
 <?php
 
 class ProductsController extends AppController{
-    
-    public function __construct(){
-        parent::__construct();
-        $this->loadModel('Schedule');
-        $this->loadModel('Product');
-        $this->loadModel('Producttype');
-    }
 
+    public $components = array(
+                    'Auth' => array('authorize' => 'controller',
+                                    'allowedActions' => array('index', 'get_vendors')));
+
+    
     public function index(){
         $products = $this->Product->find('all');
         $product_types = array();
