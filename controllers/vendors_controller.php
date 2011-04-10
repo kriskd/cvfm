@@ -18,7 +18,11 @@ class VendorsController extends AppController {
  
     //Create Vendor
     public function admin_add(){
-        
+        if($this->data){
+           var_dump($this->data); 
+        }
+        $schedules = $this->_get_schedules();
+        $this->set(array('schedules' => $schedules));
     }
       
     //Retrieve Vendors

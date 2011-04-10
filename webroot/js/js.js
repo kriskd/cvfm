@@ -18,6 +18,13 @@ $(document).ready(function(){
     $('#footer').footer();
     */
     
+    $('.colorbox').colorbox({
+        //href: '/cake1/admin/vendors/add'
+        iframe: true,
+        width: '600px',
+        height: '400px'
+    });
+    
     $('select.product_types').change(function(){
         $('.products').empty();
         var item = $(this).val();

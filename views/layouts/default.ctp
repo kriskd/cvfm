@@ -30,9 +30,13 @@
 
 		echo $this->Html->css('cake.generic');
 		
+		echo $this->Html->css('colorbox');
+		
 		echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js');
 		
 		echo $this->Html->script('js.js');
+		
+		echo $this->Html->script('jquery.colorbox-min.js');
 
 		echo $scripts_for_layout;
 	?>
