@@ -9,20 +9,18 @@
 <?php echo $this->Form->label('Schedule:'); ?>
 <?php echo $this->Form->select('schedule_id', $schedules, $vendor['Vendor']['schedule_id']); ?>
 <?php echo $this->Form->label('Active:'); ?>
+<?php $options = array(); ?>
 <?php if($vendor['Vendor']['active'] == '1'): ?>
-    <?php $active = 'yes'; ?>
     <?php $options['checked'] = 'checked'; ?>
-<?php else: ?>
-    <?php $active = 'no'; ?>    
 <?php endif; ?>
-<?php $options['value'] = $active; ?>
+<?php $options['value'] = $vendor['Vendor']['active']; ?>
 <?php echo $this->Form->checkbox('active', $options); ?>
 <?php echo $this->Form->submit('Save vendor'); ?>
 <?php echo $this->Form->end(); ?>
 
 <?php //var_dump($product_types); ?>
 
-<?php echo $this->Form->create('Vendor', array('action' => '/add_product/' . $vendor['Vendor']['id'])); ?>
+<?php echo $this->Form->create('ProductVendors', array('action' => '/add_product/' . $vendor['Vendor']['id'])); ?>
 <?php echo $this->Form->label('Add product:'); ?>
 <?php echo $this->Form->select('product_type', $product_types, null, array('class' => 'product_types')); ?>
 <?php echo $this->Html->div('products', ''); ?>
@@ -34,7 +32,7 @@
 <h2>Products</h2>
     <table>
         <?php foreach($vendor['Product'] as $product): ?>
-            <tr><td><?php echo $product['name']; ?></td><td><?php echo $this->Html->link('Delete', '/admin/vendors/delete_product/' . $vendor['Vendor']['id'] . '/' . $product['id']); ?></tr>
+            <tr><td><?php echo $product['name']; ?></td><td><?php echo $this->Html->link('Delete', '/admin/product_vendors/delete_product/' . $vendor['Vendor']['id'] . '/' . $product['id']); ?></tr>
         <?php endforeach; ?>
     </table>
 <?php endif; ?>
