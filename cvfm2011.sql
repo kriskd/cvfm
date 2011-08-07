@@ -10,10 +10,208 @@ Target Server Type    : MYSQL
 Target Server Version : 50141
 File Encoding         : 65001
 
-Date: 2011-07-12 20:45:30
+Date: 2011-08-07 15:47:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `contents`
+-- ----------------------------
+DROP TABLE IF EXISTS `contents`;
+CREATE TABLE `contents` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `uri` varchar(50) NOT NULL,
+  `val` varchar(10000) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_uri` (`uri`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of contents
+-- ----------------------------
+INSERT INTO `contents` VALUES ('1', 'index', '<h2>The Capitol View Farmer\'s Market operates from June 1, 2011 until\r\n                October 12, 2011 from 3:00PM - 7:00PM.</h2>\r\n                <p>The farmers market is located on the south side of Sharpsburg Drive\r\n                starting at the corner of North Star Drive on the east side of Madison\r\n                across from the new Great Dane Pub within the Grandview Commons Neighborhood and\r\n                visible from Cottage Grove Road.</p>\r\n                <p>The overall goal of the market is to bring\r\n                quality, fresh foods at an affordable price to East Madison by providing an\r\n                outlet for purchasing locally grown produce, farm fresh meats, dairy products,\r\n                and baked goods.</p>\r\n                <h3>Documents</h3>\r\n                <p>Please take a moment to review the <a href=\"cvfm2011RulesandByLaws.pdf\">Rules and Bylaws</a>.</p>\r\n                <h3>Special Events for 2011</h3>\r\n                <ul>\r\n                    <li>June 1 - In honor of June dairy month and the first market of the\r\n                    new season, CVFM will be serving ice cream and giving balloons to the\r\n                    kids.</li>\r\n                    <li>July 6 - Celebrate Independence Day at the farmer\'s market!</li>\r\n                    <li>August 3 - To be determined.</li>\r\n                    <li>September 7 - Corn roast.</li>\r\n                    <li>October 4 - Safety with Medflight and McGruff.</li>\r\n                </ul>\r\n                ');
+INSERT INTO `contents` VALUES ('2', 'map', '<h3>Where to Find Us</h3>\r\n<p id=\"map\">\r\n<iframe width=\"425\" height=\"350\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=43.08569,-89.279709&amp;aq=&amp;sll=37.771008,-122.41175&amp;sspn=0.04851,0.077162&amp;ie=UTF8&amp;z=14&amp;ll=43.085689,-89.279709&amp;output=embed\"></iframe><br /><small><a href=\"http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=43.08569,-89.279709&amp;aq=&amp;sll=37.771008,-122.41175&amp;sspn=0.04851,0.077162&amp;ie=UTF8&amp;z=14&amp;ll=43.085689,-89.279709\" style=\"color:#694F10;text-align:left\">View Larger Map</a></small>\r\n</p>\r\n');
+
+-- ----------------------------
+-- Table structure for `months`
+-- ----------------------------
+DROP TABLE IF EXISTS `months`;
+CREATE TABLE `months` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of months
+-- ----------------------------
+INSERT INTO `months` VALUES ('1', 'January');
+INSERT INTO `months` VALUES ('2', 'February');
+INSERT INTO `months` VALUES ('3', 'March');
+INSERT INTO `months` VALUES ('4', 'April');
+INSERT INTO `months` VALUES ('5', 'May');
+INSERT INTO `months` VALUES ('6', 'June');
+INSERT INTO `months` VALUES ('7', 'July');
+INSERT INTO `months` VALUES ('8', 'August');
+INSERT INTO `months` VALUES ('9', 'September');
+INSERT INTO `months` VALUES ('10', 'October');
+INSERT INTO `months` VALUES ('11', 'November');
+INSERT INTO `months` VALUES ('12', 'December');
+
+-- ----------------------------
+-- Table structure for `month_products`
+-- ----------------------------
+DROP TABLE IF EXISTS `month_products`;
+CREATE TABLE `month_products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `month_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=140 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of month_products
+-- ----------------------------
+INSERT INTO `month_products` VALUES ('1', '5', '67');
+INSERT INTO `month_products` VALUES ('2', '6', '67');
+INSERT INTO `month_products` VALUES ('3', '7', '67');
+INSERT INTO `month_products` VALUES ('4', '8', '67');
+INSERT INTO `month_products` VALUES ('5', '8', '43');
+INSERT INTO `month_products` VALUES ('6', '9', '43');
+INSERT INTO `month_products` VALUES ('7', '6', '21');
+INSERT INTO `month_products` VALUES ('8', '7', '21');
+INSERT INTO `month_products` VALUES ('9', '8', '21');
+INSERT INTO `month_products` VALUES ('10', '9', '21');
+INSERT INTO `month_products` VALUES ('11', '10', '21');
+INSERT INTO `month_products` VALUES ('12', '8', '76');
+INSERT INTO `month_products` VALUES ('13', '9', '76');
+INSERT INTO `month_products` VALUES ('14', '10', '76');
+INSERT INTO `month_products` VALUES ('15', '6', '27');
+INSERT INTO `month_products` VALUES ('16', '7', '27');
+INSERT INTO `month_products` VALUES ('17', '8', '27');
+INSERT INTO `month_products` VALUES ('18', '9', '27');
+INSERT INTO `month_products` VALUES ('19', '10', '27');
+INSERT INTO `month_products` VALUES ('20', '8', '157');
+INSERT INTO `month_products` VALUES ('21', '9', '157');
+INSERT INTO `month_products` VALUES ('22', '10', '157');
+INSERT INTO `month_products` VALUES ('23', '11', '157');
+INSERT INTO `month_products` VALUES ('24', '6', '159');
+INSERT INTO `month_products` VALUES ('25', '7', '159');
+INSERT INTO `month_products` VALUES ('26', '8', '159');
+INSERT INTO `month_products` VALUES ('27', '9', '159');
+INSERT INTO `month_products` VALUES ('28', '10', '159');
+INSERT INTO `month_products` VALUES ('29', '11', '159');
+INSERT INTO `month_products` VALUES ('30', '8', '105');
+INSERT INTO `month_products` VALUES ('31', '9', '105');
+INSERT INTO `month_products` VALUES ('32', '6', '22');
+INSERT INTO `month_products` VALUES ('33', '7', '22');
+INSERT INTO `month_products` VALUES ('34', '8', '22');
+INSERT INTO `month_products` VALUES ('35', '9', '22');
+INSERT INTO `month_products` VALUES ('36', '10', '22');
+INSERT INTO `month_products` VALUES ('37', '8', '28');
+INSERT INTO `month_products` VALUES ('38', '9', '28');
+INSERT INTO `month_products` VALUES ('39', '10', '28');
+INSERT INTO `month_products` VALUES ('40', '11', '28');
+INSERT INTO `month_products` VALUES ('41', '8', '153');
+INSERT INTO `month_products` VALUES ('42', '9', '153');
+INSERT INTO `month_products` VALUES ('43', '10', '153');
+INSERT INTO `month_products` VALUES ('44', '7', '152');
+INSERT INTO `month_products` VALUES ('45', '8', '152');
+INSERT INTO `month_products` VALUES ('46', '9', '152');
+INSERT INTO `month_products` VALUES ('47', '6', '26');
+INSERT INTO `month_products` VALUES ('48', '7', '26');
+INSERT INTO `month_products` VALUES ('49', '8', '26');
+INSERT INTO `month_products` VALUES ('50', '6', '15');
+INSERT INTO `month_products` VALUES ('51', '7', '15');
+INSERT INTO `month_products` VALUES ('52', '8', '15');
+INSERT INTO `month_products` VALUES ('53', '9', '15');
+INSERT INTO `month_products` VALUES ('54', '10', '15');
+INSERT INTO `month_products` VALUES ('55', '7', '106');
+INSERT INTO `month_products` VALUES ('56', '8', '106');
+INSERT INTO `month_products` VALUES ('57', '9', '106');
+INSERT INTO `month_products` VALUES ('58', '10', '106');
+INSERT INTO `month_products` VALUES ('59', '8', '42');
+INSERT INTO `month_products` VALUES ('60', '9', '42');
+INSERT INTO `month_products` VALUES ('61', '10', '42');
+INSERT INTO `month_products` VALUES ('62', '11', '42');
+INSERT INTO `month_products` VALUES ('63', '7', '19');
+INSERT INTO `month_products` VALUES ('64', '8', '19');
+INSERT INTO `month_products` VALUES ('65', '9', '19');
+INSERT INTO `month_products` VALUES ('66', '6', '72');
+INSERT INTO `month_products` VALUES ('67', '7', '72');
+INSERT INTO `month_products` VALUES ('68', '8', '72');
+INSERT INTO `month_products` VALUES ('69', '9', '72');
+INSERT INTO `month_products` VALUES ('70', '6', '48');
+INSERT INTO `month_products` VALUES ('71', '7', '48');
+INSERT INTO `month_products` VALUES ('72', '8', '48');
+INSERT INTO `month_products` VALUES ('73', '9', '48');
+INSERT INTO `month_products` VALUES ('74', '10', '48');
+INSERT INTO `month_products` VALUES ('75', '8', '71');
+INSERT INTO `month_products` VALUES ('76', '9', '71');
+INSERT INTO `month_products` VALUES ('77', '10', '71');
+INSERT INTO `month_products` VALUES ('78', '6', '109');
+INSERT INTO `month_products` VALUES ('79', '7', '109');
+INSERT INTO `month_products` VALUES ('80', '8', '109');
+INSERT INTO `month_products` VALUES ('81', '9', '109');
+INSERT INTO `month_products` VALUES ('82', '8', '25');
+INSERT INTO `month_products` VALUES ('83', '9', '25');
+INSERT INTO `month_products` VALUES ('84', '4', '69');
+INSERT INTO `month_products` VALUES ('85', '5', '69');
+INSERT INTO `month_products` VALUES ('86', '6', '69');
+INSERT INTO `month_products` VALUES ('87', '7', '69');
+INSERT INTO `month_products` VALUES ('88', '8', '69');
+INSERT INTO `month_products` VALUES ('89', '9', '69');
+INSERT INTO `month_products` VALUES ('90', '10', '69');
+INSERT INTO `month_products` VALUES ('91', '8', '29');
+INSERT INTO `month_products` VALUES ('92', '9', '29');
+INSERT INTO `month_products` VALUES ('93', '10', '29');
+INSERT INTO `month_products` VALUES ('94', '7', '111');
+INSERT INTO `month_products` VALUES ('95', '8', '111');
+INSERT INTO `month_products` VALUES ('96', '7', '17');
+INSERT INTO `month_products` VALUES ('97', '8', '17');
+INSERT INTO `month_products` VALUES ('98', '9', '17');
+INSERT INTO `month_products` VALUES ('99', '7', '23');
+INSERT INTO `month_products` VALUES ('100', '8', '23');
+INSERT INTO `month_products` VALUES ('101', '9', '23');
+INSERT INTO `month_products` VALUES ('102', '10', '23');
+INSERT INTO `month_products` VALUES ('103', '10', '30');
+INSERT INTO `month_products` VALUES ('104', '5', '70');
+INSERT INTO `month_products` VALUES ('105', '6', '70');
+INSERT INTO `month_products` VALUES ('106', '7', '70');
+INSERT INTO `month_products` VALUES ('107', '8', '70');
+INSERT INTO `month_products` VALUES ('108', '9', '70');
+INSERT INTO `month_products` VALUES ('109', '10', '70');
+INSERT INTO `month_products` VALUES ('110', '6', '53');
+INSERT INTO `month_products` VALUES ('111', '7', '53');
+INSERT INTO `month_products` VALUES ('112', '8', '53');
+INSERT INTO `month_products` VALUES ('113', '5', '47');
+INSERT INTO `month_products` VALUES ('114', '6', '47');
+INSERT INTO `month_products` VALUES ('115', '5', '117');
+INSERT INTO `month_products` VALUES ('116', '6', '117');
+INSERT INTO `month_products` VALUES ('117', '7', '117');
+INSERT INTO `month_products` VALUES ('118', '8', '117');
+INSERT INTO `month_products` VALUES ('119', '9', '117');
+INSERT INTO `month_products` VALUES ('120', '10', '117');
+INSERT INTO `month_products` VALUES ('121', '7', '112');
+INSERT INTO `month_products` VALUES ('122', '8', '112');
+INSERT INTO `month_products` VALUES ('123', '9', '112');
+INSERT INTO `month_products` VALUES ('124', '10', '112');
+INSERT INTO `month_products` VALUES ('125', '6', '49');
+INSERT INTO `month_products` VALUES ('126', '7', '49');
+INSERT INTO `month_products` VALUES ('127', '7', '13');
+INSERT INTO `month_products` VALUES ('128', '8', '13');
+INSERT INTO `month_products` VALUES ('129', '9', '13');
+INSERT INTO `month_products` VALUES ('130', '10', '13');
+INSERT INTO `month_products` VALUES ('131', '8', '114');
+INSERT INTO `month_products` VALUES ('132', '9', '114');
+INSERT INTO `month_products` VALUES ('133', '8', '115');
+INSERT INTO `month_products` VALUES ('134', '9', '115');
+INSERT INTO `month_products` VALUES ('135', '10', '115');
+INSERT INTO `month_products` VALUES ('136', '7', '116');
+INSERT INTO `month_products` VALUES ('137', '8', '116');
+INSERT INTO `month_products` VALUES ('138', '9', '116');
+INSERT INTO `month_products` VALUES ('139', '10', '116');
 
 -- ----------------------------
 -- Table structure for `products`
@@ -260,7 +458,7 @@ CREATE TABLE `product_vendors` (
   `vendor_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=310 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=313 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of product_vendors
@@ -569,6 +767,9 @@ INSERT INTO `product_vendors` VALUES ('306', '19', '182');
 INSERT INTO `product_vendors` VALUES ('307', '19', '148');
 INSERT INTO `product_vendors` VALUES ('308', '19', '136');
 INSERT INTO `product_vendors` VALUES ('309', '19', '183');
+INSERT INTO `product_vendors` VALUES ('310', '20', '185');
+INSERT INTO `product_vendors` VALUES ('311', '20', '186');
+INSERT INTO `product_vendors` VALUES ('312', '20', '184');
 
 -- ----------------------------
 -- Table structure for `schedules`
@@ -597,18 +798,20 @@ CREATE TABLE `sponsors` (
   `name` varchar(50) NOT NULL,
   `website` varchar(100) DEFAULT NULL,
   `logo` varchar(50) DEFAULT NULL,
+  `amount` decimal(6,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sponsors
 -- ----------------------------
-INSERT INTO `sponsors` VALUES ('1', 'Veridian Homes', 'http://www.veridianhomes.com/', 'logo-veridian.png');
-INSERT INTO `sponsors` VALUES ('2', 'McClellan Park Neighborhood Association', 'http://mympna.org/', 'logo-mpna.png');
-INSERT INTO `sponsors` VALUES ('3', 'Heritage Heights Neighborhood Association', '', '');
-INSERT INTO `sponsors` VALUES ('4', 'A-1 Furniture', 'http://a1furniture.com/', 'logo-a1furniture.png');
-INSERT INTO `sponsors` VALUES ('5', 'Grandview Condos', 'http://www.veridianhomes.com/find/neighborhoods/?neighborhood=grandviewcommonscondos', 'logo-grandview-condos.jpg');
-INSERT INTO `sponsors` VALUES ('6', 'Heritage Bakery and Cafe', 'http://www.heritagebakeryandcafe.com/', 'logo-heritage-bakery.png');
+INSERT INTO `sponsors` VALUES ('1', 'Veridian Homes', 'http://www.veridianhomes.com/', 'logo-veridian.png', '500.00');
+INSERT INTO `sponsors` VALUES ('2', 'McClellan Park Neighborhood Association', 'http://mympna.org/', 'logo-mpna.png', '75.00');
+INSERT INTO `sponsors` VALUES ('3', 'Heritage Heights Neighborhood Association', '', '', '75.00');
+INSERT INTO `sponsors` VALUES ('4', 'A-1 Furniture', 'http://a1furniture.com/', 'logo-a1furniture.png', '50.00');
+INSERT INTO `sponsors` VALUES ('5', 'Grandview Commons Condominium Association', '', 'logo-grandview-condos.jpg', '75.00');
+INSERT INTO `sponsors` VALUES ('6', 'Heritage Bakery and Cafe', 'http://www.heritagebakeryandcafe.com/', 'logo-heritage-bakery.png', '50.00');
+INSERT INTO `sponsors` VALUES ('9', 'Summit Credit Union', 'http://www.summitcreditunion.com/', 'logo-summit.gif', '250.00');
 
 -- ----------------------------
 -- Table structure for `users`
@@ -624,7 +827,7 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'kris', '64a55abeffc6a25be0e984550d9608b2b78f98ab');
+INSERT INTO `users` VALUES ('1', 'kris', '72b67ed395879a0c97902b1f7f738186dba406bd');
 
 -- ----------------------------
 -- Table structure for `vendors`
@@ -645,7 +848,7 @@ CREATE TABLE `vendors` (
 -- ----------------------------
 INSERT INTO `vendors` VALUES ('1', 'Chippys Kettle Corn', 'Beaver Dam, WI', 'http://www.chippyskettlecorn.com/', '1', '1');
 INSERT INTO `vendors` VALUES ('2', 'Farmer John\'s Cheese', 'Dodgeville, WI', 'http://www.farmerjohnsstore.com/', '1', '1');
-INSERT INTO `vendors` VALUES ('3', 'Inside Out Wellness', 'Madison, WI', 'http://myinsideoutwellness.com/', '2', '1');
+INSERT INTO `vendors` VALUES ('3', 'Inside Out Wellness', 'Madison, WI', 'http://myinsideoutwellness.com/', '2', '0');
 INSERT INTO `vendors` VALUES ('4', 'Kayoua', 'Sun Prairie, WI', '', '2', '1');
 INSERT INTO `vendors` VALUES ('5', 'Krueger', 'Waterloo, WI', '', '1', '1');
 INSERT INTO `vendors` VALUES ('6', 'La Fortuna Pizza', 'Madison, WI', 'http://lafortunapizza.com/', '3', '1');
@@ -662,4 +865,4 @@ INSERT INTO `vendors` VALUES ('16', 'Los Abuelos Farley Farm LLC', 'Madison, WI'
 INSERT INTO `vendors` VALUES ('17', 'Beela Farm', 'McFarland, WI', '', '2', '1');
 INSERT INTO `vendors` VALUES ('18', 'Thors', 'Madison, WI', '', '1', '1');
 INSERT INTO `vendors` VALUES ('19', 'Xiong Farm', 'Sun Prairie, WI', '', '1', '1');
-INSERT INTO `vendors` VALUES ('20', 'South Padre Seafood', 'Janesville, WI', 'http://www.southpadreseafood.com/', '3', '1');
+INSERT INTO `vendors` VALUES ('20', 'South Padre Seafood', 'Janesville, WI', 'http://www.southpadreseafood.com/', '2', '1');
