@@ -5,24 +5,48 @@ class ProductsController extends AppController{
     public $components = array(
                     'Auth' => array('authorize' => 'controller',
                                     'allowedActions' => array('index', 'get_vendors')));
+    
+    public function isAuthorized(){
+        return true;
+    }
 
     
     public function index(){
         $products = $this->Product->find('all');
+        $current_month = date('n');
+        //var_dump($products);
         $product_types = array();
+        $products_in_season = array();
         foreach($products as $product){
-            $product_types[$product['Producttype']['type']][] = array(
-                                                                    'product' => array(
-                                                                        $product['Product']['id'] => $product['Product']['name'])
-                                                                );
+            $vendors = $product['Vendor'];
+            //Check to make sure there is at least one active vendor selling the product.
+            $actives = array();
+            foreach($vendors as $vendor){
+                $actives[] = $vendor['active'];
+            }
+            if(in_array(1,$actives)){
+                $product_types[$product['Producttype']['type']][] = array('product' => array(0 => 'Select One:'));
+                $product_types[$product['Producttype']['type']][] = array(
+                                                                        'product' => array(
+                                                                            $product['Product']['id'] => $product['Product']['name'])
+                                                                    );
+            }
+            $months = $product['Month'];   
+            foreach($months as $month){
+                if(strcasecmp($month['id'],$current_month)==0){
+                    $products_in_season[] = $product['Product']['name'];
+                }
+            }
         }
         //var_dump($product_types);
-        $this->set(array('product_types' => $product_types));
+        $this->set(array('product_types' => $product_types, 'products_in_season' => $products_in_season));
+        $this->layout = 'cvfm';
     }
     
     public function get_vendors($product_id){
         $products = $this->Product->findById($product_id);
         $vendors_arr = $products['Vendor'];
+        $vendors = array();
         foreach($vendors_arr as $vendor){
             $schedule_id = $vendor['schedule_id'];
             $schedule_arr = $this->Schedule->findById($schedule_id);
@@ -53,7 +77,7 @@ class ProductsController extends AppController{
     
     //Retrieve
     public function admin_index(){
-        $products = $this->Product->find('all');
+        $products = $this->Product->find('all'); 
         $product_types = array();
         foreach($products as $product){
             $product_types[$product['Producttype']['type']][] = array(
@@ -66,14 +90,30 @@ class ProductsController extends AppController{
     
     //Update
     public function admin_edit($id=null){
+        //var_dump($this->Auth->user());
+        if($this->data){
+            $data = $this->data;
+            $this->Product->save($data);
+            $id = $data['Product']['id'];
+            $this->redirect('/admin/products/edit/' . $id);
+        }
         $product_types = $this->_get_product_types();
-        if(empty($this->data)){
-            $product = $this->Product->findById($id); 
+        $months = $this->Month->find('all'); 
+        
+        foreach($months as $month){
+            $month_arr[$month['Month']['id']] = $month['Month']['name'];
         }
-        else {
-            $product = $this->Product->save($this->data);
+        $product = $this->Product->findById($id); 
+        $product_months = $product['Month'];
+        $selected_months = array();
+        foreach($product_months as $product_month){
+            $selected_months[] = $product_month['id'];
         }
-        $this->set(array('product' => $product, 'product_types' => $product_types));
+        $this->set(array('product' => $product
+                         , 'product_types' => $product_types
+                         , 'months' => $month_arr
+                         , 'selected_months' => $selected_months));
+        
     }
 
     //Delete

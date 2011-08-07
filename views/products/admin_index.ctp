@@ -1,3 +1,4 @@
+<p><?php echo $this->Html->link('Add product', '/admin/products/add', array('class' => 'colorbox')); ?></p>
 <?php foreach($product_types as $type => $items): ?>
     <h2><?php echo $type; ?> </h2>
     <?php foreach($items as $item): ?>

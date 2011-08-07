@@ -1,11 +1,9 @@
 <?php
 
-class FooController extends Controller {
-    
-    public $components = array('Auth');
+class FooController extends AppController {
     
     public function index(){
-        $this->set(array('foo' => 'Hello World'));
+        var_dump('here'); exit;
     }
     
 }

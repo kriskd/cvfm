@@ -4,6 +4,10 @@ class ProductVendorsController extends AppController {
     
     public $name = 'ProductVendors';
     
+    public function isAuthorized(){
+        return true;
+    }
+    
     //Create Vendor Product
     public function admin_add_product($vendor_id){
         $product_id = $this->data['Vendor']['product_id'];

@@ -2,7 +2,7 @@
 
 class Schedule extends Model {
     
-    public $name = 'Schedule';
+    //var $name = 'Schedule';
     
     public $hasMany = array(
                 'Vendor' => array(

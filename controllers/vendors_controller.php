@@ -7,19 +7,20 @@ class VendorsController extends AppController {
     }
     
     public function index(){
-        $vendors = $this->Vendor->find('all');
-        $this->set(array('vendors' => $vendors));
-        //var_dump($vendors);
+        $schedules = $this->Schedule->find('all');
+        $this->set(array('schedules' => $schedules));
+        //$this->render('vendors', 'cvfm', '/index/template1');
+        //$this->element('/index/template1', array('content' => $vendors));
+        $this->layout = 'cvfm';
     }
-    
-    public function get_vendor_by_product_id($id){
-        
-    }
- 
+     
     //Create Vendor
     public function admin_add(){
         if($this->data){
-           var_dump($this->data); 
+            if($this->Vendor->save($this->data)){
+                //$id = $this->Vendor->id;
+                $this->redirect('/admin/vendors/add/');
+            }
         }
         $schedules = $this->_get_schedules();
         $this->set(array('schedules' => $schedules));
@@ -39,6 +40,7 @@ class VendorsController extends AppController {
                 //var_dump($this->data);
                 $submit = $this->data;
                 $this->Vendor->save($submit);
+                $this->Session->setFlash('Vendor saved.');
                 /*//exit;
                 switch($submit['Vendor']['active']){
                     case 'yes':

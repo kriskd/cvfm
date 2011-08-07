@@ -32,11 +32,15 @@
 		
 		echo $this->Html->css('colorbox');
 		
+		echo $this->Html->css('admin');
+		
 		echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js');
 		
-		echo $this->Html->script('js.js');
-		
 		echo $this->Html->script('jquery.colorbox-min.js');
+		
+		echo $this->Html->script('jquery.galleriffic.js');
+		
+		echo $this->Html->script('js.js');
 
 		echo $scripts_for_layout;
 	?>
@@ -45,9 +49,11 @@
 	<div id="container">
 		<div id="header">
 			<h1><?php echo $this->Html->link(__('CakePHP: the rapid development php framework', true), 'http://cakephp.org'); ?></h1>
+			<?php $user = $this->Session->read('Auth.User'); ?>
+			<?php echo isset($user) ? $this->element('admin_menu') : ''; ?>
 		</div>
 		<div id="content">
-
+			
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $content_for_layout; ?>
@@ -62,6 +68,7 @@
 			?>
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<?php //echo $this->element('sql_dump'); ?>
+	<?php echo isset($user) ? $this->element('sql_dump') : ''; ?>
 </body>
 </html>

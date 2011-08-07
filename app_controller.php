@@ -4,10 +4,12 @@ class AppController extends Controller {
     
     public $components = array(
                     'Auth' => array('authorize' => 'controller',
-                                    'allowedActions' => array('index')));
+                                    'allowedActions' => array('index'))
+                    ,'Session');
 
     public function __construct(){
         parent::__construct();
+        $this->loadModel('Month');
         $this->loadModel('Product');
         $this->loadModel('ProductVendor');
         $this->loadModel('Producttype');

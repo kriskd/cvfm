@@ -1,3 +1,4 @@
+<p><?php echo $this->Html->link('Back', '/admin/vendors'); ?></p>
 <?php echo $this->Form->create('Vendor', array('action' => '/edit/' . $vendor['Vendor']['id'])); ?>
 <?php echo $this->Form->hidden('id', array('value' => $vendor['Vendor']['id'])); ?>
 <?php echo $this->Form->label('Name:'); ?>

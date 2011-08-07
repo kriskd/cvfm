@@ -10,7 +10,13 @@ class Product extends Model {
                         'joinTable' => 'product_vendors',
                         'foreignKey' => 'product_id',
                         'associationForeignKey' => 'vendor_id'
-                        //,'order' => 'name'
+                        ,'order' => 'name'
+                    ),
+                    'Month' => array(
+                        'className' => 'Month',
+                        'joinTable' => 'month_products',
+                        'foreignKey' => 'product_id',
+                        'associationForignKey' => 'month_id'
                     )
             );
     
@@ -19,7 +25,7 @@ class Product extends Model {
                     'Producttype' => array(
                         'className' => 'Producttype',
                         'foreignKey' => 'product_type'
-                        //,'order' => 'name'
+                        ,'order' => 'name'
                     )
             );
 }
