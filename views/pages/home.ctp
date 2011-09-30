@@ -19,7 +19,7 @@
                     <li>July 6 - Celebrate Independence Day at the farmers' market!</li>
                     <li>August 3 - VeggieLand - A taste of the farmers' market.</li>
                     <li>September 7 - Corn roast.</li>
-                    <li>October 5 - Safety with McGruff, Green Madison, ENACT,
+                    <li>October 5 - Green Madison, ENACT,
                     and City of Madison Streets and Recycling.</li>
                 </ul>
                 
