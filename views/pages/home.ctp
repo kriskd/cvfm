@@ -1,5 +1,6 @@
                 <h2>The Capitol View Farmer's Market operates from June 1, 2011 until
                 October 12, 2011 from 3:00PM - 7:00PM.</h2>
+                <h4>In October, the market closes at 6:30PM.</h4>
                 <p>The farmers market is located on the south side of Sharpsburg Drive
                 starting at the corner of North Star Drive on the east side of Madison
                 across from the new Great Dane Pub within the Grandview Commons Neighborhood and
@@ -18,6 +19,7 @@
                     <li>July 6 - Celebrate Independence Day at the farmers' market!</li>
                     <li>August 3 - VeggieLand - A taste of the farmers' market.</li>
                     <li>September 7 - Corn roast.</li>
-                    <li>October 4 - Safety with Medflight and McGruff.</li>
+                    <li>October 5 - Safety with McGruff, Green Madison, ENACT,
+                    and City of Madison Streets and Recycling.</li>
                 </ul>
                 

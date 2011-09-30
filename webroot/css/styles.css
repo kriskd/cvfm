@@ -38,7 +38,8 @@ ul#admin-menu li { display: inline; }
 
 #right #content { margin: 10px; background: #FFE88E; }
 #right #content #map { margin: 0 auto; text-align: center; }
-#right #content h2, #right #content h3 { text-align: center; }
+#right #content h2, #right #content h3, #right #content h4 { text-align: center; }
+#right #content h4 { font-style: italic; }
 #right #content li { margin-top: 0; }
 #right #content li:first-child { margin-top: 1.2em; }
 
