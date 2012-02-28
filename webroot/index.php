@@ -50,8 +50,12 @@
  *
  */
 	if (!defined('CAKE_CORE_INCLUDE_PATH')) {
-		define('CAKE_CORE_INCLUDE_PATH', 'C:' . DS . 'xampp' . DS . 'htdocs' . DS . 'cake');
-		//define('CAKE_CORE_INCLUDE_PATH', ROOT);
+		if($_SERVER['SERVER_ADDR'] == '127.0.0.1'){
+			define('CAKE_CORE_INCLUDE_PATH', DS . 'home' . DS . 'kris' . DS . 'sites' . DS . 'cakephp');
+		}
+		else{
+			define('CAKE_CORE_INCLUDE_PATH', DS . 'home' . DS . 'mycakephp' . DS . 'cakephp');
+		}
 	}
 
 /**
