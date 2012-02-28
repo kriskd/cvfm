@@ -50,7 +50,7 @@
  *
  */
 	if (!defined('CAKE_CORE_INCLUDE_PATH')) {
-		if($_SERVER['SERVER_ADDR'] == '127.0.0.1'){
+		if($_SERVER['SERVER_ADDR'] == '127.0.0.1' || $_SERVER['SERVER_ADDR'] == '192.168.1.36'){
 			define('CAKE_CORE_INCLUDE_PATH', DS . 'home' . DS . 'kris' . DS . 'sites' . DS . 'cakephp');
 		}
 		else{
