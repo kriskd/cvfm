@@ -10,7 +10,7 @@
                 outlet for purchasing locally grown produce, farm fresh meats, dairy products,
                 and baked goods.</p>
                 <h3>Documents</h3>
-                <p>Please take a moment to review the <a href="cvfm2011RulesandByLaws.pdf">Rules and Bylaws</a>.</p>
+                <p>Download the  <a href="cvfm2012vendorapp.pdf">2012 vendor application</a>.</p>
                 <h3>Special Events for 2012</h3>
                 <em>To be determined</em>
                 
