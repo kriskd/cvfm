@@ -8,7 +8,8 @@ class Schedule extends Model {
                 'Vendor' => array(
                     'className' => 'Vendor',
                     'foreignKey' => 'schedule_id',
-                    'dependent' => true
+                    'dependent' => true,
+                    'order' => 'Vendor.name'
                 )                  
             );
 }

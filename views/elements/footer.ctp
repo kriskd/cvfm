@@ -11,7 +11,6 @@
               Lauren Cnare &#149;
               Kris Dockter &#149;
               Tara Furst &#149;
-              Kirk Nelson &#149;
               Tonya Nye &#149;
               Jill Pellett &#149;
               Alan Zander &#149;
