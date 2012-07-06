@@ -9,9 +9,6 @@
                 quality, fresh foods at an affordable price to East Madison by providing an
                 outlet for purchasing locally grown produce, farm fresh meats, dairy products,
                 and baked goods.</p>
-                <h3>Announcements</h3>
-                <p>There will be no farmers market on Wednesday, July 4 due to the holiday.  "Picnic 
-                in the park will be rescheduled for the July 11 market.</p>
                 <h3>Documents</h3>
                 <p>Download the  <a href="cvfm2012vendorapp.pdf">2012 vendor application</a>.</p>
                 <h3>Special Events for 2012</h3>
