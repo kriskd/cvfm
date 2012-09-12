@@ -17,5 +17,5 @@
                 and then get your face painted.</p>
                 <p>July 11 - Picnic in the Park</p>
                 <p>August 1 - Veggieland</p>
-                <p>September 5 - Corn Boil</p>
+                <p>September 12 - Corn Boil - 3:00-6:30pm</p>
                 <p>October 17 - Fall Festival - Come in costume to trick-or-tread and paint gourds.</p>
