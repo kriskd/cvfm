@@ -1,5 +1,5 @@
 <?php //var_dump($schedules); ?>
-<h2>2012 Vendors</h2>
+<h2>2013 Vendors</h2>
 <?php foreach($schedules as $schedule): ?>
     <h3><?php echo $schedule['Schedule']['description']; ?></h3>
     <?php $vendors = $schedule['Vendor']; ?>
