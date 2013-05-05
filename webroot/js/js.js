@@ -34,7 +34,7 @@ $(document).ready(function(){
     //Products page
     $('select.products').change(function(){
         $(this).addClass('selected-category');
-        $('#col2').empty();
+        $('.col2').empty();
         var item = Number($(this).val()); 
         $('select.products').each(function(){
             if(!($(this).hasClass('selected-category'))){
