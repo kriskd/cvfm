@@ -1,5 +1,5 @@
 <p><?php echo $this->Html->link('Add sponsor', '/admin/sponsors/add', array('class' => 'colorbox')); ?></p>
-<p><?php echo $this->Html->link('Back', '/admin/sponsor'); ?></p>
+<p><?php echo $this->Html->link('Back', '/admin/sponsors'); ?></p>
 <table>
 <?php foreach($sponsors as $sponsor): ?>
     <tr><td><?php echo $sponsor['Sponsor']['name'];?></td>

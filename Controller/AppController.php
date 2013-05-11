@@ -34,8 +34,10 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
     
     public $components = array(
-                'Auth' => array('authorize' => 'controller',
-                                'allowedActions' => array('index', 'display'))
+                'Auth' => array('authorize' => 'Controller',
+                                'allowedActions' => array('index', 'display'),
+                                'loginRedirect' => '/',
+                                )
                 ,'Session');
 
     public function beforeFilter(){

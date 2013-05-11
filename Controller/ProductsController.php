@@ -3,7 +3,7 @@
 class ProductsController extends AppController{
 
     public $components = array(
-                    'Auth' => array('authorize' => 'controller',
+                    'Auth' => array('authorize' => 'Controller',
                                     'allowedActions' => array('index', 'get_vendors')));
     
     public function isAuthorized(){
@@ -76,7 +76,7 @@ class ProductsController extends AppController{
     }
     
     //Retrieve
-    public function admin_index(){
+    public function admin_index(){ 
         $products = $this->Product->find('all'); 
         $product_types = array();
         foreach($products as $product){

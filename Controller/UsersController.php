@@ -21,20 +21,19 @@ class UsersController extends AppController {
         } 
     }
     
-    function login() { 
-        if(!empty($this->data)){ 
-            $this->User->set($this->data);
-            if($this->User->validates()){
-                $this->Session->setFlash('You have successfully logged in.');
-                //$this->redirect(array('controller' => 'vendors', 'action' => 'admin_index'));
-            }
-            else{
-                $this->redirect('/login');
-            }
+    public function login() {
+        if($this->Auth->loggedIn() == true){ 
+            $this->redirect($this->Auth->redirectUrl($redirect));
         }
+        if($this->request->is('post') || $this->request->is('put')){
+            if(!$this->Auth->login()){ 
+                $this->Session->setFlash('Username or password is incorrect.');
+                return; 
+            }
+        }  
     }
     
-    function logout(){
+    public function logout(){
         $this->redirect($this->Auth->logout());
     }
 }
