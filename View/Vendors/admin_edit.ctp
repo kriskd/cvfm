@@ -8,7 +8,7 @@
 <?php echo $this->Form->label('Website:'); ?>
 <?php echo $this->Form->text('website', array('value' => $vendor['Vendor']['website'])); ?>
 <?php echo $this->Form->label('Schedule:'); ?>
-<?php echo $this->Form->select('schedule_id', $schedules, $vendor['Vendor']['schedule_id']); ?>
+<?php echo $this->Form->input('schedule_id', array('options' => $schedules, 'selected' => $vendor['Vendor']['schedule_id'])); ?>
 <?php echo $this->Form->label('Active:'); ?>
 <?php $options = array(); ?>
 <?php if($vendor['Vendor']['active'] == '1'): ?>
@@ -23,7 +23,7 @@
 
 <?php echo $this->Form->create('ProductVendors', array('action' => '/add_product/' . $vendor['Vendor']['id'])); ?>
 <?php echo $this->Form->label('Add product:'); ?>
-<?php echo $this->Form->select('product_type', $product_types, null, array('class' => 'product_types')); ?>
+<?php echo $this->Form->input('product_type', array('options' => $product_types), array('class' => 'product_types')); ?>
 <?php echo $this->Html->div('products', ''); ?>
 <?php echo $this->Form->submit('Add product to vendor'); ?>
 <?php echo $this->Form->end(); ?>

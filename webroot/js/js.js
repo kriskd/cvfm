@@ -12,7 +12,7 @@ $(document).ready(function(){
     });
     
     //Admin panel
-    $('select.product_types').change(function(){ 
+    $('select#ProductVendorsProductType').change(function(){ 
         $('.products').empty();
         var item = $(this).val();
         var html = '<select name="data[Vendor][product_id]"><option value=""></option>';
