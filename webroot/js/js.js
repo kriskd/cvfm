@@ -11,6 +11,16 @@ $(document).ready(function(){
         height: '500px'
     });
     
+    $('.confirm').click(function(){
+        var answer = confirm('Do you want to delete?');
+        if (answer) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    });
+    
     //Admin panel
     $('select#ProductVendorsProductType').change(function(){ 
         $('.products').empty();

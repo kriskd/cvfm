@@ -33,7 +33,7 @@ class VendorsController extends AppController {
     }  
     //Update Vendor
     public function admin_edit($id = null){
-        $product_types = $this->_get_product_types();
+        $product_types = $this->_get_product_types(); 
         $schedules = $this->_get_schedules();
         if($id){
             if(!empty($this->data)){
