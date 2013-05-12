@@ -118,7 +118,8 @@ class ProductsController extends AppController{
 
     //Delete
     public function admin_delete($id=null){
-        
+        $this->Product->delete($id, false);
+        $this->redirect(array('controller' => 'Products', 'action' => 'index', 'admin' => true));
     }
     
 
