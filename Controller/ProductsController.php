@@ -1,16 +1,13 @@
 <?php
 
-class ProductsController extends AppController{
-
-    public $components = array(
-                    'Auth' => array('authorize' => 'Controller',
-                                    'allowedActions' => array('index', 'get_vendors')));
-    
-    public function isAuthorized(){
-        return true;
+class ProductsController extends AppController
+{
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->deny();
+        $this->Auth->allow('index', 'get_vendors');
     }
-
-    
     public function index(){
         $products = $this->Product->find('all');
         $current_month = date('n');

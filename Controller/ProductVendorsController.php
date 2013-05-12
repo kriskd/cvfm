@@ -4,8 +4,10 @@ class ProductVendorsController extends AppController {
     
     public $name = 'ProductVendors';
     
-    public function isAuthorized(){
-        return true;
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->deny();
     }
     
     //Create Vendor Product

@@ -36,7 +36,8 @@ class AppController extends Controller {
     public $components = array(
                 'Auth' => array('authorize' => 'Controller',
                                 'allowedActions' => array('index', 'display'),
-                                'loginRedirect' => '/',
+                                'loginAction' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
+                                'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
                                 'logoutRedirect' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
                                 )
                 ,'Session');
@@ -65,5 +66,19 @@ class AppController extends Controller {
             $schedules[$item['Schedule']['id']] = $item['Schedule']['description'];
         }
         return $schedules;
+    }
+    
+    public function isAuthorized($user){
+        
+        if(empty($this->request->params['admin'])) return true;
+        
+        if($user) return true;
+        
+        if(in_array($this->action, array('login'))){
+            $this->Auth->authError = 'You are already logged in.';
+            return false;
+        }
+        
+        return false;
     }
 }

@@ -2,8 +2,11 @@
 
 class SponsorsController extends AppController {
     
-    public function isAuthorized(){
-        return true;
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $this->Auth->deny();
+        $this->Auth->allow('index');
     }
     
     public function index(){
