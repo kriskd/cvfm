@@ -11,9 +11,11 @@ class ProductVendorsController extends AppController {
     //Create Vendor Product
     public function admin_add_product($vendor_id){
         $product_id = $this->data['Vendor']['product_id'];
-        $count = $this->ProductVendor->find('count', array('conditions' => array('vendor_id' => $vendor_id, 'product_id' => $product_id)));
-        if($count==0){
-            $this->ProductVendor->save(array('vendor_id' =>$vendor_id, 'product_id' => $product_id));
+        if($product_id){
+            $count = $this->ProductVendor->find('count', array('conditions' => array('vendor_id' => $vendor_id, 'product_id' => $product_id)));
+            if($count==0){
+                $this->ProductVendor->save(array('vendor_id' =>$vendor_id, 'product_id' => $product_id));
+            }
         }
         $this->redirect('/admin/vendors/edit/' . $vendor_id);
     }
@@ -26,7 +28,7 @@ class ProductVendorsController extends AppController {
             $product_types = $this->_get_product_types();
             $schedules = $this->_get_schedules();
             $this->set(array('vendor' => $vendor, 'product_types' => $product_types, 'schedules' => $schedules));
-            $this->render('/vendors/admin_edit');
+            $this->render('/Vendors/admin_edit');
         }
     }
     
