@@ -13,4 +13,6 @@ and baked goods.</p>
 <p>Download the  <a href="cvfm2013vendorapp.pdf">2013 vendor application</a>.</p>
 <h3>Special Events for 2013</h3>
 <h4>Events take place from 4-6pm</h4>
-<p>To be determined</p>
+<p>May 29 - Opening Day! Learn how worms work in the garden and live in the
+worm bin. Plant your own bean seed with the worm dirt. Madison Mounted Patrol
+and local fire fighters in the fire truck will also be on hand.</p>

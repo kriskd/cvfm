@@ -2,7 +2,7 @@
         <hr />
         <div id="footer-inner">
 
-              <h4>Market Manager: Becky Paris</h4>
+              <h4>Market Manager: Krista Gullick</h4>
               <p class="email">608-218-4732 (608-21V-IPEA) </p>
 
               <h4>Board of Directors</h4>
