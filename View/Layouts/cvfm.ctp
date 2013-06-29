@@ -4,25 +4,25 @@
 <head>
     <title><?php echo $title_for_layout; ?></title>
     <?php echo $this->Html->charset(); ?>
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-9944268-4']);
-        _gaq.push(['_trackPageview']);
-      
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-      
-      </script>
+    <?php if(dev() == false): ?>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-9944268-4']);
+            _gaq.push(['_trackPageview']);
+          
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    <?php endif; ?>
     <?php echo $this->Html->meta('favicon.ico', '/favicon.ico', array('type' => 'icon'));?>
     <?php
     echo $this->Html->css('min-base');
     echo $this->Html->css('styles');
     //echo $this->Html->css('colorbox');
-    echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js');
-    echo $this->Html->script('jquery-1.5.2.min.js');
+    echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
     echo $this->Html->script('jquery.colorbox-min.js');
     echo $this->Html->script('jquery.galleriffic.js');
     echo $this->Html->script('js.js');
