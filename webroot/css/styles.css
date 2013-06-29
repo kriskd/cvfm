@@ -56,7 +56,8 @@ ul#admin-menu li { display: inline; }
 #right #bottom .col2 { margin-left: 255px; }
 
 #right table#vendors td { padding: .2em 2em .2em 0; }
-#right .sponsor { width: 106px; float: left; margin: 10px; }
+#right .sponsor { width: 106px; margin: auto; }
+#right .sponsor h3 { padding: 0; }
 #right .sponsor p { text-align: center; }
 #right .gold { border-bottom: 1px solid #cd9a21; }
 #right .gold, #right .silver { width: 100%; float: none; text-align: center; padding-bottom: 10px; }

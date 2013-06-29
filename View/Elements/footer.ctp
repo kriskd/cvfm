@@ -11,8 +11,7 @@
               Lauren Cnare &#149;
               Kris Dockter &#149;
               Tonya Nye &#149;
-              Alan Zander &#149;
-              Jodi Zander</p>
+              Becky Paris &#149;</p>
           </div> <!-- footer-inner -->
             
         </div> <!-- footer -->

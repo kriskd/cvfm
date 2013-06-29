@@ -13,6 +13,10 @@ and baked goods.</p>
 <p>Download the  <a href="cvfm2013vendorapp.pdf">2013 vendor application</a>.</p>
 <h3>Special Events for 2013</h3>
 <h4>Events take place from 4-6pm</h4>
-<p>May 29 - Opening Day! Learn how worms work in the garden and live in the
-worm bin. Plant your own bean seed with the worm dirt. Madison Mounted Patrol
-and local fire fighters in the fire truck will also be on hand.</p>
+<p>July 3 - Independence Day celebration with face painting, balloon animals,
+bubbles and more!</p>
+<p>July 10 - Music by the Melon Heads.</p>
+<p>August 7 - Back to school event. Learn about healthy lunch options
+and decorate a lunch bag. Plus fish a ducky out of the pond and win a prize!</p>
+<p>September 11 - Annual Corn Boil. Get a fresh cooked ear of sweet corn.
+(Date subject to change based on corn availability.)</p>
