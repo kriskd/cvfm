@@ -13,9 +13,10 @@ and baked goods.</p>
 <p>Download the  <a href="cvfm2013vendorapp.pdf">2013 vendor application</a>.</p>
 <h3>Special Events for 2013</h3>
 <h4>Events take place from 4-6pm</h4>
-<p>July 3 - Independence Day celebration with face painting, balloon animals,
-bubbles and more!</p>
-<p>July 10 - Music by the Melon Heads.</p>
+<p>July 10 - Music by the Melon Heads and <?php echo $this->Html->link('Fine Italian Beefs',
+                                                                       'http://ilovefibs.com/'
+                                                                       ); ?> 
+food truck will be on hand.</p>
 <p>August 7 - Back to school event. Learn about healthy lunch options
 and decorate a lunch bag. Plus fish a ducky out of the pond and win a prize!</p>
 <p>September 11 - Annual Corn Boil. Get a fresh cooked ear of sweet corn.
