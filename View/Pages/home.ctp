@@ -13,7 +13,9 @@ and baked goods.</p>
 <p>Download the  <a href="cvfm2013vendorapp.pdf">2013 vendor application</a>.</p>
 <h3>Special Events for 2013</h3>
 <h4>Events take place from 4-6pm</h4>
-<p>July 10 - Music by the Melon Heads and <?php echo $this->Html->link('Fine Italian Beefs',
+<p>July 24 - Music by <?php echo $this->Html->link('Prairie Bayou Band',
+                                                   'http://www.prairiebayouband.com/'); ?>
+                                                   and <?php echo $this->Html->link('Fine Italian Beefs',
                                                                        'http://ilovefibs.com/'
                                                                        ); ?> 
 food truck will be on hand.</p>
