@@ -4,3 +4,6 @@ webroot/js/colorbox/*
 *.kpf
 cvfm.komodoproject
 .komodotools
+Plugin/
+Vendor/
+node_modules
