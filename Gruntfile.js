@@ -29,7 +29,12 @@ module.exports = function(grunt) {
 		less:	{
 			my_target: {
 				files: {
-					'webroot/css/build/styles.css': 'webroot/css/src/styles.less'
+					'webroot/css/build/styles.css': 'webroot/css/src/styles.less',
+				}
+			},
+			admin : {
+				files : {
+					'webroot/css/build/admin.css': 'webroot/css/src/admin.less'
 				}
 			}
 		},
@@ -37,18 +42,25 @@ module.exports = function(grunt) {
 			my_target: {
 				expand: true,
 				cwd: 'webroot/css/build/',
-				src: ['*.css', '!*.min.css'],
+				src: ['styles.css', '!*.min.css'],
+				dest: 'webroot/css/build/',
+				ext: '.min.css'
+			},
+			admin : {
+				expand: true,
+				cwd: 'webroot/css/build/',
+				src: ['admin.css', '!*.min.css'],
 				dest: 'webroot/css/build/',
 				ext: '.min.css'
 			}
 		},
                 watch: {
 			jss: {
-			    files: ['webroot/js/src/*.js'],
-			    tasks: ['concat', 'uglify']
+				files: ['webroot/js/src/*.js'],
+				tasks: ['concat', 'uglify']
 			},
 			css: {
-				files: ['webroot/css/src/styles.less'],
+				files: ['webroot/css/src/styles.less', 'webroot/css/src/admin.less'],
 				tasks: ['less', 'cssmin']
 			}
                 },

@@ -1,3 +1,19 @@
-ul#admin-menu { list-style: none; overflow: hidden; }
-ul#admin-menu li { float: left; }
-ul#admin-menu li a { color: #fff; }
+@import "cake.generic.less";
+
+#header {
+    h1 {
+        background: url(../../img/cake.icon.png) no-repeat left;
+    }
+}
+#admin-menu {
+    width: 858px;
+    list-style: none!important;
+    overflow: hidden;
+    li {
+        display: inline;
+        float: left;
+        a {
+            color: #fff;
+        }
+    }
+}

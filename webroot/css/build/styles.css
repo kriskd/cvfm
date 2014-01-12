@@ -5954,16 +5954,6 @@ td.visible-print {
     display: none !important;
   }
 }
-ul#admin-menu {
-  list-style: none;
-  overflow: hidden;
-}
-ul#admin-menu li {
-  float: left;
-}
-ul#admin-menu li a {
-  color: #fff;
-}
 /*
     ColorBox Core Style:
     The following CSS is consistent between example themes and should not be altered.
@@ -6536,20 +6526,6 @@ a:hover {
 a:active {
   color: #694F10;
   text-decoration: none;
-}
-#admin-inner {
-  background: #CDCD6D;
-}
-ul#admin-menu {
-  width: 858px;
-  margin: 0 auto;
-  padding: 0 .2em 0 268px;
-  list-style: none!important;
-  overflow: hidden;
-  text-align: center;
-}
-ul#admin-menu li {
-  display: inline;
 }
 #main {
   width: 858px;
