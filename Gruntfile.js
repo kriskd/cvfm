@@ -9,8 +9,8 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: [
-					'webroot/js/src/jquery.colorbox-min.js',
 					'webroot/js/src/jquery.galleriffic.js',
+					'webroot/js/src/modal.js',
 					'webroot/js/src/js.js',
 				],
 				dest: 'webroot/js/build/scripts.js'

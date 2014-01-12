@@ -6527,6 +6527,20 @@ a:active {
   color: #694F10;
   text-decoration: none;
 }
+#admin-inner {
+  background: #CDCD6D;
+}
+#admin-inner #admin-menu {
+  width: 858px;
+  margin: 0 auto;
+  padding: 0 .2em 0 268px;
+  list-style: none!important;
+  overflow: hidden;
+  text-align: center;
+}
+#admin-inner #admin-menu li {
+  display: inline;
+}
 #main {
   width: 858px;
   margin: 0 auto;

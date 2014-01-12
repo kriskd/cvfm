@@ -1,4 +1,4 @@
-<p><?php echo $this->Html->link('Add sponsor', '/admin/sponsors/add', array('class' => 'colorbox')); ?></p>
+<p><?php echo $this->Html->link('Add sponsor', '/admin/sponsors/add', array('class' => 'fire-modal', 'data-action' => 'sponsors/add', 'data-toggle' => 'modal', 'data-target' => '.modal')); ?></p>
 <p><?php echo $this->Html->link('Back', '/admin/sponsors'); ?></p>
 <table>
 <?php foreach($sponsors as $sponsor): ?>

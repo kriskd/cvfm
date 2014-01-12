@@ -22,11 +22,12 @@ class VendorsController extends AppController {
         if($this->data){
             if($this->Vendor->save($this->data)){
                 //$id = $this->Vendor->id;
-                $this->redirect('/admin/vendors/add/');
+                $this->redirect('/admin/vendors/index/');
             }
         }
         $schedules = $this->_get_schedules();
         $this->set(array('schedules' => $schedules));
+        $this->layout = 'ajax';
     }
       
     //Retrieve Vendors

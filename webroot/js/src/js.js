@@ -4,11 +4,24 @@ $(document).ready(function(){
     var domain = "capitolviewfarmersmarket.com";
     $('.email').append('<a href="mailto:' + name + '@' + domain + '">' + name + '@' + domain +'</a>');
     
-    $('.colorbox').colorbox({
+    /*$('.colorbox').colorbox({
         //href: '/admin/vendors/add',
         iframe: true,
         width: '600px',
         height: '500px'
+    });*/
+    
+    $(document).on('click', '.fire-modal', function(){
+        var action = $(this).data('action');
+        $.ajax({
+            url: '/admin/' + action,
+            dataType: 'html',
+            success: function(data){
+                $('body').append(data);
+                $('.modal').modal('show');
+            }
+        });
+        return false;
     });
     
     $('.confirm').click(function(){

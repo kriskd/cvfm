@@ -19,7 +19,8 @@ class SponsorsController extends AppController {
     public function admin_add(){
         if($this->data){
             if($this->Sponsor->save($this->data)){
-                $this->redirect('/admin/sponsors/add/');
+                $this->redirect('/admin/sponsors/index/');
+                $this->layout = 'ajax';
             }
         }
     }

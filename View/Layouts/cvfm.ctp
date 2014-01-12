@@ -20,10 +20,9 @@
     <?php echo $this->Html->meta('favicon.ico', '/favicon.ico', array('type' => 'icon'));?>
     <?php
     echo $this->Html->css('/css/build/styles.min');
-    //echo $this->Html->css('colorbox');
+
     echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
-    echo $this->Html->script('jquery.colorbox-min.js');
-    echo $this->Html->script('jquery.galleriffic.js');
+    //echo $this->Html->script('jquery.galleriffic.js');
     echo $this->Html->script('/js/build/scripts.min');
     ?>
 

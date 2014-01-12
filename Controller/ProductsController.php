@@ -70,6 +70,7 @@ class ProductsController extends AppController
         }
         $product_types = $this->_get_product_types();
         $this->set(array('product_types' => $product_types));
+        $this->layout = 'ajax';
     }
     
     //Retrieve
