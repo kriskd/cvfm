@@ -19,13 +19,12 @@
     <?php endif; ?>
     <?php echo $this->Html->meta('favicon.ico', '/favicon.ico', array('type' => 'icon'));?>
     <?php
-    echo $this->Html->css('min-base');
-    echo $this->Html->css('styles');
+    echo $this->Html->css('/css/build/styles.min');
     //echo $this->Html->css('colorbox');
     echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
     echo $this->Html->script('jquery.colorbox-min.js');
     echo $this->Html->script('jquery.galleriffic.js');
-    echo $this->Html->script('js.js');
+    echo $this->Html->script('/js/build/scripts.min');
     ?>
 
 </head>
@@ -38,20 +37,13 @@
             </div>
         <?php endif; ?>
         <div id="main">
+            <?php echo $this->Element('header'); ?>
             <div id="left">
-                <div id="logo">
-                    <?php echo $this->Html->image('FM_Logo200.png'); ?>
-                </div>
                 <div id="slideshow">
                     <?php echo $this->element('slideshow'); ?>
                 </div>
             </div>
             <div id="right">
-                <div id="menu">
-                    <h1>Capitol View Farmers Market</h1>
-                    <h2>Wednesdays &bull; June - October &bull; 3:30 - 7:00 pm</h2>
-                    <?php echo $this->element('menu'); ?>
-                </div>
                 <div id="content">
                     <div id="content-inner">
                         <?php echo $content_for_layout; ?>

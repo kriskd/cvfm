@@ -30,19 +30,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
-		
-		echo $this->Html->css('colorbox');
-		
-		echo $this->Html->css('admin');
+		echo $this->Html->css('/css/build/styles.min');
 		
 		echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
 		
-		echo $this->Html->script('jquery.colorbox-min.js');
-		
-		echo $this->Html->script('jquery.galleriffic.js');
-		
-		echo $this->Html->script('js.js');
+		echo $this->Html->script('/js/build/scripts.min');
 
 
 		echo $this->fetch('meta');

@@ -11,7 +11,7 @@
               Lauren Cnare &#149;
               Kris Dockter &#149;
               Tonya Nye &#149;
-              Becky Paris &#149;</p>
+              Becky Paris</p>
           </div> <!-- footer-inner -->
             
         </div> <!-- footer -->

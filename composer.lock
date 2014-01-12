@@ -1,0 +1,340 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "470ee40d189adce0f7a2916b711da69d",
+    "packages": [
+        {
+            "name": "HtmlPurifier",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriskd/HtmlPurifier",
+                "reference": "origin/master"
+            },
+            "type": "cakephp-plugin",
+            "time": "2013-11-07 01:15:48"
+        },
+        {
+            "name": "Stripe",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chronon/CakePHP-StripeComponent-Plugin",
+                "reference": "origin/master"
+            },
+            "type": "cakephp-plugin"
+        },
+        {
+            "name": "cakephp/debug_kit",
+            "version": "2.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cakephp/debug_kit.git",
+                "reference": "0dd9f6cf6250817052b6a7cf2cc0d2d8d7e26e90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/0dd9f6cf6250817052b6a7cf2cc0d2d8d7e26e90",
+                "reference": "0dd9f6cf6250817052b6a7cf2cc0d2d8d7e26e90",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "cakephp-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                },
+                "installer-name": "DebugKit"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Story",
+                    "homepage": "http://mark-story.com",
+                    "role": "Author"
+                },
+                {
+                    "name": "CakePHP Community",
+                    "homepage": "https://github.com/cakephp/debug_kit/graphs/contributors"
+                }
+            ],
+            "description": "CakePHP Debug Kit",
+            "homepage": "https://github.com/cakephp/debug_kit",
+            "keywords": [
+                "cakephp",
+                "debug",
+                "kit"
+            ],
+            "time": "2013-11-07 18:15:29"
+        },
+        {
+            "name": "composer/installers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "c87cfc35882eb50df3eef1734bfa52fbcd6c782c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/c87cfc35882eb50df3eef1734bfa52fbcd6c782c",
+                "reference": "c87cfc35882eb50df3eef1734bfa52fbcd6c782c",
+                "shasum": ""
+            },
+            "replace": {
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "composer-installer",
+            "extra": {
+                "class": "Composer\\Installers\\Installer",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Composer\\Installers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "http://dontkry.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "http://composer.github.com/installers/",
+            "keywords": [
+                "TYPO3 CMS",
+                "TYPO3 Flow",
+                "TYPO3 Neos",
+                "agl",
+                "cakephp",
+                "codeigniter",
+                "concrete5",
+                "drupal",
+                "elgg",
+                "fuelphp",
+                "installer",
+                "joomla",
+                "kohana",
+                "laravel",
+                "li3",
+                "lithium",
+                "mako",
+                "modulework",
+                "phpbb",
+                "ppi",
+                "silverstripe",
+                "symfony",
+                "wordpress",
+                "zend"
+            ],
+            "time": "2013-12-24 18:04:46"
+        },
+        {
+            "name": "mjohnson/transit",
+            "version": "1.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milesj/transit.git",
+                "reference": "b98ecdf7b94239828544e18e5ed83ff5da4038e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milesj/transit/zipball/b98ecdf7b94239828544e18e5ed83ff5da4038e2",
+                "reference": "b98ecdf7b94239828544e18e5ed83ff5da4038e2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-fileinfo": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "~2.2",
+                "ext-exif": "*"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "~2.2",
+                "ext-exif": "Extract exif data from images",
+                "ext-gd": "Enable the GD library for image transforming"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Transit": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Miles Johnson",
+                    "homepage": "http://milesj.me"
+                }
+            ],
+            "description": "A file uploader with support for validation, image transformation and remote transportation.",
+            "homepage": "http://milesj.me/code/php/transit",
+            "keywords": [
+                "application",
+                "archive",
+                "audio",
+                "exif",
+                "file",
+                "glacier",
+                "image",
+                "importer",
+                "s3",
+                "text",
+                "transformer",
+                "transit",
+                "transporter",
+                "uploader",
+                "validator",
+                "video"
+            ],
+            "time": "2013-12-05 04:34:42"
+        },
+        {
+            "name": "mjohnson/uploader",
+            "version": "4.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milesj/uploader.git",
+                "reference": "b38e9da2421cbd935bfb8a720517c2f558c035f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milesj/uploader/zipball/b38e9da2421cbd935bfb8a720517c2f558c035f0",
+                "reference": "b38e9da2421cbd935bfb8a720517c2f558c035f0",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "ext-curl": "*",
+                "ext-fileinfo": "*",
+                "ext-mbstring": "*",
+                "mjohnson/transit": "~1.4",
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "~2.2",
+                "ext-exif": "Extract exif data from images",
+                "ext-gd": "Enable the GD library for image transforming"
+            },
+            "type": "cakephp-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Miles Johnson",
+                    "homepage": "http://milesj.me"
+                }
+            ],
+            "description": "File uploader and validation plugin for CakePHP.",
+            "homepage": "http://milesj.me/code/cakephp/uploader",
+            "keywords": [
+                "attachment",
+                "cakephp",
+                "file",
+                "plugin",
+                "uploader",
+                "validation"
+            ],
+            "time": "2014-01-06 07:47:17"
+        },
+        {
+            "name": "stripe/stripe-php",
+            "version": "1.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php",
+                "reference": "origin/master"
+            },
+            "type": "library"
+        },
+        {
+            "name": "twitter/bootstrap",
+            "version": "v3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "6d03173a1aad98e75f7d33e65b411c519176c59a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/6d03173a1aad98e75f7d33e65b411c519176c59a",
+                "reference": "6d03173a1aad98e75f7d33e65b411c519176c59a",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.",
+            "homepage": "http://getbootstrap.com",
+            "keywords": [
+                "bootstrap",
+                "css"
+            ],
+            "time": "2013-12-05 16:09:10"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "composer/installers": 20,
+        "htmlpurifier": 20
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}

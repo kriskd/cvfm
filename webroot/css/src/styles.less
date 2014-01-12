@@ -1,0 +1,142 @@
+@import "less/bootstrap.less";
+@import "admin.less";
+@import "colorbox.less";
+@import "min-base.less";
+
+body { background: #ffe266; color: #694f10; font-family: arial; font-size: 12px; }
+:focus { outline: none; }
+a:link { color: #694F10; text-decoration: underline; }
+a:visited { color: #694F10; text-decoration: underline; }
+a:hover { color: #694F10; text-decoration: none; }
+a:active { color: #694F10; text-decoration: none; }
+
+#admin-inner { background: #CDCD6D; }
+ul#admin-menu { width: 858px; margin: 0 auto; padding: 0 .2em 0 268px; list-style: none!important; overflow: hidden; text-align: center; }
+ul#admin-menu li { display: inline; }
+
+#main { width: 858px; margin: 0 auto; overflow: hidden; }
+
+#left { width: 268px; float: left; margin-top: -16px; }
+
+#left #image { padding: 0 7px; }
+#left #image .advance-link { text-decoration: none; }
+#left #image img { width: 255px; height: 191px; margin-bottom: 10px; }
+#left #controls { padding: 0px 7px; }
+#left #controls a { text-decoration: none; }
+#left #controls .ss-controls { float: left; }
+#left #controls .nav-controls { float: right; }
+#left #controls .nav-controls a { margin-left: 10px; }
+#left #thumbs { clear: both; }
+#left #thumbs ul { margin: 0; padding: 0px; }
+#left #thumbs ul li { list-style: none; float: left; margin: 0; padding: 5px 7px; }
+#left #thumbs .thumb img { width: 120px; }
+
+#header {
+    margin-bottom: 16px;
+    h1, h2 {
+        text-align: center;
+        font-style: italic;
+        }
+    h1 {
+        margin-top: 0;
+        padding-top: 1.2em;
+        font-size: 24px;
+        font-family: arial;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    h2 {
+        text-align: center;
+    }
+    .logo {
+        width: 283px;
+        margin: auto;
+        text-align: center; 
+    }
+    .menu {
+        width: 590px;
+        background: url(images/background1.png) no-repeat #ffe266;
+        height: 200px;
+        width: 590px;
+        padding-bottom: 16px;
+    }
+    ul {
+        padding: 40px 0 20px 0;
+        li {
+            list-style: none;
+            float: left;
+            font-size: 12px;
+            border-left: 1px solid gray;
+            padding-left: 25px;
+            display: block;
+        }
+        li:first-child {
+            border-left: none;
+            padding-left: 0px;
+        }
+    }
+} 
+
+#right {
+    margin-left: 268px;
+    width: 590px;
+    overflow: hidden;
+    background: #CE9A21;
+    #content {
+        margin: 10px;
+        background: #FFE88E;
+        #map {
+            margin: 0 auto;
+            text-align: center;
+        }
+        h2, h3, h4 {
+            text-align: center;
+        }
+        h2 {
+            line-height: 1.4;
+            font-style: italic;
+        }
+        h4 {
+            font-style: italic;
+        }
+        li {
+            margin-top: 0;
+        }
+        li:first-child {
+            margin-top: 1.2em;
+        }
+
+    }
+}
+
+#right #content #content-inner { margin-bottom: 10px; overflow: hidden; padding: 0 30px; }
+#right #content #content-inner p, #right #content #content-inner h1, #right #content #content-inner h2 { padding: 0px; }
+
+.products {
+    form {
+        div {
+            .clearfix();
+            label {
+                width: 140px;
+                float: left;
+                text-align: right;
+                margin: 5px 5px 0px;
+            }
+        }
+    }
+}
+.products #top .col2 { margin-left: 320px; }
+.products #top .col2 .vendor { margin-bottom: 10px; }
+.products #top .col2 p { margin: 0; }
+.products #bottom { clear: both; }
+.products #bottom .col1 { float: left; width: 255px; }
+.products #bottom .col2 { margin-left: 255px; }
+
+#right table#vendors td { padding: .2em 2em .2em 0; }
+#right .sponsor { width: 106px; margin: auto; }
+#right .sponsor h3 { padding: 0; }
+#right .sponsor p { text-align: center; }
+#right .gold { border-bottom: 1px solid #cd9a21; }
+#right .gold, #right .silver { width: 100%; float: none; text-align: center; padding-bottom: 10px; }
+
+#right #content #footer { text-align: center; clear: both; }

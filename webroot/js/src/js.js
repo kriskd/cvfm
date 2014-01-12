@@ -44,7 +44,7 @@ $(document).ready(function(){
     //Products page
     $('select.products').change(function(){
         $(this).addClass('selected-category');
-        $('.col2').empty();
+        $('.products .results').empty();
         var item = Number($(this).val()); 
         $('select.products').each(function(){
             if(!($(this).hasClass('selected-category'))){
@@ -59,47 +59,16 @@ $(document).ready(function(){
                     for(var i=0; i<data.length; i++){
                         html += '<div class="vendor"><p><strong>' + data[i][0] + '</strong> ' + data[i][1] + '</p><p>' + data[i][2] + '</p></div>';
                     } 
-                    $('.col2').prepend(html);
+                    $('.products .results').prepend(html);
                 }
                 else{
-                    $('.col2').prepend('<p>No vendors carry this product.</p>');
+                    $('.products .results').prepend('<p>No vendors carry this product.</p>');
                 }
             }, 'json');
         }
         else{
-            $('#col2').prepend('<p>Please select a product</p>');
+            $('.products .results').prepend('<p>Please select a product</p>');
         }
-
-        //Old
-        /*var itemCount = $('select').length;
-        var productName = $('select:eq(' + item + ') option:selected').text();
-        for (var i=0; i<itemCount; i++){
-            if (i != item){
-                $('select:eq(' + i + ') option:contains("Select One")').attr('selected', true);
-            }
-        }
-        if (productName != 'Select One'){
-            var ser = 'productName=' + productName;
-            var html = "";
-            $.post("../getvendors.php", ser, function(data) {
-                var count = 0;
-                for(key in data){
-                    var vendorArray = data[key];
-                    count++;
-                    html += '<li><span class="vendorName">' + vendorArray.vendorName + '</span> - ' + vendorArray.schedule + '</li>';
-                }
-                productName = productName.toLowerCase();
-                if(count>1){
-                    $('#col2').append('<h2>The following vendors offer <span class="productName">' + productName + '</span> for sale.</h2>');
-                }
-                else{
-                    $('#col2').append('<h2>The following vendor offers <span class="productName">' + productName + '</span> for sale.</h2>');
-                }
-                $('#col2').append('<ul>' + html + '</ul>');
-            }, 'json');
-            
-        }*/
-        //End old
     });
        
     if($('.sponsor').length > 0){ 
