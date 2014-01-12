@@ -6699,3 +6699,7 @@ html #admin-menu li {
 html #admin-menu li a {
   color: #fff;
 }
+html .pages.index {
+  width: 100%;
+  border-left: none;
+}

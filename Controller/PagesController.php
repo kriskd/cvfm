@@ -53,6 +53,11 @@ class PagesController extends AppController {
  */
 	public function display() { 
 		$path = func_get_args();
+		$slug = current($path); 
+		
+		if ($content = $this->Page->find('first', array('conditions' => array('uri' => $slug)))) {
+			$this->set('content', $content);
+		}
 
 		$count = count($path);
 		if (!$count) {
@@ -71,5 +76,34 @@ class PagesController extends AppController {
 		}
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 		$this->render(implode('/', $path), 'cvfm');
+	}
+	
+	public function admin_index()
+	{
+		$pages = $this->Paginator->paginate('Page');
+		$this->set('pages', $pages);
+	}
+	
+	public function admin_edit($id = null)
+	{
+		if (!$this->Page->exists($id)) {
+			throw new NotFoundException(__('Invalid page'));
+		}
+        
+		$options = array('conditions' => array('Page.' . $this->Page->primaryKey => $id));
+		$page = $this->Page->find('first', $options);
+		
+		if ($this->request->is('post') || $this->request->is('put')) {
+			$page = $this->array_merge_recursive_distinct($page, $this->request->data);
+			if ($this->Page->save($page)) {
+			    $this->Session->setFlash(__('The page has been saved'));
+			    $this->redirect(array('action' => 'edit', $id));
+			} else {
+			    $this->Session->setFlash(__('The page could not be saved. Please, try again.'));
+			}
+		}
+        
+		$this->request->data = $page;
+		$this->set('page', $page);
 	}
 }
