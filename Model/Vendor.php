@@ -40,4 +40,8 @@ class Vendor extends AppModel {
                 )              
             );
     
+    public $virtualFields = array(
+            'location' => 'CONCAT(Vendor.city, ", ", Vendor.state)'  
+    );
+    
 }

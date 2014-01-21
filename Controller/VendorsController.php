@@ -6,17 +6,23 @@ class VendorsController extends AppController {
     {
         parent::beforeFilter();
         $this->Auth->deny();
-        $this->Auth->allow('index');
+        $this->Auth->allow('index', 'add');
     }
     
     public function index(){
         $schedules = $this->Schedule->find('all');
         $this->set(array('schedules' => $schedules));
-        //$this->render('vendors', 'cvfm', '/index/template1');
-        //$this->element('/index/template1', array('content' => $vendors));
         $this->layout = 'cvfm';
     }
-     
+    
+    public function add()
+    {
+        if (!empty($this->request->data)) {
+            $this->Vendor->save($this->request->data);
+        }
+        $this->layout = 'cvfm';
+    }
+    
     //Create Vendor
     public function admin_add(){
         if($this->data){
