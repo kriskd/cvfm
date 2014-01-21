@@ -8,9 +8,9 @@
             <?php if($vendor['active'] ==1): ?>
                 <li>
                     <?php if($vendor['website']): ?>
-                        <?php echo $this->Html->link($vendor['name'], $vendor['website']); ?>, <?php echo $vendor['location']; ?>
+                        <?php echo $this->Html->link($vendor['business_name'], $vendor['website']); ?>, <?php echo $vendor['location']; ?>
                     <?php else: ?>
-                        <?php echo $vendor['name']; ?>, <?php echo $vendor['location']; ?>
+                        <?php echo $vendor['business_name']; ?>, <?php echo $vendor['location']; ?>
                     <?php endif; ?>
                 </li>
             <?php endif; ?>
