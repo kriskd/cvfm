@@ -6673,6 +6673,13 @@ a:active {
 #right #content li:first-child {
   margin-top: 1.2em;
 }
+#right #content .vendors.add .form-control {
+  padding-top: 0px;
+  margin-top: 0px;
+}
+#right #content .vendors.add .checkbox input {
+  margin-top: 2px;
+}
 #right #content #content-inner {
   margin-bottom: 10px;
   overflow: hidden;

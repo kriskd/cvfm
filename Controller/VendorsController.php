@@ -2,6 +2,8 @@
 
 class VendorsController extends AppController {
     
+    public $uses = array('Vendor', 'State');
+    
     public function beforeFilter()
     {
         parent::beforeFilter();
@@ -20,6 +22,9 @@ class VendorsController extends AppController {
         if (!empty($this->request->data)) {
             $this->Vendor->save($this->request->data);
         }
+        $schedules = $this->Vendor->Schedule->find('list', array('fields' => array('Schedule.id', 'Schedule.description')));
+        $states = $this->State->find('all'); 
+        $this->set(compact('schedules', 'states'));
         $this->layout = 'cvfm';
     }
     
