@@ -1346,7 +1346,8 @@
             prevLinkText:              '&lsaquo; Previous',
             nextLinkText:              'Next &rsaquo;',
             nextPageLinkText:          'Next &rsaquo;',
-            prevPageLinkText:          '&lsaquo; Prev'
+            prevPageLinkText:          '&lsaquo; Prev',
+            enableKeyboardNavigation:  false,
         });
     }
     
@@ -1359,5 +1360,56 @@
         
         $('#content').css('min-height', content + 'px');
         //alert('min-height ' + content);
+    }
+    
+    $(document).on('submit', '#VendorAddForm', function(){
+    //$('#VendorAddForm').submit(function(){
+        $('.submit input').attr('disabled', 'disabled');
+        var form = $(this); 
+        var error = false;
+ 
+        // Get the values:
+        var ccNum = $('.card-number').val(),
+            cvcNum = $('.card-cvc').val(),
+            expMonth = $('.card-expiry-month').val(),
+            expYear = $('.card-expiry-year').val(); 
+        
+        // Validate the number:
+        if (!Stripe.validateCardNumber(ccNum)) {
+            error = true;
+            reportError('The credit card number appears to be invalid.');
+        }
+         
+        // Validate the CVC:
+        if (!Stripe.validateCVC(cvcNum)) {
+            error = true;
+            reportError('The CVC number appears to be invalid.');
+        }
+         
+        // Validate the expiration:
+        if (!Stripe.validateExpiry(expMonth, expYear)) {
+            error = true;
+            reportError('The expiration date appears to be invalid.');
+        }
+        
+        if (!error) { 
+            // Get the Stripe token:
+            Stripe.createToken(form, function(status, response){
+                var token = response.id;
+                form.append($('<input type="hidden" name="stripeToken" />').val(token));
+                form.get(0).submit();
+            });
+        }
+        return false;
+    });
+    
+    function reportError(msg) {
+        // Show the error in the form:
+        $('.payment-errors').show().text(msg).addClass('error');
+     
+        // Re-enable the submit button:
+        $('.submit-payment').prop('disabled', false);
+     
+        return false;
     }
 });

@@ -40,7 +40,8 @@ class AppController extends Controller {
                                 'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
                                 'logoutRedirect' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
                                 )
-                ,'Session', 'Paginator');
+                ,'Session', 'Paginator',
+                'Stripe' => array('className' => 'Stripe.Stripe'),);
 
     public function beforeFilter(){
         parent::beforeFilter();

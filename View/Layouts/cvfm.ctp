@@ -23,6 +23,8 @@
 
     echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
     //echo $this->Html->script('jquery.galleriffic.js');
+    echo $this->fetch('css');
+    echo $this->fetch('script');
     echo $this->Html->script('/js/build/scripts.min');
     ?>
 

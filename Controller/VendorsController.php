@@ -19,12 +19,40 @@ class VendorsController extends AppController {
     
     public function add()
     {
-        if (!empty($this->request->data)) {
-            $this->Vendor->save($this->request->data);
+        if($this->request->is('post')){
+            $data = $this->request->data; 
+            $fee = 100;
+            if ($data['Vendor']['schedule_id'] == 1) {
+                $fee = 190;
+            }
+            $this->Vendor->set($data);
+            $valid = $this->Vendor->validates($data);
+            if ($valid == true) {
+                $stripeToken = $this->request->data['stripeToken'];
+                
+                $stripeData = array(
+                    'amount' => $fee,
+                    'stripeToken' => $stripeToken,
+
+                );
+		$result = $this->Stripe->charge($stripeData);
+		
+		if(is_array($result) && $result['stripe_paid'] == true){
+                    $this->Vendor->save($data);
+                    $this->Session->setFlash('<span class="glyphicon glyphicon-ok"></span> Payment Success.',
+                             'default', array('class' => 'alert alert-success'));
+                }
+            }
         }
+        
         $schedules = $this->Vendor->Schedule->find('list', array('fields' => array('Schedule.id', 'Schedule.description')));
-        $states = $this->State->find('all'); 
-        $this->set(compact('schedules', 'states'));
+        $states = $this->State->find('all');
+        $months = array_combine(range(1,12), range(1,12));
+        $year = date('Y'); 
+        for($i=date('Y'); $i<=date('Y')+10; $i++){
+            $years[$i] = $i;
+        }
+        $this->set(compact('schedules', 'states', 'months', 'years'));
         $this->layout = 'cvfm';
     }
     
