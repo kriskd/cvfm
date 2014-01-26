@@ -28,4 +28,19 @@ class Product extends AppModel {
                         ,'order' => 'name'
                     )
             );
+    
+    public function productsByType()
+    {
+        return $this->find('all', array(
+                                    'fields' => array('Product.id', 'Product.name'),
+                                    'order' => 'Producttype.type, Product.name',
+                                    'contain' => array(
+                                                'Producttype' => array(
+                                                    'fields' => 'type',
+                                                )
+                                            ),
+                                    
+                                )
+                           );
+    }
 }

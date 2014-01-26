@@ -15,6 +15,12 @@
     <?php echo $this->Form->input('donate', array('label' => 'I would like to donate something to a special event', 'class' => '')); ?>
     <?php echo $this->Form->input('comments', array('label' => 'Comments/Suggestions')); ?>
     <?php echo $this->Form->input('schedule_id', array('options' => $schedules)); ?>
+    <?php foreach($groupedProducts as $name => $group): ?>
+        <?php echo $this->Form->label($name); ?>
+        <?php foreach($group as $id => $product): ?>
+            <?php echo $this->Form->input('Vendor.product_type.', array('label' => $product, 'type' => 'checkbox', 'class' => '')); ?>
+        <?php endforeach; ?>
+    <?php endforeach; ?>
     <?php echo $this->Form->input('agree', array('label' => 'I have read the rules and bylaws and agree to them.', 'class' => '')); ?>
     <?php echo $this->Form->input('Card.number', array(
                                                     'name' => false,

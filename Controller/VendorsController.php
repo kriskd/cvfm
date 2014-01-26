@@ -20,7 +20,7 @@ class VendorsController extends AppController {
     public function add()
     {
         if($this->request->is('post')){
-            $data = $this->request->data; 
+            $data = $this->request->data; var_dump($data); exit;
             $fee = 100;
             if ($data['Vendor']['schedule_id'] == 1) {
                 $fee = 190;
@@ -45,6 +45,11 @@ class VendorsController extends AppController {
             }
         }
         
+        $products = $this->Vendor->Product->productsByType(); 
+        $groupedProducts = array();
+        foreach ($products as $product) {
+            $groupedProducts[$product['Producttype']['type']][$product['Product']['id']] = $product['Product']['name'];
+        }
         $schedules = $this->Vendor->Schedule->find('list', array('fields' => array('Schedule.id', 'Schedule.description')));
         $states = $this->State->find('all');
         $months = array_combine(range(1,12), range(1,12));
@@ -52,7 +57,7 @@ class VendorsController extends AppController {
         for($i=date('Y'); $i<=date('Y')+10; $i++){
             $years[$i] = $i;
         }
-        $this->set(compact('schedules', 'states', 'months', 'years'));
+        $this->set(compact('schedules', 'states', 'months', 'years', 'groupedProducts'));
         $this->layout = 'cvfm';
     }
     
