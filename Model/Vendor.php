@@ -14,6 +14,16 @@ class Vendor extends AppModel {
                     ,'message' => 'Choose a schedule.'
                 )
             )
+            ,'email' => array(
+                'valid_email' => array(
+                    'rule' => array('email'),
+                    'message' => 'Please enter a valid email.'
+                ),
+                'email_not_empty' => array(
+                    'rule' => 'notEmpty',
+                    'message' => 'Please enter an email address.'
+                )
+            )
             ,'website' => array(
                 'valid_url' => array(
                     'rule' => array('url', true),

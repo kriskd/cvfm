@@ -7,6 +7,7 @@
     <?php echo $this->Form->input('city'); ?>
     <?php echo $this->Form->input('state', array('options' => $states, 'selected' => 'WI')); ?>
     <?php echo $this->Form->input('postal_code'); ?>
+    <?PHP echo $this->Form->input('email'); ?>
     <?php echo $this->Form->input('website'); ?>
     <?php echo $this->Form->input('ebt', array('label' => 'Can you accept EBT/Food Share/WIC', 'class' => '')); ?>
     <?php echo $this->Form->input('description'); ?>

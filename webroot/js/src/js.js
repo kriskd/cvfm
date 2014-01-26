@@ -2,7 +2,10 @@ $(document).ready(function(){
     
     var name = "info";
     var domain = "capitolviewfarmersmarket.com";
-    $('.email').append('<a href="mailto:' + name + '@' + domain + '">' + name + '@' + domain +'</a>');
+    $('.email-mailto').append('<a href="mailto:' + name + '@' + domain + '">' + name + '@' + domain +'</a>');
+    
+    $('.launch-tooltip').tooltip();
+    $('.required label').append(' <span class="required">*</span>');
     
     /*$('.colorbox').colorbox({
         //href: '/admin/vendors/add',
