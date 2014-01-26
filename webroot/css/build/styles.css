@@ -6527,6 +6527,10 @@ a:active {
   color: #694F10;
   text-decoration: none;
 }
+.error-message,
+span.required {
+  color: red;
+}
 #admin-inner {
   background: #CDCD6D;
 }

@@ -29,8 +29,19 @@ class Vendor extends AppModel {
                     'rule' => array('url', true),
                     'allowEmpty' => true,
                     'message' => 'Enter proper URL.'
-                ))
-            );
+                )
+            ),
+            'agree' => array(
+                'agree' => array(
+                    'rule' => array('equalTo', '1'),
+                    'message' => 'You must agree to the bylaws.'
+                ),
+                'required' => array(
+                    'rule' => 'notEmpty',
+                    'message' => 'You must agree to the bylaws.'
+                )
+            )
+        );
     
     public $hasAndBelongsToMany = array(
                     'Product' => array(

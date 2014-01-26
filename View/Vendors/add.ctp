@@ -11,10 +11,10 @@
     <?php echo $this->Form->input('website'); ?>
     <?php echo $this->Form->input('ebt', array('label' => 'Can you accept EBT/Food Share/WIC', 'class' => '')); ?>
     <?php echo $this->Form->input('description'); ?>
-    <?php echo $this->Form->input('schedule_id', array('options' => $schedules)); ?>
     <?php echo $this->Form->input('organize', array('label' => 'I would like to help organize a special event', 'class' => '')); ?>
     <?php echo $this->Form->input('donate', array('label' => 'I would like to donate something to a special event', 'class' => '')); ?>
     <?php echo $this->Form->input('comments', array('label' => 'Comments/Suggestions')); ?>
+    <?php echo $this->Form->input('schedule_id', array('options' => $schedules)); ?>
     <?php echo $this->Form->input('agree', array('label' => 'I have read the rules and bylaws and agree to them.', 'class' => '')); ?>
     <?php echo $this->Form->input('Card.number', array(
                                                     'name' => false,
@@ -52,7 +52,9 @@
                                                     //'between' => '<div class="col-xs-11 col-sm-7 col-md-7 col-lg-7">',
                                                     //'after' => '</div>'
                                                 )); ?>
-    <?php echo $this->Form->input('Card.month', array(
+    <?php echo $this->Form->label('Expiration'); ?>
+    <div class="row">
+        <?php echo $this->Form->input('Card.month', array(
                                             'name' => false,
                                             'empty' => 'MM',
                                             'options' => $months,
@@ -64,7 +66,7 @@
                                             'value' => prod()==false ? '12' : '',
                                             )); ?>
                                         
-    <?php echo $this->Form->input('Card.year', array(
+        <?php echo $this->Form->input('Card.year', array(
                                             'name' => false,
                                             'empty' => 'Year',
                                             'options' => $years,
@@ -76,6 +78,7 @@
                                             'div' => 'col-xs-6 col-sm-6 col-md-6 col-lg-6',
                                             'value' => prod()==false ? '2023' : '',
                                             )); ?>
+    </div>
     <?php echo $this->Form->end(array('label' => 'Submit', 'class' => 'btn btn-default')); ?>
 </div>
 
