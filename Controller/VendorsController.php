@@ -19,6 +19,9 @@ class VendorsController extends AppController {
     
     public function add()
     {
+        if (dev() != true) {
+            $this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
+        }
         if($this->request->is('post')){
             $data = $this->request->data; var_dump($data); exit;
             $fee = 100;
