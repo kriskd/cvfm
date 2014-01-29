@@ -9,7 +9,6 @@
     <?php echo $this->Form->input('postal_code'); ?>
     <?PHP echo $this->Form->input('email'); ?>
     <?php echo $this->Form->input('website'); ?>
-    <?php echo $this->Form->input('ebt', array('label' => 'Can you accept EBT/Food Share/WIC', 'class' => '')); ?>
     <?php echo $this->Form->input('description'); ?>
     <?php echo $this->Form->input('organize', array('label' => 'I would like to help organize a special event', 'class' => '')); ?>
     <?php echo $this->Form->input('donate', array('label' => 'I would like to donate something to a special event', 'class' => '')); ?>
