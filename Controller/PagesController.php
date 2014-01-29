@@ -43,7 +43,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array();
+	public $uses = array('Page', 'Event');
 
 /**
  * Displays a view
@@ -58,6 +58,16 @@ class PagesController extends AppController {
 		if ($content = $this->Page->find('first', array('conditions' => array('uri' => $slug)))) {
 			$this->set('content', $content);
 		}
+		
+		$events = $this->Event->find('all', array(
+							'conditions' => array(
+								'date >=' => date('Y-m-d', strtotime("+1 day"))
+							),
+							'fields' => array(
+								'date', 'description'
+							)
+						)
+					); 
 
 		$count = count($path);
 		if (!$count) {
@@ -74,7 +84,7 @@ class PagesController extends AppController {
 		if (!empty($path[$count - 1])) {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
-		$this->set(compact('page', 'subpage', 'title_for_layout'));
+		$this->set(compact('page', 'subpage', 'title_for_layout', 'events'));
 		$this->render(implode('/', $path), 'cvfm');
 	}
 	
