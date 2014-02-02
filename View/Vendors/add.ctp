@@ -17,7 +17,7 @@
     <?php foreach($groupedProducts as $name => $group): ?>
         <?php echo $this->Form->label($name); ?>
         <?php foreach($group as $id => $product): ?>
-            <?php echo $this->Form->input('Product', array('label' => $product, 'type' => 'checkbox', 'class' => '')); ?>
+            <?php echo $this->Form->select('Product', array($id => $product), array('multiple' => 'checkbox', 'class' => '', 'hiddenField' => false)); ?>
         <?php endforeach; ?>
     <?php endforeach; ?>
     <?php echo $this->Form->input('agree', array('label' => 'I have read the rules and bylaws and agree to them.', 'class' => '')); ?>

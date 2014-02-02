@@ -23,13 +23,13 @@ class VendorsController extends AppController {
             $this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
         }
         if($this->request->is('post')){
-            $data = $this->request->data; var_dump($data); exit;
+            $data = $this->request->data; 
             $fee = 100;
             if ($data['Vendor']['schedule_id'] == 1) {
                 $fee = 190;
             }
             $this->Vendor->set($data);
-            $valid = $this->Vendor->validates($data);
+            $valid = $this->Vendor->validates($data); 
             if ($valid == true) {
                 $stripeToken = $this->request->data['stripeToken'];
                 
