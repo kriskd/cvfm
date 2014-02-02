@@ -7,6 +7,10 @@ $(document).ready(function(){
     $('.launch-tooltip').tooltip();
     $('.required label').append(' <span class="required">*</span>');
     
+    $('#accordion').accordion({
+        heightStyle: 'content'
+    });
+    
     /*$('.colorbox').colorbox({
         //href: '/admin/vendors/add',
         iframe: true,

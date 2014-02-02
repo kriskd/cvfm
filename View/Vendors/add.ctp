@@ -14,12 +14,24 @@
     <?php echo $this->Form->input('donate', array('label' => 'I would like to donate something to a special event', 'class' => '')); ?>
     <?php echo $this->Form->input('comments', array('label' => 'Comments/Suggestions')); ?>
     <?php echo $this->Form->input('schedule_id', array('options' => $schedules)); ?>
-    <?php foreach($groupedProducts as $name => $group): ?>
-        <?php echo $this->Form->label($name); ?>
-        <?php foreach($group as $id => $product): ?>
-            <?php echo $this->Form->select('Product', array($id => $product), array('multiple' => 'checkbox', 'class' => '', 'hiddenField' => false)); ?>
+    <div id="accordion">
+        <?php foreach($groupedProducts as $name => $group): ?>
+            <h3><?php echo $this->Form->label($name); ?></h3>
+            <div>
+                <?php $count = 1; ?>
+                <div class="col1">
+                    <?php foreach($group as $id => $product): ?>
+                        <?php echo $this->Form->select('Product', array($id => $product), array('multiple' => 'checkbox', 'class' => '', 'hiddenField' => false)); ?>
+                        <?php if ($count == ceil(count($group)/2)): ?>
+                            </div>
+                            <div class="col2">
+                        <?php endif; ?>
+                        <?php $count++; ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
         <?php endforeach; ?>
-    <?php endforeach; ?>
+    </div>
     <?php echo $this->Form->input('agree', array('label' => 'I have read the rules and bylaws and agree to them.', 'class' => '')); ?>
     <?php echo $this->Form->input('Card.number', array(
                                                     'name' => false,
