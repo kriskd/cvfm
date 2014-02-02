@@ -48,7 +48,7 @@ class ProductsController extends AppController
             $schedule_id = $vendor['schedule_id'];
             $schedule_arr = $this->Schedule->findById($schedule_id);
             $schedule = $schedule_arr['Schedule']['description'];
-            $vendors[] = array($vendor['name'], $vendor['location'], $schedule);
+            $vendors[] = array($vendor['business_name'], $vendor['location'], $schedule);
         }
         echo json_encode($vendors);
         exit();
