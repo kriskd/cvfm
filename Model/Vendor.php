@@ -3,10 +3,10 @@
 class Vendor extends AppModel {
     
     public $validate = array(
-            'name' => array(
+            'business_name' => array(
                 'name_not_empty' => array(
                     'rule' => 'notEmpty'
-                    ,'message' => 'Vendor name is required.')
+                    ,'message' => 'Vendor\'s business name is required.')
                 )
             ,'schedule_id' =>array(
                 'pick_schedule' => array(
