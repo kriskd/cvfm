@@ -2,7 +2,7 @@
 <p><?php echo $this->Html->link('Back', '/admin/vendors'); ?></p>
 <table>
 <?php foreach($vendors as $vendor): ?>
-    <tr><td><?php echo $vendor['Vendor']['name'];?></td>
+    <tr><td><?php echo $vendor['Vendor']['business_name'];?></td>
         <td><?php echo $vendor['Vendor']['location']; ?></td>
         <td><?php echo $vendor['Vendor']['website']; ?></td>
         <td><?php echo $vendor['Schedule']['short']; ?></td>

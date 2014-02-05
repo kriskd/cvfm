@@ -3,6 +3,8 @@
 <?php echo $this->Form->hidden('id', array('value' => $vendor['Vendor']['id'])); ?>
 <?php echo $this->Form->label('Name:'); ?>
 <?php echo $this->Form->text('name', array('value' => $vendor['Vendor']['name'])); ?>
+<?php echo $this->Form->label('Business Name:'); ?>
+<?php echo $this->Form->text('business_name', array('value' => $vendor['Vendor']['business_name'])); ?>
 <?php echo $this->Form->label('Location:'); ?>
 <?php echo $this->Form->text('location', array('value' => $vendor['Vendor']['location'])); ?>
 <?php echo $this->Form->label('Website:'); ?>
@@ -19,8 +21,6 @@
 <?php echo $this->Form->submit('Save vendor'); ?>
 <?php echo $this->Form->end(); ?>
 
-<?php //var_dump($product_types); ?>
-
 <?php echo $this->Form->create('ProductVendors', array('action' => '/add_product/' . $vendor['Vendor']['id'])); ?>
 <?php echo $this->Form->label('Add product:'); ?>
 <?php echo $this->Form->input('product_type', array('options' => $product_types, 'empty' => '')); ?>
@@ -29,8 +29,7 @@
 <?php echo $this->Form->end(); ?>
 
 <?php if($vendor['Product']): ?>
-<?php //var_dump($vendor); ?>
-<h2>Products</h2>
+    <h2>Products</h2>
     <table>
         <?php foreach($vendor['Product'] as $product): ?>
             <tr><td><?php echo $product['name']; ?></td><td><?php echo $this->Html->link('Delete', '/admin/product_vendors/delete_product/' . $vendor['Vendor']['id'] . '/' . $product['id']); ?></tr>

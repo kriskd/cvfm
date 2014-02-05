@@ -1727,7 +1727,7 @@
         });
     }
     
-    if(('#thumbs').length > 0){ 
+    if($('#thumbs').length > 0){ 
         $('#thumbs').galleriffic({ 
             delay: 10000,
             numThumbs:  17,
