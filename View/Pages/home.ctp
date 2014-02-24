@@ -1,6 +1,7 @@
 <?php echo $content['Page']['val']; ?>
 <h3>Documents</h3>
 <p><?php echo $this->Html->link('2014 Vendor Application', '/files/cvfm2014vendorapp.pdf'); ?></p>
+<p><?php echo $this->Html->link('2014 Rules and Bylaws', '/files/CVFM_2014_Rules_and_ByLaws.pdf'); ?></p>
 <?php if (!empty($events)): ?>
         <h3>Special Events for 2014</h3>
         <h4>Events take place from 4-6pm</h4>
