@@ -64,6 +64,13 @@ module.exports = function(grunt) {
           },
           dist: { src: 'webroot/css/build/*.css' }
        },
+       bowercopy: {
+         options: {
+           srcPrefix: 'bower_components',
+           destPrefix: 'webroot/css'
+       },
+       fonts: 'bootstrap/fonts'
+       },
        watch: {
          jss: {
            files: ['webroot/js/src/*.js'],
@@ -83,6 +90,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-bowercopy');
 
 	grunt.registerTask('default', ['concat:dist', 'uglify']);
 };
