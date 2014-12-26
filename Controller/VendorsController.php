@@ -82,35 +82,27 @@ class VendorsController extends AppController {
         $vendors = $this->Vendor->find('all', array('order' => 'name'));
         $this->set(array('vendors' => $vendors));
     }  
+
     //Update Vendor
     public function admin_edit($id = null){
+        if (empty($id)) {
+            $this->redirect(array(
+                'action' => 'index'
+            ));
+        }
+
+        if(!empty($this->request->data)){
+            $vendor = $this->request->data;
+            $this->Vendor->save($vendor);
+            $this->Session->setFlash('Vendor saved.');
+        } else {
+            $vendor = $this->Vendor->findById($id); 
+        }
+
+        $this->request->data = $vendor;
         $product_types = $this->_get_product_types(); 
         $schedules = $this->_get_schedules();
-        if($id){
-            if(!empty($this->data)){
-                //var_dump($this->data);
-                $submit = $this->data;
-                $this->Vendor->save($submit);
-                $this->Session->setFlash('Vendor saved.');
-                /*//exit;
-                switch($submit['Vendor']['active']){
-                    case 'yes':
-                       $submit['Vendor']['active'] = '1';
-                       break;
-                    default;
-                        $submit['Vendor']['active'] = '0';
-                }
-                //var_dump($submit);
-                //exit;
-                $this->Vendor->save($submit);*/
-                $this->redirect('/admin/vendors/edit/' . $id);
-            }
-            $vendor = $this->Vendor->findById($id); 
-            $this->set(array('vendor' => $vendor, 'product_types' => $product_types, 'schedules' => $schedules));
-        }
-        else {
-            $this->redirect('/admin/vendors');
-        }
+        $this->set(array('vendor' => $vendor, 'product_types' => $product_types, 'schedules' => $schedules));
     }
     
     //Delete Vendor

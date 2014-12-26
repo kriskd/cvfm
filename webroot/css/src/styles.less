@@ -1,19 +1,20 @@
 @import "bower_components/bootstrap/less/bootstrap.less";
+@import "variables.less";
 @import "colorbox.less";
 @import "min-base.less";
 
-body { background: #ffe266; color: #694f10; font-family: arial; font-size: 12px; }
+body { background: @yellowBg; color: @brown; font-family: arial; font-size: 12px; }
 :focus { outline: none; }
-a:link { color: #694F10; text-decoration: underline; }
-a:visited { color: #694F10; text-decoration: underline; }
-a:hover { color: #694F10; text-decoration: none; }
-a:active { color: #694F10; text-decoration: none; }
+a:link { color: @brown; text-decoration: underline; }
+a:visited { color: @brown; text-decoration: underline; }
+a:hover { color: @brown; text-decoration: none; }
+a:active { color: @brown; text-decoration: none; }
 
 .error-message, span.required {
     color: red;
 }
 #admin-inner {
-    background: #CDCD6D;
+    background: @mainGreen;
     #admin-menu {
         width: 858px;
         margin: 0 auto;
@@ -69,7 +70,7 @@ a:active { color: #694F10; text-decoration: none; }
     }
     .menu {
         width: 590px;
-        background: url(images/background1.png) no-repeat #ffe266;
+        background: url(images/background1.png) no-repeat @yellowBg;
         height: 200px;
         width: 590px;
         padding-bottom: 16px;
@@ -96,10 +97,10 @@ a:active { color: #694F10; text-decoration: none; }
     margin-left: 268px;
     width: 590px;
     overflow: hidden;
-    background: #CE9A21;
+    background: @lightYellow;
     #content {
         margin: 10px;
-        background: #FFE88E;
+        background: @ochre;
         #map {
             margin: 0 auto;
             text-align: center;
@@ -165,7 +166,7 @@ a:active { color: #694F10; text-decoration: none; }
 #right .sponsor { width: 106px; margin: auto; }
 #right .sponsor h3 { padding: 0; }
 #right .sponsor p { text-align: center; }
-#right .gold { border-bottom: 1px solid #cd9a21; }
+#right .gold { border-bottom: 1px solid @lightYellow; }
 #right .gold, #right .silver { width: 100%; float: none; text-align: center; padding-bottom: 10px; }
 
 #right #content #footer { text-align: center; clear: both; }

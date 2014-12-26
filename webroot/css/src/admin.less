@@ -1,31 +1,49 @@
-@import "less/bootstrap.less";
+@import "bower_components/bootstrap/less/bootstrap.less";
+@import "variables.less";
 @import "cake.generic.less";
 
 html {
     font-size: 100%;
-    #header {
-        h1 {
-            background: url(../../img/cake.icon.png) no-repeat left;
-            margin-top: 0px;
-        }
-    }
-    #admin-menu {
-        width: 858px;
-        list-style: none!important;
-        overflow: hidden;
-        li {
-            display: inline;
-            float: left;
-            a {
-                color: #fff;
+    #container {
+        #header {
+            background: @mainGreen;
+            h1 {
+                color: @brown;
+                font-weight: bold;
+                font-size: 110%;
+            }
+            a:link, a:visited, a:hover, a:active {
+                color: @brown;
+            }
+            h1 {
+                background: url(../../img/cake.icon.png) no-repeat left;
+                margin-top: 0px;
+                a {
+                    background: @mainGreen;
+                }
             }
         }
-    }
-    .pages.index {
-        width: 100%;
-        border-left: none;
-    }
-    form .required label:after {
-        content: '';
+        #admin-menu {
+            width: 858px;
+            list-style: none!important;
+            overflow: hidden;
+            li {
+                display: inline;
+                float: left;
+                a {
+                    color: #fff;
+                }
+            }
+        }
+        #content {
+            background: @lightYellow;
+        }
+        .pages.index {
+            width: 100%;
+            border-left: none;
+        }
+        form .required label:after {
+            content: '';
+        }
     }
 }

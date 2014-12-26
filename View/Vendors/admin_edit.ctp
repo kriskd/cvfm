@@ -1,5 +1,5 @@
 <p><?php echo $this->Html->link('Back', '/admin/vendors'); ?></p>
-<?php echo $this->Form->create('Vendor', array('action' => '/edit/' . $vendor['Vendor']['id'])); ?>
+<?php echo $this->Form->create('Vendor'); ?>
 <?php echo $this->Form->hidden('id', array('value' => $vendor['Vendor']['id'])); ?>
 <?php echo $this->Form->label('Name:'); ?>
 <?php echo $this->Form->text('name', array('value' => $vendor['Vendor']['name'])); ?>
@@ -28,7 +28,7 @@
 <?php echo $this->Form->submit('Add product to vendor'); ?>
 <?php echo $this->Form->end(); ?>
 
-<?php if($vendor['Product']): ?>
+<?php if(isset($vendor['Product'])): ?>
     <h2>Products</h2>
     <table>
         <?php foreach($vendor['Product'] as $product): ?>
