@@ -1,15 +1,23 @@
-<p><?php echo $this->Html->link('Back', '/admin/vendors'); ?></p>
+<p>
+    <?php echo $this->Html->link('Back', array(
+        'action' => 'index',
+    )); ?>
+</p>
 <?php echo $this->Form->create('Vendor'); ?>
-<?php echo $this->Form->hidden('id', array('value' => $vendor['Vendor']['id'])); ?>
-<?php echo $this->Form->label('Name:'); ?>
-<?php echo $this->Form->text('name', array('value' => $vendor['Vendor']['name'])); ?>
-<?php echo $this->Form->label('Business Name:'); ?>
-<?php echo $this->Form->text('business_name', array('value' => $vendor['Vendor']['business_name'])); ?>
-<?php echo $this->Form->label('Location:'); ?>
-<?php echo $this->Form->text('location', array('value' => $vendor['Vendor']['location'])); ?>
-<?php echo $this->Form->label('Website:'); ?>
-<?php echo $this->Form->text('website', array('value' => $vendor['Vendor']['website'])); ?>
-<?php echo $this->Form->label('Schedule:'); ?>
+<?php $this->Form->inputDefaults(array(
+    'class' => 'form-control',
+)); ?>
+<?php echo $this->Form->hidden('id'); ?>
+<div class="row">
+    <div class="col-lg-6 col-md-6">
+        <?php echo $this->Form->input('name'); ?>
+    </div>
+    <div class="col-lg-6 col-md-6">
+        <?php echo $this->Form->input('business_name'); ?>
+    </div>
+</div>
+<?php echo $this->Form->input('location'); ?>
+<?php echo $this->Form->input('website'); ?>
 <?php echo $this->Form->input('schedule_id', array('options' => $schedules, 'selected' => $vendor['Vendor']['schedule_id'])); ?>
 <?php echo $this->Form->label('Active:'); ?>
 <?php $options = array(); ?>
