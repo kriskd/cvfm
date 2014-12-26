@@ -1,9 +1,7 @@
 tmp/*
 webroot/js/colorbox.zip
 webroot/js/colorbox/*
-*.kpf
-cvfm.komodoproject
-.komodotools
 Plugin/
 Vendor/
 node_modules
+bower_components

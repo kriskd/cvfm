@@ -53,13 +53,13 @@
         }
     ],
     "require": {
+        "cakephp/cakephp": "2.*",
         "composer/installers": "dev-master",
         "mjohnson/uploader": "4.*",
         "Datasources": "dev-master",
         "cakephp/debug_kit": "2.2.*",
         "Stripe": "2.0.0",
         "stripe/stripe-php": "1.9.0",
-        "twitter/bootstrap": "3.0.*",
         "HtmlPurifier": "dev-master"
     },
     "config": {
