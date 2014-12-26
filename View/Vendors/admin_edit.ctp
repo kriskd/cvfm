@@ -9,23 +9,34 @@
 )); ?>
 <?php echo $this->Form->hidden('id'); ?>
 <div class="row">
-    <div class="col-lg-6 col-md-6">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <?php echo $this->Form->input('name'); ?>
     </div>
-    <div class="col-lg-6 col-md-6">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <?php echo $this->Form->input('business_name'); ?>
     </div>
 </div>
-<?php echo $this->Form->input('location'); ?>
-<?php echo $this->Form->input('website'); ?>
-<?php echo $this->Form->input('schedule_id', array('options' => $schedules, 'selected' => $vendor['Vendor']['schedule_id'])); ?>
-<?php echo $this->Form->label('Active:'); ?>
-<?php $options = array(); ?>
-<?php if($vendor['Vendor']['active'] == '1'): ?>
-    <?php $options['checked'] = 'checked'; ?>
-<?php endif; ?>
-<?php $options['value'] = $vendor['Vendor']['active']; ?>
-<?php echo $this->Form->checkbox('active', $options); ?>
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <?php echo $this->Form->input('location'); ?>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <?php echo $this->Form->input('website'); ?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <?php echo $this->Form->input('schedule_id', array('options' => $schedules, 'selected' => $vendor['Vendor']['schedule_id'])); ?>
+        <?php $options = array('label' => 'Active'); ?>
+        <?php if($vendor['Vendor']['active'] == '1'): ?>
+            <?php $options['checked'] = 'checked'; ?>
+        <?php endif; ?>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <?php $options['value'] = $vendor['Vendor']['active']; ?>
+        <?php echo $this->Form->input('active', $options); ?>
+    </div>
+</div>
 <?php echo $this->Form->submit('Save vendor'); ?>
 <?php echo $this->Form->end(); ?>
 

@@ -6925,10 +6925,25 @@ html #container #admin-menu li a {
 html #container #content {
   background: #ffe88e;
 }
+html #container #content form .required label:after {
+  content: '';
+}
+html #container #content form div {
+  clear: none;
+  margin-bottom: 0;
+}
+html #container #content form .checkbox label {
+  float: left;
+  margin-top: 6px;
+  margin-left: -15px;
+  font-weight: bold;
+}
+html #container #content form .checkbox input {
+  float: right;
+  position: static;
+  margin-right: 450px;
+}
 html #container .pages.index {
   width: 100%;
   border-left: none;
-}
-html #container form .required label:after {
-  content: '';
 }

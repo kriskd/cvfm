@@ -37,13 +37,32 @@ html {
         }
         #content {
             background: @lightYellow;
+            form {
+                .required label:after {
+                    content: '';
+                }
+                div {
+                    clear: none;
+                    margin-bottom: 0;
+                }
+                .checkbox {
+                    label {
+                        float: left;
+                        margin-top: 6px;
+                        margin-left: -15px;
+                        font-weight: bold;
+                    }
+                    input {
+                        float: right;
+                        position: static;
+                        margin-right: 450px;
+                    }
+                }
+            }
         }
         .pages.index {
             width: 100%;
             border-left: none;
-        }
-        form .required label:after {
-            content: '';
         }
     }
 }
