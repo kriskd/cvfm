@@ -6958,6 +6958,10 @@ span.required {
 }
 #right #content .vendors.add .checkbox input {
   margin-top: 2px;
+  margin-left: 0;
+}
+#right #content .vendors.add label {
+  padding-top: 0;
 }
 #right #content #content-inner {
   margin-bottom: 10px;
