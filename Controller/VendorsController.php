@@ -48,11 +48,8 @@ class VendorsController extends AppController {
             }
         }
         
-        $products = $this->Vendor->Product->productsByType(); 
-        $groupedProducts = array();
-        foreach ($products as $product) {
-            $groupedProducts[$product['Producttype']['type']][$product['Product']['id']] = $product['Product']['name'];
-        }
+        $groupedProducts = $this->Vendor->Product->productsByType(); 
+
         $schedules = $this->Vendor->Schedule->find('list', array('fields' => array('Schedule.id', 'Schedule.description')));
         $states = $this->State->find('all');
         $months = array_combine(range(1,12), range(1,12));
