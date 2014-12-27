@@ -13,6 +13,8 @@ module.exports = function(grunt) {
               'webroot/js/src/jquery.galleriffic.js',
               'webroot/js/src/modal.js',
               'webroot/js/src/tooltip.js',
+              'webroot/js/src/transition.js',
+              'webroot/js/src/collapse.js',
               'webroot/js/src/js.js',
             ],
             dest: 'webroot/js/build/scripts.js'

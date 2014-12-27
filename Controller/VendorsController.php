@@ -63,14 +63,18 @@ class VendorsController extends AppController {
     
     //Create Vendor
     public function admin_add(){
-        if($this->data){
-            if($this->Vendor->save($this->data)){
+        if($this->request->data){
+            if($this->Vendor->save($this->request->data)){
                 //$id = $this->Vendor->id;
-                $this->redirect('/admin/vendors/index/');
+                $this->redirect(array(
+                    'action' => 'index',
+                    'admin' => true
+                ));
             }
         }
+        $groupedProducts = $this->Vendor->Product->productsByType(); 
         $schedules = $this->_get_schedules();
-        $this->set(array('schedules' => $schedules));
+        $this->set(compact('schedules', 'groupedProducts'));
         $this->layout = 'ajax';
     }
       
@@ -99,7 +103,8 @@ class VendorsController extends AppController {
         $this->request->data = $vendor;
         $product_types = $this->_get_product_types(); 
         $schedules = $this->_get_schedules();
-        $this->set(array('vendor' => $vendor, 'product_types' => $product_types, 'schedules' => $schedules));
+        $groupedProducts = $this->Vendor->Product->productsByType(); 
+        $this->set(compact('vendor', 'product_types', 'schedules', 'groupedProducts'));
     }
     
     //Delete Vendor
