@@ -6,9 +6,7 @@
                 <p class="modal-title>">Add Product</p>
             </div>
         <div class="modal-body">
-            <?php echo $this->Form->create('Product'); ?>
-            <?php echo $this->Form->input('name'); ?>
-            <?php echo $this->Form->input('product_type', array('options' => $product_types, 'empty' => '')); ?>
+            <?php echo $this->Element('Products/form'); ?>
         </div>
         <div class="modal-footer">
             <?php echo $this->Form->submit(); ?>

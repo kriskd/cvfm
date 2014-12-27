@@ -63,13 +63,20 @@ class ProductsController extends AppController
     
     //Create
     public function admin_add(){
-        if($this->data){
-            $product = $this->Product->save($this->data);
+        if($this->request->data){
+            $product = $this->Product->save($this->request->data);
             $id = $this->Product->id;
-            $this->redirect('/admin/products/edit/' . $id);
+            $this->redirect(array(
+                'action' => 'edit', $id 
+            ));
         }
         $product_types = $this->_get_product_types();
-        $this->set(array('product_types' => $product_types));
+        $months = $this->Month->find('list', array(
+            'fields' => array(
+                'id', 'name'
+            ) 
+        )); 
+        $this->set(compact('product_types', 'months'));
         $this->layout = 'ajax';
     }
     
@@ -88,30 +95,33 @@ class ProductsController extends AppController
     
     //Update
     public function admin_edit($id=null){
-        //var_dump($this->Auth->user());
-        if($this->data){
-            $data = $this->data;
-            $this->Product->save($data);
-            $id = $data['Product']['id'];
-            $this->redirect('/admin/products/edit/' . $id);
+        if (empty($id)) {
+            $this->redirect(array(
+                'action' => 'index'
+            ));
         }
+
+        if($this->request->data){
+            $product = $this->request->data;
+            $this->Product->save($product);
+            $this->Session->setFlash('Product saved.');
+        } else {
+            $product = $this->Product->findById($id); 
+            $this->request->data = $product;
+        }
+
         $product_types = $this->_get_product_types();
-        $months = $this->Month->find('all'); 
-        
-        foreach($months as $month){
-            $month_arr[$month['Month']['id']] = $month['Month']['name'];
-        }
-        $product = $this->Product->findById($id); 
-        $product_months = $product['Month'];
-        $selected_months = array();
-        foreach($product_months as $product_month){
-            $selected_months[] = $product_month['id'];
-        }
-        $this->set(array('product' => $product
-                         , 'product_types' => $product_types
-                         , 'months' => $month_arr
-                         , 'selected_months' => $selected_months));
-        
+        $months = $this->Month->find('list', array(
+            'fields' => array(
+                'id', 'name'
+            ) 
+        )); 
+
+        $this->set(array(
+            'product' => $product,
+            'product_types' => $product_types,
+            'months' => $months,
+        )); 
     }
 
     //Delete
