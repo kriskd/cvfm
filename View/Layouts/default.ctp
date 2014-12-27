@@ -30,10 +30,11 @@ $cakeDescription = __d('cake_dev', 'Capitol View Farmers Market Admin');
 	<?php
 		echo $this->Html->meta('icon');
 
+        //echo $this->Html->css('/css/build/jquery-ui-1.10.4.custom.min');
 		echo $this->Html->css('build/admin.min');
 		
 		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
-		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js');
+		//echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js');
 		echo $this->Html->script('/js/build/scripts');
 
 
