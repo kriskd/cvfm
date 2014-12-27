@@ -75,7 +75,6 @@ class VendorsController extends AppController {
         $groupedProducts = $this->Vendor->Product->productsByType(); 
         $schedules = $this->_get_schedules();
         $this->set(compact('schedules', 'groupedProducts'));
-        $this->layout = 'ajax';
     }
       
     //Retrieve Vendors

@@ -14,7 +14,7 @@
     <?php echo $this->Form->input('donate', array('label' => 'I would like to donate something to a special event', 'class' => '')); ?>
     <?php echo $this->Form->input('comments', array('label' => 'Comments/Suggestions')); ?>
     <?php echo $this->Form->input('schedule_id', array('options' => $schedules)); ?>
-    <?php echo $this->Element('product_accordion', compact('groupedProducts')); ?>
+    <?php echo $this->Element('Vendors/product_accordion', compact('groupedProducts')); ?>
     <?php echo $this->Form->input('agree', array('label' => 'I have read the rules and bylaws and agree to them.', 'class' => '')); ?>
     <?php echo $this->Form->input('Card.number', array(
                                                     'name' => false,

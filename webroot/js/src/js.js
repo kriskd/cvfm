@@ -14,7 +14,7 @@ $(document).ready(function(){
         height: '500px'
     });*/
     
-    $(document).on('click', '.fire-modal', function(){
+    /*$(document).on('click', '.fire-modal', function(){
         var action = $(this).data('action');
         $.ajax({
             url: '/admin/' + action,
@@ -25,7 +25,7 @@ $(document).ready(function(){
             }
         });
         return false;
-    });
+    });*/
     
     $('.confirm').click(function(){
         var answer = confirm('Do you want to delete?');

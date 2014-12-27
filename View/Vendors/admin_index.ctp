@@ -1,4 +1,7 @@
-<p><?php echo $this->Html->link('Add vendor', '/admin/vendors/add', array('class' => 'fire-modal', 'data-action' => 'vendors/add', 'data-toggle' => 'modal', 'data-target' => '.modal')); ?></p>
+<p><?php echo $this->Html->link('Add vendor', array(
+        'action' => 'add',
+        'admin' => true,
+    )); ?></p>
 <p><?php echo $this->Html->link('Back', '/admin/vendors'); ?></p>
 <table>
 <?php foreach($vendors as $vendor): ?>
