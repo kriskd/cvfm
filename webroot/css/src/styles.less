@@ -48,7 +48,9 @@ a:active { color: @brown; text-decoration: none; }
 #left #thumbs .thumb img { width: 120px; }
 
 #header {
+    text-align: center;
     margin-bottom: 16px;
+    background: @mainGreen;
     h1, h2 {
         text-align: center;
         font-style: italic;
@@ -65,16 +67,17 @@ a:active { color: @brown; text-decoration: none; }
         text-align: center;
     }
     .logo {
-        width: 283px;
-        margin: auto;
-        text-align: center; 
+        img {
+            margin: auto;
+            display: block;
+        }
     }
     .menu {
-        width: 590px;
-        background: url(images/background1.png) no-repeat @yellowBg;
-        height: 200px;
-        width: 590px;
-        padding-bottom: 16px;
+        //width: 590px;
+        //background: url(images/background1.png) no-repeat @yellowBg;
+        //height: 200px;
+        //width: 590px;
+        //padding-bottom: 16px;
     }
     ul {
         margin-top: 50px;
@@ -176,28 +179,44 @@ a:active { color: @brown; text-decoration: none; }
 
 #right #content #footer { text-align: center; clear: both; }
 
-.carousel-wrapper {
-    text-align: center;
-    .carousel {
-        .carousel-inner{
+.container-fluid {
+    .content {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        .carousel-wrapper {
             text-align: center;
-            .item {
-                text-align: center;
-                overflow: hidden;
-                .crop {
-                    max-width: 640px;
-                    max-height: 280px;
+            .carousel {
+                .carousel-inner{
                     text-align: center;
-                    overflow: hidden;
-                    display: block;
-                    margin: auto;
-                    img {
-                        position: relative;
-                        top: -100px;
-                        margin-bottom: -100px; 
+                    .item {
+                        text-align: center;
+                        overflow: hidden;
+                        .crop {
+                            max-width: 640px;
+                            max-height: 280px;
+                            text-align: center;
+                            overflow: hidden;
+                            display: block;
+                            margin: auto;
+                            img {
+                                position: relative;
+                                top: -100px;
+                                margin-bottom: -100px; 
+                            }
+                        }
                     }
+                }
+                .carousel-control {
+                    background-image: none;
+                    width: 10%;
                 }
             }
         }
+    }
+    #footer {
+        text-align: center;
+        background: @mainGreen;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
 }

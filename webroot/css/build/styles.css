@@ -6898,7 +6898,9 @@ span.required {
   width: 120px;
 }
 #header {
+  text-align: center;
   margin-bottom: 16px;
+  background: #cdcd7d;
 }
 #header h1,
 #header h2 {
@@ -6916,16 +6918,9 @@ span.required {
 #header h2 {
   text-align: center;
 }
-#header .logo {
-  width: 283px;
+#header .logo img {
   margin: auto;
-  text-align: center;
-}
-#header .menu {
-  background: url(images/background1.png) no-repeat #ffe266;
-  height: 200px;
-  width: 590px;
-  padding-bottom: 16px;
+  display: block;
 }
 #header ul {
   margin-top: 50px;
@@ -7071,17 +7066,21 @@ span.required {
   text-align: center;
   clear: both;
 }
-.carousel-wrapper {
+.container-fluid .content {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.container-fluid .content .carousel-wrapper {
   text-align: center;
 }
-.carousel-wrapper .carousel .carousel-inner {
+.container-fluid .content .carousel-wrapper .carousel .carousel-inner {
   text-align: center;
 }
-.carousel-wrapper .carousel .carousel-inner .item {
+.container-fluid .content .carousel-wrapper .carousel .carousel-inner .item {
   text-align: center;
   overflow: hidden;
 }
-.carousel-wrapper .carousel .carousel-inner .item .crop {
+.container-fluid .content .carousel-wrapper .carousel .carousel-inner .item .crop {
   max-width: 640px;
   max-height: 280px;
   text-align: center;
@@ -7089,8 +7088,18 @@ span.required {
   display: block;
   margin: auto;
 }
-.carousel-wrapper .carousel .carousel-inner .item .crop img {
+.container-fluid .content .carousel-wrapper .carousel .carousel-inner .item .crop img {
   position: relative;
   top: -100px;
   margin-bottom: -100px;
+}
+.container-fluid .content .carousel-wrapper .carousel .carousel-control {
+  background-image: none;
+  width: 10%;
+}
+.container-fluid #footer {
+  text-align: center;
+  background: #cdcd7d;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }

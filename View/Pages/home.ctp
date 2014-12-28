@@ -3,7 +3,14 @@
         <?php echo $this->Element('slideshow'); ?>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4">
-        <p>Some content here</p>
+        <ul class="nav nav-pills">
+            <li>
+                <?php echo $this->Html->link('About', '#'); ?>
+            </li>
+            <li>
+                <?php echo $this->Html->link('Documents', '#'); ?>
+            </li>
+        </ul>
     </div>
 </div>
 <?php //echo $content['Page']['val']; ?>

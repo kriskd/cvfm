@@ -29,7 +29,7 @@
     echo $this->fetch('script');
     echo $this->Html->script('/js/build/scripts.min');
     ?>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <?php echo $this->Session->flash(); ?>
@@ -39,7 +39,7 @@
                 <?php //echo $this->element('admin_menu'); ?>
             </div>
         <?php endif; ?>
-        <div class="container">
+        <div class="container-fluid">
             <?php echo $this->Element('header'); ?>
             <div class="content">
                 <?php echo $content_for_layout; ?>
