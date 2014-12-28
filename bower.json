@@ -1,6 +1,7 @@
 {
     "name": "Bruces Vintage Watches",
     "dependencies" : {
-        "bootstrap": "3.*"
+        "bootstrap": "3.*",
+        "enquire": "2.*"
     }
 }

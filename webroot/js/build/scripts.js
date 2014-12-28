@@ -2065,7 +2065,7 @@
         height: '500px'
     });*/
     
-    $(document).on('click', '.fire-modal', function(){
+    /*$(document).on('click', '.fire-modal', function(){
         var action = $(this).data('action');
         $.ajax({
             url: '/admin/' + action,
@@ -2076,6 +2076,17 @@
             }
         });
         return false;
+    });*/
+
+    var windowWidth = $(window).width();
+    console.log(windowWidth);
+
+    $('#accordion .panel-body').each(function(){
+      var checkboxCount = $(this).find('.product-checkboxes .checkbox').length;
+      console.log(checkboxCount);
+      var div = document.createElement('div');
+      div.classList.add('row');
+      $(this).find('.product-checkboxes').wrap(div);
     });
     
     $('.confirm').click(function(){

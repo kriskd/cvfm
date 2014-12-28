@@ -26,6 +26,17 @@ $(document).ready(function(){
         });
         return false;
     });*/
+
+    var windowWidth = $(window).width();
+    console.log(windowWidth);
+
+    $('#accordion .panel-body').each(function(){
+      var checkboxCount = $(this).find('.product-checkboxes .checkbox').length;
+      console.log(checkboxCount);
+      var div = document.createElement('div');
+      div.classList.add('row');
+      $(this).find('.product-checkboxes').wrap(div);
+    });
     
     $('.confirm').click(function(){
         var answer = confirm('Do you want to delete?');
