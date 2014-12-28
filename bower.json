@@ -1,7 +1,6 @@
 {
-    "name": "Bruces Vintage Watches",
+    "name": "Capitol View Farmers Market",
     "dependencies" : {
-        "bootstrap": "3.*",
-        "enquire": "2.*"
+        "bootstrap": "3.*"
     }
 }
