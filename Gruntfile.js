@@ -15,6 +15,7 @@ module.exports = function(grunt) {
               'webroot/js/src/tooltip.js',
               'webroot/js/src/transition.js',
               'webroot/js/src/collapse.js',
+              'webroot/js/src/carousel.js',
               'webroot/js/src/js.js',
             ],
             dest: 'webroot/js/build/scripts.js'
