@@ -36,24 +36,15 @@
         <?php $user = $this->Session->read('Auth.User'); ?>
         <?php if(isset($user)): ?>
             <div id="admin-inner">
-                <?php echo $this->element('admin_menu'); ?>
+                <?php //echo $this->element('admin_menu'); ?>
             </div>
         <?php endif; ?>
-        <div id="main">
+        <div class="container">
             <?php echo $this->Element('header'); ?>
-            <div id="left">
-                <div id="slideshow">
-                    <?php echo $this->element('slideshow'); ?>
-                </div>
+            <div class="content">
+                <?php echo $content_for_layout; ?>
             </div>
-            <div id="right">
-                <div id="content">
-                    <div id="content-inner">
-                        <?php echo $content_for_layout; ?>
-                    </div>
-                    <?php echo $this->element('footer'); ?>
-                </div>
-            </div>
+            <?php echo $this->element('footer'); ?>
     </div>
     <?php //echo $this->element('sql_dump'); ?>
 </body>

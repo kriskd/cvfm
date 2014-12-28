@@ -175,3 +175,29 @@ a:active { color: @brown; text-decoration: none; }
 #right .gold, #right .silver { width: 100%; float: none; text-align: center; padding-bottom: 10px; }
 
 #right #content #footer { text-align: center; clear: both; }
+
+.carousel-wrapper {
+    text-align: center;
+    .carousel {
+        .carousel-inner{
+            text-align: center;
+            .item {
+                text-align: center;
+                overflow: hidden;
+                .crop {
+                    max-width: 640px;
+                    max-height: 280px;
+                    text-align: center;
+                    overflow: hidden;
+                    display: block;
+                    margin: auto;
+                    img {
+                        position: relative;
+                        top: -100px;
+                        margin-bottom: -100px; 
+                    }
+                }
+            }
+        }
+    }
+}

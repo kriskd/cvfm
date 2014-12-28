@@ -7071,3 +7071,26 @@ span.required {
   text-align: center;
   clear: both;
 }
+.carousel-wrapper {
+  text-align: center;
+}
+.carousel-wrapper .carousel .carousel-inner {
+  text-align: center;
+}
+.carousel-wrapper .carousel .carousel-inner .item {
+  text-align: center;
+  overflow: hidden;
+}
+.carousel-wrapper .carousel .carousel-inner .item .crop {
+  max-width: 640px;
+  max-height: 280px;
+  text-align: center;
+  overflow: hidden;
+  display: block;
+  margin: auto;
+}
+.carousel-wrapper .carousel .carousel-inner .item .crop img {
+  position: relative;
+  top: -100px;
+  margin-bottom: -100px;
+}
