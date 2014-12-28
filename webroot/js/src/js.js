@@ -26,7 +26,7 @@ $(document).ready(function(){
         });
         return false;
     });*/
-    
+
     $('.confirm').click(function(){
         var answer = confirm('Do you want to delete?');
         if (answer) {
