@@ -4,6 +4,26 @@
 @import "min-base.less";
 @import "_accordion.less";
 
+@media (max-width: @screen-xs-max) { 
+    .nav {
+        //outline: 1px solid purple; 
+    }
+}
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { 
+    .nav {
+        //outline: 1px solid green; 
+    }     
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) { 
+    .nav {
+        //outline: 1px solid blue;
+    }
+}
+@media (min-width: @screen-lg-min) { 
+    .nav {
+        //outline: 1px solid red; 
+    }
+}
 body { background: @yellowBg; color: @brown; font-family: arial; font-size: 12px; }
 :focus { outline: none; }
 a:link { color: @brown; text-decoration: underline; }
@@ -11,6 +31,10 @@ a:visited { color: @brown; text-decoration: underline; }
 a:hover { color: @brown; text-decoration: none; }
 a:active { color: @brown; text-decoration: none; }
 
+.navbar-default {
+    background: @lightYellow;
+    border-color: @ochre;
+}
 .error-message, span.required {
     color: red;
 }
@@ -49,7 +73,7 @@ a:active { color: @brown; text-decoration: none; }
 
 #header {
     text-align: center;
-    margin-bottom: 16px;
+    margin: 0 -15px 16px;
     background: @mainGreen;
     h1, h2 {
         text-align: center;
@@ -72,27 +96,29 @@ a:active { color: @brown; text-decoration: none; }
             display: block;
         }
     }
-    .menu {
-        //width: 590px;
-        //background: url(images/background1.png) no-repeat @yellowBg;
-        //height: 200px;
-        //width: 590px;
-        //padding-bottom: 16px;
-    }
-    ul {
-        margin-top: 50px;
-        .center-block();
-        li {
-            list-style: none;
-            float: left;
-            font-size: 12px;
-            border-left: 1px solid gray;
-            padding-left: 25px;
-            display: block;
+    .navbar-brand {
+        @media (max-width: @screen-xs-min) {
+            .text-overflow();
+            display: inline-block;
+            max-width: 240px;
         }
-        li:first-child {
-            border-left: none;
+    }
+    .menu {
+        @media (min-width: @screen-md-min) {
+            position: relative;
+            height: 200px;
             padding-left: 0px;
+            .bottom {
+                position: absolute;
+                bottom: 0;
+                .navbar {
+                    margin-bottom: 0px;
+                    &.navbar-default {
+                        background: @mainGreen;
+                        border: none;
+                    }
+                }
+            }
         }
     }
 } 
