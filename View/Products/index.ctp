@@ -26,19 +26,21 @@
         <?php $first = ceil($count/2); ?>
         <?php $second = $count - $first; ?>
         <h2>What's in Season in <?php echo date('F'); ?></h2>
-        <div class="col1">
-            <ul>
-            <?php for($i = 0; $i < $first; $i++): ?>
-                <li><?php echo $products_in_season[$i]; ?></li>
-            <?php endfor; ?>
-            </ul>
-        </div>
-        <div class="col1">
-            <ul>
-            <?php for($i = $first; $i < $count; $i++): ?>
-                <li><?php echo $products_in_season[$i]; ?></li>
-            <?php endfor; ?>
-            </ul>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <ul>
+                <?php for($i = 0; $i < $first; $i++): ?>
+                    <li><?php echo $products_in_season[$i]; ?></li>
+                <?php endfor; ?>
+                </ul>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <ul>
+                <?php for($i = $first; $i < $count; $i++): ?>
+                    <li><?php echo $products_in_season[$i]; ?></li>
+                <?php endfor; ?>
+                </ul>
+            </div>
         </div>
     </div>
     <?php endif; ?>
