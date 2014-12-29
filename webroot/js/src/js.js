@@ -27,6 +27,17 @@ $(document).ready(function(){
         return false;
     });*/
 
+    $('.events-modal').on('click', function(){
+      $.ajax({
+        url: '/events/index',
+        dataType: 'html',
+        success: function(data) {
+          $('body').append(data);
+          $('.modal').modal('show');
+        }
+      });
+    });
+
     $('.confirm').click(function(){
         var answer = confirm('Do you want to delete?');
         if (answer) {
