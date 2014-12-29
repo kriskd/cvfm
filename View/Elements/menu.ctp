@@ -14,9 +14,9 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
                 <li>
-                    <?php echo $this->Html->link('Events', array(
-                        'controller' => 'events',
-                        'action' => 'index',        
+                    <?php echo $this->Html->link('About', array(
+                        'controller' => 'pages',
+                        'action' => 'about',        
                     )); ?>
                 </li>
                 <li>
