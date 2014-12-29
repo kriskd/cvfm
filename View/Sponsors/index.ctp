@@ -15,4 +15,4 @@
     </div>
 <?php endforeach; ?>
 <p>If you are interested in sponsoring The Capitol View Farmers Market,
-please contact <span class="email"></span></p>
+please contact <span class="email-mailto"></span></p>
