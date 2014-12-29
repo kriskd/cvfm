@@ -7,7 +7,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <a class="hidden-lg hidden-md hidden-sm navbar-brand" href="#">Capitol View Farmers Market</a>
+            <?php echo $this->Html->link('Capitol View Farmers Market', '/', array(
+                'class' => 'hidden-lg hidden-md hidden-sm navbar-brand', 
+            )); ?>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
