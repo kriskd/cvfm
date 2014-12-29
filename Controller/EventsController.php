@@ -15,6 +15,19 @@ class EventsController extends AppController {
  */
 	public $components = array('Paginator');
 
+    public function index() {
+		$events = $this->Event->find('all', array(
+                'conditions' => array(
+                    'date >=' => date('Y-m-d', strtotime("+1 day"))
+                ),
+                'fields' => array(
+                    'date', 'description'
+                )
+            )
+        ); 
+        $this->set('events', $events);
+        $this->layout = 'ajax';
+    }
 /**
  * admin_index method
  *
