@@ -6224,230 +6224,6 @@ button.close {
     display: none !important;
   }
 }
-/*
-    ColorBox Core Style:
-    The following CSS is consistent between example themes and should not be altered.
-*/
-#colorbox,
-#cboxOverlay,
-#cboxWrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  overflow: hidden;
-}
-#cboxOverlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
-#cboxMiddleLeft,
-#cboxBottomLeft {
-  clear: left;
-}
-#cboxContent {
-  position: relative;
-}
-#cboxLoadedContent {
-  overflow: auto;
-}
-#cboxTitle {
-  margin: 0;
-}
-#cboxLoadingOverlay,
-#cboxLoadingGraphic {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-#cboxPrevious,
-#cboxNext,
-#cboxClose,
-#cboxSlideshow {
-  cursor: pointer;
-}
-.cboxPhoto {
-  float: left;
-  margin: auto;
-  border: 0;
-  display: block;
-}
-.cboxIframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border: 0;
-}
-/* 
-    User Style:
-    Change the following styles to modify the appearance of ColorBox.  They are
-    ordered & tabbed in a way that represents the nesting of the generated HTML.
-*/
-#cboxOverlay {
-  background: url(images/overlay.png) repeat 0 0;
-}
-#cboxTopLeft {
-  width: 21px;
-  height: 21px;
-  background: url(images/controls.png) no-repeat -100px 0;
-}
-#cboxTopRight {
-  width: 21px;
-  height: 21px;
-  background: url(images/controls.png) no-repeat -129px 0;
-}
-#cboxBottomLeft {
-  width: 21px;
-  height: 21px;
-  background: url(images/controls.png) no-repeat -100px -29px;
-}
-#cboxBottomRight {
-  width: 21px;
-  height: 21px;
-  background: url(images/controls.png) no-repeat -129px -29px;
-}
-#cboxMiddleLeft {
-  width: 21px;
-  background: url(images/controls.png) left top repeat-y;
-}
-#cboxMiddleRight {
-  width: 21px;
-  background: url(images/controls.png) right top repeat-y;
-}
-#cboxTopCenter {
-  height: 21px;
-  background: url(images/border.png) 0 0 repeat-x;
-}
-#cboxBottomCenter {
-  height: 21px;
-  background: url(images/border.png) 0 -29px repeat-x;
-}
-#cboxContent {
-  background: #fff;
-  overflow: hidden;
-}
-#cboxError {
-  padding: 50px;
-  border: 1px solid #ccc;
-}
-#cboxLoadedContent {
-  margin-bottom: 28px;
-}
-#cboxTitle {
-  position: absolute;
-  bottom: 4px;
-  left: 0;
-  text-align: center;
-  width: 100%;
-  color: #949494;
-}
-#cboxCurrent {
-  position: absolute;
-  bottom: 4px;
-  left: 58px;
-  color: #949494;
-}
-#cboxSlideshow {
-  position: absolute;
-  bottom: 4px;
-  right: 30px;
-  color: #0092ef;
-}
-#cboxPrevious {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: url(images/controls.png) no-repeat -75px 0;
-  width: 25px;
-  height: 25px;
-  text-indent: -9999px;
-}
-#cboxPrevious.hover {
-  background-position: -75px -25px;
-}
-#cboxNext {
-  position: absolute;
-  bottom: 0;
-  left: 27px;
-  background: url(images/controls.png) no-repeat -50px 0;
-  width: 25px;
-  height: 25px;
-  text-indent: -9999px;
-}
-#cboxNext.hover {
-  background-position: -50px -25px;
-}
-#cboxLoadingOverlay {
-  background: url(images/loading_background.png) no-repeat center center;
-}
-#cboxLoadingGraphic {
-  background: url(images/loading.gif) no-repeat center center;
-}
-#cboxClose {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background: url(images/controls.png) no-repeat -25px 0;
-  width: 25px;
-  height: 25px;
-  text-indent: -9999px;
-}
-#cboxClose.hover {
-  background-position: -25px -25px;
-}
-/*
-  The following fixes a problem where IE7+ replaces a PNG's alpha transparency with a black fill
-  when an alpha filter (opacity change) is set on the element or ancestor element.
-*/
-/*.cboxIE #cboxTopLeft,
-.cboxIE #cboxTopCenter,
-.cboxIE #cboxTopRight,
-.cboxIE #cboxBottomLeft,
-.cboxIE #cboxBottomCenter,
-.cboxIE #cboxBottomRight,
-.cboxIE #cboxMiddleLeft,
-.cboxIE #cboxMiddleRight {
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
-}*/
-/*
-  The following provides PNG transparency support for IE6
-*/
-.cboxIE6 #cboxTopLeft {
-  background: url(images/ie6/borderTopLeft.png);
-}
-.cboxIE6 #cboxTopCenter {
-  background: url(images/ie6/borderTopCenter.png);
-}
-.cboxIE6 #cboxTopRight {
-  background: url(images/ie6/borderTopRight.png);
-}
-.cboxIE6 #cboxBottomLeft {
-  background: url(images/ie6/borderBottomLeft.png);
-}
-.cboxIE6 #cboxBottomCenter {
-  background: url(images/ie6/borderBottomCenter.png);
-}
-.cboxIE6 #cboxBottomRight {
-  background: url(images/ie6/borderBottomRight.png);
-}
-.cboxIE6 #cboxMiddleLeft {
-  background: url(images/ie6/borderMiddleLeft.png);
-}
-.cboxIE6 #cboxMiddleRight {
-  background: url(images/ie6/borderMiddleRight.png);
-}
-/*.cboxIE6 #cboxTopLeft,
-.cboxIE6 #cboxTopCenter,
-.cboxIE6 #cboxTopRight,
-.cboxIE6 #cboxBottomLeft,
-.cboxIE6 #cboxBottomCenter,
-.cboxIE6 #cboxBottomRight,
-.cboxIE6 #cboxMiddleLeft,
-.cboxIE6 #cboxMiddleRight {
-    _behavior: expression(this.src = this.src ? this.src : this.currentStyle.backgroundImage.split('"')[1], this.style.background = "none", this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" + this.src + ", sizingMethod='scale')");
-}*/
 /* min-base.css :: v0.1 : 10172009
  * (CC) 2009 Thierry Koblentz. Some Rights Reserved.             
  * http://creativecommons.org/licenses/by/2.0                   
@@ -6803,7 +6579,7 @@ input[type="button"],
   float: left;
 }
 body {
-  background: #ffe266;
+  background: #cdcd7d;
   color: #694f10;
   font-family: arial;
   font-size: 12px;
@@ -6811,31 +6587,89 @@ body {
 :focus {
   outline: none;
 }
-a:link {
+a:link:not(.btn) {
   color: #694f10;
   text-decoration: underline;
 }
-a:visited {
+a:visited:not(.btn) {
   color: #694f10;
   text-decoration: underline;
 }
-a:hover {
+a:hover:not(.btn) {
   color: #694f10;
   text-decoration: none;
 }
-a:active {
+a:active:not(.btn) {
   color: #694f10;
   text-decoration: none;
+}
+.btn-brown {
+  color: #100c03;
+  background-color: #ce9a21;
+  border-color: #694f10;
+}
+.btn-brown:hover,
+.btn-brown:focus,
+.btn-brown.focus,
+.btn-brown:active,
+.btn-brown.active,
+.open > .dropdown-toggle.btn-brown {
+  color: #100c03;
+  background-color: #a2791a;
+  border-color: #342708;
+}
+.btn-brown:active,
+.btn-brown.active,
+.open > .dropdown-toggle.btn-brown {
+  background-image: none;
+}
+.btn-brown.disabled,
+.btn-brown[disabled],
+fieldset[disabled] .btn-brown,
+.btn-brown.disabled:hover,
+.btn-brown[disabled]:hover,
+fieldset[disabled] .btn-brown:hover,
+.btn-brown.disabled:focus,
+.btn-brown[disabled]:focus,
+fieldset[disabled] .btn-brown:focus,
+.btn-brown.disabled.focus,
+.btn-brown[disabled].focus,
+fieldset[disabled] .btn-brown.focus,
+.btn-brown.disabled:active,
+.btn-brown[disabled]:active,
+fieldset[disabled] .btn-brown:active,
+.btn-brown.disabled.active,
+.btn-brown[disabled].active,
+fieldset[disabled] .btn-brown.active {
+  background-color: #ce9a21;
+  border-color: #694f10;
+}
+.btn-brown .badge {
+  color: #ce9a21;
+  background-color: #100c03;
 }
 .navbar-default {
-  background: #ffe88e;
   border-color: #ce9a21;
+}
+.navbar-default .container-fluid {
+  background: #ffe88e;
 }
 .navbar-default .navbar-nav > li > a {
   color: #694f10;
 }
 .navbar-default .navbar-brand {
   color: #694f10;
+}
+.navbar-default .navbar-toggle {
+  border-color: #ce9a21;
+  background: #ffe88e;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ce9a21;
+}
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+  background: #ffe266;
 }
 @media (min-width: 768px) {
   .navbar-collapse ul {
@@ -6849,8 +6683,14 @@ a:active {
   }
 }
 @media (max-width: 767px) {
-  .navbar-collapse li {
+  .navbar-default .navbar-collapse {
+    border-color: #ce9a21;
+  }
+  .navbar-default .navbar-collapse li {
     text-align: left;
+  }
+  .navbar-default .navbar-collapse li a:hover {
+    background: #ffe266;
   }
 }
 .error-message,
@@ -6870,58 +6710,6 @@ span.required {
 }
 #admin-inner #admin-menu li {
   display: inline;
-}
-#main {
-  width: 858px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-#left {
-  width: 268px;
-  float: left;
-  margin-top: -16px;
-}
-#left #image {
-  padding: 0 7px;
-}
-#left #image .advance-link {
-  text-decoration: none;
-}
-#left #image img {
-  width: 255px;
-  height: 191px;
-  margin-bottom: 10px;
-}
-#left #controls {
-  padding: 0px 7px;
-}
-#left #controls a {
-  text-decoration: none;
-}
-#left #controls .ss-controls {
-  float: left;
-}
-#left #controls .nav-controls {
-  float: right;
-}
-#left #controls .nav-controls a {
-  margin-left: 10px;
-}
-#left #thumbs {
-  clear: both;
-}
-#left #thumbs ul {
-  margin: 0;
-  padding: 0px;
-}
-#left #thumbs ul li {
-  list-style: none;
-  float: left;
-  margin: 0;
-  padding: 5px 7px;
-}
-#left #thumbs .thumb img {
-  width: 120px;
 }
 #header {
   text-align: center;
@@ -6982,8 +6770,10 @@ span.required {
     margin-bottom: 0px;
   }
   #header .head-right .navigation .navbar.navbar-default {
-    background: #cdcd7d;
     border: none;
+  }
+  #header .head-right .navigation .navbar.navbar-default .container-fluid {
+    background: #cdcd7d;
   }
 }
 #right {
@@ -7112,6 +6902,9 @@ span.required {
   text-align: center;
   clear: both;
 }
+.container-fluid {
+  background: #ffe266;
+}
 .container-fluid .content {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -7142,6 +6935,9 @@ span.required {
 .container-fluid .content .carousel-wrapper .carousel .carousel-control {
   background-image: none;
   width: 10%;
+}
+.container-fluid .home-right {
+  margin-top: 10px;
 }
 .container-fluid #footer {
   text-align: center;

@@ -1,6 +1,6 @@
 @import "bower_components/bootstrap/less/bootstrap.less";
 @import "_variables.less";
-@import "colorbox.less";
+//@import "colorbox.less";
 @import "min-base.less";
 @import "_accordion.less";
 
@@ -24,15 +24,20 @@
         //outline: 1px solid red; 
     }
 }
-body { background: @yellowBg; color: @brown; font-family: arial; font-size: 12px; }
+body { background: @mainGreen; color: @brown; font-family: arial; font-size: 12px; }
 :focus { outline: none; }
-a:link { color: @brown; text-decoration: underline; }
-a:visited { color: @brown; text-decoration: underline; }
-a:hover { color: @brown; text-decoration: none; }
-a:active { color: @brown; text-decoration: none; }
+a:link:not(.btn) { color: @brown; text-decoration: underline; }
+a:visited:not(.btn) { color: @brown; text-decoration: underline; }
+a:hover:not(.btn) { color: @brown; text-decoration: none; }
+a:active:not(.btn) { color: @brown; text-decoration: none; }
 
+.btn-brown {
+  .button-variant(darken(@brown, 20%); @ochre; @brown);
+}
 .navbar-default {
-    background: @lightYellow;
+    .container-fluid {
+        background: @lightYellow;
+    }
     border-color: @ochre;
     .navbar-nav {
         >li {
@@ -43,6 +48,16 @@ a:active { color: @brown; text-decoration: none; }
     }
     .navbar-brand {
         color: @brown;
+    }
+    .navbar-toggle {
+        border-color: @ochre;
+        background: @lightYellow;
+        .icon-bar {
+            background-color: @ochre;
+        }
+        &:focus, &:hover {
+            background: @yellowBg;
+        }
     }
 }
 @media (min-width: @screen-sm-min) {
@@ -59,9 +74,15 @@ a:active { color: @brown; text-decoration: none; }
     }
 }
 @media (max-width: @screen-xs-max) { 
-    .navbar-collapse {
-        li {
-            text-align: left;
+    .navbar-default {
+        .navbar-collapse {
+            border-color: @ochre;
+            li {
+                text-align: left;
+                a:hover {
+                    background: @yellowBg;
+                }
+            }
         }
     }
 }
@@ -83,23 +104,6 @@ a:active { color: @brown; text-decoration: none; }
     }
 }
 
-
-#main { width: 858px; margin: 0 auto; overflow: hidden; }
-
-#left { width: 268px; float: left; margin-top: -16px; }
-
-#left #image { padding: 0 7px; }
-#left #image .advance-link { text-decoration: none; }
-#left #image img { width: 255px; height: 191px; margin-bottom: 10px; }
-#left #controls { padding: 0px 7px; }
-#left #controls a { text-decoration: none; }
-#left #controls .ss-controls { float: left; }
-#left #controls .nav-controls { float: right; }
-#left #controls .nav-controls a { margin-left: 10px; }
-#left #thumbs { clear: both; }
-#left #thumbs ul { margin: 0; padding: 0px; }
-#left #thumbs ul li { list-style: none; float: left; margin: 0; padding: 5px 7px; }
-#left #thumbs .thumb img { width: 120px; }
 
 #header {
     text-align: center;
@@ -153,8 +157,10 @@ a:active { color: @brown; text-decoration: none; }
                 .navbar {
                     margin-bottom: 0px;
                     &.navbar-default {
-                        background: @mainGreen;
                         border: none;
+                        .container-fluid {
+                            background: @mainGreen;
+                        }
                     }
                 }
             }
@@ -245,6 +251,7 @@ a:active { color: @brown; text-decoration: none; }
 #right #content #footer { text-align: center; clear: both; }
 
 .container-fluid {
+    background: @yellowBg;
     .content {
         padding-top: 15px;
         padding-bottom: 15px;
@@ -277,6 +284,9 @@ a:active { color: @brown; text-decoration: none; }
                 }
             }
         }
+    }
+    .home-right {
+        margin-top: 10px;
     }
     #footer {
         text-align: center;
