@@ -35,6 +35,26 @@ a:active { color: @brown; text-decoration: none; }
     background: @lightYellow;
     border-color: @ochre;
 }
+@media (min-width: @screen-sm-min) {
+    .navbar-collapse {
+        ul {
+            float: none;
+            width: 100%;
+            li {
+                float: none;
+                display: table-cell;
+                width: 1%;
+            }
+        }
+    }
+}
+@media (max-width: @screen-xs-max) { 
+    .navbar-collapse {
+        li {
+            text-align: left;
+        }
+    }
+}
 .error-message, span.required {
     color: red;
 }

@@ -6831,6 +6831,22 @@ a:active {
   background: #ffe88e;
   border-color: #ce9a21;
 }
+@media (min-width: 768px) {
+  .navbar-collapse ul {
+    float: none;
+    width: 100%;
+  }
+  .navbar-collapse ul li {
+    float: none;
+    display: table-cell;
+    width: 1%;
+  }
+}
+@media (max-width: 767px) {
+  .navbar-collapse li {
+    text-align: left;
+  }
+}
 .error-message,
 span.required {
   color: red;
