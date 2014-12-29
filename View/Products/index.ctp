@@ -1,10 +1,12 @@
 <div class="products">
-    <div id="top">
+    <div class="top">
         <h2>Products</h2>
         <p>Fruits and vegetables are only available when in season.
         Vendor selection may vary week by week.</p>
         <div class="row">
-            <div class="col-xs-8">
+            <div class="col-lg-4 col-lg-push-8 col-md-4 col-md-push-8 col-sm-4 col-sm-push-8 col-xs-12 results">
+            </div>
+            <div class="col-lg-8 col-lg-pull-4 col-md-8 col-md-pull-4 col-sm-8 col-sm-pull-4 col-xs-12 product-select">
             <?php echo $this->Form->create('Product', array('class' => 'form-inline')); ?>
             <?php foreach($product_types as $type => $items): ?>
                 <?php foreach($items as $item): ?>
@@ -16,12 +18,10 @@
             <?php endforeach; ?>
             <?php echo $this->Form->end(); ?>
             </div>
-            <div class="col-xs-4 results">
-            </div>
         </div>
     </div>
     <?php if($products_in_season): ?>
-    <div id="bottom">
+    <div class="bottom">
         <?php $count = count($products_in_season); ?>
         <?php $first = ceil($count/2); ?>
         <?php $second = $count - $first; ?>

@@ -31,6 +31,15 @@ a:visited:not(.btn) { color: @brown; text-decoration: underline; }
 a:hover:not(.btn) { color: @brown; text-decoration: none; }
 a:active:not(.btn) { color: @brown; text-decoration: none; }
 
+// Prevent input zoom
+input[type="text"], input[type="password"], input[type="date"],
+input[type="datetime"], input[type="datetime-local"], input[type="month"],
+input[type="week"], input[type="email"], input[type="number"],
+input[type="search"], input[type="tel"], input[type="time"],
+input[type="url"], textarea, select { 
+    font-size: 16px!important; 
+}
+
 .rounded-corners (@radius: 5px) {
   border-radius: @radius;
 }
@@ -233,6 +242,7 @@ a:active:not(.btn) { color: @brown; text-decoration: none; }
 
 .products {
     form {
+        padding: 0 30px;
         div {
             .clearfix();
             label {
@@ -241,15 +251,31 @@ a:active:not(.btn) { color: @brown; text-decoration: none; }
                 text-align: right;
                 margin: 5px 5px 0px;
             }
+            @media (max-width: @screen-sm-min) {
+                label {
+                    text-align: left; 
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .top {
+        .results {
+        }
+        .product-select {
+        }
+    }
+    .bottom {
+        clear: both;
+        .col1 {
+            float: left; 
+            width: 255px;
+        }
+        .col2 {
+            margin-left: 255px;
         }
     }
 }
-.products #top .col2 { margin-left: 320px; }
-.products #top .col2 .vendor { margin-bottom: 10px; }
-.products #top .col2 p { margin: 0; }
-.products #bottom { clear: both; }
-.products #bottom .col1 { float: left; width: 255px; }
-.products #bottom .col2 { margin-left: 255px; }
 
 #right table#vendors td { padding: .2em 2em .2em 0; }
 #right .sponsor { width: 106px; margin: auto; }

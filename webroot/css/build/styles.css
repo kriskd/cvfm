@@ -6603,6 +6603,23 @@ a:active:not(.btn) {
   color: #694f10;
   text-decoration: none;
 }
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+  font-size: 16px!important;
+}
 .btn-brown {
   color: #100c03;
   background-color: #ce9a21;
@@ -6840,6 +6857,9 @@ span.required {
 #right #content #content-inner h2 {
   padding: 0px;
 }
+.products form {
+  padding: 0 30px;
+}
 .products form div:before,
 .products form div:after {
   content: " ";
@@ -6862,23 +6882,20 @@ span.required {
   text-align: right;
   margin: 5px 5px 0px;
 }
-.products #top .col2 {
-  margin-left: 320px;
+@media (max-width: 768px) {
+  .products form div label {
+    text-align: left;
+    width: 100%;
+  }
 }
-.products #top .col2 .vendor {
-  margin-bottom: 10px;
-}
-.products #top .col2 p {
-  margin: 0;
-}
-.products #bottom {
+.products .bottom {
   clear: both;
 }
-.products #bottom .col1 {
+.products .bottom .col1 {
   float: left;
   width: 255px;
 }
-.products #bottom .col2 {
+.products .bottom .col2 {
   margin-left: 255px;
 }
 #right table#vendors td {
