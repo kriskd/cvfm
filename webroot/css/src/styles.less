@@ -34,6 +34,16 @@ a:active { color: @brown; text-decoration: none; }
 .navbar-default {
     background: @lightYellow;
     border-color: @ochre;
+    .navbar-nav {
+        >li {
+            >a {
+                color: @brown;
+            }
+        }
+    }
+    .navbar-brand {
+        color: @brown;
+    }
 }
 @media (min-width: @screen-sm-min) {
     .navbar-collapse {
@@ -111,9 +121,9 @@ a:active { color: @brown; text-decoration: none; }
         text-align: center;
     }
     .logo {
+        margin-bottom: 5px;
         img {
             margin: auto;
-            display: block;
         }
     }
     .navbar-brand {
@@ -126,6 +136,11 @@ a:active { color: @brown; text-decoration: none; }
     .head-right {
         .navbar {
             margin-bottom: 0px;
+        }
+        @media (max-width: @screen-sm-min) {
+            .navigation {
+                margin-top: 5px;
+            }
         }
         @media (min-width: @screen-md-min) {
             position: relative;

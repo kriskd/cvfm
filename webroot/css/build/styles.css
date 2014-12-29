@@ -6831,6 +6831,12 @@ a:active {
   background: #ffe88e;
   border-color: #ce9a21;
 }
+.navbar-default .navbar-nav > li > a {
+  color: #694f10;
+}
+.navbar-default .navbar-brand {
+  color: #694f10;
+}
 @media (min-width: 768px) {
   .navbar-collapse ul {
     float: none;
@@ -6938,9 +6944,11 @@ span.required {
 #header h2 {
   text-align: center;
 }
+#header .logo {
+  margin-bottom: 5px;
+}
 #header .logo img {
   margin: auto;
-  display: block;
 }
 @media (max-width: 480px) {
   #header .navbar-brand {
@@ -6953,6 +6961,11 @@ span.required {
 }
 #header .head-right .navbar {
   margin-bottom: 0px;
+}
+@media (max-width: 768px) {
+  #header .head-right .navigation {
+    margin-top: 5px;
+  }
 }
 @media (min-width: 992px) {
   #header .head-right {
