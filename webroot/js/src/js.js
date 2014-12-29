@@ -1,12 +1,12 @@
 $(document).ready(function(){
-    
+ 
     var name = "info";
     var domain = "capitolviewfarmersmarket.com";
     $('.email-mailto').append('<a href="mailto:' + name + '@' + domain + '">' + name + '@' + domain +'</a>');
     
     $('.launch-tooltip').tooltip();
     $('.required label').append(' <span class="required">*</span>');
-    
+ 
     /*$('.colorbox').colorbox({
         //href: '/admin/vendors/add',
         iframe: true,
@@ -47,9 +47,9 @@ $(document).ready(function(){
             return false;
         }
     });
-    
+ 
     //Admin panel
-    $('select#ProductVendorsProductType').change(function(){ 
+    $('select#ProductVendorsProductType').on('change', function(){ 
         $('.products').empty();
         var item = $(this).val();
         var html = '<select name="data[Vendor][product_id]"><option value=""></option>';
@@ -67,9 +67,9 @@ $(document).ready(function(){
             $('.products').append(html);
         }, 'json');
     });
-        
+ 
     //Products page
-    $('select.products').change(function(){
+    $('select.products').on('change', function(){
         $(this).addClass('selected-category');
         $('.products .results').empty();
         var item = Number($(this).val()); 
@@ -97,7 +97,7 @@ $(document).ready(function(){
             $('.products .results').prepend('<p>Please select a product</p>');
         }
     });
-       
+ 
     if($('.sponsor').length > 0){ 
         var count = 1;
         var biggestHeight = 0;
