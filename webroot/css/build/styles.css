@@ -6935,20 +6935,24 @@ span.required {
     max-width: 240px;
   }
 }
+#header .head-right .navbar {
+  margin-bottom: 0px;
+}
 @media (min-width: 992px) {
-  #header .menu {
+  #header .head-right {
     position: relative;
     height: 200px;
     padding-left: 0px;
   }
-  #header .menu .bottom {
+  #header .head-right .navigation {
     position: absolute;
     bottom: 0;
+    right: 0;
   }
-  #header .menu .bottom .navbar {
+  #header .head-right .navigation .navbar {
     margin-bottom: 0px;
   }
-  #header .menu .bottom .navbar.navbar-default {
+  #header .head-right .navigation .navbar.navbar-default {
     background: #cdcd7d;
     border: none;
   }

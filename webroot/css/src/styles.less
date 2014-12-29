@@ -103,14 +103,18 @@ a:active { color: @brown; text-decoration: none; }
             max-width: 240px;
         }
     }
-    .menu {
+    .head-right {
+        .navbar {
+            margin-bottom: 0px;
+        }
         @media (min-width: @screen-md-min) {
             position: relative;
             height: 200px;
             padding-left: 0px;
-            .bottom {
+            .navigation {
                 position: absolute;
                 bottom: 0;
+                right: 0;
                 .navbar {
                     margin-bottom: 0px;
                     &.navbar-default {
