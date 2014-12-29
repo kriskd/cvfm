@@ -6799,64 +6799,6 @@ span.required {
     border-radius: 5px;
   }
 }
-#right {
-  margin-left: 268px;
-  width: 590px;
-  overflow: hidden;
-  background: #ce9a21;
-}
-#right #content {
-  margin: 10px;
-  background: #ffe88e;
-}
-#right #content #map {
-  margin: 0 auto;
-  text-align: center;
-}
-#right #content h2,
-#right #content h3,
-#right #content h4 {
-  text-align: center;
-}
-#right #content h2 {
-  line-height: 1.4;
-  font-style: italic;
-}
-#right #content h4 {
-  font-style: italic;
-}
-#right #content li {
-  margin-top: 0;
-}
-#right #content li:first-child {
-  margin-top: 1.2em;
-}
-#right #content .vendors.add .col1,
-#right #content .vendors.add .col2 {
-  width: 49%;
-  float: left;
-}
-#right #content .vendors.add .form-control {
-  padding-top: 0px;
-  margin-top: 0px;
-}
-#right #content .vendors.add .checkbox input {
-  margin-top: 2px;
-  margin-left: 0;
-}
-#right #content .vendors.add label {
-  padding-top: 0;
-}
-#right #content #content-inner {
-  margin-bottom: 10px;
-  overflow: hidden;
-  padding: 0 30px;
-}
-#right #content #content-inner p,
-#right #content #content-inner h1,
-#right #content #content-inner h2 {
-  padding: 0px;
-}
 .products form {
   padding: 0 30px;
 }
@@ -6888,42 +6830,30 @@ span.required {
     width: 100%;
   }
 }
-.products .bottom {
-  clear: both;
+@media (min-width: 992px) {
+  .products form div label {
+    width: 200px;
+    margin-top: 10px;
+  }
 }
-.products .bottom .col1 {
-  float: left;
-  width: 255px;
-}
-.products .bottom .col2 {
-  margin-left: 255px;
-}
-#right table#vendors td {
-  padding: .2em 2em .2em 0;
-}
-#right .sponsor {
-  width: 106px;
+.sponsor {
   margin: auto;
 }
-#right .sponsor h3 {
+.sponsor h3 {
   padding: 0;
 }
-#right .sponsor p {
+.sponsor p {
   text-align: center;
 }
-#right .gold {
+.sponsor.gold {
   border-bottom: 1px solid #ffe88e;
 }
-#right .gold,
-#right .silver {
+.sponsor.gold,
+.sponsor.silver {
   width: 100%;
   float: none;
   text-align: center;
   padding-bottom: 10px;
-}
-#right #content #footer {
-  text-align: center;
-  clear: both;
 }
 .container-fluid {
   background: #ffe266;

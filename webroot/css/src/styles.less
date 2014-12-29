@@ -1,6 +1,5 @@
 @import "bower_components/bootstrap/less/bootstrap.less";
 @import "_variables.less";
-//@import "colorbox.less";
 @import "min-base.less";
 @import "_accordion.less";
 
@@ -47,6 +46,7 @@ input[type="url"], textarea, select {
 .btn-brown {
   .button-variant(darken(@brown, 20%); @ochre; @brown);
 }
+
 .navbar-default {
     .container-fluid {
         background: @lightYellow;
@@ -73,6 +73,7 @@ input[type="url"], textarea, select {
         }
     }
 }
+
 @media (min-width: @screen-sm-min) {
     .navbar-collapse {
         ul {
@@ -116,7 +117,6 @@ input[type="url"], textarea, select {
         }
     }
 }
-
 
 #header {
     text-align: center;
@@ -187,59 +187,6 @@ input[type="url"], textarea, select {
     }
 } 
 
-#right {
-    margin-left: 268px;
-    width: 590px;
-    overflow: hidden;
-    background: @ochre;
-    #content {
-        margin: 10px;
-        background: @lightYellow;
-        #map {
-            margin: 0 auto;
-            text-align: center;
-        }
-        h2, h3, h4 {
-            text-align: center;
-        }
-        h2 {
-            line-height: 1.4;
-            font-style: italic;
-        }
-        h4 {
-            font-style: italic;
-        }
-        li {
-            margin-top: 0;
-        }
-        li:first-child {
-            margin-top: 1.2em;
-        }
-        .vendors.add {
-            .col1, .col2 {
-                width: 49%;
-                float: left;
-            }
-            .form-control {
-                padding-top: 0px;
-                margin-top: 0px;
-            }
-            .checkbox {
-                input {
-                    margin-top: 2px;
-                    margin-left: 0;
-                }
-            }
-            label {
-                padding-top: 0;
-            }
-        }
-    }
-}
-
-#right #content #content-inner { margin-bottom: 10px; overflow: hidden; padding: 0 30px; }
-#right #content #content-inner p, #right #content #content-inner h1, #right #content #content-inner h2 { padding: 0px; }
-
 .products {
     form {
         padding: 0 30px;
@@ -257,34 +204,31 @@ input[type="url"], textarea, select {
                     width: 100%;
                 }
             }
-        }
-    }
-    .top {
-        .results {
-        }
-        .product-select {
-        }
-    }
-    .bottom {
-        clear: both;
-        .col1 {
-            float: left; 
-            width: 255px;
-        }
-        .col2 {
-            margin-left: 255px;
+            @media (min-width: @screen-md-min) {
+                label {
+                    width: 200px;
+                    margin-top: 10px;
+                }
+            }
         }
     }
 }
 
-#right table#vendors td { padding: .2em 2em .2em 0; }
-#right .sponsor { width: 106px; margin: auto; }
-#right .sponsor h3 { padding: 0; }
-#right .sponsor p { text-align: center; }
-#right .gold { border-bottom: 1px solid @lightYellow; }
-#right .gold, #right .silver { width: 100%; float: none; text-align: center; padding-bottom: 10px; }
-
-#right #content #footer { text-align: center; clear: both; }
+.sponsor { 
+    margin: auto; 
+    h3 { 
+        padding: 0; 
+    }
+    p { 
+        text-align: center; 
+    }
+    &.gold { 
+        border-bottom: 1px solid @lightYellow; 
+    }
+    &.gold, &.silver { 
+        width: 100%; float: none; text-align: center; padding-bottom: 10px; 
+    }
+}
 
 .container-fluid {
     background: @yellowBg;
