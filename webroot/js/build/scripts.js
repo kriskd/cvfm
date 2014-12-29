@@ -2324,7 +2324,7 @@
         dataType: 'html',
         success: function(data) {
           $('body').append(data);
-          $('.modal').modal('show');
+          $('#events-modal').modal('show');
         }
       });
     });

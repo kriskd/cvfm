@@ -7,7 +7,7 @@
             'class' => 'btn btn-lg btn-brown btn-block events-modal' 
         )); ?>
         <?php echo $this->Html->link('Documents', '#', array(
-            'class' => 'btn btn-lg btn-brown btn-block events-modal',
+            'class' => 'btn btn-lg btn-brown btn-block docs-modal',
             'data-toggle' => 'modal',
             'data-target' => '#docs-modal',
         )); ?>
@@ -23,7 +23,6 @@
         <h4 class="modal-title" id="myModalLabel">Documents</h4>
       </div>
       <div class="modal-body">
-        <h3>Documents</h3>
         <p><?php echo $this->Html->link('2014 Vendor Application', '/files/cvfm2014vendorapp.pdf'); ?></p>
         <p><?php echo $this->Html->link('2014 Rules and Bylaws', '/files/CVFM_2014_Rules_and_ByLaws.pdf'); ?></p>
       </div>
