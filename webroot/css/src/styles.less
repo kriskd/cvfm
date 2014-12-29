@@ -31,6 +31,10 @@ a:visited:not(.btn) { color: @brown; text-decoration: underline; }
 a:hover:not(.btn) { color: @brown; text-decoration: none; }
 a:active:not(.btn) { color: @brown; text-decoration: none; }
 
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+}
+
 .btn-brown {
   .button-variant(darken(@brown, 20%); @ochre; @brown);
 }
@@ -160,6 +164,12 @@ a:active:not(.btn) { color: @brown; text-decoration: none; }
                         border: none;
                         .container-fluid {
                             background: @mainGreen;
+                            .active {
+                                background: @ochre;
+                                border: 1px solid @brown;
+                                color: black; 
+                                .rounded-corners;
+                            }
                         }
                     }
                 }

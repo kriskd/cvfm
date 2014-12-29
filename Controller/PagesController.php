@@ -54,6 +54,7 @@ class PagesController extends AppController {
 	public function display() { 
 		$path = func_get_args();
 		$slug = current($path); 
+        $this->set('slug', $slug);
 
 		if ($content = $this->Page->find('first', array('conditions' => array('uri' => $slug)))) {
 			$this->set('content', $content);

@@ -6775,6 +6775,12 @@ span.required {
   #header .head-right .navigation .navbar.navbar-default .container-fluid {
     background: #cdcd7d;
   }
+  #header .head-right .navigation .navbar.navbar-default .container-fluid .active {
+    background: #ce9a21;
+    border: 1px solid #694f10;
+    color: black;
+    border-radius: 5px;
+  }
 }
 #right {
   margin-left: 268px;

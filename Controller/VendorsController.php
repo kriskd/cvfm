@@ -13,7 +13,7 @@ class VendorsController extends AppController {
     
     public function index(){
         $schedules = $this->Schedule->find('all');
-        $this->set(array('schedules' => $schedules));
+        $this->set(array('schedules' => $schedules, 'slug' => 'vendors'));
         $this->layout = 'cvfm';
     }
     
