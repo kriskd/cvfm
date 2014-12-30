@@ -5,7 +5,6 @@
     <tr><td><?php echo $sponsor['Sponsor']['name'];?></td>
         <td><?php echo $sponsor['Sponsor']['website']; ?></td>
         <td><?php echo $sponsor['Sponsor']['amount']; ?></td>
-        <td><?php echo $sponsor['Sponsor']['logo']; ?></td>
         <td><?php echo $this->Form->input('Sponsor.'.$sponsor['Sponsor']['id'].'.active', array(
                 'label' => false,
                 'checked' => $sponsor['Sponsor']['active'],
