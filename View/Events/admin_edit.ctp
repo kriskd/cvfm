@@ -4,7 +4,10 @@
 		<legend><?php echo __('Admin Edit Event'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('date');
+		echo $this->Form->input('date', array(
+            'minYear' => $fiscalYear,
+            'maxYear' => $fiscalYear,
+        ));
 		echo $this->Form->input('description');
 	?>
 	</fieldset>

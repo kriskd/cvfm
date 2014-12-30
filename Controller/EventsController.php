@@ -15,6 +15,11 @@ class EventsController extends AppController {
  */
 	public $components = array('Paginator');
 
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->set(array('fiscalYear' => $this->fiscalYear));
+    }
+
     public function index() {
 		$events = $this->Event->find('all', array(
                 'conditions' => array(
@@ -25,7 +30,7 @@ class EventsController extends AppController {
                 )
             )
         ); 
-        $this->set(array('events' => $events, 'fiscalYear' => $this->fiscalYear));
+        $this->set(array('events' => $events));
         $this->layout = 'ajax';
     }
 /**
