@@ -6789,6 +6789,7 @@ span.required {
   }
   #header .head-right .navigation .navbar {
     margin-bottom: 0px;
+    min-height: 42px;
   }
   #header .head-right .navigation .navbar.navbar-default {
     border: none;
@@ -6796,7 +6797,11 @@ span.required {
   #header .head-right .navigation .navbar.navbar-default .container-fluid {
     background: #cdcd7d;
   }
-  #header .head-right .navigation .navbar.navbar-default .container-fluid .active {
+  #header .head-right .navigation .navbar.navbar-default .container-fluid .navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #header .head-right .navigation .navbar.navbar-default .container-fluid .navbar-nav > li > a.active {
     background: #ce9a21;
     border: 1px solid #694f10;
     color: black;
@@ -6895,6 +6900,15 @@ span.required {
 }
 .container-fluid .home-right {
   margin-top: 10px;
+}
+.container-fluid .home-right .glyphicon {
+  float: right;
+  border-radius: 14px;
+  border: 1px solid #ffe88e;
+  padding: 5px;
+  background: #ffe88e;
+  margin-top: -4px;
+  color: #694f10;
 }
 .container-fluid #footer {
   text-align: center;
