@@ -15,11 +15,6 @@ class EventsController extends AppController {
  */
 	public $components = array('Paginator');
 
-    public function beforeFilter() {
-        parent::beforeFilter();
-        $this->set(array('fiscalYear' => $this->fiscalYear));
-    }
-
     public function index() {
 		$events = $this->Event->find('all', array(
                 'conditions' => array(

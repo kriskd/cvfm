@@ -56,6 +56,7 @@ class AppController extends Controller {
         $this->loadModel('Vendor');
 
         $this->setFiscalYear();
+        $this->set('fiscalYear', $this->fiscalYear);
     }
 
     /**
