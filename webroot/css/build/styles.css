@@ -6698,6 +6698,10 @@ fieldset[disabled] .btn-brown.active {
     display: table-cell;
     width: 1%;
   }
+  .navbar-collapse ul li a.active,
+  .navbar-collapse ul li a:hover.active {
+    background: #ffe266;
+  }
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-collapse {
