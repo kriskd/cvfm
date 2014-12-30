@@ -4,15 +4,14 @@ class VendorsController extends AppController {
     
     public $uses = array('Vendor', 'State');
     
-    public function beforeFilter()
-    {
+    public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->deny();
         $this->Auth->allow('index', 'add');
     }
     
-    public function index(){
-        $schedules = $this->Schedule->find('all');
+    public function index() {
+        $schedules = $this->Vendor->Schedule->activeVendors();
         $this->set(array('schedules' => $schedules, 'slug' => 'vendors'));
         $this->layout = 'cvfm';
     }
