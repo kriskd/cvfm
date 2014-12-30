@@ -4,7 +4,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h3 class="modal-title">
-            Special Events for <?php echo isset($events[0]['Event']['date']) ? date('Y', strtotime($events[0]['Event']['date'])) : date('Y'); ?>
+            Special Events for <?php echo $fiscalYear; ?>
         </h3>
       </div>
       <div class="modal-body">

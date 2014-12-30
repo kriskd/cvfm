@@ -12,7 +12,7 @@ class VendorsController extends AppController {
     
     public function index() {
         $schedules = $this->Vendor->Schedule->activeVendors();
-        $this->set(array('schedules' => $schedules, 'slug' => 'vendors'));
+        $this->set(array('schedules' => $schedules, 'slug' => 'vendors', 'fiscalYear' => $this->fiscalYear));
         $this->layout = 'cvfm';
     }
     

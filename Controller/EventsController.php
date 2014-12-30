@@ -25,7 +25,7 @@ class EventsController extends AppController {
                 )
             )
         ); 
-        $this->set('events', $events);
+        $this->set(array('events' => $events, 'fiscalYear' => $this->fiscalYear));
         $this->layout = 'ajax';
     }
 /**

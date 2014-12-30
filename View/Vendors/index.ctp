@@ -1,4 +1,4 @@
-<h2><?php echo date('Y'); ?> Vendors</h2>
+<h2><?php echo $fiscalYear; ?> Vendors</h2>
 <?php $noVendors = true; ?>
 <?php foreach($schedules as $schedule): ?>
     <?php $vendors = $schedule['Vendor']; ?>

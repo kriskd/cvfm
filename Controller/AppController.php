@@ -34,14 +34,17 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
     
     public $components = array(
-                'Auth' => array('authorize' => 'Controller',
-                                'allowedActions' => array('index', 'display'),
-                                'loginAction' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
-                                'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
-                                'logoutRedirect' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
-                                )
-                ,'Session', 'Paginator', 'DebugKit.Toolbar',
-                'Stripe' => array('className' => 'Stripe.Stripe'));
+            'Auth' => array('authorize' => 'Controller',
+            'allowedActions' => array('index', 'display'),
+            'loginAction' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
+            'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
+            'logoutRedirect' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
+        ),
+        'Session', 'Paginator', 'DebugKit.Toolbar',
+        'Stripe' => array('className' => 'Stripe.Stripe')
+    );
+
+    public $fiscalYear;
 
     public function beforeFilter(){
         parent::beforeFilter();
@@ -51,6 +54,20 @@ class AppController extends Controller {
         $this->loadModel('Producttype');
         $this->loadModel('Schedule');
         $this->loadModel('Vendor');
+
+        $this->setFiscalYear();
+    }
+
+    /**
+     * Fiscal year is defined at November 1 - October 31.
+     * Set appropriately.
+     */
+    protected function setFiscalYear() {
+        $this->fiscalYear = date('Y');
+        if (strtotime('now') > mktime(23, 59, 59, 10, 31, date('Y')) && 
+            strtotime('now') <= mktime(23, 59, 59, 12, 31, date('Y'))) {
+            $this->fiscalYear++; 
+        } 
     }
     
     protected function _get_product_types(){
