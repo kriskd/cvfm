@@ -6925,6 +6925,20 @@ html .ajax-loading {
   height: 16px;
   margin-left: -20px;
 }
+html .modal h4 {
+  color: #000;
+}
+html .modal .modal-body form .product-months {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+html .modal .modal-body form .product-months .form-control {
+  width: 50%;
+}
 html #container #header {
   background: #cdcd7d;
 }

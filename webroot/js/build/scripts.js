@@ -2298,7 +2298,8 @@
     $('.launch-tooltip').tooltip();
     $('.required label').append(' <span class="required">*</span>');
  
-    /*$(document).on('click', '.fire-modal', function(){
+    // Used for sponsor and product add
+    $(document).on('click', '.fire-modal', function(){
         var action = $(this).data('action');
         $.ajax({
             url: '/admin/' + action,
@@ -2309,7 +2310,7 @@
             }
         });
         return false;
-    });*/
+    });
 
     $('.events-modal').on('click', function(){
       $.ajax({
