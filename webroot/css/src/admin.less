@@ -5,6 +5,12 @@
 
 html {
     font-size: 100%;
+    .ajax-loading {
+        background: url('/css/build/images/ajax-loader.gif') center center no-repeat;
+        width: 16px;
+        height: 16px;
+        margin-left: -20px; // Fix for alignment on vendor index during ajax
+    }
     #container {
         #header {
             background: @mainGreen;

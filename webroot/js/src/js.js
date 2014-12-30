@@ -7,13 +7,6 @@ $(document).ready(function(){
     $('.launch-tooltip').tooltip();
     $('.required label').append(' <span class="required">*</span>');
  
-    /*$('.colorbox').colorbox({
-        //href: '/admin/vendors/add',
-        iframe: true,
-        width: '600px',
-        height: '500px'
-    });*/
-    
     /*$(document).on('click', '.fire-modal', function(){
         var action = $(this).data('action');
         $.ajax({
@@ -68,6 +61,31 @@ $(document).ready(function(){
         }, 'json');
     });
  
+    // Vendor active
+    $('.vendor-active').on('click', function(){
+      var value;
+      if ($(this).is(':checked')) {
+        value = 1;
+      } else {
+        value = 0;
+      }
+      var id = $(this).data('id');
+      var that = $(this);
+      $.ajax({
+        url: $(this).parents('form').prop('href'), 
+        data: {'active': value, 'id': id},
+        type: 'post',
+        beforeSend: function() {
+          that.hide();
+          that.parent().addClass('ajax-loading').show();
+        },
+        success: function() {
+          that.parent().removeClass('ajax-loading');
+          that.show();
+        } 
+      });
+    });
+
     //Products page
     $('select.products').on('change', function(){
         $(this).addClass('selected-category');
