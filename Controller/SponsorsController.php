@@ -9,15 +9,20 @@ class SponsorsController extends AppController {
         $this->Auth->allow('index');
     }
     
-    public function index(){
-        $sponsors = $this->Sponsor->find('all', array('order' => array('Sponsor.amount DESC')));
+    public function index() {
+        $sponsors = $this->Sponsor->find('all', array(
+            'order' => array('Sponsor.amount DESC'),
+            'conditions' => array(
+                'active' => 1,
+            ), 
+        ));
         $this->set(array('sponsors' => $sponsors, 'slug' => 'sponsors'));
     }
     
     //Create Sponsor
     public function admin_add(){
         if($this->data){
-            if($this->Sponsor->save($this->data)){
+            if($this->Sponsor->save($this->request->data)){
                 $this->redirect('/admin/sponsors/index/');
                 $this->layout = 'ajax';
             }
@@ -26,6 +31,13 @@ class SponsorsController extends AppController {
     
     //Retrieve Sponsor
     public function admin_index(){
+        if ($this->request->is('ajax')) {
+            $data = $this->request->data;
+            $active = $data['active'];
+            $id = $data['id'];
+            $this->Sponsor->id = $id;
+            $this->Sponsor->saveField('active', $active);
+        }
         $sponsors = $this->Sponsor->find('all', array('order' => array('Sponsor.name')));
         $this->set(array('sponsors' => $sponsors));
     }

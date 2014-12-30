@@ -2352,8 +2352,8 @@
         }, 'json');
     });
  
-    // Vendor active
-    $('.vendor-active').on('click', function(){
+    // Vendor/Sponsor active
+    $('.vendor-active, .sponsor-active').on('click', function(){
       var value;
       if ($(this).is(':checked')) {
         value = 1;
