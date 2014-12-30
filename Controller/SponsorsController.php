@@ -21,12 +21,12 @@ class SponsorsController extends AppController {
     
     //Create Sponsor
     public function admin_add(){
-        if($this->data){
+        if($this->request->data){
             if($this->Sponsor->save($this->request->data)){
                 $this->redirect('/admin/sponsors/index/');
-                $this->layout = 'ajax';
             }
         }
+        $this->layout = 'ajax';
     }
     
     //Retrieve Sponsor
@@ -45,13 +45,12 @@ class SponsorsController extends AppController {
     //Update Sponsor
     public function admin_edit($id=null){
         if($id){
-            if(!empty($this->data)){
-                //var_dump($this->data);
-                $this->Sponsor->save($this->data);
+            if(!empty($this->request->data)){
+                $this->Sponsor->save($this->request->data);
                 $this->Session->setFlash('Sponsor saved.');
-                $this->redirect('/admin/sponsors/edit/' . $id);
             }
             $sponsor = $this->Sponsor->findById($id);
+            $this->request->data = $sponsor;
             $this->set(array('sponsor' => $sponsor));
         }
         else{

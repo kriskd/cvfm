@@ -3,20 +3,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <p class="modal-title>">Add Sponsor</p>
+                <h4 class="modal-title>">Add Sponsor</h4>
             </div>
         <div class="modal-body">
-            <?php echo $this->Form->Create('Sponsor'); ?>
-            <?php echo $this->Form->label('Name:'); ?>
-            <?php echo $this->Form->text('name'); ?>
-            <?php echo $this->Form->error('name'); ?>
-            <?php echo $this->Form->label('Website:'); ?>
-            <?php echo $this->Form->text('website'); ?>
-            <?php echo $this->Form->error('website'); ?>
-            <?php echo $this->Form->label('Amount:'); ?>
-            <?php echo $this->Form->text('amount'); ?>
-            <?php echo $this->Form->label('Logo file:'); ?>
-            <?php echo $this->Form->text('logo'); ?>
+            <?php echo $this->Form->create('Sponsor'); ?>
+            <?php echo $this->Element('Sponsors/form_fields'); ?>
         </div>
         <div class="modal-footer">
             <?php echo $this->Form->submit(); ?>
