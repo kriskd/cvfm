@@ -76,7 +76,8 @@ class VendorsController extends AppController {
       
     //Retrieve Vendors
     public function admin_index(){
-        $vendors = $this->Vendor->find('all', array('order' => 'name'));
+        $vendors = $this->Vendor->find('all', array('order' => 'business_name'));
+        $this->request->data = $vendors;
         $this->set(array('vendors' => $vendors));
     }  
 
