@@ -62,7 +62,6 @@ class VendorsController extends AppController {
     public function admin_add(){
         if($this->request->data){
             if($this->Vendor->save($this->request->data)){
-                //$id = $this->Vendor->id;
                 $this->redirect(array(
                     'action' => 'index',
                     'admin' => true
@@ -71,7 +70,8 @@ class VendorsController extends AppController {
         }
         $groupedProducts = $this->Vendor->Product->productsByType(); 
         $schedules = $this->_get_schedules();
-        $this->set(compact('schedules', 'groupedProducts'));
+        $options = array('checked' => true);
+        $this->set(compact('schedules', 'groupedProducts', 'options'));
     }
       
     //Retrieve Vendors

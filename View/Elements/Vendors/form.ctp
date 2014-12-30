@@ -25,7 +25,7 @@
             <?php echo $this->Form->input('schedule_id', array('options' => $schedules)); ?>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <?php echo $this->Form->input('active', array('label' => 'Active')); ?>
+            <?php echo $this->Form->input('active', isset($options) ? $options : array()); ?>
         </div>
     </div>
 </div>
