@@ -141,23 +141,15 @@ $(document).ready(function(){
             }
         });
     }
-    
-    if($('#thumbs').length > 0){ 
-        $('#thumbs').galleriffic({ 
-            delay: 10000,
-            numThumbs:  17,
-            imageContainerSel: '#image',
-            controlsContainerSel: '#controls',
-            autoStart: true,
-            playLinkText:              'Play',
-            pauseLinkText:             'Pause',
-            prevLinkText:              '&lsaquo; Previous',
-            nextLinkText:              'Next &rsaquo;',
-            nextPageLinkText:          'Next &rsaquo;',
-            prevPageLinkText:          '&lsaquo; Prev',
-            enableKeyboardNavigation:  false,
-        });
-    }
+
+    $('.market-date').datetimepicker({
+      'pickTime': false 
+    });
+
+    $('.market-date').on('dp.change', function(e) {
+      var formatted = moment(e.date).format('YYYY-MM-DD');
+      $(this).parent().next('input').prop('value', formatted);
+    });
     
     function computeHeight(){
         var windowHeight = $(window).height();
