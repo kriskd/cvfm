@@ -37,7 +37,6 @@ class ProductsController extends AppController
         }
         //var_dump($product_types);
         $this->set(array('product_types' => $product_types, 'products_in_season' => $products_in_season, 'slug' => 'products'));
-        $this->layout = 'cvfm';
     }
     
     public function get_vendors($product_id){

@@ -3,8 +3,9 @@ class UsersController extends AppController {
     
     public $name = 'Users';
     
-    public function beforeFilter () {
-        if (empty($this->params['prefix'])) {
+    public function beforeFilter() {
+        parent::beforeFilter();
+        if (empty($this->request->params['prefix'])) {
             //Note an admin page
             $this->Auth->allow($this->action);
         } 
@@ -20,9 +21,10 @@ class UsersController extends AppController {
             }
             $this->Session->setFlash('Username or password is incorrect.');
         }  
+        $this->layout = 'admin';
     }
     
-    public function logout(){
+    public function logout() {
         $this->redirect($this->Auth->logout());
     }
 }

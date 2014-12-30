@@ -58,7 +58,7 @@ class PagesController extends AppController {
 
 		if ($content = $this->Page->find('first', array('conditions' => array('uri' => $slug)))) {
 			$this->set('content', $content);
-            $this->render('page', 'cvfm');
+            $this->render('page');
 		} else {
 
             $count = count($path);
@@ -78,7 +78,7 @@ class PagesController extends AppController {
             }
             
             $this->set(compact('page', 'subpage', 'title_for_layout'));
-            $this->render(implode('/', $path), 'cvfm');
+            $this->render(implode('/', $path));
         }
 	}
 	

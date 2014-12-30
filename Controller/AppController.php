@@ -37,7 +37,7 @@ class AppController extends Controller {
             'Auth' => array('authorize' => 'Controller',
             'allowedActions' => array('index', 'display'),
             'loginAction' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
-            'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
+            'loginRedirect' => array('controller' => 'pages', 'action' => 'index', 'admin' => true),
             'logoutRedirect' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
         ),
         'Session', 'Paginator', 'DebugKit.Toolbar',
@@ -57,6 +57,10 @@ class AppController extends Controller {
 
         $this->setFiscalYear();
         $this->set('fiscalYear', $this->fiscalYear);
+
+        if (isset($this->request->params['prefix']) && $this->request->params['prefix'] == 'admin') {
+            $this->layout = 'admin';
+        } 
     }
 
     /**

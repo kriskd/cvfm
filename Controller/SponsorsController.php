@@ -12,7 +12,6 @@ class SponsorsController extends AppController {
     public function index(){
         $sponsors = $this->Sponsor->find('all', array('order' => array('Sponsor.amount DESC')));
         $this->set(array('sponsors' => $sponsors, 'slug' => 'sponsors'));
-        $this->layout = 'cvfm';
     }
     
     //Create Sponsor

@@ -1,72 +1,51 @@
-<?php
-/**
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
-
-$cakeDescription = __d('cake_dev', 'Capitol View Farmers Market Admin');
-?>
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $title_for_layout; ?>
-	</title>
-	<?php
-		echo $this->Html->meta('icon');
+    <title><?php echo $title_for_layout; ?></title>
+    <?php echo $this->Html->charset(); ?>
+    <?php if(dev() == false): ?>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-9944268-4']);
+            _gaq.push(['_trackPageview']);
+          
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    <?php endif; ?>
+    <?php echo $this->Html->meta('favicon.ico', '/favicon.ico', array('type' => 'icon'));?>
+    <?php
+    //echo $this->Html->css('/css/build/jquery-ui-1.10.4.custom.min');
+    echo $this->Html->css('/css/build/styles.min');
 
-        //echo $this->Html->css('/css/build/jquery-ui-1.10.4.custom.min');
-		echo $this->Html->css('build/admin.min');
-		
-		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
-		//echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js');
-		echo $this->Html->script('/js/build/scripts');
-
-
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
-	?>
+    echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js');
+    //echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js');
+    //echo $this->Html->script('jquery.galleriffic.js');
+    echo $this->fetch('css');
+    echo $this->fetch('script');
+    echo $this->Html->script('/js/build/scripts.min');
+    ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $cakeDescription; ?></h1>
-			<?php if (AuthComponent::user('id')): ?>
-				<?php echo $this->element('admin_menu'); ?>
-			<?php endif; ?>
-		</div>
-		<div id="content">
-
-			<?php echo $this->Session->flash(); ?>
-
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
-	</div>
-	<?php //echo $this->element('sql_dump'); ?>
+    <?php echo $this->Session->flash(); ?>
+        <?php $user = $this->Session->read('Auth.User'); ?>
+        <?php if(isset($user)): ?>
+            <div id="admin-inner">
+                <?php //echo $this->element('admin_menu'); ?>
+            </div>
+        <?php endif; ?>
+        <div class="container-fluid">
+            <?php echo $this->Element('header'); ?>
+            <div class="content">
+                <?php echo $content_for_layout; ?>
+            </div>
+            <?php echo $this->element('footer'); ?>
+    </div>
+    <?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>
