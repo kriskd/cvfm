@@ -6931,6 +6931,21 @@ span.required {
   margin-top: -4px;
   color: #694f10;
 }
+@media (max-width: 767px) {
+  .container-fluid #map {
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+  }
+  .container-fluid #map iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
 .container-fluid #footer {
   text-align: center;
   background: #cdcd7d;

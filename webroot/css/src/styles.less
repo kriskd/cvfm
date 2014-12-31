@@ -288,6 +288,21 @@ input[type="url"], textarea, select {
             color: @brown;
         }
     }
+    #map {
+        @media (max-width: @screen-xs-max) {
+            position: relative;
+            padding-bottom: 75%;
+            height: 0;
+            overflow: hidden;
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+    }
     #footer {
         text-align: center;
         background: @mainGreen;
