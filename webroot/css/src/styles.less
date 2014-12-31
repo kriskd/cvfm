@@ -28,6 +28,7 @@ input[type="url"], textarea, select {
 }
 
 .navbar-default {
+    margin-right: -15px;
     .container-fluid {
         background: @lightYellow;
     }
@@ -109,7 +110,8 @@ input[type="url"], textarea, select {
 
 #header {
     text-align: center;
-    margin: 0 -15px 16px;
+    margin: 0 -15px;
+    padding-right: 15px;
     background: @mainGreen;
     h1, h2 {
         text-align: center;
@@ -128,6 +130,9 @@ input[type="url"], textarea, select {
     }
     .logo {
         margin-bottom: 5px;
+        @media (max-width: @screen-xs-max) {
+            margin-left: 15px;
+        }
         img {
             margin: auto;
         }
@@ -278,14 +283,19 @@ input[type="url"], textarea, select {
     }
     .home-right {
         margin-top: 10px;
-        .glyphicon {
-            float: right;
-            .rounded-corners(14px);
-            border: 1px solid @lightYellow;
-            padding: 5px;
-            background: @lightYellow;
-            margin-top: -4px;
-            color: @brown;
+        a {
+            position: relative;
+            .glyphicon {
+                .rounded-corners(14px);
+                border: 1px solid @lightYellow;
+                padding: 5px;
+                background: @lightYellow;
+                color: @brown;
+                display: inline;
+                position: absolute;
+                top: 8px;
+                right: 8px;
+            }
         }
     }
     #map {

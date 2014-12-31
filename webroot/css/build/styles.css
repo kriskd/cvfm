@@ -6666,6 +6666,7 @@ fieldset[disabled] .btn-brown.active {
   background-color: #100c03;
 }
 .navbar-default {
+  margin-right: -15px;
   border-color: #ce9a21;
 }
 .navbar-default .container-fluid {
@@ -6740,7 +6741,8 @@ span.required {
 }
 #header {
   text-align: center;
-  margin: 0 -15px 16px;
+  margin: 0 -15px;
+  padding-right: 15px;
   background: #cdcd7d;
 }
 #header h1,
@@ -6761,6 +6763,11 @@ span.required {
 }
 #header .logo {
   margin-bottom: 5px;
+}
+@media (max-width: 767px) {
+  #header .logo {
+    margin-left: 15px;
+  }
 }
 #header .logo img {
   margin: auto;
@@ -6922,14 +6929,19 @@ span.required {
 .container-fluid .home-right {
   margin-top: 10px;
 }
-.container-fluid .home-right .glyphicon {
-  float: right;
+.container-fluid .home-right a {
+  position: relative;
+}
+.container-fluid .home-right a .glyphicon {
   border-radius: 14px;
   border: 1px solid #ffe88e;
   padding: 5px;
   background: #ffe88e;
-  margin-top: -4px;
   color: #694f10;
+  display: inline;
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 @media (max-width: 767px) {
   .container-fluid #map {
