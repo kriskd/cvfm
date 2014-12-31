@@ -3,26 +3,6 @@
 @import "min-base.less";
 @import "_accordion.less";
 
-@media (max-width: @screen-xs-max) { 
-    .nav {
-        //outline: 1px solid purple; 
-    }
-}
-@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { 
-    .nav {
-        //outline: 1px solid green; 
-    }     
-}
-@media (min-width: @screen-md-min) and (max-width: @screen-md-max) { 
-    .nav {
-        //outline: 1px solid blue;
-    }
-}
-@media (min-width: @screen-lg-min) { 
-    .nav {
-        //outline: 1px solid red; 
-    }
-}
 body { background: @mainGreen; color: @brown; font-family: arial; font-size: 12px; }
 :focus { outline: none; }
 a:link:not(.btn) { color: @brown; text-decoration: underline; }
@@ -56,6 +36,11 @@ input[type="url"], textarea, select {
         >li {
             >a {
                 color: @brown;
+                font-size: 16px;
+                text-decoration: none;
+            }
+            >a:hover {
+                background: @yellowBg;
             }
         }
     }
@@ -83,6 +68,7 @@ input[type="url"], textarea, select {
                 float: none;
                 display: table-cell;
                 width: 1%;
+                padding: 0 .1em;
                 a.active, a:hover.active {
                     background: @yellowBg;
                 }
@@ -147,7 +133,7 @@ input[type="url"], textarea, select {
         }
     }
     .navbar-brand {
-        @media (max-width: @screen-xs-min) {
+        @media (max-width: 400px) {
             .text-overflow();
             display: inline-block;
             max-width: 240px;
@@ -188,6 +174,15 @@ input[type="url"], textarea, select {
                                             color: black; 
                                             .rounded-corners;
                                         }
+                                    }
+                                    a:link {
+                                        text-decoration: none;
+                                        font-size: 16px;
+                                    }
+                                    a:hover {
+                                        background: darken(@ochre, 10%); 
+                                        border: 1px solid @brown;
+                                        .rounded-corners;
                                     }
                                 }
                             }

@@ -6673,6 +6673,11 @@ fieldset[disabled] .btn-brown.active {
 }
 .navbar-default .navbar-nav > li > a {
   color: #694f10;
+  font-size: 16px;
+  text-decoration: none;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  background: #ffe266;
 }
 .navbar-default .navbar-brand {
   color: #694f10;
@@ -6697,6 +6702,7 @@ fieldset[disabled] .btn-brown.active {
     float: none;
     display: table-cell;
     width: 1%;
+    padding: 0 .1em;
   }
   .navbar-collapse ul li a.active,
   .navbar-collapse ul li a:hover.active {
@@ -6759,7 +6765,7 @@ span.required {
 #header .logo img {
   margin: auto;
 }
-@media (max-width: 480px) {
+@media (max-width: 400px) {
   #header .navbar-brand {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -6805,6 +6811,15 @@ span.required {
     background: #ce9a21;
     border: 1px solid #694f10;
     color: black;
+    border-radius: 5px;
+  }
+  #header .head-right .navigation .navbar.navbar-default .container-fluid .navbar-nav > li a:link {
+    text-decoration: none;
+    font-size: 16px;
+  }
+  #header .head-right .navigation .navbar.navbar-default .container-fluid .navbar-nav > li a:hover {
+    background: #a2791a;
+    border: 1px solid #694f10;
     border-radius: 5px;
   }
 }
