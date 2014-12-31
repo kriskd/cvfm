@@ -32,7 +32,9 @@ class SchedulesController extends AppController {
 			}
         }
 		$this->Schedule->recursive = 0;
-        $schedules = $this->Schedule->find('all');
+        $schedules = $this->Schedule->find('all', array(
+            'callbacks' => false,
+        ));
         $this->request->data = $schedules;
 		$this->set('schedules', $schedules);
 	}
