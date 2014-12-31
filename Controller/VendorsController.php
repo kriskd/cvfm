@@ -11,7 +11,7 @@ class VendorsController extends AppController {
     }
     
     public function index() {
-        $schedules = $this->Vendor->Schedule->activeVendors();
+        $schedules = $this->Vendor->Schedule->activeVendors($this->fiscalYear);
         $this->set(array('schedules' => $schedules, 'slug' => 'vendors'));
     }
     

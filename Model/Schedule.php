@@ -30,12 +30,13 @@ class Schedule extends AppModel {
         return $results;
     }
 
-    public function activeVendors() {
+    public function activeVendors($year = null) {
+        $year = empty($year) ? date('Y') : $year;
         return $this->find('all', array(
             'contain' => array(
                 'Vendor' => array(
                     'conditions' => array(
-                        'Vendor.active' => 1
+                        'Vendor.active' => 1,
                     ),
                     'fields' => array(
                         'Vendor.business_name', 'Vendor.website', 'Vendor.location',
@@ -44,7 +45,11 @@ class Schedule extends AppModel {
             ),
             'fields' => array(
                 'Schedule.description', 'Schedule.start_date', 'Schedule.end_date',
-            )
+            ),
+            'conditions' => array(
+                'YEAR(Schedule.start_date) >=' => $year,
+                'YEAR(Schedule.end_date) >=' => $year,
+            ),
         ));
     }
 }
