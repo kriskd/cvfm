@@ -1,5 +1,12 @@
 <ul id="admin-menu">
     <li>
+        <?php echo $this->Html->link('Schedule', array(
+            'controller' => 'schedules',
+            'action' => 'index',
+            'admin' => true,
+        )); ?>
+    </li>
+    <li>
         <?php echo $this->Html->link('Pages', array(
             'controller' => 'pages',
             'action' => 'index',
