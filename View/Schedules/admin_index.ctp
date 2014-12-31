@@ -1,8 +1,15 @@
 <?php // I could not get this to work with just $this->request->data, had to set values ?>
 <?php echo $this->Form->create('Schedule'); ?>
-    <?php //echo $this->Form->input('clear', array(
-        //'type' => 'hidden',
-    //)); ?>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
+            Start Date
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center">
+            End Date
+        </div>
+    </div>
     <?php foreach ($schedules as $date): ?>
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
