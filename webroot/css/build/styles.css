@@ -6884,15 +6884,21 @@ span.required {
 .container-fluid .content .carousel-wrapper .carousel .carousel-inner .item .crop {
   max-width: 640px;
   max-height: 280px;
-  text-align: center;
   overflow: hidden;
-  display: block;
   margin: auto;
 }
-.container-fluid .content .carousel-wrapper .carousel .carousel-inner .item .crop img {
-  position: relative;
-  top: -100px;
-  margin-bottom: -100px;
+@media (max-width: 767px) {
+  .container-fluid .content .carousel-wrapper .carousel .carousel-inner .item .crop img {
+    margin-top: -40px;
+    margin-bottom: -60px;
+  }
+}
+@media (min-width: 767px) {
+  .container-fluid .content .carousel-wrapper .carousel .carousel-inner .item .crop img {
+    position: relative;
+    top: -100px;
+    margin-bottom: -100px;
+  }
 }
 .container-fluid .content .carousel-wrapper .carousel .carousel-control {
   background-image: none;

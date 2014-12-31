@@ -258,14 +258,18 @@ input[type="url"], textarea, select {
                         .crop {
                             max-width: 640px;
                             max-height: 280px;
-                            text-align: center;
                             overflow: hidden;
-                            display: block;
                             margin: auto;
                             img {
-                                position: relative;
-                                top: -100px;
-                                margin-bottom: -100px; 
+                                @media (max-width: @screen-xs-max) { 
+                                    margin-top: -40px;
+                                    margin-bottom: -60px;
+                                }
+                                @media (min-width: @screen-xs-max) { 
+                                    position: relative;
+                                    top: -100px;
+                                    margin-bottom: -100px; 
+                                }
                             }
                         }
                     }
