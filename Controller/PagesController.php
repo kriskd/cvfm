@@ -57,7 +57,7 @@ class PagesController extends AppController {
         $this->set('slug', $slug);
 
 		if ($content = $this->Page->find('first', array('conditions' => array('uri' => $slug)))) {
-			$this->set('content', $content);
+			$this->set(array('content' => $content, 'title_for_layout' => $content['Page']['title']));
             $this->render('page');
 		} else {
 

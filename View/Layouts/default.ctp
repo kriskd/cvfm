@@ -2,7 +2,7 @@
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title><?php echo $title_for_layout; ?></title>
+    <title>Capitol View Farmers Market <?php echo empty($this->fetch('title')) ? '' : ': '.$this->fetch('title'); ?></title>
     <?php echo $this->Html->charset(); ?>
     <?php if(dev() == false): ?>
         <script type="text/javascript">
