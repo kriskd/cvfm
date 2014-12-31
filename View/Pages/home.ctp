@@ -13,8 +13,12 @@
             'data-target' => '#docs-modal',
             'escape' => false,
         )); ?>
-        <h2>The Capitol View Farmer's Market operates from May 28 - October 8 from 3:00PM - 7:00PM.</h2>
-        <h4>The market will close at 6:30PM closer to Fall.</h4>
+        <?php if (!empty($schedule['Schedule']['start_date']) && !empty($schedule['Schedule']['end_date'])): ?>
+            <h2>The Capitol View Farmer's Market operates from <?php echo $schedule['Schedule']['start_date']; ?> - <?php echo $schedule['Schedule']['end_date']; ?> from 3:00PM - 7:00PM.</h2>
+            <h4>The market will close at 6:30PM closer to Fall.</h4>
+        <?php else: ?>
+            <h2>The schedule for <?php echo $fiscalYear; ?> will be available in Spring.</h2>
+        <?php endif; ?>
     </div>
 </div>
 <div class="modal fade" id="docs-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

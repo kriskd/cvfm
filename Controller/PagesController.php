@@ -43,7 +43,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Page', 'Event');
+	public $uses = array('Page', 'Schedule');
 
 /**
  * Displays a view
@@ -76,8 +76,20 @@ class PagesController extends AppController {
             if (!empty($path[$count - 1])) {
                 $title_for_layout = Inflector::humanize($path[$count - 1]);
             }
-            
-            $this->set(compact('page', 'subpage', 'title_for_layout'));
+
+            $schedule = $this->Schedule->find('first', array(
+                'conditions' => array(
+                    'short' => 'Full',
+                    'YEAR(start_date) >=' => $this->fiscalYear,
+                    'YEAR(end_date) >=' => $this->fiscalYear,
+                ),
+                'recursive' => -1,
+                'fields' => array(
+                    'start_date', 'end_date'
+                ),
+            ));
+            $this->set(array('fiscalYear' => $this->fiscalYear));
+            $this->set(compact('page', 'subpage', 'title_for_layout', 'schedule'));
             $this->render(implode('/', $path));
         }
 	}

@@ -4,7 +4,7 @@
     <?php $vendors = $schedule['Vendor']; ?>
     <?php if (!empty($vendors)): ?>
     <?php $noVendors = false; ?>
-        <h3><?php echo $schedule['Schedule']['description']; ?></h3>
+<h3><?php echo $schedule['Schedule']['description']; ?>: <?php echo $schedule['Schedule']['start_date']; ?> - <?php echo $schedule['Schedule']['end_date']; ?></h3>
         <ul>
             <?php foreach($vendors as $vendor): ?>
                 <li>

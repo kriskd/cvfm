@@ -5774,18 +5774,24 @@ THE SOFTWARE.
         });
     }
 
-    $('.market-date').datetimepicker({
-      'pickTime': false 
+    $('.clear-schedule').on('click', function(e) {
+      $(this).parents('form').find('input[type=text]').each(function() {
+        $(this).prop('value', '');
+      });
     });
 
-    $('.market-date').on('dp.change', function(e) {
+    $('.schedule-date').datetimepicker({
+      'pickTime': false
+    });
+
+    $('.schedule-date').on('dp.change', function(e) {
       var formatted = moment(e.date).format('YYYY-MM-DD');
       $(this).parent().next('input').prop('value', formatted);
     });
-    
+   
     function computeHeight(){
         var windowHeight = $(window).height();
-        var footer = 3*$('#footer').height()
+        var footer = 3*$('#footer').height();
         var content = windowHeight - footer + 22;
         $('#junk').empty();
         //$('#junk').append('<p>' + windowHeight + ' ' + footer + ' ' + content + '</p>');
