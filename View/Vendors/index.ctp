@@ -1,11 +1,12 @@
-<?php //var_dump($schedules); ?>
-<h2>2013 Vendors</h2>
+<h2><?php echo $fiscalYear; ?> Vendors</h2>
+<?php $noVendors = true; ?>
 <?php foreach($schedules as $schedule): ?>
-    <h3><?php echo $schedule['Schedule']['description']; ?></h3>
     <?php $vendors = $schedule['Vendor']; ?>
-    <ul>
-        <?php foreach($vendors as $vendor): ?>
-            <?php if($vendor['active'] ==1): ?>
+    <?php if (!empty($vendors)): ?>
+    <?php $noVendors = false; ?>
+<h3><?php echo $schedule['Schedule']['description']; ?>: <?php echo $schedule['Schedule']['start_date']; ?> - <?php echo $schedule['Schedule']['end_date']; ?></h3>
+        <ul>
+            <?php foreach($vendors as $vendor): ?>
                 <li>
                     <?php if($vendor['website']): ?>
                         <?php echo $this->Html->link($vendor['business_name'], $vendor['website']); ?>, <?php echo $vendor['location']; ?>
@@ -13,7 +14,11 @@
                         <?php echo $vendor['business_name']; ?>, <?php echo $vendor['location']; ?>
                     <?php endif; ?>
                 </li>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    </ul>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 <?php endforeach; ?>
+<?php if ($noVendors): ?>
+    <p>Coming soon...</p>
+    <?php return; ?>
+<?php endif; ?>

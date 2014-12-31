@@ -9,24 +9,35 @@ class SponsorsController extends AppController {
         $this->Auth->allow('index');
     }
     
-    public function index(){
-        $sponsors = $this->Sponsor->find('all', array('order' => array('Sponsor.amount DESC')));
-        $this->set(array('sponsors' => $sponsors));
-        $this->layout = 'cvfm';
+    public function index() {
+        $sponsors = $this->Sponsor->find('all', array(
+            'order' => array('Sponsor.amount DESC'),
+            'conditions' => array(
+                'active' => 1,
+            ), 
+        ));
+        $this->set(array('sponsors' => $sponsors, 'slug' => 'sponsors'));
     }
     
     //Create Sponsor
     public function admin_add(){
-        if($this->data){
-            if($this->Sponsor->save($this->data)){
+        if($this->request->data){
+            if($this->Sponsor->save($this->request->data)){
                 $this->redirect('/admin/sponsors/index/');
-                $this->layout = 'ajax';
             }
         }
+        $this->layout = 'ajax';
     }
     
     //Retrieve Sponsor
     public function admin_index(){
+        if ($this->request->is('ajax')) {
+            $data = $this->request->data;
+            $active = $data['active'];
+            $id = $data['id'];
+            $this->Sponsor->id = $id;
+            $this->Sponsor->saveField('active', $active);
+        }
         $sponsors = $this->Sponsor->find('all', array('order' => array('Sponsor.name')));
         $this->set(array('sponsors' => $sponsors));
     }
@@ -34,13 +45,12 @@ class SponsorsController extends AppController {
     //Update Sponsor
     public function admin_edit($id=null){
         if($id){
-            if(!empty($this->data)){
-                //var_dump($this->data);
-                $this->Sponsor->save($this->data);
+            if(!empty($this->request->data)){
+                $this->Sponsor->save($this->request->data);
                 $this->Session->setFlash('Sponsor saved.');
-                $this->redirect('/admin/sponsors/edit/' . $id);
             }
             $sponsor = $this->Sponsor->findById($id);
+            $this->request->data = $sponsor;
             $this->set(array('sponsor' => $sponsor));
         }
         else{

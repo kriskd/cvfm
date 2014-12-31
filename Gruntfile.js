@@ -10,11 +10,13 @@ module.exports = function(grunt) {
           },
           dist: {
             src: [
-              'webroot/js/src/jquery.galleriffic.js',
               'webroot/js/src/modal.js',
               'webroot/js/src/tooltip.js',
               'webroot/js/src/transition.js',
               'webroot/js/src/collapse.js',
+              'webroot/js/src/carousel.js',
+              'webroot/js/src/moment.js',
+              'webroot/js/src/bootstrap-datetimepicker.js',
               'webroot/js/src/js.js',
             ],
             dest: 'webroot/js/build/scripts.js'

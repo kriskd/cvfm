@@ -1,10 +1,33 @@
 @import "bower_components/bootstrap/less/bootstrap.less";
+@import "bower_components/eonasdan-bootstrap-datetimepicker/src/less/bootstrap-datetimepicker.less";
 @import "_variables.less";
 @import "cake.generic.less";
 @import "_accordion.less";
 
 html {
     font-size: 100%;
+    .ajax-loading {
+        background: url('/css/build/images/ajax-loader.gif') center center no-repeat;
+        width: 16px;
+        height: 16px;
+        margin-left: -20px; // Fix for alignment on vendor index during ajax
+    }
+    .modal {
+        h4 {
+            color: #000;
+        }
+        .modal-body {
+            form {
+                .product-months {
+                    display: flex;
+                    flex-flow: row wrap;
+                    .form-control {
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
     #container {
         #header {
             background: @mainGreen;

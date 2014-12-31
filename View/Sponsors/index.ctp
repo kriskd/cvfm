@@ -1,4 +1,4 @@
-<h2>2013 Sponsors</h2>
+<h2><?php echo $fiscalYear; ?> Sponsors</h2>
 <?php foreach($sponsors as $sponsor): ?>
     <?php $amount = $sponsor['Sponsor']['amount']; ?>
     <div class="sponsor<?php echo $amount >= 500 ? ' gold' : ($amount >=250 ? ' silver' : ''); ?>">
@@ -15,4 +15,4 @@
     </div>
 <?php endforeach; ?>
 <p>If you are interested in sponsoring The Capitol View Farmers Market,
-please contact <span class="email"></span></p>
+please contact <span class="email-mailto"></span></p>

@@ -43,7 +43,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Page', 'Event');
+	public $uses = array('Page', 'Schedule');
 
 /**
  * Displays a view
@@ -54,38 +54,44 @@ class PagesController extends AppController {
 	public function display() { 
 		$path = func_get_args();
 		$slug = current($path); 
-		
+        $this->set('slug', $slug);
+
 		if ($content = $this->Page->find('first', array('conditions' => array('uri' => $slug)))) {
-			$this->set('content', $content);
-		}
-		
-		$events = $this->Event->find('all', array(
-							'conditions' => array(
-								'date >=' => date('Y-m-d', strtotime("+1 day"))
-							),
-							'fields' => array(
-								'date', 'description'
-							)
-						)
-					); 
+			$this->set(array('content' => $content, 'title_for_layout' => $content['Page']['title']));
+            $this->render('page');
+		} else {
 
-		$count = count($path);
-		if (!$count) {
-			$this->redirect('/');
-		}
-		$page = $subpage = $title_for_layout = null;
+            $count = count($path);
+            if (!$count) {
+                $this->redirect('/');
+            }
+            $page = $subpage = $title_for_layout = null;
 
-		if (!empty($path[0])) {
-			$page = $path[0];
-		}
-		if (!empty($path[1])) {
-			$subpage = $path[1];
-		}
-		if (!empty($path[$count - 1])) {
-			$title_for_layout = Inflector::humanize($path[$count - 1]);
-		}
-		$this->set(compact('page', 'subpage', 'title_for_layout', 'events'));
-		$this->render(implode('/', $path), 'cvfm');
+            if (!empty($path[0])) {
+                $page = $path[0];
+            }
+            if (!empty($path[1])) {
+                $subpage = $path[1];
+            }
+            if (!empty($path[$count - 1])) {
+                $title_for_layout = Inflector::humanize($path[$count - 1]);
+            }
+
+            $schedule = $this->Schedule->find('first', array(
+                'conditions' => array(
+                    'short' => 'Full',
+                    'YEAR(start_date) >=' => $this->fiscalYear,
+                    'YEAR(end_date) >=' => $this->fiscalYear,
+                ),
+                'recursive' => -1,
+                'fields' => array(
+                    'start_date', 'end_date'
+                ),
+            ));
+            $this->set(array('fiscalYear' => $this->fiscalYear));
+            $this->set(compact('page', 'subpage', 'title_for_layout', 'schedule'));
+            $this->render(implode('/', $path));
+        }
 	}
 	
 	public function admin_index()

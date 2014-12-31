@@ -4,17 +4,15 @@ class VendorsController extends AppController {
     
     public $uses = array('Vendor', 'State');
     
-    public function beforeFilter()
-    {
+    public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->deny();
         $this->Auth->allow('index', 'add');
     }
     
-    public function index(){
-        $schedules = $this->Schedule->find('all');
-        $this->set(array('schedules' => $schedules));
-        $this->layout = 'cvfm';
+    public function index() {
+        $schedules = $this->Vendor->Schedule->activeVendors($this->fiscalYear);
+        $this->set(array('schedules' => $schedules, 'slug' => 'vendors'));
     }
     
     public function add()
@@ -58,14 +56,12 @@ class VendorsController extends AppController {
             $years[$i] = $i;
         }
         $this->set(compact('schedules', 'states', 'months', 'years', 'groupedProducts'));
-        $this->layout = 'cvfm';
     }
     
     //Create Vendor
     public function admin_add(){
         if($this->request->data){
             if($this->Vendor->save($this->request->data)){
-                //$id = $this->Vendor->id;
                 $this->redirect(array(
                     'action' => 'index',
                     'admin' => true
@@ -74,12 +70,21 @@ class VendorsController extends AppController {
         }
         $groupedProducts = $this->Vendor->Product->productsByType(); 
         $schedules = $this->_get_schedules();
-        $this->set(compact('schedules', 'groupedProducts'));
+        $options = array('checked' => true);
+        $this->set(compact('schedules', 'groupedProducts', 'options'));
     }
       
     //Retrieve Vendors
     public function admin_index(){
-        $vendors = $this->Vendor->find('all', array('order' => 'name'));
+        if ($this->request->is('ajax')) {
+            $data = $this->request->data;
+            $active = $data['active'];
+            $id = $data['id'];
+            $this->Vendor->id = $id;
+            $this->Vendor->saveField('active', $active);
+        }
+        $vendors = $this->Vendor->find('all', array('order' => 'business_name'));
+        $this->request->data = $vendors;
         $this->set(array('vendors' => $vendors));
     }  
 

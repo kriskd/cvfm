@@ -1,20 +1,14 @@
 $(document).ready(function(){
-    
+ 
     var name = "info";
     var domain = "capitolviewfarmersmarket.com";
     $('.email-mailto').append('<a href="mailto:' + name + '@' + domain + '">' + name + '@' + domain +'</a>');
     
     $('.launch-tooltip').tooltip();
     $('.required label').append(' <span class="required">*</span>');
-    
-    /*$('.colorbox').colorbox({
-        //href: '/admin/vendors/add',
-        iframe: true,
-        width: '600px',
-        height: '500px'
-    });*/
-    
-    /*$(document).on('click', '.fire-modal', function(){
+ 
+    // Used for sponsor and product add
+    $(document).on('click', '.fire-modal', function(){
         var action = $(this).data('action');
         $.ajax({
             url: '/admin/' + action,
@@ -25,7 +19,18 @@ $(document).ready(function(){
             }
         });
         return false;
-    });*/
+    });
+
+    $('.events-modal').on('click', function(){
+      $.ajax({
+        url: '/events/index',
+        dataType: 'html',
+        success: function(data) {
+          $('body').append(data);
+          $('#events-modal').modal('show');
+        }
+      });
+    });
 
     $('.confirm').click(function(){
         var answer = confirm('Do you want to delete?');
@@ -36,9 +41,9 @@ $(document).ready(function(){
             return false;
         }
     });
-    
+ 
     //Admin panel
-    $('select#ProductVendorsProductType').change(function(){ 
+    $('select#ProductVendorsProductType').on('change', function(){ 
         $('.products').empty();
         var item = $(this).val();
         var html = '<select name="data[Vendor][product_id]"><option value=""></option>';
@@ -56,9 +61,34 @@ $(document).ready(function(){
             $('.products').append(html);
         }, 'json');
     });
-        
+ 
+    // Vendor/Sponsor active
+    $('.vendor-active, .sponsor-active').on('click', function(){
+      var value;
+      if ($(this).is(':checked')) {
+        value = 1;
+      } else {
+        value = 0;
+      }
+      var id = $(this).data('id');
+      var that = $(this);
+      $.ajax({
+        url: $(this).parents('form').prop('href'), 
+        data: {'active': value, 'id': id},
+        type: 'post',
+        beforeSend: function() {
+          that.hide();
+          that.parent().addClass('ajax-loading').show();
+        },
+        success: function() {
+          that.parent().removeClass('ajax-loading');
+          that.show();
+        } 
+      });
+    });
+
     //Products page
-    $('select.products').change(function(){
+    $('select.products').on('change', function(){
         $(this).addClass('selected-category');
         $('.products .results').empty();
         var item = Number($(this).val()); 
@@ -86,7 +116,7 @@ $(document).ready(function(){
             $('.products .results').prepend('<p>Please select a product</p>');
         }
     });
-       
+ 
     if($('.sponsor').length > 0){ 
         var count = 1;
         var biggestHeight = 0;
@@ -111,27 +141,25 @@ $(document).ready(function(){
             }
         });
     }
-    
-    if($('#thumbs').length > 0){ 
-        $('#thumbs').galleriffic({ 
-            delay: 10000,
-            numThumbs:  17,
-            imageContainerSel: '#image',
-            controlsContainerSel: '#controls',
-            autoStart: true,
-            playLinkText:              'Play',
-            pauseLinkText:             'Pause',
-            prevLinkText:              '&lsaquo; Previous',
-            nextLinkText:              'Next &rsaquo;',
-            nextPageLinkText:          'Next &rsaquo;',
-            prevPageLinkText:          '&lsaquo; Prev',
-            enableKeyboardNavigation:  false,
-        });
-    }
-    
+
+    $('.clear-schedule').on('click', function(e) {
+      $(this).parents('form').find('input[type=text]').each(function() {
+        $(this).prop('value', '');
+      });
+    });
+
+    $('.schedule-date').datetimepicker({
+      'pickTime': false
+    });
+
+    $('.schedule-date').on('dp.change', function(e) {
+      var formatted = moment(e.date).format('YYYY-MM-DD');
+      $(this).parent().next('input').prop('value', formatted);
+    });
+   
     function computeHeight(){
         var windowHeight = $(window).height();
-        var footer = 3*$('#footer').height()
+        var footer = 3*$('#footer').height();
         var content = windowHeight - footer + 22;
         $('#junk').empty();
         //$('#junk').append('<p>' + windowHeight + ' ' + footer + ' ' + content + '</p>');

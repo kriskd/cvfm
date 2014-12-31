@@ -5,7 +5,12 @@
     <tr><td><?php echo $sponsor['Sponsor']['name'];?></td>
         <td><?php echo $sponsor['Sponsor']['website']; ?></td>
         <td><?php echo $sponsor['Sponsor']['amount']; ?></td>
-        <td><?php echo $sponsor['Sponsor']['logo']; ?></td>
+        <td><?php echo $this->Form->input('Sponsor.'.$sponsor['Sponsor']['id'].'.active', array(
+                'label' => false,
+                'checked' => $sponsor['Sponsor']['active'],
+                'class' => 'sponsor-active',
+                'data-id' => $sponsor['Sponsor']['id'],
+            )); ?></td>
         <td><?php echo $this->Html->link('Edit', '/admin/sponsors/edit/' . $sponsor['Sponsor']['id']); ?></td>
         <td><?php echo $this->Html->link('Delete', '/admin/sponsors/delete' . $sponsor['Sponsor']['id']); ?></td>
     </tr>          
