@@ -5,11 +5,11 @@
       <p class="email-mailto">608-218-4732 (608-21V-IPEA) </p>
 
       <h4>Board of Directors</h4>
-      <p>Laurie Benda &#149;
-      Tom Breister &#149;
-      Lauren Cnare &#149;
-      Kris Dockter &#149;
-      Tonya Nye &#149;
+      <p>Laurie Benda &bull;
+      Tom Breister &bull;
+      Lauren Cnare &bull;
+      Kris Dockter &bull;
+      Tonya Nye &bull;
       Becky Paris</p>
   </div> <!-- footer-inner -->
     
