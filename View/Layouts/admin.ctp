@@ -30,12 +30,10 @@ $cakeDescription = __d('cake_dev', 'Capitol View Farmers Market Admin');
 	<?php
 		echo $this->Html->meta('icon');
 
-        //echo $this->Html->css('/css/build/jquery-ui-1.10.4.custom.min');
 		echo $this->Html->css('build/admin.min');
 		
 		echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
-		//echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js');
-		echo $this->Html->script('/js/build/scripts');
+		echo $this->Html->script('/js/build/scripts.min');
 
 
 		echo $this->fetch('meta');
@@ -45,14 +43,13 @@ $cakeDescription = __d('cake_dev', 'Capitol View Farmers Market Admin');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<div id="container">
+	<div class="container-fluid">
 		<div id="header">
-			<h1><?php echo $cakeDescription; ?></h1>
 			<?php if (AuthComponent::user('id')): ?>
 				<?php echo $this->element('admin_menu'); ?>
 			<?php endif; ?>
 		</div>
-		<div id="content">
+		<div class="content">
 
 			<?php echo $this->Session->flash(); ?>
 
