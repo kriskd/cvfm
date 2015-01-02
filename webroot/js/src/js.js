@@ -148,11 +148,11 @@ $(document).ready(function(){
       });
     });
 
-    $('.schedule-date').datetimepicker({
+    $('.date-picker').datetimepicker({
       'pickTime': false
     });
 
-    $('.schedule-date').on('dp.change', function(e) {
+    $('.date-picker').on('dp.change', function(e) {
       var formatted = moment(e.date).format('YYYY-MM-DD');
       $(this).parent().next('input').prop('value', formatted);
     });
