@@ -2,93 +2,147 @@
 @import "bower_components/eonasdan-bootstrap-datetimepicker/src/less/bootstrap-datetimepicker.less";
 @import "_variables.less";
 //@import "cake.generic.less";
-@import "_accordion.less";
 
-html {
+html, body {
     font-size: 100%;
-    .ajax-loading {
-        background: url('/css/build/images/ajax-loader.gif') center center no-repeat;
-        width: 16px;
-        height: 16px;
-        margin-left: -20px; // Fix for alignment on vendor index during ajax
+}
+.ajax-loading {
+    background: url('/css/build/images/ajax-loader.gif') center center no-repeat;
+    width: 16px;
+    height: 16px;
+    margin-left: -20px; // Fix for alignment on vendor index during ajax
+}
+.modal {
+    h4 {
+        color: #000;
     }
-    .modal {
-        h4 {
-            color: #000;
+    .modal-body {
+        form {
+            .product-months {
+                display: flex;
+                flex-flow: row wrap;
+                .form-control {
+                    width: 50%;
+                }
+            }
         }
-        .modal-body {
-            form {
-                .product-months {
-                    display: flex;
-                    flex-flow: row wrap;
-                    .form-control {
-                        width: 50%;
+    }
+}
+.submit {
+    margin-top: 10px;
+}
+.vendors {
+    &.edit {
+        .checkbox {
+            .form-control {
+                box-shadow: none;
+                margin-left: 0;
+            }
+            label {
+                margin: 9px 0 0 5px;
+            }
+        }
+        #accordion {
+            margin-top: 20px;
+            &.panel-group {
+                .panel {
+                    padding: 0;
+                    .panel-heading {
                     }
-                }
-            }
-        }
-    }
-    #container {
-        #header {
-            background: @mainGreen;
-            h1 {
-                color: @brown;
-                font-weight: bold;
-                font-size: 110%;
-            }
-            a:link, a:visited, a:hover, a:active {
-                color: @brown;
-            }
-            h1 {
-                background: url(../../img/cake.icon.png) no-repeat left;
-                margin-top: 0px;
-                a {
-                    background: @mainGreen;
-                }
-            }
-        }
-        #admin-menu {
-            width: 858px;
-            list-style: none!important;
-            overflow: hidden;
-            li {
-                display: inline;
-                float: left;
-                a {
-                    color: #fff;
-                }
-            }
-        }
-        #content {
-            background: @lightYellow;
-            form {
-                .required label:after {
-                    content: '';
-                }
-                div {
-                    clear: none;
-                    margin-bottom: 0;
-                }
-                .basic-info {
-                    .checkbox {
-                        label {
-                            float: left;
-                            margin-top: 6px;
-                            margin-left: -15px;
-                            font-weight: bold;
-                        }
-                        input {
-                            float: right;
-                            position: static;
-                            margin-right: 450px;
+                    .panel-collapse {
+                        .panel-body {
+                            border-top: none;
+                            display: flex;
+                            flex-flow: row wrap;
+                            align-items: flex-start;
+                            .form-control {
+                                display: inline;
+                                min-width: 200px;
+                                width: auto;
+                                border: none;
+                                box-shadow: none;
+                                input {
+                                    margin-right: 5px;
+                                }
+                            }
                         }
                     }
                 }
             }
         }
-        .pages.index {
-            width: 100%;
-            border-left: none;
+    }
+}
+.schedules {
+    &.index {
+        .row {
+            margin-bottom: 15px;
         }
+        .clear-schedule {
+            float: left;
+            margin-right: 5px;
+        }
+    }
+}
+#container {
+    #header {
+        background: @mainGreen;
+        h1 {
+            color: @brown;
+            font-weight: bold;
+            font-size: 110%;
+        }
+        a:link, a:visited, a:hover, a:active {
+            color: @brown;
+        }
+        h1 {
+            background: url(../../img/cake.icon.png) no-repeat left;
+            margin-top: 0px;
+            a {
+                background: @mainGreen;
+            }
+        }
+    }
+    #admin-menu {
+        width: 858px;
+        list-style: none!important;
+        overflow: hidden;
+        li {
+            display: inline;
+            float: left;
+            a {
+                color: #fff;
+            }
+        }
+    }
+    #content {
+        background: @lightYellow;
+        form {
+            .required label:after {
+                content: '';
+            }
+            div {
+                clear: none;
+                margin-bottom: 0;
+            }
+            .basic-info {
+                .checkbox {
+                    label {
+                        float: left;
+                        margin-top: 6px;
+                        margin-left: -15px;
+                        font-weight: bold;
+                    }
+                    input {
+                        float: right;
+                        position: static;
+                        margin-right: 450px;
+                    }
+                }
+            }
+        }
+    }
+    .pages.index {
+        width: 100%;
+        border-left: none;
     }
 }

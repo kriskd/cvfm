@@ -43,11 +43,9 @@ $cakeDescription = __d('cake_dev', 'Capitol View Farmers Market Admin');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <?php echo $this->element('admin_menu'); ?>
 	<div class="container-fluid">
 		<div id="header">
-			<?php if (AuthComponent::user('id')): ?>
-				<?php echo $this->element('admin_menu'); ?>
-			<?php endif; ?>
 		</div>
 		<div class="content">
 

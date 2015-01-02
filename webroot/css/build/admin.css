@@ -6462,17 +6462,47 @@ button.close {
     width: 283px;
   }
 }
-#accordion.panel-group .panel {
-  border-color: #ce9a21;
-  background: #ffe88e;
+html,
+body {
+  font-size: 100%;
+}
+.ajax-loading {
+  background: url('/css/build/images/ajax-loader.gif') center center no-repeat;
+  width: 16px;
+  height: 16px;
+  margin-left: -20px;
+}
+.modal h4 {
+  color: #000;
+}
+.modal .modal-body form .product-months {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+.modal .modal-body form .product-months .form-control {
+  width: 50%;
+}
+.submit {
+  margin-top: 10px;
+}
+.vendors.edit .checkbox .form-control {
+  box-shadow: none;
+  margin-left: 0;
+}
+.vendors.edit .checkbox label {
+  margin: 9px 0 0 5px;
+}
+.vendors.edit #accordion {
+  margin-top: 20px;
+}
+.vendors.edit #accordion.panel-group .panel {
   padding: 0;
 }
-#accordion.panel-group .panel .panel-heading {
-  background: #ce9a21;
-  color: #fff;
-  border-color: #ce9a21;
-}
-#accordion.panel-group .panel .panel-collapse .panel-body {
+.vendors.edit #accordion.panel-group .panel .panel-collapse .panel-body {
   border-top: none;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6484,92 +6514,78 @@ button.close {
       -ms-flex-align: start;
           align-items: flex-start;
 }
-#accordion.panel-group .panel .panel-collapse .panel-body .checkbox {
-  width: 200px;
-  margin-top: 0px;
-  margin-right: 10px;
+.vendors.edit #accordion.panel-group .panel .panel-collapse .panel-body .form-control {
+  display: inline;
+  min-width: 200px;
+  width: auto;
+  border: none;
+  box-shadow: none;
 }
-#accordion.panel-group .panel .panel-collapse .panel-body .checkbox label {
+.vendors.edit #accordion.panel-group .panel .panel-collapse .panel-body .form-control input {
+  margin-right: 5px;
+}
+.schedules.index .row {
+  margin-bottom: 15px;
+}
+.schedules.index .clear-schedule {
   float: left;
+  margin-right: 5px;
 }
-html {
-  font-size: 100%;
-}
-html .ajax-loading {
-  background: url('/css/build/images/ajax-loader.gif') center center no-repeat;
-  width: 16px;
-  height: 16px;
-  margin-left: -20px;
-}
-html .modal h4 {
-  color: #000;
-}
-html .modal .modal-body form .product-months {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-}
-html .modal .modal-body form .product-months .form-control {
-  width: 50%;
-}
-html #container #header {
+#container #header {
   background: #cdcd7d;
 }
-html #container #header h1 {
+#container #header h1 {
   color: #694f10;
   font-weight: bold;
   font-size: 110%;
 }
-html #container #header a:link,
-html #container #header a:visited,
-html #container #header a:hover,
-html #container #header a:active {
+#container #header a:link,
+#container #header a:visited,
+#container #header a:hover,
+#container #header a:active {
   color: #694f10;
 }
-html #container #header h1 {
+#container #header h1 {
   background: url(../../img/cake.icon.png) no-repeat left;
   margin-top: 0px;
 }
-html #container #header h1 a {
+#container #header h1 a {
   background: #cdcd7d;
 }
-html #container #admin-menu {
+#container #admin-menu {
   width: 858px;
   list-style: none!important;
   overflow: hidden;
 }
-html #container #admin-menu li {
+#container #admin-menu li {
   display: inline;
   float: left;
 }
-html #container #admin-menu li a {
+#container #admin-menu li a {
   color: #fff;
 }
-html #container #content {
+#container #content {
   background: #ffe88e;
 }
-html #container #content form .required label:after {
+#container #content form .required label:after {
   content: '';
 }
-html #container #content form div {
+#container #content form div {
   clear: none;
   margin-bottom: 0;
 }
-html #container #content form .basic-info .checkbox label {
+#container #content form .basic-info .checkbox label {
   float: left;
   margin-top: 6px;
   margin-left: -15px;
   font-weight: bold;
 }
-html #container #content form .basic-info .checkbox input {
+#container #content form .basic-info .checkbox input {
   float: right;
   position: static;
   margin-right: 450px;
 }
-html #container .pages.index {
+#container .pages.index {
   width: 100%;
   border-left: none;
 }

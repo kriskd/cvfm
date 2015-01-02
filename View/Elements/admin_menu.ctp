@@ -14,59 +14,54 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-           <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a> 
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-                        <?php echo $this->Html->link('Schedule', array(
-                            'controller' => 'schedules',
-                            'action' => 'index',
-                            'admin' => true,
-                        )); ?>
-                    </li>
-                    <li>
-                        <?php echo $this->Html->link('Pages', array(
-                            'controller' => 'pages',
-                            'action' => 'index',
-                            'admin' => true, 
-                        )); ?>
-                    </li>
-                    <li>
-                        <?php echo $this->Html->link('Events', array(
-                            'controller' => 'events',
-                            'action' => 'index',
-                            'admin' => true, 
-                        )); ?>
-                    </li>
-                    <li>
-                        <?php echo $this->Html->link('Products', array(
-                            'controller' => 'products',
-                            'action' => 'index',
-                            'admin' => true, 
-                        )); ?>
-                    </li>
-                    <li>
-                        <?php echo $this->Html->link('Sponsors', array(
-                            'controller' => 'sponsors',
-                            'action' => 'index',
-                            'admin' => true, 
-                        )); ?>
-                    </li>
-                    <li>
-                        <?php echo $this->Html->link('Vendors', array(
-                            'controller' => 'vendors',
-                            'action' => 'index',
-                            'admin' => true, 
-                        )); ?>
-                    </li>
-                    <li>    
-                        <?php echo $this->Html->link('Logout', array(
-                            'controller' => 'users',
-                            'action' => 'logout', 
-                            'admin' => false,
-                        )); ?>
-                    </li>
-                </ul>
+            <li>
+                <?php echo $this->Html->link('Schedule', array(
+                    'controller' => 'schedules',
+                    'action' => 'index',
+                    'admin' => true,
+                )); ?>
+            </li>
+            <li>
+                <?php echo $this->Html->link('Pages', array(
+                    'controller' => 'pages',
+                    'action' => 'edit', 1,
+                    'admin' => true, 
+                )); ?>
+            </li>
+            <li>
+                <?php echo $this->Html->link('Events', array(
+                    'controller' => 'events',
+                    'action' => 'index',
+                    'admin' => true, 
+                )); ?>
+            </li>
+            <li>
+                <?php echo $this->Html->link('Products', array(
+                    'controller' => 'products',
+                    'action' => 'index',
+                    'admin' => true, 
+                )); ?>
+            </li>
+            <li>
+                <?php echo $this->Html->link('Sponsors', array(
+                    'controller' => 'sponsors',
+                    'action' => 'index',
+                    'admin' => true, 
+                )); ?>
+            </li>
+            <li>
+                <?php echo $this->Html->link('Vendors', array(
+                    'controller' => 'vendors',
+                    'action' => 'index',
+                    'admin' => true, 
+                )); ?>
+            </li>
+            <li>    
+                <?php echo $this->Html->link('Logout', array(
+                    'controller' => 'users',
+                    'action' => 'logout', 
+                    'admin' => false,
+                )); ?>
             </li>
         </ul>
     </div><!-- /.navbar-collapse -->

@@ -30,5 +30,7 @@
     </div>
 </div>
 <?php echo $this->Element('Vendors/product_accordion', compact('groupedProducts')); ?>
-<?php echo $this->Form->submit('Save vendor'); ?>
+<?php echo $this->Form->submit('Save Vendor', array(
+    'class' => 'btn btn-primary',
+)); ?>
 <?php echo $this->Form->end(); ?>
