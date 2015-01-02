@@ -36,7 +36,7 @@ class SchedulesController extends AppController {
             'callbacks' => false,
         ));
         $this->request->data = $schedules;
-		$this->set('schedules', $schedules);
+		$this->set(['schedules' => $schedules, 'fiscalYear' => $this->fiscalYear]);
 	}
 
 /**
