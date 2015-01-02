@@ -6548,36 +6548,6 @@ input[type="button"],
   list-style: none;
   margin-left: 0;
 }
-#accordion.panel-group .panel {
-  border-color: #ce9a21;
-  background: #ffe88e;
-  padding: 0;
-}
-#accordion.panel-group .panel .panel-heading {
-  background: #ce9a21;
-  color: #fff;
-  border-color: #ce9a21;
-}
-#accordion.panel-group .panel .panel-collapse .panel-body {
-  border-top: none;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-#accordion.panel-group .panel .panel-collapse .panel-body .checkbox {
-  width: 200px;
-  margin-top: 0px;
-  margin-right: 10px;
-}
-#accordion.panel-group .panel .panel-collapse .panel-body .checkbox label {
-  float: left;
-}
 body {
   background: #cdcd7d;
   color: #694f10;
