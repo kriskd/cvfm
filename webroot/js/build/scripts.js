@@ -5643,7 +5643,7 @@ THE SOFTWARE.
     $(document).on('click', '.fire-modal', function(){
         var action = $(this).data('action');
         $.ajax({
-            url: '/admin/' + action,
+            url: action,
             dataType: 'html',
             success: function(data){
                 $('body').append(data);

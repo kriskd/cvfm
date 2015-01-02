@@ -1,5 +1,8 @@
-<div class="events form">
+<div class="admin events form">
 <?php echo $this->Form->create('Event'); ?>
+<?php $this->Form->inputDefaults([
+    'class' => 'form-control',
+]); ?>
 	<fieldset>
 		<legend><?php echo __('Admin Add Event'); ?></legend>
 	<?php
@@ -10,7 +13,7 @@
 		echo $this->Form->input('description');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(['label' => __('Submit'), 'class' => 'btn btn-primary']); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

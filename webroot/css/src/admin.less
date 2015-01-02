@@ -1,6 +1,7 @@
 @import "bower_components/bootstrap/less/bootstrap.less";
 @import "bower_components/eonasdan-bootstrap-datetimepicker/src/less/bootstrap-datetimepicker.less";
 @import "_variables.less";
+@import "_mixins.less";
 //@import "cake.generic.less";
 
 html, body {
@@ -12,28 +13,51 @@ html, body {
     height: 16px;
     margin-left: -20px; // Fix for alignment on vendor index during ajax
 }
+.product-months {
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    .rounded-corners(4px);
+    display: flex;
+    flex-flow: row wrap;
+    .form-control {
+        width: 50%;
+        .checkbox-noborder;
+    }
+}
 .modal {
     h4 {
         color: #000;
     }
     .modal-body {
         form {
-            .product-months {
-                display: flex;
-                flex-flow: row wrap;
-                .form-control {
-                    width: 50%;
-                }
-            }
         }
     }
 }
 .submit {
     margin-top: 10px;
 }
+.checkbox-noborder {
+    display: inline;
+    min-width: 200px;
+    width: auto;
+    border: none;
+    box-shadow: none;
+    input {
+        margin-right: 5px;
+    }
+}
+.table {
+    display: table;
+}
+.table-row {
+    display: table-row;
+}
+.table-cell {
+    display: table-cell;
+}
 .vendors {
     &.edit {
-        .checkbox {
+        .checkbox { // Active checkbox
             .form-control {
                 box-shadow: none;
                 margin-left: 0;
@@ -56,14 +80,7 @@ html, body {
                             flex-flow: row wrap;
                             align-items: flex-start;
                             .form-control {
-                                display: inline;
-                                min-width: 200px;
-                                width: auto;
-                                border: none;
-                                box-shadow: none;
-                                input {
-                                    margin-right: 5px;
-                                }
+                                .checkbox-noborder;
                             }
                         }
                     }

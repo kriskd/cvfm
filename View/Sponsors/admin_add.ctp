@@ -10,8 +10,7 @@
             <?php echo $this->Element('Sponsors/form_fields'); ?>
         </div>
         <div class="modal-footer">
-            <?php echo $this->Form->submit(); ?>
-            <?php echo $this->Form->end(); ?>
+            <?php echo $this->Form->end(['label' => 'Save', 'class' => 'btn btn-primary']); ?>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

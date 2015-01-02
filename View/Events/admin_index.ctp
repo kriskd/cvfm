@@ -1,4 +1,4 @@
-<div class="events index">
+<div class="admin events index">
 	<h2><?php echo __('Events'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>

@@ -1,5 +1,6 @@
 @import "bower_components/bootstrap/less/bootstrap.less";
 @import "_variables.less";
+@import "_mixins.less";
 @import "min-base.less";
 
 body { background: @mainGreen; color: @brown; font-family: arial; font-size: 12px; }
@@ -16,10 +17,6 @@ input[type="week"], input[type="email"], input[type="number"],
 input[type="search"], input[type="tel"], input[type="time"],
 input[type="url"], textarea, select { 
     font-size: 16px!important; 
-}
-
-.rounded-corners (@radius: 5px) {
-  border-radius: @radius;
 }
 
 .btn-brown {
