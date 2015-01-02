@@ -2,16 +2,8 @@
 <?php echo $this->Form->create('Event'); ?>
 	<fieldset>
 		<legend><?php echo __('Admin Edit Event'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('date', array(
-            'minYear' => $fiscalYear,
-            'maxYear' => $fiscalYear,
-        ));
-		echo $this->Form->input('description');
-	?>
+        <?php echo $this->Element('Events/form'); ?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
