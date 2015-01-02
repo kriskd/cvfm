@@ -5,13 +5,21 @@
 ]); ?>
 	<fieldset>
 		<legend><?php echo __('Admin Add Event'); ?></legend>
-	<?php
-        echo $this->Form->input('date', array(
-            'minYear' => $fiscalYear,
-            'maxYear' => $fiscalYear,
-        ));
-		echo $this->Form->input('description');
-	?>
+        <div class="form-group">
+            <?php echo $this->Form->input('date_pick', array(
+                'label' => 'Date',
+                'type' => 'text',
+                'class' => 'form-control date-picker',
+                'data-date-format' => 'MM/DD/YYYY',
+            )); ?>
+            <?php echo $this->Form->input('date', array(
+                'label' => false,
+                'type' => 'hidden',
+            )); ?>
+        </div>
+        <div class="form-group">
+            <?php echo $this->Form->input('description'); ?>
+        </div>
 	</fieldset>
 <?php echo $this->Form->end(['label' => __('Submit'), 'class' => 'btn btn-primary']); ?>
 </div>
