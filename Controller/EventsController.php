@@ -91,6 +91,7 @@ class EventsController extends AppController {
 		} else {
 			$options = array('conditions' => array('Event.' . $this->Event->primaryKey => $id));
 			$this->request->data = $this->Event->find('first', $options);
+            $this->request->data['Event']['date_pick'] = date('m/d/Y', strtotime($this->request->data['Event']['date']));
 		}
 	}
 
