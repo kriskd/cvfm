@@ -9,5 +9,5 @@
         ]);
         ?>
         </fieldset>
-    <?php echo $this->Form->end(['label' => __('Submit'), 'class' => 'btn btn-primary']); ?>
+    <?php echo $this->Form->end(['label' => __('Save'), 'class' => 'btn btn-primary']); ?>
 </div>
