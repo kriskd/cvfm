@@ -123,12 +123,25 @@ class ProductsController extends AppController
         )); 
     }
 
-    //Delete
-    public function admin_delete($id=null){
-        $this->Product->delete($id, false);
-        $this->redirect(array('controller' => 'Products', 'action' => 'index', 'admin' => true));
-    }
-    
-
+/**
+ * admin_delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_delete($id = null) {
+		$this->Product->id = $id;
+		if (!$this->Product->exists()) {
+			throw new NotFoundException(__('Invalid product'));
+		}
+		$this->request->allowMethod('post', 'delete');
+		if ($this->Product->delete($id, false)) {
+			$this->Session->setFlash(__('The product has been deleted.'));
+		} else {
+			$this->Session->setFlash(__('The product could not be deleted. Please, try again.'));
+		}
+		return $this->redirect(array('action' => 'index', 'admin' => true));
+	}
 }
 

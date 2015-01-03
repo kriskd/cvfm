@@ -7,8 +7,7 @@
         'class' => 'btn btn-primary fire-modal',
         'data-action' => '/admin/products/add',
     )); ?>&nbsp;
-    <?php echo $this->Html->link('Delete product', array(
-        'controller' => 'products', 
+    <?php echo $this->Form->postLink('Delete product', array(
         'action' => 'delete', $product['Product']['id'], 
         'admin' => true,
     ), array(
