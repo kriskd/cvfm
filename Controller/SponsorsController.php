@@ -52,7 +52,7 @@ class SponsorsController extends AppController {
         if($id){
             if(!empty($this->request->data)){
                 $this->Sponsor->save($this->request->data);
-                $this->Session->setFlash('Sponsor saved.');
+                $this->Session->setFlash('Sponsor saved.', 'success');
             }
             $sponsor = $this->Sponsor->findById($id);
             $this->request->data = $sponsor;
@@ -63,5 +63,25 @@ class SponsorsController extends AppController {
         }
     }
     
-    //Delete Sponsor
+/**
+ * admin_delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_delete($id = null) {
+		$this->Sponsor->id = $id;
+		if (!$this->Sponsor->exists()) {
+			throw new NotFoundException(__('Invalid sponsor'));
+		}
+		$this->request->onlyAllow('post', 'delete');
+		if ($this->Sponsor->delete()) {
+			$this->Session->setFlash(__('The sponsor has been deleted.'), 'success');
+		} else {
+			$this->Session->setFlash(__('The sponsor could not be deleted. Please, try again.'), 'danger');
+		}
+		return $this->redirect(array('action' => 'index'));
+    }
+
 }
