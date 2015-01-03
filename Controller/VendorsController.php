@@ -116,10 +116,25 @@ class VendorsController extends AppController {
         $this->set(compact('vendor', 'product_types', 'schedules', 'groupedProducts'));
     }
     
-    //Delete Vendor
-    public function admin_delete($id = null){
-        
-    }
-    
+/**
+ * admin_delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_delete($id = null) {
+		$this->Vendor->id = $id;
+		if (!$this->Vendor->exists()) {
+			throw new NotFoundException(__('Invalid vendor'));
+		}
+		$this->request->allowMethod('post', 'delete');
+		if ($this->Vendor->delete()) {
+			$this->Session->setFlash(__('The vendor has been deleted.'));
+		} else {
+			$this->Session->setFlash(__('The vendor could not be deleted. Please, try again.'));
+		}
+		return $this->redirect(array('action' => 'index'));
+	}
     
 }
