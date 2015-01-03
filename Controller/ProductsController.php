@@ -103,7 +103,7 @@ class ProductsController extends AppController
         if($this->request->data){
             $product = $this->request->data;
             $this->Product->save($product);
-            $this->Session->setFlash('Product saved.');
+            $this->Session->setFlash('Product saved.', 'success');
         } else {
             $product = $this->Product->findById($id); 
             $this->request->data = $product;
@@ -137,9 +137,9 @@ class ProductsController extends AppController
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Product->delete($id, false)) {
-			$this->Session->setFlash(__('The product has been deleted.'));
+			$this->Session->setFlash(__('The product has been deleted.'), 'success');
 		} else {
-			$this->Session->setFlash(__('The product could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The product could not be deleted. Please, try again.'), 'danger');
 		}
 		return $this->redirect(array('action' => 'index', 'admin' => true));
 	}
