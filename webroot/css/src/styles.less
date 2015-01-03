@@ -30,7 +30,7 @@ input[type="url"], textarea, select {
 .navbar-default {
     margin-right: -15px;
     .container-fluid {
-        background: @lightYellow;
+        background-color: @lightYellow;
     }
     border-color: @ochre;
     .navbar-nav {
@@ -42,6 +42,16 @@ input[type="url"], textarea, select {
             }
             >a:hover {
                 background: @yellowBg;
+            }
+        }
+    }
+    @media (min-width: @screen-sm-min) {
+        .container-fluid {
+            background-image: linear-gradient(@lightYellow, @yellowBg);
+            li {
+                >a:hover {
+                    background-image: linear-gradient(@yellowBg, @lightYellow);
+                }
             }
         }
     }

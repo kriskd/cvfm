@@ -6670,7 +6670,7 @@ fieldset[disabled] .btn-brown.active {
   border-color: #ce9a21;
 }
 .navbar-default .container-fluid {
-  background: #ffe88e;
+  background-color: #ffe88e;
 }
 .navbar-default .navbar-nav > li > a {
   color: #694f10;
@@ -6679,6 +6679,14 @@ fieldset[disabled] .btn-brown.active {
 }
 .navbar-default .navbar-nav > li > a:hover {
   background: #ffe266;
+}
+@media (min-width: 768px) {
+  .navbar-default .container-fluid {
+    background-image: linear-gradient(#ffe88e, #ffe266);
+  }
+  .navbar-default .container-fluid li > a:hover {
+    background-image: linear-gradient(#ffe266, #ffe88e);
+  }
 }
 .navbar-default .navbar-brand {
   color: #694f10;
