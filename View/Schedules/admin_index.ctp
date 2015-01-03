@@ -13,7 +13,7 @@
             </div>
         </div>
         <?php foreach ($schedules as $date): ?>
-            <div class="row">
+            <div class="row form-group">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <?php echo $date['Schedule']['description']; ?>
                 </div>
