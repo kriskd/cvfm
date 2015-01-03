@@ -1,4 +1,4 @@
-<p><?php echo $this->Html->link('Add product', '/admin/products/add', array('class' => 'fire-modal', 'data-action' => 'products/add', 'data-toggle' => 'modal', 'data-target' => '.modal')); ?></p>
+<p><?php echo $this->Html->link('Add product', '/admin/products/add', array('class' => 'btn btn-primary fire-modal', 'data-action' => 'products/add', 'data-toggle' => 'modal', 'data-target' => '.modal')); ?></p>
 <?php foreach($product_types as $type => $items): ?>
     <h2><?php echo $type; ?> </h2>
     <?php foreach($items as $item): ?>
