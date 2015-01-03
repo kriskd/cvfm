@@ -38,6 +38,9 @@ form {
         content: '';
     }
 }
+footer {
+    .clearfix;
+}
 .submit {
     margin-top: 10px;
 }
@@ -53,9 +56,20 @@ form {
 }
 .table {
     display: table;
+    border: 1px solid #e7e7e7;
+    .rounded-corners(4px);
+    span {
+        padding: .5em;
+    }
 }
 .table-row {
     display: table-row;
+}
+.table-head {
+    display: table-cell;
+    text-align: center;
+    font-weight: bold;
+    background-color: @navbar-default-bg;
 }
 .table-cell {
     display: table-cell;

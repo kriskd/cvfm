@@ -6500,6 +6500,22 @@ body {
 form .required label:after {
   content: '';
 }
+footer:before,
+footer:after {
+  content: " ";
+  display: table;
+}
+footer:after {
+  clear: both;
+}
+footer:before,
+footer:after {
+  content: " ";
+  display: table;
+}
+footer:after {
+  clear: both;
+}
 .submit {
   margin-top: 10px;
 }
@@ -6515,9 +6531,20 @@ form .required label:after {
 }
 .table {
   display: table;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+}
+.table span {
+  padding: .5em;
 }
 .table-row {
   display: table-row;
+}
+.table-head {
+  display: table-cell;
+  text-align: center;
+  font-weight: bold;
+  background-color: #f8f8f8;
 }
 .table-cell {
   display: table-cell;
