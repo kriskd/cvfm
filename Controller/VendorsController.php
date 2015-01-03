@@ -3,6 +3,12 @@
 class VendorsController extends AppController {
     
     public $uses = array('Vendor', 'State');
+	public $components = array('Paginator');
+    public $paginate = array(
+        'order' => 'Vendor.business_name ASC',
+        'limit' => 10,
+    );
+
     
     public function beforeFilter() {
         parent::beforeFilter();
@@ -83,9 +89,8 @@ class VendorsController extends AppController {
             $this->Vendor->id = $id;
             $this->Vendor->saveField('active', $active);
         }
-        $vendors = $this->Vendor->find('all', array('order' => 'business_name'));
-        $this->request->data = $vendors;
-        $this->set(array('vendors' => $vendors));
+        $this->Paginator->settings = $this->paginate;
+		$this->set('vendors', $this->Paginator->paginate('Vendor'));
     }  
 
     //Update Vendor
