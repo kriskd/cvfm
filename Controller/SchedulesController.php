@@ -95,24 +95,4 @@ class SchedulesController extends AppController {
 		}
 	}
 
-/**
- * admin_delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_delete($id = null) {
-		$this->Schedule->id = $id;
-		if (!$this->Schedule->exists()) {
-			throw new NotFoundException(__('Invalid schedule'));
-		}
-		$this->request->allowMethod('post', 'delete');
-		if ($this->Schedule->delete()) {
-			$this->Session->setFlash(__('The schedule has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The schedule could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
 }
