@@ -62,10 +62,10 @@ class EventsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Event->create();
 			if ($this->Event->save($this->request->data)) {
-				$this->Session->setFlash(__('The event has been saved.'));
+				$this->Session->setFlash(__('The event has been saved.'), 'success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The event could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The event could not be saved. Please, try again.'), 'danger');
 			}
 		}
 	}
@@ -83,15 +83,17 @@ class EventsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Event->save($this->request->data)) {
-				$this->Session->setFlash(__('The event has been saved.'));
+				$this->Session->setFlash(__('The event has been saved.'), 'success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The event could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The event could not be saved. Please, try again.'), 'danger');
 			}
 		} else {
 			$options = array('conditions' => array('Event.' . $this->Event->primaryKey => $id));
-			$this->request->data = $this->Event->find('first', $options);
-            $this->request->data['Event']['date_pick'] = date('m/d/Y', strtotime($this->request->data['Event']['date']));
+            $event = $this->Event->find('first', $options);
+            $this->set('event', $event);
+			$this->request->data = $event;
+            $this->request->data['Event']['date_pick'] = date('m/d/Y', strtotime($event['Event']['date']));
 		}
 	}
 
@@ -109,9 +111,9 @@ class EventsController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Event->delete()) {
-			$this->Session->setFlash(__('The event has been deleted.'));
+			$this->Session->setFlash(__('The event has been deleted.'), 'success');
 		} else {
-			$this->Session->setFlash(__('The event could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The event could not be deleted. Please, try again.'), 'danger');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}}
