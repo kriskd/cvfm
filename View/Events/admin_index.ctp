@@ -1,5 +1,12 @@
 <div class="admin events index">
 	<h2><?php echo __('Events'); ?></h2>
+    <div class="buttons">
+        <?php echo $this->Html->link('Add Event', [
+            'action' => 'add',
+        ],[
+            'class' => 'btn btn-primary'
+        ]); ?>
+    </div>
     <div class="col-lg-8 col-md-9 col-sm-10">
         <div class="table">
             <div class="table-row">
