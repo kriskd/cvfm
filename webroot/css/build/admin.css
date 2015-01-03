@@ -6497,6 +6497,9 @@ body {
 .modal h4 {
   color: #000;
 }
+form .required label:after {
+  content: '';
+}
 .submit {
   margin-top: 10px;
 }
@@ -6554,68 +6557,7 @@ body {
 .vendors.edit #accordion.panel-group .panel .panel-collapse .panel-body .form-control input {
   margin-right: 5px;
 }
-.schedules.index .row {
-  margin-bottom: 15px;
-}
 .schedules.index .clear-schedule {
   float: left;
   margin-right: 5px;
-}
-#container #header {
-  background: #cdcd7d;
-}
-#container #header h1 {
-  color: #694f10;
-  font-weight: bold;
-  font-size: 110%;
-}
-#container #header a:link,
-#container #header a:visited,
-#container #header a:hover,
-#container #header a:active {
-  color: #694f10;
-}
-#container #header h1 {
-  background: url(../../img/cake.icon.png) no-repeat left;
-  margin-top: 0px;
-}
-#container #header h1 a {
-  background: #cdcd7d;
-}
-#container #admin-menu {
-  width: 858px;
-  list-style: none!important;
-  overflow: hidden;
-}
-#container #admin-menu li {
-  display: inline;
-  float: left;
-}
-#container #admin-menu li a {
-  color: #fff;
-}
-#container #content {
-  background: #ffe88e;
-}
-#container #content form .required label:after {
-  content: '';
-}
-#container #content form div {
-  clear: none;
-  margin-bottom: 0;
-}
-#container #content form .basic-info .checkbox label {
-  float: left;
-  margin-top: 6px;
-  margin-left: -15px;
-  font-weight: bold;
-}
-#container #content form .basic-info .checkbox input {
-  float: right;
-  position: static;
-  margin-right: 450px;
-}
-#container .pages.index {
-  width: 100%;
-  border-left: none;
 }

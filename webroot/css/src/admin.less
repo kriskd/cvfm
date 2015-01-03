@@ -33,6 +33,11 @@ html, body {
         }
     }
 }
+form {
+    .required label:after {
+        content: '';
+    }
+}
 .submit {
     margin-top: 10px;
 }
@@ -91,75 +96,9 @@ html, body {
 }
 .schedules {
     &.index {
-        .row {
-            margin-bottom: 15px;
-        }
         .clear-schedule {
             float: left;
             margin-right: 5px;
         }
-    }
-}
-#container {
-    #header {
-        background: @mainGreen;
-        h1 {
-            color: @brown;
-            font-weight: bold;
-            font-size: 110%;
-        }
-        a:link, a:visited, a:hover, a:active {
-            color: @brown;
-        }
-        h1 {
-            background: url(../../img/cake.icon.png) no-repeat left;
-            margin-top: 0px;
-            a {
-                background: @mainGreen;
-            }
-        }
-    }
-    #admin-menu {
-        width: 858px;
-        list-style: none!important;
-        overflow: hidden;
-        li {
-            display: inline;
-            float: left;
-            a {
-                color: #fff;
-            }
-        }
-    }
-    #content {
-        background: @lightYellow;
-        form {
-            .required label:after {
-                content: '';
-            }
-            div {
-                clear: none;
-                margin-bottom: 0;
-            }
-            .basic-info {
-                .checkbox {
-                    label {
-                        float: left;
-                        margin-top: 6px;
-                        margin-left: -15px;
-                        font-weight: bold;
-                    }
-                    input {
-                        float: right;
-                        position: static;
-                        margin-right: 450px;
-                    }
-                }
-            }
-        }
-    }
-    .pages.index {
-        width: 100%;
-        border-left: none;
     }
 }
