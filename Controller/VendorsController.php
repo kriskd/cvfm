@@ -134,7 +134,7 @@ class VendorsController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The vendor could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+		return $this->redirect(array('action' => 'index', 'admin' => true));
 	}
     
 }
