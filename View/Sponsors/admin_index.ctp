@@ -1,6 +1,8 @@
 <div class="admin sponsors index">
-    <p><?php echo $this->Html->link('Add sponsor', '/admin/sponsors/add', array('class' => 'btn btn-primary fire-modal', 'data-action' => 'sponsors/add', 'data-toggle' => 'modal', 'data-target' => '.modal')); ?></p>
-    <p><?php echo $this->Html->link('Back', '/admin/sponsors', ['class' => 'btn btn-info']); ?></p>
+    <div class="buttons">
+        <?php echo $this->Html->link('Back', '/admin/sponsors', ['class' => 'btn btn-info']); ?>
+        <?php echo $this->Html->link('Add Sponsor', '/admin/sponsors/add', array('class' => 'btn btn-primary fire-modal', 'data-action' => 'sponsors/add', 'data-toggle' => 'modal', 'data-target' => '.modal')); ?>
+    </div>
     <div class="table">
         <div class="table-row">
             <span class="table-head"><?php echo $this->Paginator->sort('name'); ?></span>
