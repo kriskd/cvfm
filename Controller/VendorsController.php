@@ -104,7 +104,7 @@ class VendorsController extends AppController {
         if(!empty($this->request->data)){
             $vendor = $this->request->data;
             $this->Vendor->save($vendor);
-            $this->Session->setFlash('Vendor saved.', 'danger');
+            $this->Session->setFlash('Vendor saved.', 'success');
         } else {
             $vendor = $this->Vendor->findById($id); 
         }
