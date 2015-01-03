@@ -23,12 +23,11 @@ class SchedulesController extends AppController {
  */
 	public function admin_index() {
 		if ($this->request->is(array('post', 'put'))) {
-            //debug($this->request->data); exit;
 			if ($this->Schedule->saveMany($this->request->data['Schedule'])) {
-				$this->Session->setFlash(__('The schedule has been saved.'));
+				$this->Session->setFlash(__('The schedule has been saved.'), 'success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The schedule could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The schedule could not be saved. Please, try again.'), 'danger');
 			}
         }
 		$this->Schedule->recursive = 0;

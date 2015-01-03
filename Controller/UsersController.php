@@ -19,7 +19,7 @@ class UsersController extends AppController {
             if($this->Auth->login()){
                 $this->redirect($this->Auth->redirectUrl());
             }
-            $this->Session->setFlash('Username or password is incorrect.');
+            $this->Session->setFlash('Username or password is incorrect.', 'danger');
         }  
         $this->layout = 'admin';
     }

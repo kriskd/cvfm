@@ -104,7 +104,7 @@ class VendorsController extends AppController {
         if(!empty($this->request->data)){
             $vendor = $this->request->data;
             $this->Vendor->save($vendor);
-            $this->Session->setFlash('Vendor saved.');
+            $this->Session->setFlash('Vendor saved.', 'danger');
         } else {
             $vendor = $this->Vendor->findById($id); 
         }
@@ -130,9 +130,9 @@ class VendorsController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Vendor->delete()) {
-			$this->Session->setFlash(__('The vendor has been deleted.'));
+			$this->Session->setFlash(__('The vendor has been deleted.'), 'success');
 		} else {
-			$this->Session->setFlash(__('The vendor could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The vendor could not be deleted. Please, try again.'), 'danger');
 		}
 		return $this->redirect(array('action' => 'index', 'admin' => true));
 	}

@@ -112,10 +112,10 @@ class PagesController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$page = $this->array_merge_recursive_distinct($page, $this->request->data);
 			if ($this->Page->save($page)) {
-			    $this->Session->setFlash(__('The page has been saved'));
+			    $this->Session->setFlash(__('The page has been saved'), 'success');
 			    $this->redirect(array('action' => 'edit', $id));
 			} else {
-			    $this->Session->setFlash(__('The page could not be saved. Please, try again.'));
+			    $this->Session->setFlash(__('The page could not be saved. Please, try again.'), 'danger');
 			}
 		}
         
