@@ -41,7 +41,7 @@
                     <?php echo $this->Form->input('Schedule.'.$date['Schedule']['id'].'.end_pick', array(
                         'label' => false,
                         'type' => 'text',
-                        'class' => 'form-control schedule-date',
+                        'class' => 'form-control date-picker',
                         'data-date-format' => 'MM/DD/YYYY',
                         'value' => empty($date['Schedule']['end_date']) ? '' : date('m/d/Y', strtotime($date['Schedule']['end_date'])),
                     )); ?>
