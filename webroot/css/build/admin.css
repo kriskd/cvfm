@@ -6519,6 +6519,9 @@ footer:after {
 .submit {
   margin-top: 10px;
 }
+.pagination .disabled {
+  display: none;
+}
 .checkbox-noborder {
   display: inline;
   min-width: 200px;

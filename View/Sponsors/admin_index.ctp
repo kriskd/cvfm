@@ -1,18 +1,27 @@
-<p><?php echo $this->Html->link('Add sponsor', '/admin/sponsors/add', array('class' => 'fire-modal', 'data-action' => 'sponsors/add', 'data-toggle' => 'modal', 'data-target' => '.modal')); ?></p>
-<p><?php echo $this->Html->link('Back', '/admin/sponsors'); ?></p>
-<table>
-<?php foreach($sponsors as $sponsor): ?>
-    <tr><td><?php echo $sponsor['Sponsor']['name'];?></td>
-        <td><?php echo $sponsor['Sponsor']['website']; ?></td>
-        <td><?php echo $sponsor['Sponsor']['amount']; ?></td>
-        <td><?php echo $this->Form->input('Sponsor.'.$sponsor['Sponsor']['id'].'.active', array(
-                'label' => false,
-                'checked' => $sponsor['Sponsor']['active'],
-                'class' => 'sponsor-active',
-                'data-id' => $sponsor['Sponsor']['id'],
-            )); ?></td>
-        <td><?php echo $this->Html->link('Edit', '/admin/sponsors/edit/' . $sponsor['Sponsor']['id']); ?></td>
-        <td><?php echo $this->Html->link('Delete', '/admin/sponsors/delete' . $sponsor['Sponsor']['id']); ?></td>
-    </tr>          
-<?php endforeach; ?>
-</table>
+<div class="admin sponsors index">
+    <p><?php echo $this->Html->link('Add sponsor', '/admin/sponsors/add', array('class' => 'btn btn-primary fire-modal', 'data-action' => 'sponsors/add', 'data-toggle' => 'modal', 'data-target' => '.modal')); ?></p>
+    <p><?php echo $this->Html->link('Back', '/admin/sponsors', ['class' => 'btn btn-info']); ?></p>
+    <div class="table">
+        <div class="table-row">
+            <span class="table-head"><?php echo $this->Paginator->sort('name'); ?></span>
+            <span class="table-head"><?php echo $this->Paginator->sort('website'); ?></span>
+            <span class="table-head"><?php echo $this->Paginator->sort('amount'); ?></span>
+            <span class="table-head"><?php echo $this->Paginator->sort('active'); ?></span>
+        </div>
+    <?php foreach($sponsors as $sponsor): ?>
+        <?php $cells = $this->Html->tag('span', $sponsor['Sponsor']['name'], ['class' => 'table-cell']); ?>
+        <?php $cells .= $this->Html->tag('span', $sponsor['Sponsor']['website'], ['class' => 'table-cell']); ?>
+        <?php $cells .= $this->Html->tag('span', empty($sponsor['Sponsor']['amount']) ? "&nbsp;" : $sponsor['Sponsor']['amount'], ['class' => 'table-cell text-right']); ?>
+        <?php $checkbox = $this->Form->input('Sponsor.'.$sponsor['Sponsor']['id'].'.active', array(
+            'label' => false,
+            'checked' => $sponsor['Sponsor']['active'],
+            'class' => 'sponsor-active',
+            'data-id' => $sponsor['Sponsor']['id'],
+            'div' => false,
+        )); ?>
+        <?php $cells .= $this->Html->tag('span', $checkbox, ['class' => 'table-cell text-center']); ?>
+        <?php echo $this->Html->link($cells, ['action' => 'edit', $sponsor['Sponsor']['id']], ['class' => 'table-row', 'escape' => false]); ?>
+    <?php endforeach; ?>
+    </div>
+    <?php echo $this->Element('paginator'); ?>
+</div>

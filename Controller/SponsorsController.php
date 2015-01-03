@@ -2,8 +2,13 @@
 
 class SponsorsController extends AppController {
     
-    public function beforeFilter()
-    {
+	public $components = array('Paginator');
+    public $paginate = array(
+        'order' => 'Sponsor.name ASC',
+        'limit' => 10,
+    );
+
+    public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->deny();
         $this->Auth->allow('index');
@@ -38,8 +43,8 @@ class SponsorsController extends AppController {
             $this->Sponsor->id = $id;
             $this->Sponsor->saveField('active', $active);
         }
-        $sponsors = $this->Sponsor->find('all', array('order' => array('Sponsor.name')));
-        $this->set(array('sponsors' => $sponsors));
+        $this->Paginator->settings = $this->paginate;
+		$this->set('sponsors', $this->Paginator->paginate('Sponsor'));
     }
     
     //Update Sponsor
