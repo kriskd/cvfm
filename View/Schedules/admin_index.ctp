@@ -1,7 +1,8 @@
 <div class="admin schedules index">
     <?php // I could not get this to work with just $this->request->data, had to set values ?>
-    <h2>Create the schedule for <?php echo $fiscalYear; ?></h2>
     <?php echo $this->Form->create('Schedule'); ?>
+        <fieldset>
+            <legend><?php echo $fiscalYear; ?> Schedule</legend>
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             </div>
@@ -53,9 +54,10 @@
                 </div>
             </div>
         <?php endforeach; ?>
-    <?php echo $this->Form->button('Clear Dates', array(
-        'class' => 'btn btn-info clear-schedule',
-        'type' => 'button'
-    )); ?>
-    <?php echo $this->Form->end(['label' => 'Save', 'class' => 'btn btn-primary']); ?>
+        <?php echo $this->Form->button('Clear Dates', array(
+            'class' => 'btn btn-info clear-schedule',
+            'type' => 'button'
+        )); ?>
+        <?php echo $this->Form->end(['label' => 'Save', 'class' => 'btn btn-primary']); ?>
+    </fieldset>
 </div>

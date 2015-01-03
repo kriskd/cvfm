@@ -3,7 +3,7 @@
         <?php echo $this->Html->link('Back', array(
             'action' => 'index',
         ), array(
-            'class' => 'btn btn-primary', 
+            'class' => 'btn btn-info', 
         )); ?>
         <?php echo $this->Form->postLink('Delete vendor', array(
             'action' => 'delete', $vendor['Vendor']['id'], 
@@ -12,6 +12,5 @@
             'class' => 'confirm btn btn-danger',
         )); ?>
     </div>
-    <h2><?php echo $vendor['Vendor']['business_name']; ?></h2>
     <?php echo $this->Element('Vendors/form'); ?>
 </div>

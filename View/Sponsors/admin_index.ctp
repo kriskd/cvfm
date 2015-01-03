@@ -1,7 +1,11 @@
 <div class="admin sponsors index">
     <div class="buttons">
-        <?php echo $this->Html->link('Back', '/admin/sponsors', ['class' => 'btn btn-info']); ?>
-        <?php echo $this->Html->link('Add Sponsor', '/admin/sponsors/add', array('class' => 'btn btn-primary fire-modal', 'data-action' => 'sponsors/add', 'data-toggle' => 'modal', 'data-target' => '.modal')); ?>
+        <?php echo $this->Html->link('Add Sponsor', '/admin/sponsors/add', [
+            'class' => 'btn btn-primary fire-modal', 
+            'data-action' => 'sponsors/add', 
+            'data-toggle' => 'modal', 
+            'data-target' => '.modal',
+        ]); ?>
     </div>
     <div class="table">
         <div class="table-row">

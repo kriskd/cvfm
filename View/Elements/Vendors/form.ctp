@@ -5,10 +5,10 @@
 <?php echo $this->Form->hidden('id'); ?>
 <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <?php echo $this->Form->input('name'); ?>
+        <?php echo $this->Form->input('business_name'); ?>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <?php echo $this->Form->input('business_name'); ?>
+        <?php echo $this->Form->input('name'); ?>
     </div>
 </div>
 <div class="row">
