@@ -94,11 +94,11 @@ class PagesController extends AppController {
         }
 	}
 	
-	public function admin_index()
+	/*public function admin_index()
 	{
 		$pages = $this->Paginator->paginate('Page');
 		$this->set('pages', $pages);
-	}
+    }*/
 	
 	public function admin_edit($id = null)
 	{
