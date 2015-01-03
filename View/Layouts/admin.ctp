@@ -43,25 +43,25 @@ $cakeDescription = __d('cake_dev', 'Capitol View Farmers Market Admin');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <?php echo $this->element('admin_menu'); ?>
+    <header>
+        <?php echo $this->element('admin_menu'); ?>
+    </header>
 	<div class="container-fluid">
-		<div id="header">
-		</div>
 		<div class="content">
-
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
-		</div>
 	</div>
+	<div class="container-fluid">
+        <footer>
+            <?php echo $this->Html->link(
+                    $this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
+                    'http://www.cakephp.org/',
+                    array('target' => '_blank', 'escape' => false)
+                );
+            ?>
+        </footer>
+    </div>
 	<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>
