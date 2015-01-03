@@ -6543,6 +6543,9 @@ footer:after {
 .table-row {
   display: table-row;
 }
+.table-row:hover {
+  background: #f8f8f8;
+}
 .table-head {
   display: table-cell;
   text-align: center;
