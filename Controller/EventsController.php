@@ -14,6 +14,10 @@ class EventsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
+    public $paginate = array(
+        'order' => 'Event.date ASC',
+        'limit' => 10,
+    );
 
     public function index() {
 		$events = $this->Event->find('all', array(
@@ -35,6 +39,7 @@ class EventsController extends AppController {
  */
 	public function admin_index() {
 		$this->Event->recursive = 0;
+        $this->Paginator->settings = $this->paginate;
 		$this->set('events', $this->Paginator->paginate());
 	}
 
