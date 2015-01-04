@@ -9,7 +9,6 @@
         'class' => 'form-control date-picker',
         'data-date-format' => 'MM/DD/YYYY',
     )); ?>
-    <?php echo $this->Form->error('date_pick'); ?>
     <?php echo $this->Form->input('date', array(
         'label' => false,
         'type' => 'hidden',
@@ -17,5 +16,4 @@
 </div>
 <div class="form-group">
     <?php echo $this->Form->input('description'); ?>
-    <?php echo $this->Form->error('description'); ?>
 </div>
