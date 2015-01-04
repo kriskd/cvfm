@@ -7,11 +7,35 @@
 html, body {
     font-size: 100%;
 }
+h2 {
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    border-bottom: 1px solid @legend-border-color;
+    color: @gray-dark;
+    font-weight: normal;
+}
+h3 {
+    font-size: 20px;
+}
+form {
+    .required label:after {
+        content: '';
+    }
+}
+footer {
+    .clearfix;
+}
 .ajax-loading {
     background: url('/css/build/images/ajax-loader.gif') center center no-repeat;
     width: 16px;
     height: 16px;
     margin-left: -20px; // Fix for alignment on vendor index during ajax
+}
+.buttons {
+    &.pull-right {
+        margin-top: -13px;
+    }
 }
 .product-months {
     border: 1px solid #ccc;
@@ -33,20 +57,17 @@ html, body {
         }
     }
 }
-form {
-    .required label:after {
-        content: '';
-    }
-}
-footer {
-    .clearfix;
-}
 .submit {
     margin-top: 10px;
 }
 .pagination {
     .disabled {
         display: none;
+    }
+}
+.checkbox {
+    input[type=checkbox] {
+        margin-left: 0;
     }
 }
 .checkbox-noborder {
@@ -57,6 +78,11 @@ footer {
     box-shadow: none;
     input {
         margin-right: 5px;
+    }
+}
+label {
+    .required {
+        color: red;
     }
 }
 .table {
