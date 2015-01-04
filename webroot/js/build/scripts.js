@@ -5661,6 +5661,7 @@ THE SOFTWARE.
         return false;
     });
 
+    // Validation of modal forms in admin
     $(document).on('click', '.modal form input[type=submit]', function(e) {
       e.preventDefault();
       var form = $(this).parents('form');
@@ -5672,23 +5673,26 @@ THE SOFTWARE.
           //console.log(textStatus + ' ' + errorThrown);
         },
         success: function(data) {
-          if (data.Event.success) {
-            form.submit();
-          } else {
-            $.each(data, function(model, msgObj) {
+          $.each(data, function(model, msgObj) {
+            console.log(msgObj);
+            if (msgObj.success) {
+              form.submit();
+            } else {
               for (var field in msgObj) {
                 var pascalField = snakeToPascal(field);
                 var msgArr = msgObj[field];
+                $('.error-essage').remove();
                 for (var i=0; i<msgArr.length; i++) {
                   var msg = msgArr[i];
                   var id = '#'+model+pascalField;
                   if ($(id).prop('type') != 'hidden') {
-                    $(id).after($('<div />').addClass('error-message').text(msg));
+                    $(id).parent().addClass('has-error');
+                    $(id).after($('<div />').addClass('label label-danger error-message').text(msg));
                   }
                 }
               }
-            });
-          }
+            }
+          });
         }
       });
     });

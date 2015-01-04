@@ -26,9 +26,21 @@ class SponsorsController extends AppController {
     
     //Create Sponsor
     public function admin_add(){
-        if($this->request->data){
-            if($this->Sponsor->save($this->request->data)){
-                $this->redirect('/admin/sponsors/index/');
+		if ($this->request->is('post')) {
+			$this->Sponsor->create();
+			if ($this->Sponsor->save($this->request->data, ['validate' => false])) {
+				$this->Session->setFlash(__('The sponsor has been saved.'), 'success');
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The sponsor could not be saved. Please, try again.'), 'danger');
+			}
+		}
+        if ($this->request->is('ajax') && isset($this->request->query['data'])) {
+            $this->Sponsor->set($this->request->query['data']);
+            if ($this->Sponsor->validates()) {
+                $this->set(['data' => ['success' => true]]);
+            } else {
+                $this->set(['data' => $this->Sponsor->validationErrors]);
             }
         }
         $this->layout = 'ajax';

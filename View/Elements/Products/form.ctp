@@ -1,4 +1,3 @@
-<?php echo $this->Form->create('Product'); ?>
 <?php $this->Form->inputDefaults(array(
     'class' => 'form-control',
 )); ?>
@@ -26,4 +25,3 @@
         'label' => false,
     )); ?>         
 </div>
-<?php echo $this->Form->end(['label' => 'Update', 'class' => 'btn btn-primary']); ?>

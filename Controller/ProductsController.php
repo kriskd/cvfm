@@ -62,12 +62,22 @@ class ProductsController extends AppController
     
     //Create
     public function admin_add(){
-        if($this->request->data){
-            $product = $this->Product->save($this->request->data);
-            $id = $this->Product->id;
-            $this->redirect(array(
-                'action' => 'edit', $id 
-            ));
+		if ($this->request->is('post')) {
+			$this->Product->create();
+			if ($this->Product->save($this->request->data, ['validate' => false])) {
+				$this->Session->setFlash(__('The product has been saved.'), 'success');
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The product could not be saved. Please, try again.'), 'danger');
+			}
+		}
+        if ($this->request->is('ajax') && isset($this->request->query['data'])) {
+            $this->Product->set($this->request->query['data']);
+            if ($this->Product->validates()) {
+                $this->set(['data' => ['success' => true]]);
+            } else {
+                $this->set(['data' => $this->Product->validationErrors]);
+            }
         }
         $product_types = $this->_get_product_types();
         $months = $this->Month->find('list', array(
