@@ -8,7 +8,7 @@ $(document).ready(function(){
     $('.required label').append(' <span class="required">*</span>');
  
     // Used for admin events, sponsor and product add
-    $(document).on('click', '.fire-modal', function(){
+    $('.fire-modal').on('click', function(){
         $.ajax({
             url: $(this).prop('href'),
             dataType: 'html',
@@ -29,6 +29,48 @@ $(document).ready(function(){
         return false;
     });
 
+    $(document).on('click', '.modal form input[type=submit]', function(e) {
+      e.preventDefault();
+      var form = $(this).parents('form');
+      $.ajax({
+        url: form.prop('action'),
+        data: form.serialize(),
+        dataType: 'json',
+        error: function(jqXHR, textStatus, errorThrown) {
+          //console.log(textStatus + ' ' + errorThrown);
+        },
+        success: function(data) {
+          if (data.Event.success) {
+            form.submit();
+          } else {
+            $.each(data, function(model, msgObj) {
+              for (var field in msgObj) {
+                var pascalField = snakeToPascal(field);
+                var msgArr = msgObj[field];
+                for (var i=0; i<msgArr.length; i++) {
+                  var msg = msgArr[i];
+                  var id = '#'+model+pascalField;
+                  if ($(id).prop('type') != 'hidden') {
+                    $(id).after($('<div />').addClass('error-message').text(msg));
+                  }
+                }
+              }
+            });
+          }
+        }
+      });
+    });
+
+    function snakeToPascal(s){
+      var split = s.split('_');
+      var ret = '';
+      for (var i=0; i<split.length; i++) {
+        ret += split[i].charAt(0).toUpperCase() + split[i].substring(1); 
+      }
+      return ret;
+    }
+
+    // Events modal on homepage
     $('.events-modal').on('click', function(){
       $.ajax({
         url: '/events/index',

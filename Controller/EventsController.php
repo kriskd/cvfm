@@ -66,13 +66,21 @@ class EventsController extends AppController {
 	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Event->create();
-			if ($this->Event->save($this->request->data)) {
+			if ($this->Event->save($this->request->data, ['validate' => false])) {
 				$this->Session->setFlash(__('The event has been saved.'), 'success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The event could not be saved. Please, try again.'), 'danger');
 			}
 		}
+        if ($this->request->is('ajax') && isset($this->request->query['data'])) {
+            $this->Event->set($this->request->query['data']);
+            if ($this->Event->validates()) {
+                $this->set(['data' => ['success' => true]]);
+            } else {
+                $this->set(['data' => $this->Event->validationErrors]);
+            }
+        }
         $this->layout = 'ajax';
 	}
 
