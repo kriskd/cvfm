@@ -40,8 +40,8 @@ class AppController extends Controller {
             'loginRedirect' => array('controller' => 'pages', 'action' => 'index', 'admin' => true),
             'logoutRedirect' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
         ),
-        'Session', 'Paginator', 'DebugKit.Toolbar',
-        'Stripe' => array('className' => 'Stripe.Stripe')
+        'Session', 'Paginator', 'DebugKit.Toolbar', 'RequestHandler',
+        'Stripe' => array('className' => 'Stripe.Stripe'),
     );
 
     public $fiscalYear;
