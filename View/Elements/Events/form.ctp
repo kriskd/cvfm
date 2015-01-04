@@ -1,4 +1,3 @@
-<?php echo $this->Form->create('Event'); ?>
 <?php $this->Form->inputDefaults([
     'class' => 'form-control',
 ]); ?>

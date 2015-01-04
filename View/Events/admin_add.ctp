@@ -1,4 +1,5 @@
-<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="admin-events" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <?php echo $this->Form->create('Event'); ?>
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -6,12 +7,11 @@
                 <h4 class="modal-title>">Add Event</h4>
             </div>
         <div class="modal-body">
-            <fieldset>
-                <?php echo $this->Element('Events/form'); ?>
-            </fieldset>
+            <?php echo $this->Element('Events/form'); ?>
         </div>
         <div class="modal-footer">
-            <?php echo $this->Form->end(['label' => 'Save', 'class' => 'btn btn-primary']); ?>
+            <?php echo $this->Form->submit('Save', ['class' => 'btn btn-primary']); ?>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
+    <?php echo $this->Form->end(); ?>
 </div><!-- /.modal -->
