@@ -10,7 +10,7 @@
             'action' => 'delete', $product['Product']['id'], 
             'admin' => true,
         ), array(
-            'class' => 'confirm btn btn-danger',
+            'class' => 'pull-right confirm btn btn-danger',
         )); ?>
     </div>
     <?php echo $this->Form->create('Product'); ?>

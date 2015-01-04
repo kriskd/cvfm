@@ -5,11 +5,11 @@
         ), array(
             'class' => 'btn btn-info', 
         )); ?>
-        <?php echo $this->Form->postLink('Delete vendor', array(
+        <?php echo $this->Form->postLink('Delete Vendor', array(
             'action' => 'delete', $vendor['Vendor']['id'], 
             'admin' => true,
         ), array(
-            'class' => 'confirm btn btn-danger',
+            'class' => 'pull-right confirm btn btn-danger',
         )); ?>
     </div>
     <?php echo $this->Element('Vendors/form'); ?>
