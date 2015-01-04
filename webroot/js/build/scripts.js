@@ -5639,7 +5639,7 @@ THE SOFTWARE.
     $('.launch-tooltip').tooltip();
     $('.required label').append(' <span class="required">*</span>');
  
-    // Used for sponsor and product add
+    // Used for admin events, sponsor and product add
     $(document).on('click', '.fire-modal', function(){
         var action = $(this).data('action');
         $.ajax({
@@ -5647,7 +5647,16 @@ THE SOFTWARE.
             dataType: 'html',
             success: function(data){
                 $('body').append(data);
-                $('.modal').modal('show');
+                $('.modal').modal('show').on('shown.bs.modal', function () {
+                    $('.date-picker').datetimepicker({
+                      'pickTime': false
+                    });
+                    $('.date-picker').on('dp.change', function(e) {
+                      var formatted = moment(e.date).format('YYYY-MM-DD');
+                      $(this).parent().next('input').prop('value', formatted);
+                    });
+                });
+                $('.required label').append(' <span class="required">*</span>');
             }
         });
         return false;
@@ -5664,6 +5673,15 @@ THE SOFTWARE.
       });
     });
 
+    $('.date-picker').datetimepicker({
+      'pickTime': false
+    });
+
+    $('.date-picker').on('dp.change', function(e) {
+      var formatted = moment(e.date).format('YYYY-MM-DD');
+      $(this).parent().next('input').prop('value', formatted);
+    });
+   
     $('.confirm').click(function(){
         var answer = confirm('Do you want to delete?');
         if (answer) {
@@ -5780,15 +5798,6 @@ THE SOFTWARE.
       });
     });
 
-    $('.date-picker').datetimepicker({
-      'pickTime': false
-    });
-
-    $('.date-picker').on('dp.change', function(e) {
-      var formatted = moment(e.date).format('YYYY-MM-DD');
-      $(this).parent().next('input').prop('value', formatted);
-    });
-   
     $(document).on('submit', '#VendorAddForm', function(){
     //$('#VendorAddForm').submit(function(){
         $('.submit input').attr('disabled', 'disabled');
