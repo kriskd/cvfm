@@ -2,7 +2,7 @@
     <?php echo $this->Form->create('Event'); ?>
 	<fieldset>
         <legend>
-            <?php echo __('Edit Event'); ?>
+            Edit <?php echo $event['Event']['description']; ?>
             <div class="buttons pull-right">
                 <?php echo $this->Form->postLink('Delete Event', array(
                     'action' => 'delete', $event['Event']['id'], 
