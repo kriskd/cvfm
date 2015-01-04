@@ -31,7 +31,10 @@ class EventsController extends AppController {
                 ),
                 'fields' => array(
                     'date', 'description'
-                )
+                ),
+                'order' => array(
+                    'date ASC',
+                ),
             )
         ); 
         $this->set(array('events' => $events));
