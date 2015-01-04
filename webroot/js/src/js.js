@@ -7,20 +7,73 @@ $(document).ready(function(){
     $('.launch-tooltip').tooltip();
     $('.required label').append(' <span class="required">*</span>');
  
-    // Used for sponsor and product add
-    $(document).on('click', '.fire-modal', function(){
-        var action = $(this).data('action');
+    // Used for admin events, sponsor and product add
+    $('.fire-modal').on('click', function(){
         $.ajax({
-            url: '/admin/' + action,
+            url: $(this).prop('href'),
             dataType: 'html',
             success: function(data){
                 $('body').append(data);
-                $('.modal').modal('show');
+                $('.modal').modal('show').on('shown.bs.modal', function () {
+                    $('.date-picker').datetimepicker({
+                      'pickTime': false
+                    });
+                    $('.date-picker').on('dp.change', function(e) {
+                      var formatted = moment(e.date).format('YYYY-MM-DD');
+                      $(this).parent().next('input').prop('value', formatted);
+                    });
+                });
+                $('.required label').append(' <span class="required">*</span>');
             }
         });
         return false;
     });
 
+    // Validation of modal forms in admin
+    $(document).on('click', '.modal form input[type=submit]', function(e) {
+      e.preventDefault();
+      var form = $(this).parents('form');
+      $.ajax({
+        url: form.prop('action'),
+        data: form.serialize(),
+        dataType: 'json',
+        error: function(jqXHR, textStatus, errorThrown) {
+          //console.log(textStatus + ' ' + errorThrown);
+        },
+        success: function(data) {
+          $.each(data, function(model, msgObj) {
+            if (msgObj.success) {
+              form.submit();
+            } else {
+              for (var field in msgObj) {
+                var pascalField = snakeToPascal(field);
+                var msgArr = msgObj[field];
+                $('.error-essage').remove();
+                for (var i=0; i<msgArr.length; i++) {
+                  var msg = msgArr[i];
+                  var id = '#'+model+pascalField;
+                  if ($(id).prop('type') != 'hidden') {
+                    $(id).parent().addClass('has-error');
+                    $(id).after($('<div />').addClass('label label-danger error-message').text(msg));
+                  }
+                }
+              }
+            }
+          });
+        }
+      });
+    });
+
+    function snakeToPascal(s){
+      var split = s.split('_');
+      var ret = '';
+      for (var i=0; i<split.length; i++) {
+        ret += split[i].charAt(0).toUpperCase() + split[i].substring(1); 
+      }
+      return ret;
+    }
+
+    // Events modal on homepage
     $('.events-modal').on('click', function(){
       $.ajax({
         url: '/events/index',
@@ -32,6 +85,15 @@ $(document).ready(function(){
       });
     });
 
+    $('.date-picker').datetimepicker({
+      'pickTime': false
+    });
+
+    $('.date-picker').on('dp.change', function(e) {
+      var formatted = moment(e.date).format('YYYY-MM-DD');
+      $(this).parent().next('input').prop('value', formatted);
+    });
+   
     $('.confirm').click(function(){
         var answer = confirm('Do you want to delete?');
         if (answer) {
@@ -148,26 +210,6 @@ $(document).ready(function(){
       });
     });
 
-    $('.schedule-date').datetimepicker({
-      'pickTime': false
-    });
-
-    $('.schedule-date').on('dp.change', function(e) {
-      var formatted = moment(e.date).format('YYYY-MM-DD');
-      $(this).parent().next('input').prop('value', formatted);
-    });
-   
-    function computeHeight(){
-        var windowHeight = $(window).height();
-        var footer = 3*$('#footer').height();
-        var content = windowHeight - footer + 22;
-        $('#junk').empty();
-        //$('#junk').append('<p>' + windowHeight + ' ' + footer + ' ' + content + '</p>');
-        
-        $('#content').css('min-height', content + 'px');
-        //alert('min-height ' + content);
-    }
-    
     $(document).on('submit', '#VendorAddForm', function(){
     //$('#VendorAddForm').submit(function(){
         $('.submit input').attr('disabled', 'disabled');

@@ -1,23 +1,19 @@
-<div class="events form">
-<?php echo $this->Form->create('Event'); ?>
-	<fieldset>
-		<legend><?php echo __('Admin Edit Event'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('date', array(
-            'minYear' => $fiscalYear,
-            'maxYear' => $fiscalYear,
-        ));
-		echo $this->Form->input('description');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Event.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Event.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Events'), array('action' => 'index')); ?></li>
-	</ul>
+<div class="admin events edit">
+    <div class="buttons">
+        <?php echo $this->Html->link('Back', [
+            'action' => 'index',
+            'admin' => true,    
+        ],[
+            'class' => 'btn btn-info',
+        ]); ?>
+        <?php echo $this->Form->postLink('Delete Event', array(
+            'action' => 'delete', $event['Event']['id'], 
+            'admin' => true,
+        ), array(
+            'class' => 'pull-right confirm btn btn-danger',
+        )); ?>
+    </div>
+    <?php echo $this->Form->create('Event'); ?>
+    <?php echo $this->Element('Events/form'); ?>
+    <?php echo $this->Form->end(['label' => __('Save'), 'class' => 'btn btn-primary']); ?>
 </div>

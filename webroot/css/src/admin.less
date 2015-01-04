@@ -1,94 +1,151 @@
 @import "bower_components/bootstrap/less/bootstrap.less";
 @import "bower_components/eonasdan-bootstrap-datetimepicker/src/less/bootstrap-datetimepicker.less";
 @import "_variables.less";
-@import "cake.generic.less";
-@import "_accordion.less";
+@import "_mixins.less";
+//@import "cake.generic.less";
 
-html {
+html, body {
     font-size: 100%;
-    .ajax-loading {
-        background: url('/css/build/images/ajax-loader.gif') center center no-repeat;
-        width: 16px;
-        height: 16px;
-        margin-left: -20px; // Fix for alignment on vendor index during ajax
+}
+h2 {
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    border-bottom: 1px solid @legend-border-color;
+    color: @gray-dark;
+    font-weight: normal;
+}
+h3 {
+    font-size: 20px;
+}
+form {
+    .required label:after {
+        content: '';
     }
-    .modal {
-        h4 {
-            color: #000;
+}
+footer {
+    .clearfix;
+}
+.ajax-loading {
+    background: url('/css/build/images/ajax-loader.gif') center center no-repeat;
+    width: 16px;
+    height: 16px;
+    margin-left: -20px; // Fix for alignment on vendor index during ajax
+}
+.buttons {
+    &.pull-right {
+        margin-top: -13px;
+    }
+}
+.product-months {
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    .rounded-corners(4px);
+    display: flex;
+    flex-flow: row wrap;
+    .form-control {
+        width: 50%;
+        .checkbox-noborder;
+    }
+}
+.modal {
+    h4 {
+        color: #000;
+    }
+    .modal-body {
+        form {
         }
-        .modal-body {
-            form {
-                .product-months {
-                    display: flex;
-                    flex-flow: row wrap;
-                    .form-control {
-                        width: 50%;
+    }
+}
+.submit {
+    margin-top: 10px;
+}
+.pagination {
+    .disabled {
+        display: none;
+    }
+}
+.checkbox {
+    input[type=checkbox] {
+        margin-left: 0;
+    }
+}
+.checkbox-noborder {
+    display: inline;
+    min-width: 200px;
+    width: auto;
+    border: none;
+    box-shadow: none;
+    input {
+        margin-right: 5px;
+    }
+}
+label {
+    .required {
+        color: red;
+    }
+}
+.table {
+    display: table;
+    margin-top: 15px;
+    border: 1px solid #e7e7e7;
+    .rounded-corners(4px);
+    span {
+        padding: .5em;
+    }
+}
+.table-row {
+    display: table-row;
+    &:hover {
+        background: @navbar-default-bg;
+    }
+}
+.table-head {
+    display: table-cell;
+    text-align: center;
+    font-weight: bold;
+    background-color: @navbar-default-bg;
+}
+.table-cell {
+    display: table-cell;
+}
+.vendors {
+    .checkbox { // Active checkbox
+        .form-control {
+            box-shadow: none;
+            margin-left: 0;
+        }
+        label {
+            margin: 9px 0 0 5px;
+        }
+    }
+    #accordion {
+        margin-top: 20px;
+        &.panel-group {
+            .panel {
+                padding: 0;
+                .panel-heading {
+                }
+                .panel-collapse {
+                    .panel-body {
+                        border-top: none;
+                        display: flex;
+                        flex-flow: row wrap;
+                        align-items: flex-start;
+                        .form-control {
+                            .checkbox-noborder;
+                        }
                     }
                 }
             }
         }
     }
-    #container {
-        #header {
-            background: @mainGreen;
-            h1 {
-                color: @brown;
-                font-weight: bold;
-                font-size: 110%;
-            }
-            a:link, a:visited, a:hover, a:active {
-                color: @brown;
-            }
-            h1 {
-                background: url(../../img/cake.icon.png) no-repeat left;
-                margin-top: 0px;
-                a {
-                    background: @mainGreen;
-                }
-            }
-        }
-        #admin-menu {
-            width: 858px;
-            list-style: none!important;
-            overflow: hidden;
-            li {
-                display: inline;
-                float: left;
-                a {
-                    color: #fff;
-                }
-            }
-        }
-        #content {
-            background: @lightYellow;
-            form {
-                .required label:after {
-                    content: '';
-                }
-                div {
-                    clear: none;
-                    margin-bottom: 0;
-                }
-                .basic-info {
-                    .checkbox {
-                        label {
-                            float: left;
-                            margin-top: 6px;
-                            margin-left: -15px;
-                            font-weight: bold;
-                        }
-                        input {
-                            float: right;
-                            position: static;
-                            margin-right: 450px;
-                        }
-                    }
-                }
-            }
-        }
-        .pages.index {
-            width: 100%;
-            border-left: none;
+}
+.schedules {
+    &.index {
+        .clear-schedule {
+            float: left;
+            margin-right: 5px;
         }
     }
 }

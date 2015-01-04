@@ -14,6 +14,15 @@ class EventsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
+    public $paginate = array(
+        'order' => 'Event.date ASC',
+        'limit' => 10,
+    );
+
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->set(array('slug' => 'events'));
+    }
 
     public function index() {
 		$events = $this->Event->find('all', array(
@@ -22,12 +31,16 @@ class EventsController extends AppController {
                 ),
                 'fields' => array(
                     'date', 'description'
-                )
+                ),
+                'order' => array(
+                    'date ASC',
+                ),
             )
         ); 
         $this->set(array('events' => $events));
         $this->layout = 'ajax';
     }
+
 /**
  * admin_index method
  *
@@ -35,6 +48,7 @@ class EventsController extends AppController {
  */
 	public function admin_index() {
 		$this->Event->recursive = 0;
+        $this->Paginator->settings = $this->paginate;
 		$this->set('events', $this->Paginator->paginate());
 	}
 
@@ -61,13 +75,22 @@ class EventsController extends AppController {
 	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Event->create();
-			if ($this->Event->save($this->request->data)) {
-				$this->Session->setFlash(__('The event has been saved.'));
+			if ($this->Event->save($this->request->data, ['validate' => false])) {
+				$this->Session->setFlash(__('The event has been saved.'), 'success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The event could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The event could not be saved. Please, try again.'), 'danger');
 			}
 		}
+        if ($this->request->is('ajax') && isset($this->request->query['data'])) {
+            $this->Event->set($this->request->query['data']);
+            if ($this->Event->validates()) {
+                $this->set(['data' => ['success' => true]]);
+            } else {
+                $this->set(['data' => $this->Event->validationErrors]);
+            }
+        }
+        $this->layout = 'ajax';
 	}
 
 /**
@@ -83,14 +106,17 @@ class EventsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Event->save($this->request->data)) {
-				$this->Session->setFlash(__('The event has been saved.'));
+				$this->Session->setFlash(__('The event has been saved.'), 'success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The event could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The event could not be saved. Please, try again.'), 'danger');
 			}
 		} else {
 			$options = array('conditions' => array('Event.' . $this->Event->primaryKey => $id));
-			$this->request->data = $this->Event->find('first', $options);
+            $event = $this->Event->find('first', $options);
+            $this->set('event', $event);
+			$this->request->data = $event;
+            $this->request->data['Event']['date_pick'] = date('m/d/Y', strtotime($event['Event']['date']));
 		}
 	}
 
@@ -108,9 +134,11 @@ class EventsController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Event->delete()) {
-			$this->Session->setFlash(__('The event has been deleted.'));
+			$this->Session->setFlash(__('The event has been deleted.'), 'success');
 		} else {
-			$this->Session->setFlash(__('The event could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The event could not be deleted. Please, try again.'), 'danger');
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+    }
+
+}

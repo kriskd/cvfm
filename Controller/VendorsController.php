@@ -3,16 +3,23 @@
 class VendorsController extends AppController {
     
     public $uses = array('Vendor', 'State');
+	public $components = array('Paginator');
+    public $paginate = array(
+        'order' => 'Vendor.business_name ASC',
+        'limit' => 10,
+    );
+
     
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->deny();
         $this->Auth->allow('index', 'add');
+        $this->set(array('slug' => 'vendors'));
     }
     
     public function index() {
         $schedules = $this->Vendor->Schedule->activeVendors($this->fiscalYear);
-        $this->set(array('schedules' => $schedules, 'slug' => 'vendors'));
+        $this->set(array('schedules' => $schedules));
     }
     
     public function add()
@@ -83,9 +90,8 @@ class VendorsController extends AppController {
             $this->Vendor->id = $id;
             $this->Vendor->saveField('active', $active);
         }
-        $vendors = $this->Vendor->find('all', array('order' => 'business_name'));
-        $this->request->data = $vendors;
-        $this->set(array('vendors' => $vendors));
+        $this->Paginator->settings = $this->paginate;
+		$this->set('vendors', $this->Paginator->paginate('Vendor'));
     }  
 
     //Update Vendor
@@ -99,7 +105,7 @@ class VendorsController extends AppController {
         if(!empty($this->request->data)){
             $vendor = $this->request->data;
             $this->Vendor->save($vendor);
-            $this->Session->setFlash('Vendor saved.');
+            $this->Session->setFlash('Vendor saved.', 'success');
         } else {
             $vendor = $this->Vendor->findById($id); 
         }
@@ -111,10 +117,25 @@ class VendorsController extends AppController {
         $this->set(compact('vendor', 'product_types', 'schedules', 'groupedProducts'));
     }
     
-    //Delete Vendor
-    public function admin_delete($id = null){
-        
-    }
-    
+/**
+ * admin_delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_delete($id = null) {
+		$this->Vendor->id = $id;
+		if (!$this->Vendor->exists()) {
+			throw new NotFoundException(__('Invalid vendor'));
+		}
+		$this->request->allowMethod('post', 'delete');
+		if ($this->Vendor->delete()) {
+			$this->Session->setFlash(__('The vendor has been deleted.'), 'success');
+		} else {
+			$this->Session->setFlash(__('The vendor could not be deleted. Please, try again.'), 'danger');
+		}
+		return $this->redirect(array('action' => 'index', 'admin' => true));
+	}
     
 }

@@ -16,6 +16,11 @@ class SchedulesController extends AppController {
  */
 	public $components = array('Paginator', 'Session');
 
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->set(array('slug' => 'schedules'));
+    }
+
 /**
  * admin_index method
  *
@@ -23,12 +28,11 @@ class SchedulesController extends AppController {
  */
 	public function admin_index() {
 		if ($this->request->is(array('post', 'put'))) {
-            //debug($this->request->data); exit;
 			if ($this->Schedule->saveMany($this->request->data['Schedule'])) {
-				$this->Session->setFlash(__('The schedule has been saved.'));
+				$this->Session->setFlash(__('The schedule has been saved.'), 'success');
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The schedule could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The schedule could not be saved. Please, try again.'), 'danger');
 			}
         }
 		$this->Schedule->recursive = 0;
@@ -36,7 +40,7 @@ class SchedulesController extends AppController {
             'callbacks' => false,
         ));
         $this->request->data = $schedules;
-		$this->set('schedules', $schedules);
+		$this->set(['schedules' => $schedules, 'fiscalYear' => $this->fiscalYear]);
 	}
 
 /**
@@ -95,24 +99,4 @@ class SchedulesController extends AppController {
 		}
 	}
 
-/**
- * admin_delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_delete($id = null) {
-		$this->Schedule->id = $id;
-		if (!$this->Schedule->exists()) {
-			throw new NotFoundException(__('Invalid schedule'));
-		}
-		$this->request->allowMethod('post', 'delete');
-		if ($this->Schedule->delete()) {
-			$this->Session->setFlash(__('The schedule has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The schedule could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
 }

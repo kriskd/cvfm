@@ -2,11 +2,17 @@
 
 class SponsorsController extends AppController {
     
-    public function beforeFilter()
-    {
+	public $components = array('Paginator');
+    public $paginate = array(
+        'order' => 'Sponsor.name ASC',
+        'limit' => 10,
+    );
+
+    public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->deny();
         $this->Auth->allow('index');
+        $this->set(['slug' => 'sponsors']);
     }
     
     public function index() {
@@ -16,14 +22,26 @@ class SponsorsController extends AppController {
                 'active' => 1,
             ), 
         ));
-        $this->set(array('sponsors' => $sponsors, 'slug' => 'sponsors'));
+        $this->set(array('sponsors' => $sponsors));
     }
     
     //Create Sponsor
     public function admin_add(){
-        if($this->request->data){
-            if($this->Sponsor->save($this->request->data)){
-                $this->redirect('/admin/sponsors/index/');
+		if ($this->request->is('post')) {
+			$this->Sponsor->create();
+			if ($this->Sponsor->save($this->request->data, ['validate' => false])) {
+				$this->Session->setFlash(__('The sponsor has been saved.'), 'success');
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The sponsor could not be saved. Please, try again.'), 'danger');
+			}
+		}
+        if ($this->request->is('ajax') && isset($this->request->query['data'])) {
+            $this->Sponsor->set($this->request->query['data']);
+            if ($this->Sponsor->validates()) {
+                $this->set(['data' => ['success' => true]]);
+            } else {
+                $this->set(['data' => $this->Sponsor->validationErrors]);
             }
         }
         $this->layout = 'ajax';
@@ -38,8 +56,8 @@ class SponsorsController extends AppController {
             $this->Sponsor->id = $id;
             $this->Sponsor->saveField('active', $active);
         }
-        $sponsors = $this->Sponsor->find('all', array('order' => array('Sponsor.name')));
-        $this->set(array('sponsors' => $sponsors));
+        $this->Paginator->settings = $this->paginate;
+		$this->set('sponsors', $this->Paginator->paginate('Sponsor'));
     }
     
     //Update Sponsor
@@ -47,7 +65,7 @@ class SponsorsController extends AppController {
         if($id){
             if(!empty($this->request->data)){
                 $this->Sponsor->save($this->request->data);
-                $this->Session->setFlash('Sponsor saved.');
+                $this->Session->setFlash('Sponsor saved.', 'success');
             }
             $sponsor = $this->Sponsor->findById($id);
             $this->request->data = $sponsor;
@@ -58,5 +76,25 @@ class SponsorsController extends AppController {
         }
     }
     
-    //Delete Sponsor
+/**
+ * admin_delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_delete($id = null) {
+		$this->Sponsor->id = $id;
+		if (!$this->Sponsor->exists()) {
+			throw new NotFoundException(__('Invalid sponsor'));
+		}
+		$this->request->onlyAllow('post', 'delete');
+		if ($this->Sponsor->delete()) {
+			$this->Session->setFlash(__('The sponsor has been deleted.'), 'success');
+		} else {
+			$this->Session->setFlash(__('The sponsor could not be deleted. Please, try again.'), 'danger');
+		}
+		return $this->redirect(array('action' => 'index'));
+    }
+
 }

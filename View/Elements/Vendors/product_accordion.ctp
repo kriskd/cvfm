@@ -17,7 +17,7 @@
             <div id="collapse<?php echo $panelCount; ?>" class="panel-collapse collapse<?php echo $panelCount==1 ? ' in' : ''; ?>" role="tabpanel" aria-labelledby="heading<?php echo $panelCount; ?>">
                 <div class="panel-body">
                     <?php foreach($group as $id => $product): ?>
-                        <?php echo $this->Form->select('Product', array($id => $product), array('multiple' => 'checkbox', 'class' => '', 'hiddenField' => false)); ?>
+                        <?php echo $this->Form->select('Product', array($id => $product), array('multiple' => 'checkbox', 'class' => 'form-control', 'hiddenField' => false)); ?>
                     <?php endforeach; ?>
                 </div>
             </div>
