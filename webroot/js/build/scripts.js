@@ -5674,7 +5674,6 @@ THE SOFTWARE.
         },
         success: function(data) {
           $.each(data, function(model, msgObj) {
-            console.log(msgObj);
             if (msgObj.success) {
               form.submit();
             } else {
