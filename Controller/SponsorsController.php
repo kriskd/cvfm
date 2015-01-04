@@ -12,6 +12,7 @@ class SponsorsController extends AppController {
         parent::beforeFilter();
         $this->Auth->deny();
         $this->Auth->allow('index');
+        $this->set(['slug' => 'sponsors']);
     }
     
     public function index() {
@@ -21,7 +22,7 @@ class SponsorsController extends AppController {
                 'active' => 1,
             ), 
         ));
-        $this->set(array('sponsors' => $sponsors, 'slug' => 'sponsors'));
+        $this->set(array('sponsors' => $sponsors));
     }
     
     //Create Sponsor

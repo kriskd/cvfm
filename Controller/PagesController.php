@@ -44,6 +44,12 @@ class PagesController extends AppController {
  * @var array
  */
 	public $uses = array('Page', 'Schedule');
+    
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->set(array('slug' => 'pages'));
+    }
+
 
 /**
  * Displays a view

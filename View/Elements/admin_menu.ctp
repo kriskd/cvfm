@@ -14,42 +14,42 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li>
+            <li class="<?php echo isset($slug) && $slug=='schedules' ? 'active' : ''; ?>">
                 <?php echo $this->Html->link('Schedule', array(
                     'controller' => 'schedules',
                     'action' => 'index',
                     'admin' => true,
                 )); ?>
             </li>
-            <li>
+            <li class="<?php echo isset($slug) && $slug=='pages' ? 'active' : ''; ?>">
                 <?php echo $this->Html->link('Pages', array(
                     'controller' => 'pages',
                     'action' => 'edit', 1,
                     'admin' => true, 
                 )); ?>
             </li>
-            <li>
+            <li class="<?php echo isset($slug) && $slug=='events' ? 'active' : ''; ?>">
                 <?php echo $this->Html->link('Events', array(
                     'controller' => 'events',
                     'action' => 'index',
                     'admin' => true, 
                 )); ?>
             </li>
-            <li>
+            <li class="<?php echo isset($slug) && $slug=='products' ? 'active' : ''; ?>">
                 <?php echo $this->Html->link('Products', array(
                     'controller' => 'products',
                     'action' => 'index',
                     'admin' => true, 
                 )); ?>
             </li>
-            <li>
+            <li class="<?php echo isset($slug) && $slug=='sponsors' ? 'active' : ''; ?>">
                 <?php echo $this->Html->link('Sponsors', array(
                     'controller' => 'sponsors',
                     'action' => 'index',
                     'admin' => true, 
                 )); ?>
             </li>
-            <li>
+            <li class="<?php echo isset($slug) && $slug=='vendors' ? 'active' : ''; ?>">
                 <?php echo $this->Html->link('Vendors', array(
                     'controller' => 'vendors',
                     'action' => 'index',

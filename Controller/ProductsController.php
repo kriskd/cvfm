@@ -2,16 +2,16 @@
 
 class ProductsController extends AppController
 {
-    public function beforeFilter()
-    {
+    public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->deny();
         $this->Auth->allow('index', 'get_vendors');
+        $this->set(['slug' => 'products']);
     }
+
     public function index(){
         $products = $this->Product->find('all');
         $current_month = date('n');
-        //var_dump($products);
         $product_types = array();
         $products_in_season = array();
         foreach($products as $product){
@@ -35,8 +35,7 @@ class ProductsController extends AppController
                 }
             }
         }
-        //var_dump($product_types);
-        $this->set(array('product_types' => $product_types, 'products_in_season' => $products_in_season, 'slug' => 'products'));
+        $this->set(array('product_types' => $product_types, 'products_in_season' => $products_in_season));
     }
     
     public function get_vendors($product_id){

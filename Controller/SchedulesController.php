@@ -16,6 +16,11 @@ class SchedulesController extends AppController {
  */
 	public $components = array('Paginator', 'Session');
 
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->set(array('slug' => 'schedules'));
+    }
+
 /**
  * admin_index method
  *

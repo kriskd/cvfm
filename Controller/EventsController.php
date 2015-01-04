@@ -19,6 +19,11 @@ class EventsController extends AppController {
         'limit' => 10,
     );
 
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->set(array('slug' => 'events'));
+    }
+
     public function index() {
 		$events = $this->Event->find('all', array(
                 'conditions' => array(
@@ -32,6 +37,7 @@ class EventsController extends AppController {
         $this->set(array('events' => $events));
         $this->layout = 'ajax';
     }
+
 /**
  * admin_index method
  *

@@ -14,11 +14,12 @@ class VendorsController extends AppController {
         parent::beforeFilter();
         $this->Auth->deny();
         $this->Auth->allow('index', 'add');
+        $this->set(array('slug' => 'vendors'));
     }
     
     public function index() {
         $schedules = $this->Vendor->Schedule->activeVendors($this->fiscalYear);
-        $this->set(array('schedules' => $schedules, 'slug' => 'vendors'));
+        $this->set(array('schedules' => $schedules));
     }
     
     public function add()
