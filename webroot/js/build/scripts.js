@@ -5789,17 +5789,6 @@ THE SOFTWARE.
       $(this).parent().next('input').prop('value', formatted);
     });
    
-    function computeHeight(){
-        var windowHeight = $(window).height();
-        var footer = 3*$('#footer').height();
-        var content = windowHeight - footer + 22;
-        $('#junk').empty();
-        //$('#junk').append('<p>' + windowHeight + ' ' + footer + ' ' + content + '</p>');
-        
-        $('#content').css('min-height', content + 'px');
-        //alert('min-height ' + content);
-    }
-    
     $(document).on('submit', '#VendorAddForm', function(){
     //$('#VendorAddForm').submit(function(){
         $('.submit input').attr('disabled', 'disabled');
