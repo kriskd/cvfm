@@ -14,7 +14,7 @@ class Event extends AppModel {
 	public $validate = array(
 		'date' => array(
 			'date' => array(
-				'rule' => array('date'),
+				'rule' => array('date', 'ymd'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
