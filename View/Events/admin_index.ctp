@@ -3,10 +3,11 @@
         <?php echo __('Events'); ?>
         <div class="buttons pull-right">
             <?php echo $this->Html->link('Add Event', [
+                'controller' => 'events',
                 'action' => 'add',
+                'admin' => true,
             ],[
                 'class' => 'btn btn-primary fire-modal',
-                'data-action' => 'events/add', 
                 'data-toggle' => 'modal', 
                 'data-target' => '.modal',
             ]); ?>

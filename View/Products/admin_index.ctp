@@ -2,7 +2,15 @@
     <h2>
         <?php echo __('Products'); ?>
         <div class="buttons pull-right">
-            <?php echo $this->Html->link('Add Product', '/admin/products/add', array('class' => 'btn btn-primary fire-modal', 'data-action' => 'products/add', 'data-toggle' => 'modal', 'data-target' => '.modal')); ?></p>
+            <?php echo $this->Html->link('Add Product', [
+                'controller' => 'products', 
+                'action' => 'add',
+                'admin' => true,
+            ],[
+                'class' => 'btn btn-primary fire-modal', 
+                'data-toggle' => 'modal', 
+                'data-target' => '.modal',
+            ]); ?>
         </div>
     </h2>
     <?php foreach($product_types as $type => $items): ?>

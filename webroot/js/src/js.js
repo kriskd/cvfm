@@ -9,9 +9,8 @@ $(document).ready(function(){
  
     // Used for admin events, sponsor and product add
     $(document).on('click', '.fire-modal', function(){
-        var action = $(this).data('action');
         $.ajax({
-            url: action,
+            url: $(this).prop('href'),
             dataType: 'html',
             success: function(data){
                 $('body').append(data);

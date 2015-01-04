@@ -2,9 +2,12 @@
     <h2>
         <?php echo __('Sponsors'); ?>
         <div class="buttons pull-right">
-            <?php echo $this->Html->link('Add Sponsor', '/admin/sponsors/add', [
+            <?php echo $this->Html->link('Add Sponsor', [
+                'controller' => 'sponsors', 
+                'action' => 'add',
+                'admin' => true,
+            ],[
                 'class' => 'btn btn-primary fire-modal', 
-                'data-action' => 'sponsors/add', 
                 'data-toggle' => 'modal', 
                 'data-target' => '.modal',
             ]); ?>
