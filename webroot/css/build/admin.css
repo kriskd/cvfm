@@ -6576,20 +6576,20 @@ label .required {
 .table-cell {
   display: table-cell;
 }
-.vendors.edit .checkbox .form-control {
+.vendors .checkbox .form-control {
   box-shadow: none;
   margin-left: 0;
 }
-.vendors.edit .checkbox label {
+.vendors .checkbox label {
   margin: 9px 0 0 5px;
 }
-.vendors.edit #accordion {
+.vendors #accordion {
   margin-top: 20px;
 }
-.vendors.edit #accordion.panel-group .panel {
+.vendors #accordion.panel-group .panel {
   padding: 0;
 }
-.vendors.edit #accordion.panel-group .panel .panel-collapse .panel-body {
+.vendors #accordion.panel-group .panel .panel-collapse .panel-body {
   border-top: none;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6601,14 +6601,14 @@ label .required {
       -ms-flex-align: start;
           align-items: flex-start;
 }
-.vendors.edit #accordion.panel-group .panel .panel-collapse .panel-body .form-control {
+.vendors #accordion.panel-group .panel .panel-collapse .panel-body .form-control {
   display: inline;
   min-width: 200px;
   width: auto;
   border: none;
   box-shadow: none;
 }
-.vendors.edit #accordion.panel-group .panel .panel-collapse .panel-body .form-control input {
+.vendors #accordion.panel-group .panel .panel-collapse .panel-body .form-control input {
   margin-right: 5px;
 }
 .schedules.index .clear-schedule {

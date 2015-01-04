@@ -110,32 +110,30 @@ label {
     display: table-cell;
 }
 .vendors {
-    &.edit {
-        .checkbox { // Active checkbox
-            .form-control {
-                box-shadow: none;
-                margin-left: 0;
-            }
-            label {
-                margin: 9px 0 0 5px;
-            }
+    .checkbox { // Active checkbox
+        .form-control {
+            box-shadow: none;
+            margin-left: 0;
         }
-        #accordion {
-            margin-top: 20px;
-            &.panel-group {
-                .panel {
-                    padding: 0;
-                    .panel-heading {
-                    }
-                    .panel-collapse {
-                        .panel-body {
-                            border-top: none;
-                            display: flex;
-                            flex-flow: row wrap;
-                            align-items: flex-start;
-                            .form-control {
-                                .checkbox-noborder;
-                            }
+        label {
+            margin: 9px 0 0 5px;
+        }
+    }
+    #accordion {
+        margin-top: 20px;
+        &.panel-group {
+            .panel {
+                padding: 0;
+                .panel-heading {
+                }
+                .panel-collapse {
+                    .panel-body {
+                        border-top: none;
+                        display: flex;
+                        flex-flow: row wrap;
+                        align-items: flex-start;
+                        .form-control {
+                            .checkbox-noborder;
                         }
                     }
                 }
