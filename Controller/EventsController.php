@@ -68,6 +68,7 @@ class EventsController extends AppController {
 				$this->Session->setFlash(__('The event could not be saved. Please, try again.'), 'danger');
 			}
 		}
+        $this->layout = 'ajax';
 	}
 
 /**
