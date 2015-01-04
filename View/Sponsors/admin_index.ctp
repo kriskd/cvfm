@@ -1,12 +1,15 @@
 <div class="admin sponsors index">
-    <div class="buttons">
-        <?php echo $this->Html->link('Add Sponsor', '/admin/sponsors/add', [
-            'class' => 'btn btn-primary fire-modal', 
-            'data-action' => 'sponsors/add', 
-            'data-toggle' => 'modal', 
-            'data-target' => '.modal',
-        ]); ?>
-    </div>
+    <h2>
+        <?php echo __('Sponsors'); ?>
+        <div class="buttons pull-right">
+            <?php echo $this->Html->link('Add Sponsor', '/admin/sponsors/add', [
+                'class' => 'btn btn-primary fire-modal', 
+                'data-action' => 'sponsors/add', 
+                'data-toggle' => 'modal', 
+                'data-target' => '.modal',
+            ]); ?>
+        </div>
+    </h2>
     <div class="table">
         <div class="table-row">
             <span class="table-head"><?php echo $this->Paginator->sort('name'); ?></span>

@@ -1,12 +1,17 @@
 <div class="admin events index">
-	<h2><?php echo __('Events'); ?></h2>
-    <div class="buttons">
-        <?php echo $this->Html->link('Add Event', [
-            'action' => 'add',
-        ],[
-            'class' => 'btn btn-primary'
-        ]); ?>
-    </div>
+    <h2>
+        <?php echo __('Events'); ?>
+        <div class="buttons pull-right">
+            <?php echo $this->Html->link('Add Event', [
+                'action' => 'add',
+            ],[
+                'class' => 'btn btn-primary fire-modal',
+                'data-action' => 'events/add', 
+                'data-toggle' => 'modal', 
+                'data-target' => '.modal',
+            ]); ?>
+        </div>
+    </h2>
     <div class="col-lg-8 col-md-9 col-sm-10">
         <div class="table">
             <div class="table-row">

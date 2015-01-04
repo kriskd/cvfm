@@ -4,7 +4,7 @@
             'action' => 'index',
             'admin' => true,    
         ],[
-            'class' => 'btn btn-primary',
+            'class' => 'btn btn-info',
         ]); ?>
         <?php echo $this->Form->postLink('Delete Sponsor', array(
             'action' => 'delete', $sponsor['Sponsor']['id'], 

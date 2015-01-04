@@ -1,12 +1,15 @@
 <div class="admin vendors index">
-    <div class="buttons">
-        <?php echo $this->Html->link('Add Vendor', [ 
-            'action' => 'add',
-            'admin' => true,
-        ],[
-            'class' => 'btn btn-primary'    
-        ]); ?>
-    </div>
+    <h2>
+        <?php echo __('Vendors'); ?>
+        <div class="buttons pull-right">
+            <?php echo $this->Html->link('Add Vendor', [ 
+                'action' => 'add',
+                'admin' => true,
+            ],[
+                'class' => 'btn btn-primary'    
+            ]); ?>
+        </div>
+    </h2>
     <div class="table">
         <div class="table-row">
             <span class="table-head"><?php echo $this->Paginator->sort('business_name'); ?></span>
