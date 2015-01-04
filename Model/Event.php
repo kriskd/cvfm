@@ -30,6 +30,24 @@ class Event extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'date_pick' => array(
+			'date' => array(
+				'rule' => array('date', 'mdy'),
+				'message' => 'Must be a date.',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Please enter event date.',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'description' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
