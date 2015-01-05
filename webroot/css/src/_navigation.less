@@ -1,6 +1,6 @@
 .navbar-default {
     .navbar-nav {
-        >li {
+        >li, >.active {
             >a {
                 color: @brown;
                 font-size: 16px;
@@ -49,7 +49,6 @@
             }
             .navbar-toggle {
                 border-color: @ochre;
-                background: @lightYellow;
                 .icon-bar {
                     background-color: @ochre;
                 }
@@ -65,8 +64,7 @@
         .container-fluid {
             background-image: linear-gradient(@lightYellow, @yellowBg);
             .navbar-nav {
-                float: none;
-                width: 100%;
+                width: 100%; // FF needs this to stretch nav to full width
                 >li {
                     float: none;
                     display: table-cell;
@@ -98,7 +96,6 @@
             min-height: 42px;
             &.navbar-default {
                 border: none;
-                background: @mainGreen;
                 .container-fluid {
                     background: @mainGreen;
                     .navbar-nav {
