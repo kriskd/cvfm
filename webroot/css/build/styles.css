@@ -6230,6 +6230,15 @@ button.close {
   font-size: 16px;
   text-decoration: none;
 }
+@media (max-width: 400px) {
+  .navbar-brand {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    max-width: 240px;
+  }
+}
 @media (max-width: 991px) {
   .navigation {
     margin-top: 5px;
