@@ -1,0 +1,130 @@
+.navbar-default {
+    .navbar-nav {
+        >li {
+            >a {
+                color: @brown;
+                font-size: 16px;
+                text-decoration: none;
+            }
+        }
+    }
+}
+// xs, sm
+@media (max-width: @screen-sm-max) {
+    .navigation {
+        margin-top: 5px;
+        .navbar-default {
+            &.navbar {
+                margin-bottom: 0px;
+            }
+            margin-right: -15px;
+            border-color: @ochre;
+        }
+    }
+}
+@media (max-width: @screen-xs-max) { 
+    .navbar-default {
+        .container-fluid {
+            background: @lightYellow;
+            .navbar-collapse {
+                border-color: @ochre;
+                .navbar-nav {
+                    padding-right: 0;
+                    li {
+                        text-align: left;
+                        margin-left: 0;
+                        a {
+                            padding-left: 30px;
+                        }
+                        a:hover {
+                            background: @yellowBg;
+                        }
+                    }
+                    >.active {
+                        >a {
+                            background: @yellowBg;
+                        }
+                    }
+                }
+            }
+            .navbar-toggle {
+                border-color: @ochre;
+                background: @lightYellow;
+                .icon-bar {
+                    background-color: @ochre;
+                }
+                &:focus, &:hover {
+                    background: @yellowBg;
+                }
+            }
+        }
+    }
+}
+@media (min-width: @screen-sm-min) {
+    .navigation {
+        .container-fluid {
+            background-image: linear-gradient(@lightYellow, @yellowBg);
+            .navbar-nav {
+                float: none;
+                width: 100%;
+                >li {
+                    float: none;
+                    display: table-cell;
+                    width: 1%;
+                    padding: 0 .1em;
+                    a.active, a:hover.active {
+                        background: @yellowBg;
+                    }
+                    >a:hover {
+                        background: linear-gradient(@yellowBg, @lightYellow);
+                    }
+                }
+                >.active {
+                    >a {
+                        background: @yellowBg;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (min-width: @screen-md-min) {
+    .navigation {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        .navbar {
+            margin-bottom: 0px;
+            min-height: 42px;
+            &.navbar-default {
+                border: none;
+                background: @mainGreen;
+                .container-fluid {
+                    background: @mainGreen;
+                    .navbar-nav {
+                        >.active {
+                            >a {
+                                background: @ochre;
+                                border: 1px solid @brown;
+                                color: black; 
+                                .rounded-corners;
+                            }
+                        }
+                        >li {
+                            >a {
+                                padding-top: 10px;
+                                padding-bottom: 10px;
+                            }
+                            a:hover {
+                                background: darken(@ochre, 10%); 
+                                border: 1px solid @brown;
+                                .rounded-corners;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
