@@ -6285,6 +6285,137 @@ button.close {
     display: none !important;
   }
 }
+@media (max-width: 768px) {
+  .navigation {
+    margin-top: 5px;
+  }
+}
+@media (min-width: 992px) {
+  .navigation {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .navigation .navbar {
+    margin-bottom: 0px;
+    min-height: 42px;
+  }
+  .navigation .navbar.navbar-default {
+    border: none;
+    background: #cdcd7d;
+  }
+  .navigation .navbar.navbar-default .container-fluid {
+    background: #cdcd7d;
+  }
+  .navigation .navbar.navbar-default .container-fluid .navbar-nav > .active > a {
+    background: #ce9a21;
+    border: 1px solid #694f10;
+    color: black;
+    border-radius: 5px;
+  }
+  .navigation .navbar.navbar-default .container-fluid .navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .navigation .navbar.navbar-default .container-fluid .navbar-nav > li a:link {
+    text-decoration: none;
+    font-size: 16px;
+  }
+  .navigation .navbar.navbar-default .container-fluid .navbar-nav > li a:hover {
+    background: #a2791a;
+    border: 1px solid #694f10;
+    border-radius: 5px;
+  }
+}
+.navbar {
+  margin-bottom: 0px;
+}
+@media (max-width: 400px) {
+  .navbar-brand {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    max-width: 240px;
+  }
+}
+.navbar-default {
+  margin-right: -15px;
+  border-color: #ce9a21;
+}
+.navbar-default .container-fluid {
+  background-color: #ffe88e;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #694f10;
+  font-size: 16px;
+  text-decoration: none;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  background: #ffe266;
+}
+@media (min-width: 768px) {
+  .navbar-default .container-fluid {
+    background-image: linear-gradient(#ffe88e, #ffe266);
+  }
+  .navbar-default .container-fluid .navbar-nav li > a:hover {
+    background: linear-gradient(#ffe266, #ffe88e);
+  }
+  .navbar-default .container-fluid .navbar-nav > .active > a {
+    background: #ffe266;
+  }
+}
+.navbar-default .navbar-brand {
+  color: #694f10;
+}
+.navbar-default .navbar-toggle {
+  border-color: #ce9a21;
+  background: #ffe88e;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ce9a21;
+}
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+  background: #ffe266;
+}
+@media (min-width: 768px) {
+  .navbar-collapse ul {
+    float: none;
+    width: 100%;
+  }
+  .navbar-collapse ul li {
+    float: none;
+    display: table-cell;
+    width: 1%;
+    padding: 0 .1em;
+  }
+  .navbar-collapse ul li a.active,
+  .navbar-collapse ul li a:hover.active {
+    background: #ffe266;
+  }
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-collapse {
+    border-color: #ce9a21;
+  }
+  .navbar-default .navbar-collapse .navbar-nav {
+    padding-right: 0;
+  }
+  .navbar-default .navbar-collapse .navbar-nav li {
+    text-align: left;
+    margin-left: 0;
+  }
+  .navbar-default .navbar-collapse .navbar-nav li a {
+    padding-left: 30px;
+  }
+  .navbar-default .navbar-collapse .navbar-nav li a:hover {
+    background: #ffe266;
+  }
+  .navbar-default .navbar-collapse .navbar-nav > .active > a {
+    background: #ffe266;
+  }
+}
 /* min-base.css :: v0.1 : 10172009
  * (CC) 2009 Thierry Koblentz. Some Rights Reserved.             
  * http://creativecommons.org/licenses/by/2.0                   
@@ -6696,70 +6827,6 @@ fieldset[disabled] .btn-brown.active {
   color: #ce9a21;
   background-color: #100c03;
 }
-.navbar-default {
-  margin-right: -15px;
-  border-color: #ce9a21;
-}
-.navbar-default .container-fluid {
-  background-color: #ffe88e;
-}
-.navbar-default .navbar-nav > li > a {
-  color: #694f10;
-  font-size: 16px;
-  text-decoration: none;
-}
-.navbar-default .navbar-nav > li > a:hover {
-  background: #ffe266;
-}
-@media (min-width: 768px) {
-  .navbar-default .container-fluid {
-    background-image: linear-gradient(#ffe88e, #ffe266);
-  }
-  .navbar-default .container-fluid li > a:hover {
-    background-image: linear-gradient(#ffe266, #ffe88e);
-  }
-}
-.navbar-default .navbar-brand {
-  color: #694f10;
-}
-.navbar-default .navbar-toggle {
-  border-color: #ce9a21;
-  background: #ffe88e;
-}
-.navbar-default .navbar-toggle .icon-bar {
-  background-color: #ce9a21;
-}
-.navbar-default .navbar-toggle:focus,
-.navbar-default .navbar-toggle:hover {
-  background: #ffe266;
-}
-@media (min-width: 768px) {
-  .navbar-collapse ul {
-    float: none;
-    width: 100%;
-  }
-  .navbar-collapse ul li {
-    float: none;
-    display: table-cell;
-    width: 1%;
-    padding: 0 .1em;
-  }
-  .navbar-collapse ul li a.active,
-  .navbar-collapse ul li a:hover.active {
-    background: #ffe266;
-  }
-}
-@media (max-width: 767px) {
-  .navbar-default .navbar-collapse {
-    border-color: #ce9a21;
-  }
-  .navbar-default .navbar-collapse li {
-    text-align: left;
-  }
-  .navbar-default .navbar-collapse li a:hover {
-    background: #ffe266;
-  }
-}
 .error-message,
 span.required {
   color: red;
@@ -6811,62 +6878,11 @@ span.required {
 #header .logo img {
   margin: auto;
 }
-@media (max-width: 400px) {
-  #header .navbar-brand {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: inline-block;
-    max-width: 240px;
-  }
-}
-#header .head-right .navbar {
-  margin-bottom: 0px;
-}
-@media (max-width: 768px) {
-  #header .head-right .navigation {
-    margin-top: 5px;
-  }
-}
 @media (min-width: 992px) {
   #header .head-right {
     position: relative;
     height: 200px;
     padding-left: 0px;
-  }
-  #header .head-right .navigation {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  #header .head-right .navigation .navbar {
-    margin-bottom: 0px;
-    min-height: 42px;
-  }
-  #header .head-right .navigation .navbar.navbar-default {
-    border: none;
-  }
-  #header .head-right .navigation .navbar.navbar-default .container-fluid {
-    background: #cdcd7d;
-  }
-  #header .head-right .navigation .navbar.navbar-default .container-fluid .navbar-nav > li > a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  #header .head-right .navigation .navbar.navbar-default .container-fluid .navbar-nav > li > a.active {
-    background: #ce9a21;
-    border: 1px solid #694f10;
-    color: black;
-    border-radius: 5px;
-  }
-  #header .head-right .navigation .navbar.navbar-default .container-fluid .navbar-nav > li a:link {
-    text-decoration: none;
-    font-size: 16px;
-  }
-  #header .head-right .navigation .navbar.navbar-default .container-fluid .navbar-nav > li a:hover {
-    background: #a2791a;
-    border: 1px solid #694f10;
-    border-radius: 5px;
   }
 }
 .products form {

@@ -1,6 +1,7 @@
 @import "bower_components/bootstrap/less/bootstrap.less";
 @import "_variables.less";
 @import "_mixins.less";
+@import "_navigation.less";
 @import "min-base.less";
 
 body { background: @mainGreen; color: @brown; font-family: arial; font-size: 12px; }
@@ -23,79 +24,6 @@ input[type="url"], textarea, select {
   .button-variant(darken(@brown, 20%); @ochre; @brown);
 }
 
-.navbar-default {
-    margin-right: -15px;
-    .container-fluid {
-        background-color: @lightYellow;
-    }
-    border-color: @ochre;
-    .navbar-nav {
-        >li {
-            >a {
-                color: @brown;
-                font-size: 16px;
-                text-decoration: none;
-            }
-            >a:hover {
-                background: @yellowBg;
-            }
-        }
-    }
-    @media (min-width: @screen-sm-min) {
-        .container-fluid {
-            background-image: linear-gradient(@lightYellow, @yellowBg);
-            li {
-                >a:hover {
-                    background-image: linear-gradient(@yellowBg, @lightYellow);
-                }
-            }
-        }
-    }
-    .navbar-brand {
-        color: @brown;
-    }
-    .navbar-toggle {
-        border-color: @ochre;
-        background: @lightYellow;
-        .icon-bar {
-            background-color: @ochre;
-        }
-        &:focus, &:hover {
-            background: @yellowBg;
-        }
-    }
-}
-
-@media (min-width: @screen-sm-min) {
-    .navbar-collapse {
-        ul {
-            float: none;
-            width: 100%;
-            li {
-                float: none;
-                display: table-cell;
-                width: 1%;
-                padding: 0 .1em;
-                a.active, a:hover.active {
-                    background: @yellowBg;
-                }
-            }
-        }
-    }
-}
-@media (max-width: @screen-xs-max) { 
-    .navbar-default {
-        .navbar-collapse {
-            border-color: @ochre;
-            li {
-                text-align: left;
-                a:hover {
-                    background: @yellowBg;
-                }
-            }
-        }
-    }
-}
 .error-message, span.required {
     color: red;
 }
@@ -143,64 +71,11 @@ input[type="url"], textarea, select {
             margin: auto;
         }
     }
-    .navbar-brand {
-        @media (max-width: 400px) {
-            .text-overflow();
-            display: inline-block;
-            max-width: 240px;
-        }
-    }
     .head-right {
-        .navbar {
-            margin-bottom: 0px;
-        }
-        @media (max-width: @screen-sm-min) {
-            .navigation {
-                margin-top: 5px;
-            }
-        }
         @media (min-width: @screen-md-min) {
             position: relative;
             height: 200px;
             padding-left: 0px;
-            .navigation {
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                .navbar {
-                    margin-bottom: 0px;
-                    min-height: 42px;
-                    &.navbar-default {
-                        border: none;
-                        .container-fluid {
-                            background: @mainGreen;
-                            .navbar-nav {
-                                >li {
-                                    >a {
-                                        padding-top: 10px;
-                                        padding-bottom: 10px;
-                                        &.active {
-                                            background: @ochre;
-                                            border: 1px solid @brown;
-                                            color: black; 
-                                            .rounded-corners;
-                                        }
-                                    }
-                                    a:link {
-                                        text-decoration: none;
-                                        font-size: 16px;
-                                    }
-                                    a:hover {
-                                        background: darken(@ochre, 10%); 
-                                        border: 1px solid @brown;
-                                        .rounded-corners;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 } 
