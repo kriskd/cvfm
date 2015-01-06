@@ -14,49 +14,37 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li>
-                    <?php echo $this->Html->link('Home', '/', array(
-                        'class' => isset($slug) && $slug=='home' ? 'active' : '',
-                    )); ?>
+                <li class="<?php echo isset($slug) && $slug=='home' ? 'active' : ''; ?>">
+                    <?php echo $this->Html->link('Home', '/'); ?>
                 </li>
-                <li>
+                <li class="<?php echo isset($slug) && $slug=='about' ? 'active' : ''; ?>">
                     <?php echo $this->Html->link('About', array(
                         'controller' => 'pages',
                         'action' => 'about',        
-                    ), array(
-                        'class' => isset($slug) && $slug=='about' ? 'active' : '',
                     )); ?>
                 </li>
-                <li>
+                <li class="<?php echo isset($slug) && $slug=='vendors' ? 'active' : ''; ?>">
                     <?php echo $this->Html->link('Vendors', array(
                         'controller' => 'vendors',
                         'action' => 'index',        
-                    ), array(
-                        'class' => isset($slug) && $slug=='vendors' ? 'active' : '',
                     )); ?>
                 </li>
-                <li>
+                <li class="<?php echo isset($slug) && $slug=='products' ? 'active' : ''; ?>">
                     <?php echo $this->Html->link('Products', array(
                         'controller' => 'products',
                         'action' => 'index',        
-                    ), array(
-                        'class' => isset($slug) && $slug=='products' ? 'active' : '',
                     )); ?>
                 </li>
-                <li>
+                <li class="<?php echo isset($slug) && $slug=='map' ? 'active' : ''; ?>">
                     <?php echo $this->Html->link('Map', array(
                         'controller' => 'pages',
                         'action' => 'map',        
-                    ), array(
-                        'class' => isset($slug) && $slug=='map' ? 'active' : '',
                     )); ?>
                 </li>
-                <li>
+                <li class="<?php echo isset($slug) && $slug=='sponsors' ? 'active' : ''; ?>">
                     <?php echo $this->Html->link('Sponsors', array(
                         'controller' => 'sponsors',
                         'action' => 'index',        
-                    ), array(
-                        'class' => isset($slug) && $slug=='sponsors' ? 'active' : '',
                     )); ?>
                 </li>
             </ul>
