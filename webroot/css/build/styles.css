@@ -6236,7 +6236,7 @@ button.close {
     text-overflow: ellipsis;
     white-space: nowrap;
     display: inline-block;
-    max-width: 240px;
+    max-width: 255px;
   }
 }
 @media (max-width: 991px) {
@@ -6320,6 +6320,7 @@ button.close {
     min-height: 42px;
   }
   .navigation .navbar.navbar-default {
+    margin-right: -15px;
     border: none;
   }
   .navigation .navbar.navbar-default .container-fluid {
