@@ -30,9 +30,30 @@ class UsersController extends AppController {
         $this->redirect($this->Auth->logout());
     }
 
-    public function forget() {
-
-        $this->layout = 'admin';
+    public function reset() {
+        if ($this->request->is('post')) {
+            $this->User->set($this->request->data);
+            if ($this->User->validates(['fieldList' => ['username']])) {
+                if ($user = $this->User->find('first', [
+                        'conditions' => [
+                            'username' => $this->User->data['User']['username'],
+                        ]
+                    ]
+                )) {
+                    $id = $user['User']['id'];
+                    $token = String::uuid();
+                    $expire = date('Y-m-d H:i:s', strtotime('+1 hour'));
+                    $data['User'] = [
+                        'id' => $id,
+                        'password_token' => $token,
+                        'password_token_expire' => $expire,
+                    ];
+                    $this->User->save($data, ['validate' => false]);
+                    $this->Session->setFlash('Check your email for information on resetting your password.', 'info');
+                }
+            }
+        }
+        return $this->redirect(['action' => 'login']); 
     }
 
     public function admin_change() {
