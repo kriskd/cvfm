@@ -1,4 +1,5 @@
 <?php
+
 class UsersController extends AppController {
     
     public $name = 'Users';
@@ -9,6 +10,7 @@ class UsersController extends AppController {
             //Note an admin page
             $this->Auth->allow($this->action);
         } 
+        $this->set(['slug' => 'users']);
     }
     
     public function login() {
@@ -26,5 +28,21 @@ class UsersController extends AppController {
     
     public function logout() {
         $this->redirect($this->Auth->logout());
+    }
+
+    public function forget() {
+
+        $this->layout = 'admin';
+    }
+
+    public function admin_change() {
+        if ($this->request->is('post')) {
+            $this->request->data['User']['id'] = $this->Auth->user('id');
+            if ($this->User->save($this->request->data)) {
+                return $this->Session->setFlash('Password changed.', 'success');
+            }
+            $this->Session->setFlash('Problem changing password.', 'danger');
+        }
+        $this->layout = 'admin';
     }
 }

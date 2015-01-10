@@ -34,11 +34,23 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
     
     public $components = array(
-            'Auth' => array('authorize' => 'Controller',
+        'Auth' => array(
+            'authorize' => 'Controller',
             'allowedActions' => array('index', 'display'),
             'loginAction' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
-            'loginRedirect' => array('controller' => 'pages', 'action' => 'index', 'admin' => true),
+            'loginRedirect' => array('controller' => 'schedules', 'action' => 'index', 'admin' => true),
             'logoutRedirect' => array('controller' => 'users', 'action' => 'login', 'admin' => false),
+            'authenticate' => array(
+                'Form' => array(
+                    'passwordHasher' => array(
+                        'className' => 'Simple',
+                        'hashType' => 'sha256'
+                    ),
+                ),
+            ),
+            'userFields' => array(
+                'username', 'password',
+            ),
         ),
         'Session', 'Paginator', 'DebugKit.Toolbar', 'RequestHandler',
         'Stripe' => array('className' => 'Stripe.Stripe'),

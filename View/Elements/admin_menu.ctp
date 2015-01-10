@@ -56,6 +56,13 @@
                     'admin' => true, 
                 )); ?>
             </li>
+            <li class="<?php echo isset($slug) && $slug=='users' ? 'active' : ''; ?>">    
+                <?php echo $this->Html->link('Account', array(
+                    'controller' => 'users',
+                    'action' => 'change', 
+                    'admin' => true,
+                )); ?>
+            </li>
             <li>    
                 <?php echo $this->Html->link('Logout', array(
                     'controller' => 'users',
