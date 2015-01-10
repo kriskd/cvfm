@@ -40,7 +40,7 @@ class UsersController extends AppController {
                     ]
                 ]
             )) {
-                if ($this->request->is('post')) {
+                if (!empty($this->request->data)) {
                     $this->request->data['User']['id'] = $user['User']['id'];
                     if ($this->User->save($this->request->data)) {
                         $this->User->updateAll([
@@ -53,15 +53,16 @@ class UsersController extends AppController {
                         return $this->redirect(['action' => 'login']);
                     } 
                     $this->Session->setFlash('Password could not be changed, try again.', 'danger');
-                    return $this->redirect(['action' => 'reset', $token]);
                 }
                 if (strtotime($user['User']['password_token_expire']) < strtotime('now')) {
                     $this->Session->setFlash('Please request reset again', 'info');
                     return $this->redirect(['action' => 'login']); 
                 }
+            } else {
+                $this->Session->setFlash('Please retry password reset.', 'info');
+                return $this->redirect(['action' => 'login']); 
             }
-        }
-        if ($this->request->is('post')) {
+        } elseif ($this->request->is('post')) {
             $this->User->set($this->request->data);
             if ($this->User->validates(['fieldList' => ['username']])) {
                 if ($user = $this->User->find('first', [
@@ -78,6 +79,8 @@ class UsersController extends AppController {
                         'password_token' => $token,
                         'password_token_expire' => $expire,
                     ];
+                    $this->User->save($data, ['validate' => false]);
+
                     $Email = new CakeEmail('smtp');
                     $Email->emailFormat('both')
                         ->to($user['User']['username'])
@@ -85,16 +88,17 @@ class UsersController extends AppController {
                         ->subject('Password Reset Instructions')
                         ->send('Click here to reset your password: '.Configure::read('SiteUrl').'/users/reset/'.$token);
                     
-                    $this->User->save($data, ['validate' => false]);
                     $this->Session->setFlash('Check your email for information on resetting your password.', 'info');
                 }
                 return $this->redirect(['action' => 'login']); 
             }
+        } else {
+            return $this->redirect(['action' => 'login']); 
         }
     }
 
     public function admin_change() {
-        if ($this->request->is('post')) {
+        if (!empty($this->request->data)) {
             $this->request->data['User']['id'] = $this->Auth->user('id');
             if ($this->User->save($this->request->data)) {
                 return $this->Session->setFlash('Password changed.', 'success');
