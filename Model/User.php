@@ -17,7 +17,7 @@ class User extends AppModel {
 		'username' => array(
 			'email' => array(
 				'rule' => array('email'),
-				//'message' => 'Your custom message here',
+				'message' => 'Please enter a valid email address',
 				//'allowEmpty' => false,
 				'required' => false,
 				//'last' => false, // Stop validation after this rule
