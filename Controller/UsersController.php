@@ -55,12 +55,12 @@ class UsersController extends AppController {
                     $this->Session->setFlash('Password could not be changed, try again.', 'danger');
                 }
                 if (strtotime($user['User']['password_token_expire']) < strtotime('now')) {
-                    $this->Session->setFlash('Please request reset again', 'info');
-                    return $this->redirect(['action' => 'login']); 
+                    $this->Session->setFlash('Please request reset again.', 'info');
+                    return $this->redirect(['action' => 'reset']); 
                 }
             } else {
                 $this->Session->setFlash('Please retry password reset.', 'info');
-                return $this->redirect(['action' => 'login']); 
+                return $this->redirect(['action' => 'reset']);
             }
         } elseif ($this->request->is('post')) {
             $this->User->set($this->request->data);
@@ -91,9 +91,9 @@ class UsersController extends AppController {
                     $this->Session->setFlash('Check your email for information on resetting your password.', 'info');
                 }
                 return $this->redirect(['action' => 'login']); 
+            } else {
+                $this->Session->setFlash('Try again.', 'danger'); 
             }
-        } else {
-            return $this->redirect(['action' => 'login']); 
         }
     }
 
