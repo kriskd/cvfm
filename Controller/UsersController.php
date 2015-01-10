@@ -1,4 +1,5 @@
 <?php
+App::uses('CakeEmail', 'Network/Email');
 
 class UsersController extends AppController {
     
@@ -30,7 +31,36 @@ class UsersController extends AppController {
         $this->redirect($this->Auth->logout());
     }
 
-    public function reset() {
+    public function reset($token = null) {
+        $this->layout = 'admin';
+        if (!empty($token)) {
+            if ($user = $this->User->find('first', [
+                    'conditions' => [
+                        'password_token' => $token,
+                    ]
+                ]
+            )) {
+                if ($this->request->is('post')) {
+                    $this->request->data['User']['id'] = $user['User']['id'];
+                    if ($this->User->save($this->request->data)) {
+                        $this->User->updateAll([
+                            'password_token' => null,
+                            'password_token_expire' => null, 
+                        ],[
+                            'id' => $user['User']['id'] 
+                        ]);
+                        $this->Session->setFlash('Password changed.', 'success');
+                        return $this->redirect(['action' => 'login']);
+                    } 
+                    $this->Session->setFlash('Password could not be changed, try again.', 'danger');
+                    return $this->redirect(['action' => 'reset', $token]);
+                }
+                if (strtotime($user['User']['password_token_expire']) < strtotime('now')) {
+                    $this->Session->setFlash('Please request reset again', 'info');
+                    return $this->redirect(['action' => 'login']); 
+                }
+            }
+        }
         if ($this->request->is('post')) {
             $this->User->set($this->request->data);
             if ($this->User->validates(['fieldList' => ['username']])) {
@@ -48,12 +78,19 @@ class UsersController extends AppController {
                         'password_token' => $token,
                         'password_token_expire' => $expire,
                     ];
+                    $Email = new CakeEmail('smtp');
+                    $Email->emailFormat('both')
+                        ->to($user['User']['username'])
+                        ->from(Configure::read('Email.from'))
+                        ->subject('Password Reset Instructions')
+                        ->send('Click here to reset your password: '.Configure::read('SiteUrl').'/users/reset/'.$token);
+                    
                     $this->User->save($data, ['validate' => false]);
                     $this->Session->setFlash('Check your email for information on resetting your password.', 'info');
                 }
+                return $this->redirect(['action' => 'login']); 
             }
         }
-        return $this->redirect(['action' => 'login']); 
     }
 
     public function admin_change() {
