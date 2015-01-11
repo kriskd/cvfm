@@ -53,7 +53,8 @@ class Staff extends AppModel {
 	);
     
     public $virtualFields = array(
-            'full_name' => 'CONCAT(Staff.last_name, ", ", Staff.first_name)'  
+            'full_name' => 'CONCAT(Staff.last_name, ", ", Staff.first_name)',
+            'display_name' => 'CONCAT(Staff.first_name, " ", Staff.last_name)', 
     );
     
 }
