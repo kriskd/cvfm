@@ -21,7 +21,7 @@
             </div>
             <?php foreach ($staffs as $staff): ?>
                 <?php $cells = $this->Html->tag('span', $staff['Staff']['full_name'], ['class' => 'table-cell']); ?>
-                <?php $cells .= $this->Html->tag('span', $staff['Staff']['role'], ['class' => 'table-cell']); ?>
+                <?php $cells .= $this->Html->tag('span', ucfirst($staff['Staff']['role']), ['class' => 'table-cell']); ?>
                 <?php echo $this->Html->link($cells, ['action' => 'edit', $staff['Staff']['id']], ['class' => 'table-row', 'escape' => false]); ?>
             <?php endforeach; ?>
         </div>
