@@ -15,6 +15,16 @@ class StaffsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session');
+    public $paginate = array(
+        'order' => 'Staff.last_name ASC, Staff.first_name',
+        'limit' => 20,
+    );
+    public $roles = ['manager' => 'Manager', 'volunteer' => 'Volunteer'];
+
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->set(array('slug' => 'staffs'));
+    }
 
 /**
  * admin_index method
@@ -23,6 +33,7 @@ class StaffsController extends AppController {
  */
 	public function admin_index() {
 		$this->Staff->recursive = 0;
+        $this->Paginator->settings = $this->paginate;
 		$this->set('staffs', $this->Paginator->paginate());
 	}
 
@@ -64,7 +75,7 @@ class StaffsController extends AppController {
                 $this->set(['data' => $this->Staff->validationErrors]);
             }
         }
-        $this->set('options', ['manager' => 'manager', 'volunteer' => 'volunteer']);
+        $this->set('options', $this->roles);
         $this->layout = 'ajax';
 	}
 
@@ -88,8 +99,10 @@ class StaffsController extends AppController {
 			}
 		} else {
 			$options = array('conditions' => array('Staff.' . $this->Staff->primaryKey => $id));
-			$this->request->data = $this->Staff->find('first', $options);
-		}
+            $staff = $this->Staff->find('first', $options);
+            $this->set(['options' => $this->roles, 'staff' => $staff]);
+            $this->request->data = $staff;
+        }
 	}
 
 /**
@@ -106,9 +119,9 @@ class StaffsController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Staff->delete()) {
-			$this->Session->setFlash(__('The staff has been deleted.'));
+			$this->Session->setFlash(__('The staff has been deleted.', 'success'));
 		} else {
-			$this->Session->setFlash(__('The staff could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The staff could not be deleted. Please, try again.', 'danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
