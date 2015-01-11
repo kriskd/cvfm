@@ -29,4 +29,4 @@
         ]
     ]); ?>
 <?php endif; ?>
-<?php echo $this->Form->end(['label' => 'Save', 'class' => 'btn btn-primary']); ?>
+<?php echo $this->Form->end(['label' => 'Submit', 'class' => 'btn btn-primary']); ?>
