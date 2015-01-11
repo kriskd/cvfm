@@ -5672,6 +5672,9 @@ THE SOFTWARE.
         error: function(jqXHR, textStatus, errorThrown) {
           //console.log(textStatus + ' ' + errorThrown);
         },
+        beforeSend: function() {
+          $('.error-message').remove();
+        },
         success: function(data) {
           $.each(data, function(model, msgObj) {
             if (msgObj.success) {
@@ -5680,7 +5683,6 @@ THE SOFTWARE.
               for (var field in msgObj) {
                 var pascalField = snakeToPascal(field);
                 var msgArr = msgObj[field];
-                $('.error-essage').remove();
                 for (var i=0; i<msgArr.length; i++) {
                   var msg = msgArr[i];
                   var id = '#'+model+pascalField;

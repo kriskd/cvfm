@@ -57,6 +57,13 @@
                         'admin' => true, 
                     )); ?>
                 </li>
+                <li class="<?php echo isset($slug) && $slug=='staffs' ? 'active' : ''; ?>">
+                    <?php echo $this->Html->link('Staff', array(
+                        'controller' => 'staffs',
+                        'action' => 'index',
+                        'admin' => true, 
+                    )); ?>
+                </li>
                 <li class="<?php echo isset($slug) && $slug=='users' ? 'active' : ''; ?>">    
                     <?php echo $this->Html->link('Account', array(
                         'controller' => 'users',

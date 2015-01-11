@@ -60,7 +60,7 @@ class AppController extends Controller {
 
     public function beforeFilter(){
         parent::beforeFilter();
-        $this->loadModel('Month');
+        $this->loadModel('Staff');
         $this->loadModel('Product');
         $this->loadModel('ProductVendor');
         $this->loadModel('Producttype');
@@ -73,6 +73,12 @@ class AppController extends Controller {
         if (isset($this->request->params['prefix']) && $this->request->params['prefix'] == 'admin') {
             $this->layout = 'admin';
         } 
+
+        $staffs = $this->Staff->find('list', [
+            'fields' => ['Staff.id', 'Staff.display_name', 'Staff.role'],
+            'order' => 'Staff.last_name, Staff.first_name',
+        ]);
+        $this->set('staffs', $staffs); 
     }
 
     /**
