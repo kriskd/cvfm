@@ -13,7 +13,15 @@
 </div>
 <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <?php echo $this->Form->input('location'); ?>
+        <?php echo $this->Form->input('city'); ?>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <?php echo $this->Form->input('state', ['options' => $states, 'default' => 'WI']); ?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <?php echo $this->Form->input('email'); ?>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <?php echo $this->Form->input('website'); ?>

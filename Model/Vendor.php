@@ -2,29 +2,39 @@
 
 class Vendor extends AppModel {
     
+    public $uses = ['Vendor', 'State'];
+
     public $validate = array(
             'business_name' => array(
                 'name_not_empty' => array(
                     'rule' => 'notEmpty'
                     ,'message' => 'Vendor\'s business name is required.')
-                )
-            ,'schedule_id' =>array(
+            ),
+            'city' => array(
+                'city_not_empty' => array(
+                    'rule' => 'notEmpty'
+                    ,'message' => 'Please enter Vendor\'s city.')
+            ),
+            'state' => array(
+                'state_not_empty' => array(
+                    'rule' => 'notEmpty'
+                    ,'message' => 'Please enter Vendor\s state.')
+            ),
+            'schedule_id' =>array(
                 'pick_schedule' => array(
                     'rule' => array('comparison', '>', 0)
                     ,'message' => 'Choose a schedule.'
                 )
-            )
-            ,'email' => array(
+            ),
+            'email' => array(
                 'valid_email' => array(
                     'rule' => array('email'),
-                    'message' => 'Please enter a valid email.'
+                    'message' => 'Please enter a valid email.',
+                    'allowEmpty' => true,
+                    'required' => false,
                 ),
-                'email_not_empty' => array(
-                    'rule' => 'notEmpty',
-                    'message' => 'Please enter an email address.'
-                )
-            )
-            ,'website' => array(
+            ),
+            'website' => array(
                 'valid_url' => array(
                     'rule' => array('url', true),
                     'allowEmpty' => true,

@@ -9,12 +9,14 @@ class VendorsController extends AppController {
         'limit' => 10,
     );
 
-    
+    public $states = array();    
+
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->deny();
         $this->Auth->allow('index', 'add');
         $this->set(array('slug' => 'vendors'));
+        $this->states = $this->State->find('all');
     }
     
     public function index() {
@@ -22,8 +24,7 @@ class VendorsController extends AppController {
         $this->set(array('schedules' => $schedules));
     }
     
-    public function add()
-    {
+    public function add() {
         if (dev() != true) {
             $this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
         }
@@ -78,7 +79,7 @@ class VendorsController extends AppController {
         $groupedProducts = $this->Vendor->Product->productsByType(); 
         $schedules = $this->_get_schedules();
         $options = array('checked' => true);
-        $this->set(compact('schedules', 'groupedProducts', 'options'));
+        $this->set(compact('schedules', 'groupedProducts', 'options') + ['states' => $this->states]);
     }
       
     //Retrieve Vendors
@@ -114,7 +115,7 @@ class VendorsController extends AppController {
         $product_types = $this->_get_product_types(); 
         $schedules = $this->_get_schedules();
         $groupedProducts = $this->Vendor->Product->productsByType(); 
-        $this->set(compact('vendor', 'product_types', 'schedules', 'groupedProducts'));
+        $this->set(compact('vendor', 'product_types', 'schedules', 'groupedProducts') + ['states' => $this->states]);
     }
     
 /**
