@@ -2,7 +2,14 @@
 <h2>Add User</h2>
     <?php echo $this->Form->create(); ?>
     <?php $this->Form->inputDefaults(['class' => 'form-control']); ?>
-    <?php echo $this->Form->input('username', ['label' => 'Email']); ?>
+    <?php echo $this->Form->input('username', [
+        'label' => 'Email',
+        'error' => [
+            'attributes' => [
+                'class' => 'error-message label label-danger'
+            ],
+        ]
+    ]); ?>
     <?php echo $this->Form->input('password', [
         'label' => 'New Password',
         'error' => [
