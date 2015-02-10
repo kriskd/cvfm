@@ -31,6 +31,10 @@ class User extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+            'unique' => array(
+                'rule' => 'isUnique',
+                'message' => 'This email already exists',
+            ),
 		),
 		'password' => array(
 			'notEmpty' => array(
