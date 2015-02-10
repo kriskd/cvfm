@@ -97,6 +97,16 @@ class UsersController extends AppController {
         }
     }
 
+    public function admin_add() {
+        if (!empty($this->request->data)) {
+            if ($this->User->save($this->request->data)) {
+                return $this->Session->setFlash('User Added.', 'success');
+            }
+            $this->Session->setFlash('Problem adding user.', 'danger');
+        }
+        $this->layout = 'admin';
+    }
+
     public function admin_change() {
         if (!empty($this->request->data)) {
             $this->request->data['User']['id'] = $this->Auth->user('id');
