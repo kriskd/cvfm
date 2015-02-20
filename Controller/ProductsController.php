@@ -119,7 +119,7 @@ class ProductsController extends AppController
         }
 
         $product_types = $this->_get_product_types();
-        $months = $this->Month->find('list', array(
+        $months = $this->Product->Month->find('list', array(
             'fields' => array(
                 'id', 'name'
             ) 
