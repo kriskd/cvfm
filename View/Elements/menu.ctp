@@ -41,12 +41,14 @@
                         'action' => 'map',        
                     )); ?>
                 </li>
-                <li class="<?php echo isset($slug) && $slug=='sponsors' ? 'active' : ''; ?>">
-                    <?php echo $this->Html->link('Sponsors', array(
-                        'controller' => 'sponsors',
-                        'action' => 'index',        
-                    )); ?>
-                </li>
+                <?php if ($sponsorCount > 0): ?>
+                    <li class="<?php echo isset($slug) && $slug=='sponsors' ? 'active' : ''; ?>">
+                        <?php echo $this->Html->link('Sponsors', array(
+                            'controller' => 'sponsors',
+                            'action' => 'index',        
+                        )); ?>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
