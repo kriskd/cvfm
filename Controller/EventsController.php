@@ -111,13 +111,12 @@ class EventsController extends AppController {
 			} else {
 				$this->Session->setFlash(__('The event could not be saved. Please, try again.'), 'danger');
 			}
-		} else {
-			$options = array('conditions' => array('Event.' . $this->Event->primaryKey => $id));
-            $event = $this->Event->find('first', $options);
-            $this->set('event', $event);
-			$this->request->data = $event;
-            $this->request->data['Event']['date_pick'] = date('m/d/Y', strtotime($event['Event']['date']));
-		}
+		} 
+        $options = array('conditions' => array('Event.' . $this->Event->primaryKey => $id));
+        $event = $this->Event->find('first', $options);
+        $this->set('event', $event);
+        $this->request->data = $event;
+        $this->request->data['Event']['date_pick'] = date('m/d/Y', strtotime($event['Event']['date']));
 	}
 
 /**

@@ -6,12 +6,15 @@
         ],[
             'class' => 'btn btn-info',
         ]); ?>
-        <?php echo $this->Form->postLink('Delete Event', array(
-            'action' => 'delete', $event['Event']['id'], 
-            'admin' => true,
-        ), array(
-            'class' => 'pull-right confirm btn btn-danger',
-        )); ?>
+        <?php echo $this->Html->link('Delete Event', [
+                'controller' => 'events',
+                'action' => 'modal', $event['Event']['id'],
+                'admin' => true,
+            ],[
+                'class' => 'pull-right delete-modal btn btn-danger',
+                'data-id' => $event['Event']['id'],
+                'data-name' => $event['Event']['description'],
+        ]); ?>
     </div>
     <?php echo $this->Form->create('Event'); ?>
     <?php echo $this->Element('Events/form'); ?>

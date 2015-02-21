@@ -6,12 +6,15 @@
         ],[
             'class' => 'btn btn-info',
         ]); ?>
-        <?php echo $this->Form->postLink('Delete Product', array(
-            'action' => 'delete', $product['Product']['id'], 
-            'admin' => true,
-        ), array(
-            'class' => 'pull-right confirm btn btn-danger',
-        )); ?>
+        <?php echo $this->Html->link('Delete Product', [
+                'controller' => 'products',
+                'action' => 'modal', $product['Product']['id'],
+                'admin' => true,
+            ],[
+                'class' => 'pull-right delete-modal btn btn-danger',
+                'data-id' => $product['Product']['id'],
+                'data-name' => $product['Product']['name'],
+        ]); ?>
     </div>
     <?php echo $this->Form->create('Product'); ?>
     <?php echo $this->Element('Products/form'); ?>

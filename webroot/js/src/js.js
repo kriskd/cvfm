@@ -29,6 +29,27 @@ $(document).ready(function(){
         return false;
     });
 
+    // Delete confirm
+    $('.delete-modal').on('click', function(e) {
+      e.preventDefault();
+      var id = $(this).data('id');
+      var name = $(this).data('name');
+      $.ajax({
+        url: $(this).prop('href'),
+        dataType: 'html',
+        data: {'id' : id, 'name' : name},
+        type: 'post',
+        cache: false,
+        beforeSend: function() {
+          $('.modal').remove();
+        },
+        success: function(data){
+          $('body').append(data);
+          $('#delete-confirm').modal();
+        }
+      });
+    });
+
     // Validation of modal forms in admin
     $(document).on('click', '.modal form input[type=submit]', function(e) {
       e.preventDefault();

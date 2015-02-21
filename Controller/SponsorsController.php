@@ -7,22 +7,33 @@ class SponsorsController extends AppController {
         'order' => 'Sponsor.name ASC',
         'limit' => 10,
     );
+    public $types = ['sponsor' => 'Sponsor', 'friend' => 'Friend'];
 
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->deny();
         $this->Auth->allow('index');
-        $this->set(['slug' => 'sponsors']);
+        $this->set(['slug' => 'sponsors', 'types' => $this->types]);
     }
     
     public function index() {
+        if ($this->sponsorCount == 0) {
+            $this->redirect('/');
+        }
         $sponsors = $this->Sponsor->find('all', array(
             'order' => array('Sponsor.amount DESC'),
             'conditions' => array(
                 'active' => 1,
+                'type' => 'sponsor',
             ), 
         ));
-        $this->set(array('sponsors' => $sponsors));
+        $friends = $this->Sponsor->find('all', array(
+            'conditions' => array(
+                'active' => 1,
+                'type' => 'friend',
+            ), 
+        ));
+        $this->set(compact('sponsors', 'friends'));
     }
     
     //Create Sponsor
@@ -62,18 +73,22 @@ class SponsorsController extends AppController {
     
     //Update Sponsor
     public function admin_edit($id=null){
-        if($id){
-            if(!empty($this->request->data)){
-                $this->Sponsor->save($this->request->data);
+        if (!$id) {
+            return $this->redirect(['action' => 'index', 'admin' => true]);
+        }
+        
+        if (!empty($this->request->data)) {
+            if ($this->Sponsor->save($this->request->data)) {
                 $this->Session->setFlash('Sponsor saved.', 'success');
+                return $this->redirect(['action' => 'index', 'admin' => true]);
+            } else {
+                $this->Session->setFlash(__('The sponsor could not be saved. Please, try again.'), 'danger');
             }
-            $sponsor = $this->Sponsor->findById($id);
-            $this->request->data = $sponsor;
-            $this->set(array('sponsor' => $sponsor));
         }
-        else{
-            $this->redirect('/admin/sponsors');
-        }
+        
+        $sponsor = $this->Sponsor->findById($id);
+        $this->request->data = $sponsor;
+        $this->set(array('sponsor' => $sponsor));
     }
     
 /**

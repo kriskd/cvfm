@@ -5,12 +5,14 @@
         ), array(
             'class' => 'btn btn-info', 
         )); ?>
-        <?php echo $this->Form->postLink('Delete Vendor', array(
-            'action' => 'delete', $vendor['Vendor']['id'], 
-            'admin' => true,
-        ), array(
-            'class' => 'pull-right confirm btn btn-danger',
-        )); ?>
+        <?php echo $this->Html->link('Delete Vendor', [
+                'action' => 'modal', $vendor['Vendor']['id'],
+                'admin' => true,
+            ],[
+                'class' => 'pull-right delete-modal btn btn-danger',
+                'data-id' => $vendor['Vendor']['id'],
+                'data-name' => $vendor['Vendor']['business_name'],
+        ]); ?>
     </div>
     <?php echo $this->Element('Vendors/form'); ?>
 </div>

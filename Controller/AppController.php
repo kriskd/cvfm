@@ -61,6 +61,7 @@ class AppController extends Controller {
     public function beforeFilter(){
         parent::beforeFilter();
         $this->loadModel('Staff');
+        $this->loadModel('Sponsor');
         $this->loadModel('Product');
         $this->loadModel('ProductVendor');
         $this->loadModel('Producttype');
@@ -78,7 +79,12 @@ class AppController extends Controller {
             'fields' => ['Staff.id', 'Staff.display_name', 'Staff.role'],
             'order' => 'Staff.last_name, Staff.first_name',
         ]);
-        $this->set('staffs', $staffs); 
+        $this->sponsorCount = $this->Sponsor->find('count', [
+            'conditions' => [
+                'active' => 1
+            ],
+        ]);
+        $this->set(array('staffs' => $staffs, 'sponsorCount' => $this->sponsorCount));
     }
 
     /**
@@ -123,8 +129,7 @@ class AppController extends Controller {
         return false;
     }
     
-    public function array_merge_recursive_distinct(array &$array1, array &$array2)
-    {
+    public function array_merge_recursive_distinct(array &$array1, array &$array2) {
         $merged = $array1;
       
         foreach ($array2 as $key => &$value) {
@@ -137,5 +142,16 @@ class AppController extends Controller {
         }
       
         return $merged;
+    }
+    
+    public function admin_modal($id = null) {
+        if ($this->request->is('ajax')){
+            $data = $this->request->data;
+            $this->set(array(
+                'id' => $data['id'],
+                'name' => $data['name'],
+            ));
+        }
+        $this->layout = 'ajax';
     }
 }

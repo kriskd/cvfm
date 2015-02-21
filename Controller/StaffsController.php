@@ -97,12 +97,11 @@ class StaffsController extends AppController {
 			} else {
 				$this->Session->setFlash(__('The staff could not be saved. Please, try again.'), 'danger');
 			}
-		} else {
-			$options = array('conditions' => array('Staff.' . $this->Staff->primaryKey => $id));
-            $staff = $this->Staff->find('first', $options);
-            $this->set(['options' => $this->roles, 'staff' => $staff]);
-            $this->request->data = $staff;
-        }
+		}
+        $options = array('conditions' => array('Staff.' . $this->Staff->primaryKey => $id));
+        $staff = $this->Staff->find('first', $options);
+        $this->set(['options' => $this->roles, 'staff' => $staff]);
+        $this->request->data = $staff;
 	}
 
 /**

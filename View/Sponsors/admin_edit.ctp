@@ -6,15 +6,24 @@
         ],[
             'class' => 'btn btn-info',
         ]); ?>
-        <?php echo $this->Form->postLink('Delete Sponsor', array(
-            'action' => 'delete', $sponsor['Sponsor']['id'], 
-            'admin' => true,
-        ), array(
-            'class' => 'pull-right confirm btn btn-danger',
-        )); ?>
+        <?php echo $this->Html->link('Delete Sponsor', [
+                'action' => 'modal', $sponsor['Sponsor']['id'],
+                'admin' => true,
+            ],[
+                'class' => 'pull-right delete-modal btn btn-danger',
+                'data-id' => $sponsor['Sponsor']['id'],
+                'data-name' => $sponsor['Sponsor']['name'],
+        ]); ?>
     </div>
     <?php echo $this->Form->create('Sponsor'); ?>
-    <?php $this->Form->inputDefaults(['class' => 'form-control']); ?>
+    <?php $this->Form->inputDefaults([
+        'class' => 'form-control',
+        'error' => [
+            'attributes' => [
+                'class' => 'label label-danger',
+            ],
+        ]
+    ]); ?>
     <?php echo $this->Element('Sponsors/form_fields'); ?>
     <?php echo $this->Form->end(['label' => 'Save', 'class' => 'btn btn-primary']); ?>
 </div>
