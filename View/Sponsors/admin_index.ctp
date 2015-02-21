@@ -18,12 +18,14 @@
             <span class="table-head"><?php echo $this->Paginator->sort('name'); ?></span>
             <span class="table-head"><?php echo $this->Paginator->sort('website'); ?></span>
             <span class="table-head"><?php echo $this->Paginator->sort('amount'); ?></span>
+            <span class="table-head"><?php echo $this->Paginator->sort('type'); ?></span>
             <span class="table-head"><?php echo $this->Paginator->sort('active'); ?></span>
         </div>
     <?php foreach($sponsors as $sponsor): ?>
         <?php $cells = $this->Html->tag('span', $sponsor['Sponsor']['name'], ['class' => 'table-cell']); ?>
         <?php $cells .= $this->Html->tag('span', $sponsor['Sponsor']['website'], ['class' => 'table-cell']); ?>
         <?php $cells .= $this->Html->tag('span', empty($sponsor['Sponsor']['amount']) ? "&nbsp;" : $sponsor['Sponsor']['amount'], ['class' => 'table-cell text-right']); ?>
+        <?php $cells .= $this->Html->tag('span', $sponsor['Sponsor']['type'], ['class' => 'table-cell']); ?>
         <?php $checkbox = $this->Form->input('Sponsor.'.$sponsor['Sponsor']['id'].'.active', array(
             'label' => false,
             'checked' => $sponsor['Sponsor']['active'],

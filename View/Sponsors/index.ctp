@@ -1,18 +1,31 @@
-<h2><?php echo $fiscalYear; ?> Sponsors</h2>
-<?php foreach($sponsors as $sponsor): ?>
-    <?php $amount = $sponsor['Sponsor']['amount']; ?>
-    <div class="sponsor<?php echo $amount >= 500 ? ' gold' : ($amount >=250 ? ' silver' : ''); ?>">
-        <?php if($sponsor['Sponsor']['logo']): ?>
-            <?php echo $this->Html->image('/img/' . $sponsor['Sponsor']['logo'], array('alt' => $sponsor['Sponsor']['name'])); ?>
+<div class="sponsors">
+    <div class="row">
+        <?php if ($sponsors): ?>
+            <div class="col-lg-6">
+                <h2>Sponsors</h2>
+                <?php foreach($sponsors as $sponsor): ?>
+                    <?php $amount = $sponsor['Sponsor']['amount']; ?>
+                    <div class="sponsor<?php echo $amount >= 500 ? ' gold' : ($amount >=250 ? ' silver' : ''); ?>">
+                        <?php echo $amount >= 500 ? '<h2>' : ($amount >=250 ? '<h3>' : '<p>'); ?>
+                        <?php if($sponsor['Sponsor']['website']): ?>
+                            <?php echo $this->Html->link($sponsor['Sponsor']['name'], $sponsor['Sponsor']['website']);?>
+                        <?php else: ?>
+                            <h3><?php echo $sponsor['Sponsor']['name']; ?></h3>
+                        <?php endif; ?>
+                        <?php echo $amount >= 500 ? '</h2>' : ($amount >=250 ? '</h3>' : '</p>'); ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         <?php endif; ?>
-        <?php echo $amount >= 500 ? '<h2>' : ($amount >=250 ? '<h3>' : '<p>'); ?>
-        <?php if($sponsor['Sponsor']['website']): ?>
-            <?php echo $this->Html->link($sponsor['Sponsor']['name'], $sponsor['Sponsor']['website']);?>
-        <?php else: ?>
-            <h3><?php echo $sponsor['Sponsor']['name']; ?></h3>
+        <?php if ($friends): ?>
+            <div class="col-lg-6">
+                <h2>Friends of the Market</h2>
+                <?php foreach($friends as $friend): ?>
+                    <p><?php echo $friend['Sponsor']['name']; ?>
+                <?php endforeach; ?>   
+            </div>
         <?php endif; ?>
-        <?php echo $amount >= 500 ? '</h2>' : ($amount >=250 ? '</h3>' : '</p>'); ?>
     </div>
-<?php endforeach; ?>
-<p>If you are interested in sponsoring The Capitol View Farmers Market,
-please contact <span class="email-mailto"></span></p>
+    <p>If you are interested in sponsoring The Capitol View Farmers Market or becoming a friend of the market,
+    please contact <span class="email-mailto"></span></p>
+</div>
