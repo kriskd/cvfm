@@ -6855,7 +6855,7 @@ span.required {
   margin: auto;
 }
 .sponsors .sponsor h3 {
-  padding: 0;
+  padding: 0 0 0 30px;
 }
 .sponsors .sponsor.gold,
 .sponsors .sponsor.silver {
