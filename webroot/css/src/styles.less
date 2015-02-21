@@ -107,19 +107,20 @@ input[type="url"], textarea, select {
     }
 }
 
-.sponsor { 
-    margin: auto; 
-    h3 { 
-        padding: 0; 
+.sponsors {
+    .row {
+        margin-bottom: 40px;
     }
-    p { 
-        text-align: center; 
-    }
-    &.gold { 
-        border-bottom: 1px solid @lightYellow; 
-    }
-    &.gold, &.silver { 
-        width: 100%; float: none; text-align: center; padding-bottom: 10px; 
+    .sponsor { 
+        margin: auto; 
+        h3 { 
+            padding: 0; 
+        }
+        &.gold, &.silver { 
+            width: 100%; 
+            float: none; 
+            padding-bottom: 10px; 
+        }
     }
 }
 
