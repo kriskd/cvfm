@@ -1,6 +1,13 @@
 <div class="vendors add">
     <?php echo $this->Form->create(); ?>
-    <?php $this->Form->inputDefaults(array('class' => 'form-control')); ?>
+    <?php $this->Form->inputDefaults(array(
+        'class' => 'form-control',
+        'error' => [
+            'attributes' => [
+                'class' => 'label label-danger',
+            ],
+        ]
+    )); ?>
     <?php echo $this->Form->input('name', array('label' => 'Proprietor\'s Name')); ?>
     <?php echo $this->Form->input('business_name'); ?>
     <?php echo $this->Form->input('address'); ?>
