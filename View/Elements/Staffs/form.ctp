@@ -1,5 +1,10 @@
 <?php $this->Form->inputDefaults([
     'class' => 'form-control',
+    'error' => [
+        'attributes' => [
+            'class' => 'label label-danger',
+        ],
+    ]
 ]); ?>
     <?php echo $this->Form->input('id'); ?>
 <div class="form-group">

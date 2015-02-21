@@ -1,5 +1,10 @@
 <?php $this->Form->inputDefaults(array(
     'class' => 'form-control',
+    'error' => [
+        'attributes' => [
+            'class' => 'label label-danger',
+        ],
+    ]
 )); ?>
 <?php echo $this->Form->hidden('id'); ?>
 <div class="row">
