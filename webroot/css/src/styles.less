@@ -2,9 +2,14 @@
 @import "_variables.less";
 @import "_mixins.less";
 @import "_navigation.less";
-@import "min-base.less";
+@import "_base.less";
 
-body { background: @mainGreen; color: @brown; font-family: arial; font-size: 12px; }
+body { 
+    background: @mainGreen; 
+    color: @brown; 
+    font-family: arial; 
+    font-size: 14px; 
+}
 :focus { outline: none; }
 a:link:not(.btn) { color: @brown; text-decoration: underline; }
 a:visited:not(.btn) { color: @brown; text-decoration: underline; }
@@ -196,6 +201,7 @@ input[type="url"], textarea, select {
         }
     }
     #footer {
+        font-size: 12px;
         text-align: center;
         background: @mainGreen;
         padding-top: 15px;
