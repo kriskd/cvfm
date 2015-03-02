@@ -1,6 +1,7 @@
 tmp/*
 webroot/js/colorbox.zip
 webroot/js/colorbox/*
+webroot/img/pictures
 Plugin/
 Vendor/
 node_modules
