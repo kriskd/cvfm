@@ -31,6 +31,7 @@
       <div class="modal-body">
           <p><?php echo $this->Html->link('2015 Vendor Application', '/files/cvfm2015vendorapp.pdf'); ?></p>
         <p><?php echo $this->Html->link('2015 Rules and Bylaws', '/files/CVFM_2015_Rules_and_ByLaws.pdf'); ?></p>
+		<p><?php echo $this->Html->link('2015 Sponsorship Information', '/files/CVFM_Sponsor_letter_2015.pdf'); ?></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
