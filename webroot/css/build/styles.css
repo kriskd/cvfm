@@ -7082,6 +7082,10 @@ span.required {
 .container-fluid .home-right {
   margin-top: 10px;
 }
+.container-fluid .home-right p {
+  margin: 0 0 10px;
+  padding: 0;
+}
 .container-fluid .home-right a {
   position: relative;
 }
