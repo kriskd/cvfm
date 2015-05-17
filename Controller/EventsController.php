@@ -38,7 +38,6 @@ class EventsController extends AppController {
             )
         ); 
         $this->set(array('events' => $events));
-        $this->layout = 'ajax';
     }
 
 /**
