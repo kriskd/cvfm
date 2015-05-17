@@ -28,16 +28,20 @@ class ProductsController extends AppController
                                                                             $product['Product']['id'] => $product['Product']['name'])
                                                                     );
             }
-            $months = $product['Month'];   
+            $months = $product['Month'];
             foreach($months as $month){
                 if(strcasecmp($month['id'],$current_month)==0){
                     $products_in_season[] = $product['Product']['name'];
                 }
             }
         }
-        $this->set(array('product_types' => $product_types, 'products_in_season' => $products_in_season));
+		$popular = $this->Product->popularProducts();
+		$popular = array_map('strtolower', $popular);
+		$last = array_pop($popular);
+		$popular = array_merge($popular, array('and '.$last));
+        $this->set(array('product_types' => $product_types, 'products_in_season' => $products_in_season, 'popular' => $popular));
     }
-    
+
     public function get_vendors($product_id){
         $products = $this->Product->findById($product_id);
         $vendors_arr = $products['Vendor'];
@@ -51,14 +55,13 @@ class ProductsController extends AppController
         echo json_encode($vendors);
         exit();
     }
-    
+
     public function get_products($type_id){
         $products = $this->Product->find('all', array('conditions' => array('product_type' => $type_id)));
         echo json_encode($products);
-        //var_dump($products);
-        exit;
+		$this->autoRender = false;
     }
-    
+
     //Create
     public function admin_add(){
 		if ($this->request->is('post')) {
