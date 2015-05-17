@@ -1,8 +1,15 @@
 <div class="carousel-wrapper">
     <div id="carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
-            <?php for($i=32; $i<50; $i++): ?>
+            <?php for($i=32; $i<34; $i++): ?>
                 <div class="item <?php echo $i==32 ? 'active' : ''; ?>">
+                    <div class="crop">
+                    <?php echo $this->Html->image('pictures/DSC_00'.$i.'.JPG', array('class' => 'img-responsive')); ?>
+                    </div>
+                </div>
+            <?php endfor; ?>
+            <?php for($i=37; $i<50; $i++): ?>
+                <div class="item">
                     <div class="crop">
                     <?php echo $this->Html->image('pictures/DSC_00'.$i.'.JPG', array('class' => 'img-responsive')); ?>
                     </div>
