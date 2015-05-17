@@ -22,3 +22,5 @@
     <p>Coming soon...</p>
     <?php return; ?>
 <?php endif; ?>
+<p><?php echo $this->Html->link('2015 Rules and Bylaws', '/files/CVFM_2015_Rules_and_ByLaws.pdf'); ?></p>
+<p><?php echo $this->Html->link('2015 Vendor Rules and Bylaws', '/files/CVFM_2015_Rules_and_ByLaws.pdf'); ?></p>

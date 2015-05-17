@@ -22,10 +22,10 @@
                 <h2>Friends of the Market</h2>
                 <?php foreach($friends as $friend): ?>
                     <p><?php echo $friend['Sponsor']['name']; ?>
-                <?php endforeach; ?>   
+                <?php endforeach; ?>
             </div>
         <?php endif; ?>
     </div>
     <p>If you are interested in sponsoring The Capitol View Farmers Market or becoming a friend of the market,
-    please contact <span class="email-mailto"></span></p>
+    please review our <?php echo $this->Html->link('2015 sponsorship Information', '/files/CVFM_Sponsor_letter_2015.pdf'); ?> and contact <span class="email-mailto"></span></p>
 </div>

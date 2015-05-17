@@ -4,12 +4,14 @@
         <?php if (empty($product_types)): ?>
             <p>No vendor products available at this time.</p>
         <?php else: ?>
+			<p>Some of the products we are offering this season include <?php echo implode(', ', $popular); ?>. The product finder includes all products and which vendor or vendor are selling them this season.</p>
             <p>Fruits and vegetables are only available when in season.
             Vendor selection may vary week by week.</p>
             <div class="row">
                 <div class="col-lg-4 col-lg-push-8 col-md-4 col-md-push-8 col-sm-4 col-sm-push-8 col-xs-12 results">
                 </div>
                 <div class="col-lg-8 col-lg-pull-4 col-md-8 col-md-pull-4 col-sm-8 col-sm-pull-4 col-xs-12 product-select">
+				<h2>Product Finder</h2>
                 <?php echo $this->Form->create('Product', array('class' => 'form-inline')); ?>
                 <?php foreach($product_types as $type => $items): ?>
                     <?php foreach($items as $item): ?>

@@ -17,35 +17,35 @@
                 <li class="<?php echo isset($slug) && $slug=='home' ? 'active' : ''; ?>">
                     <?php echo $this->Html->link('Home', '/'); ?>
                 </li>
-                <li class="<?php echo isset($slug) && $slug=='about' ? 'active' : ''; ?>">
-                    <?php echo $this->Html->link('About', array(
-                        'controller' => 'pages',
-                        'action' => 'about',        
+                <li class="<?php echo isset($slug) && $slug=='events' ? 'active' : ''; ?>">
+                    <?php echo $this->Html->link('Events', array(
+                        'controller' => 'events',
+                        'action' => 'index',
                     )); ?>
                 </li>
                 <li class="<?php echo isset($slug) && $slug=='vendors' ? 'active' : ''; ?>">
                     <?php echo $this->Html->link('Vendors', array(
                         'controller' => 'vendors',
-                        'action' => 'index',        
+                        'action' => 'index',
                     )); ?>
                 </li>
                 <li class="<?php echo isset($slug) && $slug=='products' ? 'active' : ''; ?>">
                     <?php echo $this->Html->link('Products', array(
                         'controller' => 'products',
-                        'action' => 'index',        
+                        'action' => 'index',
                     )); ?>
                 </li>
                 <li class="<?php echo isset($slug) && $slug=='map' ? 'active' : ''; ?>">
                     <?php echo $this->Html->link('Map', array(
                         'controller' => 'pages',
-                        'action' => 'map',        
+                        'action' => 'map',
                     )); ?>
                 </li>
                 <?php if ($sponsorCount > 0): ?>
                     <li class="<?php echo isset($slug) && $slug=='sponsors' ? 'active' : ''; ?>">
                         <?php echo $this->Html->link('Sponsors', array(
                             'controller' => 'sponsors',
-                            'action' => 'index',        
+                            'action' => 'index',
                         )); ?>
                     </li>
                 <?php endif; ?>
