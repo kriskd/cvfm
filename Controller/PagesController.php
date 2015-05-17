@@ -43,8 +43,8 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Page', 'Schedule');
-    
+	public $uses = array('Page', 'Schedule', 'Product');
+
     public function beforeFilter() {
         parent::beforeFilter();
         $this->set(array('slug' => 'pages'));
@@ -57,9 +57,9 @@ class PagesController extends AppController {
  * @param mixed What page to display
  * @return void
  */
-	public function display() { 
+	public function display() {
 		$path = func_get_args();
-		$slug = current($path); 
+		$slug = current($path);
         $this->set('slug', $slug);
 
 		if ($content = $this->Page->find('first', array('conditions' => array('uri' => $slug)))) {
@@ -83,6 +83,11 @@ class PagesController extends AppController {
                 $title_for_layout = Inflector::humanize($path[$count - 1]);
             }
 
+			$content = $this->Page->find('first', [
+				'conditions' => [
+					'uri' => 'about',
+				]
+			]);
             $schedule = $this->Schedule->find('first', array(
                 'conditions' => array(
                     'short' => 'Full',
@@ -95,26 +100,26 @@ class PagesController extends AppController {
                 ),
             ));
             $this->set(array('fiscalYear' => $this->fiscalYear));
-            $this->set(compact('page', 'subpage', 'title_for_layout', 'schedule'));
+            $this->set(compact('page', 'subpage', 'title_for_layout', 'schedule', 'content'));
             $this->render(implode('/', $path));
         }
 	}
-	
+
 	/*public function admin_index()
 	{
 		$pages = $this->Paginator->paginate('Page');
 		$this->set('pages', $pages);
     }*/
-	
+
 	public function admin_edit($id = null)
 	{
 		if (!$this->Page->exists($id)) {
 			throw new NotFoundException(__('Invalid page'));
 		}
-        
+
 		$options = array('conditions' => array('Page.' . $this->Page->primaryKey => $id));
 		$page = $this->Page->find('first', $options);
-		
+
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$page = $this->array_merge_recursive_distinct($page, $this->request->data);
 			if ($this->Page->save($page)) {
