@@ -75,4 +75,37 @@ class Product extends AppModel {
         ));
     }
 
+	public function popularProducts() {
+		return $this->find('list', array(
+			'recursive' => -1,
+			'joins' => array(
+				array(
+					'table' => 'product_vendors',
+					'alias' => 'ProductVendor',
+					'type' => 'INNER',
+					'conditions' => array(
+						'Product.id = ProductVendor.product_id',
+					),
+				),
+				array(
+					'table' => 'vendors',
+					'alias' => 'Vendor',
+					'type' => 'INNER',
+					'conditions' => array(
+						'ProductVendor.vendor_id = Vendor.id',
+					),
+				)
+			),
+			'order' => 'Product.name',
+			'conditions' => array(
+				'Vendor.active' => 1,
+			),
+			'group' => array(
+				'Product.name HAVING count(Product.name) > 1'
+			),
+			'fields' => array(
+				'Product.name'
+			),
+		));
+	}
 }
