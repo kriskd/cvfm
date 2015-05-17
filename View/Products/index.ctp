@@ -4,7 +4,7 @@
         <?php if (empty($product_types)): ?>
             <p>No vendor products available at this time.</p>
         <?php else: ?>
-			<p>Some of the products we are offering this season include <?php echo implode(', ', $popular); ?>. The product finder includes all products and which vendor or vendor are selling them this season.</p>
+			<p>Some of the products we are offering this season include <?php echo implode(', ', $popular); ?>. The product finder includes all products and which vendor or vendors are selling them this season.</p>
             <p>Fruits and vegetables are only available when in season.
             Vendor selection may vary week by week.</p>
             <div class="row">
