@@ -26,7 +26,6 @@
         'multiple' => 'checkbox',
         'options' => $months,
         'div' => 'product-months',
-        'hiddenField' => false,
         'label' => false,
     )); ?>         
 </div>
