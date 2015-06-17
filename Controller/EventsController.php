@@ -27,7 +27,7 @@ class EventsController extends AppController {
     public function index() {
 		$events = $this->Event->find('all', array(
                 'conditions' => array(
-                    'date >=' => date('Y-m-d', strtotime("+1 day"))
+                    'date >=' => date('Y-m-d')
                 ),
                 'fields' => array(
                     'date', 'description'
