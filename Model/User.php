@@ -99,4 +99,8 @@ class User extends AppModel {
     public function passwordsMatch($check) {
         return $check['confirm_password'] == $this->data['User']['password'] ? true : false;
     }
+
+    public function removeEmailUniqueValidation() {
+        $this->validator()->remove('username', 'unique');
+    }
 }
