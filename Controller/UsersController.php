@@ -2,20 +2,20 @@
 App::uses('CakeEmail', 'Network/Email');
 
 class UsersController extends AppController {
-    
+
     public $name = 'Users';
-    
+
     public function beforeFilter() {
         parent::beforeFilter();
         if (empty($this->request->params['prefix'])) {
-            //Note an admin page
+            //Not an admin page
             $this->Auth->allow($this->action);
-        } 
+        }
         $this->set(['slug' => 'users']);
     }
-    
+
     public function login() {
-        if($this->Auth->loggedIn() == true){ 
+        if($this->Auth->loggedIn() == true){
             $this->redirect($this->Auth->redirectUrl());
         }
         if($this->request->is('post') || $this->request->is('put')){
@@ -23,16 +23,17 @@ class UsersController extends AppController {
                 $this->redirect($this->Auth->redirectUrl());
             }
             $this->Session->setFlash('Username or password is incorrect.', 'danger');
-        }  
+        }
         $this->layout = 'admin';
     }
-    
+
     public function logout() {
         $this->redirect($this->Auth->logout());
     }
 
     public function reset($token = null) {
         $this->layout = 'admin';
+		$this->User->removeEmailUniqueValidation();
         if (!empty($token)) {
             if ($user = $this->User->find('first', [
                     'conditions' => [
@@ -45,18 +46,18 @@ class UsersController extends AppController {
                     if ($this->User->save($this->request->data)) {
                         $this->User->updateAll([
                             'password_token' => null,
-                            'password_token_expire' => null, 
+                            'password_token_expire' => null,
                         ],[
-                            'id' => $user['User']['id'] 
+                            'id' => $user['User']['id']
                         ]);
                         $this->Session->setFlash('Password changed.', 'success');
                         return $this->redirect(['action' => 'login']);
-                    } 
+                    }
                     $this->Session->setFlash('Password could not be changed, try again.', 'danger');
                 }
                 if (strtotime($user['User']['password_token_expire']) < strtotime('now')) {
                     $this->Session->setFlash('Please request reset again.', 'info');
-                    return $this->redirect(['action' => 'reset']); 
+                    return $this->redirect(['action' => 'reset']);
                 }
             } else {
                 $this->Session->setFlash('Please retry password reset.', 'info');
@@ -87,7 +88,7 @@ class UsersController extends AppController {
                         ->from(Configure::read('Email.from'))
                         ->subject('Password Reset Instructions')
                         ->send('Click here to reset your password: '.Configure::read('SiteUrl').'/users/reset/'.$token);
-                    
+
                     $this->Session->setFlash('Check your email for information on resetting your password.', 'info');
                 }
                 return $this->redirect(['action' => 'login']); 
