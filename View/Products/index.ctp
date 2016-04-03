@@ -18,8 +18,13 @@
                         <?php $id = key($item['product']); ?>
                         <?php $options[$id] = array_pop($item['product']); ?>
                     <?php endforeach; ?>
-                    <?php echo $this->Form->input($type . ': ', array('options' => $options, 'class' => 'products form-control input-sm', 'id' => str_replace(' ', '', $type))); ?>
-                    <?php $options = array(); ?> 
+                    <?php echo $this->Form->input($type . ': ', array(
+                        'options' => $options,
+                        'class' => 'products form-control input-sm',
+                        'id' => str_replace(' ', '', $type),
+                        'empty' => 'Select One:',
+                    )); ?>
+                    <?php $options = array(); ?>
                 <?php endforeach; ?>
                 <?php echo $this->Form->end(); ?>
                 </div>
