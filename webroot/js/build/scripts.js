@@ -5820,7 +5820,7 @@ THE SOFTWARE.
             $.get('/products/get_vendors/' + item, function(data){
                 if(data.length > 0){
                     for(var i=0; i<data.length; i++){
-                        html += '<div class="vendor"><p><strong>' + data[i][0] + '</strong> ' + data[i][1] + '</p><p>' + data[i][2] + '</p></div>';
+                        html += '<div class="vendor"><p><strong>' + data[i][0] + '</strong> ' + data[i][1] + '</p></div>';
                     } 
                     $('.products .results').prepend(html);
                 }
