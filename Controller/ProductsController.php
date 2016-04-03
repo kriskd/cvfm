@@ -10,24 +10,27 @@ class ProductsController extends AppController
     }
 
     public function index(){
-        $products = $this->Product->find('all');
+        $products = $this->Product->find('all', array(
+            'contain' => [
+                'Vendor' => [
+                    'conditions' => [
+                        'Vendor.active' => 1,
+                    ]
+                ],
+                'Month', 'Producttype',
+            ],
+        ));
+        $products = array_filter($products, function($item) {
+            return !empty($item['Vendor']);
+        });
         $current_month = date('n');
         $product_types = array();
         $products_in_season = array();
         foreach($products as $product){
-            $vendors = $product['Vendor'];
-            //Check to make sure there is at least one active vendor selling the product.
-            $actives = array();
-            foreach($vendors as $vendor){
-                $actives[] = $vendor['active'];
-            }
-            if(in_array(1,$actives)){
-                $product_types[$product['Producttype']['type']][] = array('product' => array(0 => 'Select One:'));
-                $product_types[$product['Producttype']['type']][] = array(
-                                                                        'product' => array(
-                                                                            $product['Product']['id'] => $product['Product']['name'])
+            $product_types[$product['Producttype']['type']][] = array(
+                                                                    'product' => array(
+                                                                        $product['Product']['id'] => $product['Product']['name'])
                                                                     );
-            }
             $months = $product['Month'];
             foreach($months as $month){
                 if(strcasecmp($month['id'],$current_month)==0){
@@ -43,14 +46,22 @@ class ProductsController extends AppController
     }
 
     public function get_vendors($product_id){
-        $products = $this->Product->findById($product_id);
+        $products = $this->Product->find('first', array(
+            'contain' => [
+                'Vendor' => [
+                    'conditions' => [
+                        'Vendor.active' => 1,
+                    ]
+                ],
+            ],
+            'conditions' => [
+                'Product.id' => $product_id,
+            ],
+        ));
         $vendors_arr = $products['Vendor'];
         $vendors = array();
         foreach($vendors_arr as $vendor){
-            $schedule_id = $vendor['schedule_id'];
-            $schedule_arr = $this->Schedule->findById($schedule_id);
-            $schedule = $schedule_arr['Schedule']['description'];
-            $vendors[] = array($vendor['business_name'], $vendor['location'], $schedule);
+            $vendors[] = array($vendor['business_name'], $vendor['location']);
         }
         echo json_encode($vendors);
         exit();
