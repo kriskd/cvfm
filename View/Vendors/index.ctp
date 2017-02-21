@@ -21,5 +21,5 @@
 <?php if ($noVendors): ?>
     <p>Coming soon...</p>
 <?php endif; ?>
-<p><?php echo $this->Html->link('2016 Vendor Application', '/files/CVFM2016Application.pdf'); ?></p>
-<p><?php echo $this->Html->link('2016 Vendor Rules and Bylaws', '/files/CVFM2016RulesAndByLaws.pdf'); ?></p>
+<p><?php echo $this->Html->link('2017 Vendor Application', '/files/CVFM2017Application.pdf'); ?></p>
+<p><?php echo $this->Html->link('2017 Vendor Rules and Bylaws', '/files/CVFM2017RulesAndByLaws.pdf'); ?></p>
