@@ -7100,6 +7100,12 @@ span.required {
   top: 8px;
   right: 8px;
 }
+.container-fluid .best-of {
+  margin-top: 20px;
+}
+.container-fluid .best-of img {
+  margin: auto;
+}
 @media (max-width: 767px) {
   .container-fluid #map {
     position: relative;
