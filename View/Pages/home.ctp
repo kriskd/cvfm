@@ -25,3 +25,7 @@
 			</p>
     </div>
 </div>
+<div class="row best-of">
+    <?= $this->Html->image('best-of.jpg', ['class' => 'img-responsive hidden-xs']) ?>
+    <?= $this->Html->image('best-of-300.jpg', ['class' => 'img-responsive visible-xs']) ?>
+</div>
