@@ -2,7 +2,6 @@
 	Special Events for <?php echo $fiscalYear; ?>
 </h3>
 <?php if (!empty($events)): ?>
-	<h4>Events take place from 4-6pm</h4>
 	<ul>
 		<?php foreach($events as $event): ?>
 			<li>
