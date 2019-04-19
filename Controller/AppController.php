@@ -52,8 +52,7 @@ class AppController extends Controller {
                 'username', 'password',
             ),
         ),
-        'Session', 'Paginator', 'DebugKit.Toolbar', 'RequestHandler',
-        'Stripe' => array('className' => 'Stripe.Stripe'),
+        'Session', 'Paginator', 'DebugKit.Toolbar', 'RequestHandler', 'Flash',
     );
 
     public $fiscalYear;

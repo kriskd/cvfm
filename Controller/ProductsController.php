@@ -78,10 +78,10 @@ class ProductsController extends AppController
 		if ($this->request->is('post')) {
 			$this->Product->create();
 			if ($this->Product->save($this->request->data, ['validate' => false])) {
-				$this->Session->setFlash(__('The product has been saved.'), 'success');
+				$this->Flash->success(__('The product has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The product could not be saved. Please, try again.'), 'danger');
+				$this->Flash->danger(__('The product could not be saved. Please, try again.'));
 			}
 		}
         if ($this->request->is('ajax') && isset($this->request->query['data'])) {
@@ -126,7 +126,7 @@ class ProductsController extends AppController
         if($this->request->data){
             $product = $this->request->data;
             $this->Product->save($product);
-            $this->Session->setFlash('Product saved.', 'success');
+            $this->Flash->success('Product saved.');
         } else {
             $product = $this->Product->findById($id); 
             $this->request->data = $product;
@@ -160,9 +160,9 @@ class ProductsController extends AppController
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Product->delete($id, false)) {
-			$this->Session->setFlash(__('The product has been deleted.'), 'success');
+			$this->Flash->success(__('The product has been deleted.'));
 		} else {
-			$this->Session->setFlash(__('The product could not be deleted. Please, try again.'), 'danger');
+			$this->Flash->danger(__('The product could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index', 'admin' => true));
 	}

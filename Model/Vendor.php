@@ -7,17 +7,17 @@ class Vendor extends AppModel {
     public $validate = array(
             'business_name' => array(
                 'name_not_empty' => array(
-                    'rule' => 'notEmpty'
+                    'rule' => 'notBlank'
                     ,'message' => 'Vendor\'s business name is required.')
             ),
             'city' => array(
                 'city_not_empty' => array(
-                    'rule' => 'notEmpty'
+                    'rule' => 'notBlank'
                     ,'message' => 'Please enter Vendor\'s city.')
             ),
             'state' => array(
                 'state_not_empty' => array(
-                    'rule' => 'notEmpty'
+                    'rule' => 'notBlank'
                     ,'message' => 'Please enter Vendor\s state.')
             ),
             'schedule_id' =>array(
@@ -47,7 +47,7 @@ class Vendor extends AppModel {
                     'message' => 'You must agree to the bylaws.'
                 ),
                 'required' => array(
-                    'rule' => 'notEmpty',
+                    'rule' => 'notBlank',
                     'message' => 'You must agree to the bylaws.'
                 )
             )

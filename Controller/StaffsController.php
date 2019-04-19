@@ -61,10 +61,10 @@ class StaffsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Staff->create();
 			if ($this->Staff->save($this->request->data, ['validate' => false])) {
-				$this->Session->setFlash(__('The staff has been saved.'), 'success');
+				$this->Flash->success(__('The staff has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The staff could not be saved. Please, try again.'), 'danger');
+				$this->Flash->danger(__('The staff could not be saved. Please, try again.'));
 			}
 		}
         if ($this->request->is('ajax') && isset($this->request->query['data'])) {
@@ -92,10 +92,10 @@ class StaffsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Staff->save($this->request->data)) {
-				$this->Session->setFlash(__('The staff has been saved.'), 'success');
+				$this->Flash->success(__('The staff has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The staff could not be saved. Please, try again.'), 'danger');
+				$this->Flash->danger(__('The staff could not be saved. Please, try again.'));
 			}
 		}
         $options = array('conditions' => array('Staff.' . $this->Staff->primaryKey => $id));
@@ -118,9 +118,9 @@ class StaffsController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Staff->delete()) {
-			$this->Session->setFlash(__('The staff has been deleted.', 'success'));
+			$this->Flash->success(__('The staff has been deleted.'));
 		} else {
-			$this->Session->setFlash(__('The staff could not be deleted. Please, try again.', 'danger'));
+			$this->Flash->danger(__('The staff could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

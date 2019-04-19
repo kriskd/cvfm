@@ -3,12 +3,12 @@
 <head>
     <title>Capitol View Farmers Market <?php echo empty($this->fetch('title')) ? '' : ': '.$this->fetch('title'); ?></title>
     <?php echo $this->Html->charset(); ?>
-    <?php if(dev() == false): ?>
+    <?php if (Configure::read('env') == 'prod'): ?>
         <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-9944268-4']);
             _gaq.push(['_trackPageview']);
-          
+
             (function() {
               var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
               ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';

@@ -13,8 +13,8 @@ class Staff extends AppModel {
  */
 	public $validate = array(
 		'first_name' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'Please enter first name',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -23,8 +23,8 @@ class Staff extends AppModel {
 			),
 		),
 		'last_name' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'Please enter last name',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -33,8 +33,8 @@ class Staff extends AppModel {
 			),
 		),
 		'role' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'Please choose role',
 				//'allowEmpty' => false,
 				//'required' => false,
