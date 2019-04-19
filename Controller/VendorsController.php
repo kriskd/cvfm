@@ -25,7 +25,7 @@ class VendorsController extends AppController {
     }
 
     public function add() {
-        if (dev() != true) {
+        if (Configure::read('env') == 'prod') {
             $this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
         }
         if($this->request->is('post')){
