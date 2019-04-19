@@ -41,10 +41,10 @@ class SponsorsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Sponsor->create();
 			if ($this->Sponsor->save($this->request->data, ['validate' => false])) {
-				$this->Session->setFlash(__('The sponsor has been saved.'), 'success');
+				$this->Flash->success(__('The sponsor has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The sponsor could not be saved. Please, try again.'), 'danger');
+				$this->Flash->danger(__('The sponsor could not be saved. Please, try again.'));
 			}
 		}
         if ($this->request->is('ajax') && isset($this->request->query['data'])) {
@@ -79,10 +79,10 @@ class SponsorsController extends AppController {
         
         if (!empty($this->request->data)) {
             if ($this->Sponsor->save($this->request->data)) {
-                $this->Session->setFlash('Sponsor saved.', 'success');
+                $this->Flash->success('Sponsor saved.');
                 return $this->redirect(['action' => 'index', 'admin' => true]);
             } else {
-                $this->Session->setFlash(__('The sponsor could not be saved. Please, try again.'), 'danger');
+                $this->Flash->danger(__('The sponsor could not be saved. Please, try again.'));
             }
         }
         
@@ -105,9 +105,9 @@ class SponsorsController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Sponsor->delete()) {
-			$this->Session->setFlash(__('The sponsor has been deleted.'), 'success');
+			$this->Flash->success(__('The sponsor has been deleted.'));
 		} else {
-			$this->Session->setFlash(__('The sponsor could not be deleted. Please, try again.'), 'danger');
+			$this->Flash->danger(__('The sponsor could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
     }

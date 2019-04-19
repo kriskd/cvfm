@@ -34,7 +34,7 @@ class VendorsController extends AppController {
             $valid = $this->Vendor->validates($data);
             if ($valid == true) {
                 $this->Vendor->save($data);
-                $this->Session->setFlash('Vendor Saved', 'success');
+                $this->Flash->success('Vendor Saved');
             }
         }
 
@@ -85,7 +85,7 @@ class VendorsController extends AppController {
         if(!empty($this->request->data)){
             $vendor = $this->request->data;
             $this->Vendor->save($vendor);
-            $this->Session->setFlash('Vendor saved.', 'success');
+            $this->Flash->success('Vendor saved.');
         } else {
             $vendor = $this->Vendor->findById($id); 
         }
@@ -111,9 +111,9 @@ class VendorsController extends AppController {
         }
         $this->request->allowMethod('post', 'delete');
         if ($this->Vendor->delete()) {
-            $this->Session->setFlash(__('The vendor has been deleted.'), 'success');
+            $this->Flash->success(__('The vendor has been deleted.'));
         } else {
-            $this->Session->setFlash(__('The vendor could not be deleted. Please, try again.'), 'danger');
+            $this->Flash->danger(__('The vendor could not be deleted. Please, try again.'));
         }
         return $this->redirect(array('action' => 'index', 'admin' => true));
     }

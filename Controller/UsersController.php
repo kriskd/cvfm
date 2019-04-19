@@ -22,7 +22,7 @@ class UsersController extends AppController {
             if($this->Auth->login()){
                 $this->redirect($this->Auth->redirectUrl());
             }
-            $this->Session->setFlash('Username or password is incorrect.', 'danger');
+            $this->Flash->danger('Username or password is incorrect.');
         }
         $this->layout = 'admin';
     }
@@ -50,17 +50,17 @@ class UsersController extends AppController {
                         ],[
                             'id' => $user['User']['id']
                         ]);
-                        $this->Session->setFlash('Password changed.', 'success');
+                        $this->Flash->success('Password changed.');
                         return $this->redirect(['action' => 'login']);
                     }
-                    $this->Session->setFlash('Password could not be changed, try again.', 'danger');
+                    $this->Flash->danger('Password could not be changed, try again.');
                 }
                 if (strtotime($user['User']['password_token_expire']) < strtotime('now')) {
-                    $this->Session->setFlash('Please request reset again.', 'info');
+                    $this->Flash->info('Please request reset again.');
                     return $this->redirect(['action' => 'reset']);
                 }
             } else {
-                $this->Session->setFlash('Please retry password reset.', 'info');
+                $this->Flash->info('Please retry password reset.');
                 return $this->redirect(['action' => 'reset']);
             }
         } elseif ($this->request->is('post')) {
@@ -89,11 +89,11 @@ class UsersController extends AppController {
                         ->subject('Password Reset Instructions')
                         ->send('Click here to reset your password: '.Configure::read('SiteUrl').'/users/reset/'.$token);
 
-                    $this->Session->setFlash('Check your email for information on resetting your password.', 'info');
+                    $this->Flash->info('Check your email for information on resetting your password.');
                 }
                 return $this->redirect(['action' => 'login']); 
             } else {
-                $this->Session->setFlash('Try again.', 'danger'); 
+                $this->Flash->danger('Try again.'); 
             }
         }
     }
@@ -101,9 +101,9 @@ class UsersController extends AppController {
     public function admin_add() {
         if (!empty($this->request->data)) {
             if ($this->User->save($this->request->data)) {
-                return $this->Session->setFlash('User Added.', 'success');
+                return $this->Flash->success('User Added.');
             }
-            $this->Session->setFlash('Problem adding user.', 'danger');
+            $this->Flash->danger('Problem adding user.');
         }
         $this->layout = 'admin';
     }
@@ -112,9 +112,9 @@ class UsersController extends AppController {
         if (!empty($this->request->data)) {
             $this->request->data['User']['id'] = $this->Auth->user('id');
             if ($this->User->save($this->request->data)) {
-                return $this->Session->setFlash('Password changed.', 'success');
+                return $this->Flash->success('Password changed.');
             }
-            $this->Session->setFlash('Problem changing password.', 'danger');
+            $this->Flash->danger('Problem changing password.');
         }
         $this->layout = 'admin';
     }

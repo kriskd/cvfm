@@ -29,10 +29,10 @@ class SchedulesController extends AppController {
 	public function admin_index() {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Schedule->saveMany($this->request->data['Schedule'])) {
-				$this->Session->setFlash(__('The schedule has been saved.'), 'success');
+				$this->Flash->success(__('The schedule has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The schedule could not be saved. Please, try again.'), 'danger');
+				$this->Flash->danger(__('The schedule could not be saved. Please, try again.'));
 			}
         }
 		$this->Schedule->recursive = 0;
@@ -67,10 +67,10 @@ class SchedulesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Schedule->create();
 			if ($this->Schedule->save($this->request->data)) {
-				$this->Session->setFlash(__('The schedule has been saved.'));
+				$this->Flash->success(__('The schedule has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The schedule could not be saved. Please, try again.'));
+				$this->Flash->danger(__('The schedule could not be saved. Please, try again.'));
 			}
 		}
 	}
@@ -88,10 +88,10 @@ class SchedulesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Schedule->save($this->request->data)) {
-				$this->Session->setFlash(__('The schedule has been saved.'));
+				$this->Flash->success(__('The schedule has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The schedule could not be saved. Please, try again.'));
+				$this->Flash->danger(__('The schedule could not be saved. Please, try again.'));
 			}
 		} else {
 			$options = array('conditions' => array('Schedule.' . $this->Schedule->primaryKey => $id));
