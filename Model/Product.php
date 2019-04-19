@@ -16,8 +16,8 @@ class Product extends AppModel {
  */
 	public $validate = array(
 		'name' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'Please enter product name.',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -26,8 +26,8 @@ class Product extends AppModel {
 			),
 		),
 		'product_type' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'notBlank' => array(
+				'rule' => array('notBlank'),
 				'message' => 'Please choose product type.',
 				//'allowEmpty' => false,
 				//'required' => false,

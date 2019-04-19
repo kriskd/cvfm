@@ -7,12 +7,12 @@ class Sponsor extends AppModel {
     public $validate = array(
             'name' => array(
                 'name_not_empty' => array(
-                    'rule' => 'notEmpty'
+                    'rule' => 'notBlank'
                     ,'message' => 'Sponsor name is required.')
                 ),
             'type' => array(
                 'name_not_empty' => array(
-                    'rule' => 'notEmpty',
+                    'rule' => 'notBlank',
                     'message' => 'Specify type of sponsor.'
                 )
             ),
