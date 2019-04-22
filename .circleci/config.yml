@@ -1,0 +1,38 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/cakephp-app
+    docker:
+
+      - image: circleci/php:7.2-node-browsers
+        environment:
+          - APP_ENV: circle
+
+      - image: circleci/mysql:5.6-ram
+        environment:
+          - MYSQL_ROOT_PASSWORD=ubuntu
+          - MYSQL_ROOT_HOST=%
+          - MYSQL_USER=ubuntu
+          - MYSQL_PASSWORD=ubuntu
+          - MYSQL_DATABASE=circle_test
+
+    steps:
+      - checkout
+      - run: sudo apt-get install -y mysql-client libicu-dev libxslt-dev
+      - run: sudo docker-php-ext-install intl pdo_mysql xsl
+      - run: sudo composer self-update
+
+      - restore_cache:
+          keys:
+            - composer-v1-{{ checksum "composer.lock" }}
+            - composer-v1-
+      - run: composer install -n --prefer-dist
+      - save_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
+          paths:
+            - Vendor
+
+      - run:
+          name: Run tests
+          command: ./Console/cake test app AllTests --stderr
