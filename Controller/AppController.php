@@ -32,7 +32,7 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-    
+
     public $components = array(
         'Auth' => array(
             'authorize' => 'Controller',
@@ -72,7 +72,7 @@ class AppController extends Controller {
 
         if (isset($this->request->params['prefix']) && $this->request->params['prefix'] == 'admin') {
             $this->layout = 'admin';
-        } 
+        }
 
         $staffs = $this->Staff->find('list', [
             'fields' => ['Staff.id', 'Staff.display_name', 'Staff.role'],
@@ -92,20 +92,20 @@ class AppController extends Controller {
      */
     protected function setFiscalYear() {
         $this->fiscalYear = date('Y');
-        if (strtotime('now') > mktime(23, 59, 59, 10, 31, date('Y')) && 
+        if (strtotime('now') > mktime(23, 59, 59, 10, 31, date('Y')) &&
             strtotime('now') <= mktime(23, 59, 59, 12, 31, date('Y'))) {
-            $this->fiscalYear++; 
-        } 
+                $this->fiscalYear++;
+            }
     }
-    
+
     protected function _get_product_types(){
-        $product_types_arr = $this->Producttype->find('all'); 
+        $product_types_arr = $this->Producttype->find('all');
         foreach($product_types_arr as $types){
             $product_types[$types['Producttype']['id']] = $types['Producttype']['type'];
         }
         return $product_types;
     }
-    
+
     protected function _get_schedules(){
         $schedules_arr = $this->Schedule->find('all');
         foreach($schedules_arr as $item){
@@ -113,24 +113,24 @@ class AppController extends Controller {
         }
         return $schedules;
     }
-    
+
     public function isAuthorized($user){
-        
+
         if(empty($this->request->params['admin'])) return true;
-        
+
         if($user) return true;
-        
+
         if(in_array($this->action, array('login'))){
             $this->Auth->authError = 'You are already logged in.';
             return false;
         }
-        
+
         return false;
     }
-    
+
     public function array_merge_recursive_distinct(array &$array1, array &$array2) {
         $merged = $array1;
-      
+
         foreach ($array2 as $key => &$value) {
             if (is_array ($value) && isset($merged[$key]) && is_array($merged[$key])) {
                 $merged[$key] = $this->array_merge_recursive_distinct($merged[$key], $value);
@@ -139,10 +139,10 @@ class AppController extends Controller {
                 $merged[$key] = $value;
             }
         }
-      
+
         return $merged;
     }
-    
+
     public function admin_modal($id = null) {
         if ($this->request->is('ajax')){
             $data = $this->request->data;
