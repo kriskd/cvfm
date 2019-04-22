@@ -58,6 +58,7 @@ $(document).ready(function(){
         url: form.prop('action'),
         data: form.serialize(),
         dataType: 'json',
+        type: 'post',
         error: function(jqXHR, textStatus, errorThrown) {
           //console.log(textStatus + ' ' + errorThrown);
         },
