@@ -15,7 +15,7 @@
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="form-group">
-            <?php echo $this->Form->input('product_type', array('options' => $product_types, 'empty' => 'Choose One')); ?>
+            <?php echo $this->Form->input('product_type', array('options' => $productTypes, 'empty' => 'Choose One')); ?>
         </div>
     </div>
 </div>
