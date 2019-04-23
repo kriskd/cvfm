@@ -1,5 +1,11 @@
 <?php
-
+App::uses('AppController', 'Controller');
+/**
+ * Products Controller
+ *
+ * @property Product $Product
+ * @property PaginatorComponent $Paginator
+ */
 class ProductsController extends AppController {
 
     /**
@@ -100,30 +106,33 @@ class ProductsController extends AppController {
      * @return void
      */
     public function admin_add(){
-        if ($this->request->is('post')) {
-            $this->Product->create();
-            if ($this->Product->save($this->request->data, ['validate' => false])) {
-                $this->Flash->success(__('The product has been saved.'));
-                return $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Flash->danger(__('The product could not be saved. Please, try again.'));
+        $this->request->allowMethod('ajax', 'post');
+
+        if (!empty($this->request->data)) {
+            if ($this->request->is('ajax')) {
+                $this->Product->set($this->request->data);
+                if ($this->Product->validates()) {
+                    $this->set(['data' => ['success' => true]]);
+                } else {
+                    $this->set(['data' => $this->Product->validationErrors]);
+                }
+            } elseif ($this->request->is('post')) {
+                $this->Product->create();
+                if ($this->Product->save($this->request->data, ['validate' => false])) {
+                    $this->Flash->success(__('The product has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
             }
         }
-        if ($this->request->is('ajax') && isset($this->request->query['data'])) {
-            $this->Product->set($this->request->query['data']);
-            if ($this->Product->validates()) {
-                $this->set(['data' => ['success' => true]]);
-            } else {
-                $this->set(['data' => $this->Product->validationErrors]);
-            }
-        }
-        $product_types = $this->_get_product_types();
+
+        $productTypes = $this->_get_product_types();
         $months = $this->Product->Month->find('list', array(
             'fields' => array(
                 'id', 'name'
             )
         ));
-        $this->set(compact('product_types', 'months'));
+        $this->set(compact('productTypes', 'months'));
         $this->layout = 'ajax';
     }
 
