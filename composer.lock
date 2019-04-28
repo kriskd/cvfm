@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d01e1c3d1284e0baa463fb5ff490f921",
+    "content-hash": "e9b2e4105c837e1dcb1de6067de2b426",
     "packages": [
         {
             "name": "Datasources",
@@ -18,15 +18,49 @@
             "time": "2013-12-29T11:31:18+00:00"
         },
         {
-            "name": "HtmlPurifier",
-            "version": "dev-master",
+            "name": "burzum/cakephp-html-purifier",
+            "version": "1.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kriskd/HtmlPurifier",
-                "reference": "origin/master"
+                "url": "https://github.com/burzum/cakephp-html-purifier.git",
+                "reference": "bf6ebe4754020d1ed56683b9824561ca50c29c4c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/burzum/cakephp-html-purifier/zipball/bf6ebe4754020d1ed56683b9824561ca50c29c4c",
+                "reference": "bf6ebe4754020d1ed56683b9824561ca50c29c4c",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "ezyang/htmlpurifier": "*",
+                "php": ">=5.3.2"
             },
             "type": "cakephp-plugin",
-            "time": "2013-11-07T01:15:48+00:00"
+            "extra": {
+                "installer-name": "HtmlPurifier"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Krämer",
+                    "homepage": "http://florian-kraemer.net"
+                }
+            ],
+            "description": "HtmlPurifier plugin for CakePHP",
+            "homepage": "http://github.com/burzum/cakephp-html-purifier",
+            "keywords": [
+                "Purifier",
+                "html",
+                "markup",
+                "sanitize",
+                "tidy",
+                "validation"
+            ],
+            "time": "2019-04-03T22:14:46+00:00"
         },
         {
             "name": "cakephp/cakephp",
@@ -194,6 +228,53 @@
                 "zikula"
             ],
             "time": "2019-04-02T09:13:38+00:00"
+        },
+        {
+            "name": "ezyang/htmlpurifier",
+            "version": "v4.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ezyang/htmlpurifier.git",
+                "reference": "d85d39da4576a6934b72480be6978fb10c860021"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d85d39da4576a6934b72480be6978fb10c860021",
+                "reference": "d85d39da4576a6934b72480be6978fb10c860021",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "require-dev": {
+                "simpletest/simpletest": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "HTMLPurifier": "library/"
+                },
+                "files": [
+                    "library/HTMLPurifier.composer.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Edward Z. Yang",
+                    "email": "admin@htmlpurifier.org",
+                    "homepage": "http://ezyang.com"
+                }
+            ],
+            "description": "Standards compliant HTML filter written in PHP",
+            "homepage": "http://htmlpurifier.org/",
+            "keywords": [
+                "html"
+            ],
+            "time": "2018-02-23T01:58:20+00:00"
         },
         {
             "name": "mjohnson/transit",
@@ -1770,7 +1851,7 @@
     "stability-flags": {
         "composer/installers": 20,
         "datasources": 20,
-        "htmlpurifier": 20
+        "burzum/cakephp-html-purifier": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
