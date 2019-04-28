@@ -1,7 +1,18 @@
 <?php
+App::uses('AppController', 'Controller');
+/**
+ * Products Controller
+ *
+ * @property Product $Product
+ * @property PaginatorComponent $Paginator
+ */
+class ProductsController extends AppController {
 
-class ProductsController extends AppController
-{
+    /**
+     * beforeFilter
+     *
+     * @return void
+     */
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->deny();
@@ -9,6 +20,11 @@ class ProductsController extends AppController
         $this->set(['slug' => 'products']);
     }
 
+    /**
+     * index method
+     *
+     * @return void
+     */
     public function index(){
         $products = $this->Product->find('all', array(
             'contain' => [
@@ -28,9 +44,9 @@ class ProductsController extends AppController
         $products_in_season = array();
         foreach($products as $product){
             $product_types[$product['Producttype']['type']][] = array(
-                                                                    'product' => array(
-                                                                        $product['Product']['id'] => $product['Product']['name'])
-                                                                    );
+                'product' => array(
+                    $product['Product']['id'] => $product['Product']['name'])
+                );
             $months = $product['Month'];
             foreach($months as $month){
                 if(strcasecmp($month['id'],$current_month)==0){
@@ -38,13 +54,19 @@ class ProductsController extends AppController
                 }
             }
         }
-		$popular = $this->Product->popularProducts();
-		$popular = array_map('strtolower', $popular);
-		$last = array_pop($popular);
-		$popular = array_merge($popular, array('and '.$last));
+
+        $popular = $this->Product->popularProducts();
+        $popular = array_map('strtolower', $popular);
+        $last = array_pop($popular);
+        $popular = array_merge($popular, array('and '.$last));
         $this->set(array('product_types' => $product_types, 'products_in_season' => $products_in_season, 'popular' => $popular));
     }
 
+    /**
+     * get_vendors method
+     *
+     * @return void
+     */
     public function get_vendors($product_id){
         $products = $this->Product->find('first', array(
             'contain' => [
@@ -67,68 +89,90 @@ class ProductsController extends AppController
         exit();
     }
 
+    /**
+     * get_products method
+     *
+     * @return void
+     */
     public function get_products($type_id){
         $products = $this->Product->find('all', array('conditions' => array('product_type' => $type_id)));
         echo json_encode($products);
-		$this->autoRender = false;
+        $this->autoRender = false;
     }
 
-    //Create
+    /**
+     * admin_add method
+     *
+     * @return void
+     */
     public function admin_add(){
-		if ($this->request->is('post')) {
-			$this->Product->create();
-			if ($this->Product->save($this->request->data, ['validate' => false])) {
-				$this->Flash->success(__('The product has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Flash->danger(__('The product could not be saved. Please, try again.'));
-			}
-		}
-        if ($this->request->is('ajax') && isset($this->request->query['data'])) {
-            $this->Product->set($this->request->query['data']);
-            if ($this->Product->validates()) {
-                $this->set(['data' => ['success' => true]]);
-            } else {
-                $this->set(['data' => $this->Product->validationErrors]);
+        $this->request->allowMethod('ajax', 'post');
+
+        if (!empty($this->request->data)) {
+            if ($this->request->is('ajax')) {
+                $this->Product->set($this->request->data);
+                if ($this->Product->validates()) {
+                    $this->set(['data' => ['success' => true]]);
+                } else {
+                    $this->set(['data' => $this->Product->validationErrors]);
+                }
+            } elseif ($this->request->is('post')) {
+                $this->Product->create();
+                if ($this->Product->save($this->request->data, ['validate' => false])) {
+                    $this->Flash->success(__('The product has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
             }
         }
-        $product_types = $this->_get_product_types();
+
+        $productTypes = $this->_get_product_types();
         $months = $this->Product->Month->find('list', array(
             'fields' => array(
                 'id', 'name'
-            ) 
-        )); 
-        $this->set(compact('product_types', 'months'));
+            )
+        ));
+        $this->set(compact('productTypes', 'months'));
         $this->layout = 'ajax';
     }
-    
-    //Retrieve
-    public function admin_index(){ 
-        $products = $this->Product->find('all'); 
+
+    /**
+     * admin_index method
+     *
+     * @return void
+     */
+    public function admin_index() {
+        $products = $this->Product->find('all');
         $product_types = array();
         foreach($products as $product){
             $product_types[$product['Producttype']['type']][] = array(
-                                                                    'product' => array(
-                                                                        $product['Product']['id'] => $product['Product']['name'])
-                                                                );
+                'product' => array(
+                    $product['Product']['id'] => $product['Product']['name'])
+                );
         }
         $this->set(array('product_types' => $product_types));
     }
-    
-    //Update
-    public function admin_edit($id=null){
+
+    /**
+     * admin_edit method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function admin_edit($id=null) {
         if (empty($id)) {
             $this->redirect(array(
                 'action' => 'index'
             ));
         }
 
-        if($this->request->data){
+        if ($this->request->data) {
             $product = $this->request->data;
             $this->Product->save($product);
             $this->Flash->success('Product saved.');
         } else {
-            $product = $this->Product->findById($id); 
+            $product = $this->Product->findById($id);
             $this->request->data = $product;
         }
 
@@ -136,35 +180,37 @@ class ProductsController extends AppController
         $months = $this->Product->Month->find('list', array(
             'fields' => array(
                 'id', 'name'
-            ) 
-        )); 
+            )
+        ));
 
         $this->set(array(
             'product' => $product,
             'product_types' => $product_types,
             'months' => $months,
-        )); 
+        ));
     }
 
-/**
- * admin_delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_delete($id = null) {
-		$this->Product->id = $id;
-		if (!$this->Product->exists()) {
-			throw new NotFoundException(__('Invalid product'));
-		}
-		$this->request->allowMethod('post', 'delete');
-		if ($this->Product->delete($id, false)) {
-			$this->Flash->success(__('The product has been deleted.'));
-		} else {
-			$this->Flash->danger(__('The product could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index', 'admin' => true));
-	}
+    /**
+     * admin_delete method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function admin_delete($id = null) {
+        $this->Product->id = $id;
+        if (!$this->Product->exists()) {
+            throw new NotFoundException(__('Invalid product'));
+        }
+
+        $this->request->allowMethod('post', 'delete');
+        if ($this->Product->delete($id, false)) {
+            $this->Flash->success(__('The product has been deleted.'));
+        } else {
+            $this->Flash->danger(__('The product could not be deleted. Please, try again.'));
+        }
+
+        return $this->redirect(array('action' => 'index', 'admin' => true));
+    }
 }
 
