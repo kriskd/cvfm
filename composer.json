@@ -23,7 +23,8 @@
     },
     "require-dev": {
         "cakephp/debug_kit": "2.2.*",
-        "phpunit/phpunit": "4.* || 5.*"
+        "phpunit/phpunit": "4.* || 5.*",
+        "josegonzalez/dotenv": "dev-master"
     },
     "config": {
         "vendor-dir": "Vendor",
