@@ -73,7 +73,7 @@ class UsersController extends AppController {
                     ]
                 )) {
                     $id = $user['User']['id'];
-                    $token = String::uuid();
+                    $token = CakeText::uuid();
                     $expire = date('Y-m-d H:i:s', strtotime('+1 hour'));
                     $data['User'] = [
                         'id' => $id,
