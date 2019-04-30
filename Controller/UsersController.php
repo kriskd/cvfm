@@ -82,7 +82,7 @@ class UsersController extends AppController {
                     ];
                     $this->User->save($data, ['validate' => false]);
 
-                    $Email = new CakeEmail('smtp');
+                    $Email = new CakeEmail('default');
                     $Email->emailFormat('both')
                         ->to($user['User']['username'])
                         ->from(Configure::read('Email.from'))
