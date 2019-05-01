@@ -27,6 +27,7 @@ class SchedulesController extends AppController {
  * @return void
  */
 	public function admin_index() {
+        $this->log(getenv('APP_ENV'));
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Schedule->saveMany($this->request->data['Schedule'])) {
 				$this->Flash->success(__('The schedule has been saved.'));
