@@ -27,5 +27,5 @@
         <?php endif; ?>
     </div>
     <p>If you are interested in sponsoring The Capitol View Farmers Market or becoming a friend of the market,
-    please review our <?php echo $this->Html->link('2019 Sponsorship Information', '/files/CVFM_Sponsor_letter_2019.pdf'); ?> and contact <span class="email-mailto"></span></p>
+    please review our <?php echo $this->Html->link('2020 Sponsorship Information', '/files/CVFM_Sponsor_letter_2020.pdf'); ?> and contact <span class="email-mailto"></span></p>
 </div>
