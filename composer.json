@@ -1,6 +1,6 @@
 {
     "require": {
-        "cakephp/cakephp": "2.*",
+        "cakephp/cakephp": "3.*",
         "composer-plugin-api": "^2.0"
     },
     "require-dev": {
