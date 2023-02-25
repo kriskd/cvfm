@@ -1,25 +1,7 @@
 {
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "Datasources",
-                "type": "cakephp-plugin",
-                "version": "dev-master",
-                "source": {
-                    "url": "https://github.com/cakephp/datasources",
-                    "type": "git",
-                    "reference": "origin/master"
-                }
-            }
-        }
-    ],
     "require": {
         "cakephp/cakephp": "2.*",
-        "composer/installers": "dev-master",
-        "mjohnson/uploader": "4.*",
-        "Datasources": "dev-master",
-        "burzum/cakephp-html-purifier": "1.x-dev"
+        "composer-plugin-api": "^2.0"
     },
     "require-dev": {
         "cakephp/debug_kit": "2.2.*",
@@ -28,7 +10,10 @@
     "config": {
         "vendor-dir": "Vendor",
         "platform": {
-          "php": "7.2"
+          "php": "7.4"
+        },
+        "allow-plugins": {
+            "composer/installers": true
         }
     }
 }
