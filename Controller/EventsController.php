@@ -15,7 +15,7 @@ class EventsController extends AppController {
  */
 	public $components = array('Paginator');
     public $paginate = array(
-        'order' => 'Event.date ASC',
+        'order' => 'Event.date DESC',
         'limit' => 10,
     );
 

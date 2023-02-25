@@ -16,7 +16,7 @@
         )); ?>
 		*/ ?>
         <?php if (!empty($schedule['Schedule']['start_date']) && !empty($schedule['Schedule']['end_date'])): ?>
-            <p>The Capitol View Farmer's Market operates from <?php echo $schedule['Schedule']['start_date']; ?> - <?php echo $schedule['Schedule']['end_date']; ?> from 3:00PM - 7:00PM.</p>
+            <p>The Capitol View Farmer's Market will operate from <?php echo $schedule['Schedule']['start_date']; ?> - <?php echo $schedule['Schedule']['end_date']; ?> from 3:00PM - 7:00PM.</p>
         <?php endif; ?>
 			<p>
 				<?php echo $content['Page']['val']; ?>
