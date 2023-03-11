@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <title>Capitol View Farmers Market <?php echo empty($this->fetch('title')) ? '' : ': '.$this->fetch('title'); ?></title>
+    <title>Capitol View Farmers' Market <?php echo empty($this->fetch('title')) ? '' : ': '.$this->fetch('title'); ?></title>
     <?php echo $this->Html->charset(); ?>
     <?php if (Configure::read('env') == 'prod'): ?>
         <script type="text/javascript">
@@ -16,6 +16,7 @@
             })();
         </script>
     <?php endif; ?>
+    <link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">
     <?php echo $this->Html->meta('favicon.ico', '/favicon.ico', array('type' => 'icon'));?>
     <?php
     //echo $this->Html->css('/css/build/jquery-ui-1.10.4.custom.min');
