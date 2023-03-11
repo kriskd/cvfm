@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <?php echo $this->Html->link('Capitol View Farmers Market', '/', array(
+            <?php echo $this->Html->link('Capitol View Farmers\' Market', '/', array(
                 'class' => 'hidden-lg hidden-md hidden-sm navbar-brand', 
             )); ?>
         </div>
