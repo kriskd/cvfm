@@ -30,4 +30,5 @@
 <?php //echo $this->Form->input('logo'); ?>
 <?php echo $this->Form->input('active', array(
     'class' => '',
+    'type' => 'checkbox',
 )); ?>
