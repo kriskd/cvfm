@@ -3,6 +3,8 @@ webroot/files
 webroot/js/colorbox.zip
 webroot/js/colorbox/*
 webroot/img/pictures
+webroot/img/pictures-old
+webroot/img/portrait
 Plugin/
 Vendor/
 node_modules
