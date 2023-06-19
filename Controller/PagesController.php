@@ -99,8 +99,9 @@ class PagesController extends AppController {
                     'start_date', 'end_date'
                 ),
             ));
+            $images = scandir(WWW_ROOT . DS . 'img' . DS . 'pictures', 1);
             $this->set(array('fiscalYear' => $this->fiscalYear));
-            $this->set(compact('page', 'subpage', 'title_for_layout', 'schedule', 'content'));
+            $this->set(compact('page', 'subpage', 'title_for_layout', 'schedule', 'content', 'images'));
             $this->render(implode('/', $path));
         }
 	}
