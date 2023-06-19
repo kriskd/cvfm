@@ -7478,7 +7478,7 @@ span.required {
 }
 .container-fluid .content .carousel-wrapper .carousel .carousel-inner .item .crop {
   max-width: 640px;
-  max-height: 280px;
+  max-height: 480px;
   overflow: hidden;
   margin: auto;
 }
