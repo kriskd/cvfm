@@ -5,18 +5,38 @@
         <?php endif; ?>
         <p class="email-mailto"></p>
         <p></p>
-        <?= $this->Html->image('facebook.svg', [
-            'alt' => 'Facebook',
-            'url' => 'https://www.facebook.com/capitolviewfarmersmarket',
-            'height' => '30',
-            'width' => '30',
-        ]) ?>
-        <?= $this->Html->image('messenger.svg', [
+        <?= $this->Html->link(
+            $this->Html->image('facebook.svg', [
+                'alt' => 'Facebook',
+                'height' => '30',
+                'width' => '30',
+            ]), 'https://www.facebook.com/capitolviewfarmersmarket', [
+                'target' => '_blank',
+                'escape' => false,
+            ]
+        ) ?>
+        <?= $this->Html->link(
+            $this->Html->image('instagram.svg', [
+                'alt' => 'Instagram',
+                'height' => '30',
+                'width' => '30',
+                'target' => '_blank',
+            ]), 'https://www.instagram.com/capitolviewfarmersmarket', [
+                'target' => '_blank',
+                'escape' => false,
+            ]
+        ) ?>
+        <?= $this->Html->link(
+            $this->Html->image('messenger.svg', [
             'alt' => 'Messenger',
-            'url' => 'http://m.me/capitolviewfarmersmarket',
             'height' => '30',
             'width' => '30',
-        ]) ?>
+            'target' => '_blank',
+            ]), 'http://m.me/capitolviewfarmersmarket', [
+                'target' => '_blank',
+                'escape' => false,
+            ]
+        )?>
         <?php if (!empty($staffs['volunteer'])): ?>
             <h4>Board of Directors</h4>
             <p>
