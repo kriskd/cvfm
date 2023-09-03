@@ -18,6 +18,7 @@ services:
       - "8088:80"
 
   mysql:
+    platform: linux/amd64
     build:
       context: ./docker/mysql
     environment:
