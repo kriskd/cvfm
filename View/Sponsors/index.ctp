@@ -26,5 +26,5 @@
             </div>
         <?php endif; ?>
     </div>
-    <p>If you are interested in sponsoring the Capitol View Farmers' Market or becoming a friend of the market, please contact <span class="email-mailto"></span>. You can review our <?= $this->Html->link('2023 Sponsorship Information', '/files/CVFM_Sponsor_letter_2023.pdf'); ?> and/or complete this <?= $this->Html->link('form', 'https://forms.gle/ocipVUC3iDN9n5mKA') ?>  to become a sponsor. Thank you for your support!</p>
+    <p>If you are interested in sponsoring the Capitol View Farmers' Market or becoming a friend of the market, please contact <span class="email-mailto"></span>. Thank you for your support!</p>
 </div>

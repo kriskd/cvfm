@@ -21,5 +21,3 @@
 <?php if ($noVendors): ?>
     <p>Coming soon...</p>
 <?php endif; ?>
-<p><?php echo $this->Html->link('2023 Vendor Application', 'https://forms.gle/FXSmmXvmNbRMbxPy7'); ?></p>
-<p><?php echo $this->Html->link('2023 Vendor Rules and Bylaws', '/files/CVFM2023RulesAndByLaws.pdf'); ?></p>
