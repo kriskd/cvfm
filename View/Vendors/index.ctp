@@ -21,3 +21,4 @@
 <?php if ($noVendors): ?>
     <p>Coming soon...</p>
 <?php endif; ?>
+<p>Interested in becoming a vendor at the CVFM? Please complete the <?= $this->Html->link('2024 Vendor Application Form', 'https://docs.google.com/forms/d/e/1FAIpQLSfSx-Lbz3O8X6C-dpcVB4uL3ZQ7DogiI1yNpRp3HArZn1QqsQ/viewform', ['target' => '_blank']) ?>.</p>
