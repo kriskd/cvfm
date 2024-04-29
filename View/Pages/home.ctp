@@ -23,6 +23,7 @@
 			</p>
     </div>
 </div>
+<h2 class="text-center">Check out listing in the <?= $this->Html->link('2024 Farm Fresh Atlas', 'https://farmfreshatlas.org/view/capitol-view-farmers-market', ['target' => '_blank']) ?>!</h2>
 <div class="row best-of">
     <?= $this->Html->image('best-of.jpg', ['class' => 'img-responsive hidden-xs']) ?>
     <?= $this->Html->image('best-of-300.jpg', ['class' => 'img-responsive visible-xs']) ?>
