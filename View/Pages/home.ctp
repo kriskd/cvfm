@@ -24,6 +24,7 @@
     </div>
 </div>
 <h2 class="text-center">Check out our listing in the <?= $this->Html->link('2024 Farm Fresh Atlas', 'https://farmfreshatlas.org/view/capitol-view-farmers-market', ['target' => '_blank']) ?>!</h2>
+<h2 class="text-center">Thank you to Redfin Blog for including us in <?= $this->Html->link('Madison Magic: Crafting Your Perfect Madison, WI Bucket List', 'https://www.redfin.com/blog/madison-wi-bucket-list/', ['target'=> '_blank']) ?>!</h2>
 <div class="row best-of">
     <?= $this->Html->image('best-of.jpg', ['class' => 'img-responsive hidden-xs']) ?>
     <?= $this->Html->image('best-of-300.jpg', ['class' => 'img-responsive visible-xs']) ?>
